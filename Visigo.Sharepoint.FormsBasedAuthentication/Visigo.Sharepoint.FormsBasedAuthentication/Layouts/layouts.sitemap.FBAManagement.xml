@@ -1,0 +1,15 @@
+﻿<siteMap enableLocalization="true">
+	<siteMapNode title="Users" parentUrl="/_layouts/settings.aspx" url="/_layouts/FBA/Management/UsersDisp.aspx">
+		<siteMapNode title="Edit User" url="/_layouts/FBA/Management/UserEdit.aspx"></siteMapNode>
+		<siteMapNode title="New User" url="/_layouts/FBA/Management/UserNew.aspx"></siteMapNode>
+		<siteMapNode title="Delete User" url="/_layouts/FBA/Management/UserDelete.aspx"></siteMapNode>
+		<siteMapNode title="Import Users" url="/_layouts/FBA/Management/UsersImport.aspx"></siteMapNode>
+	</siteMapNode>
+	<siteMapNode title="Roles" parentUrl="/_layouts/settings.aspx" url="/_layouts/FBA/Management/RolesDisp.aspx">
+		<siteMapNode title="New Role" url="/_layouts/FBA/Management/RoleNew.aspx"></siteMapNode>
+		<siteMapNode title="Delete Role" url="/_layouts/FBA/Management/RoleDelete.aspx"></siteMapNode>
+		<siteMapNode title="Import Roles" url="/_layouts/FBA/Management/RolesImport.aspx"></siteMapNode>
+	</siteMapNode>
+	<siteMapNode title="FBA Site Configuration" parentUrl="/_layouts/settings.aspx" url="/_layouts/FBA/Management/FBASiteConfiguration.aspx">
+	</siteMapNode>
+</siteMap>

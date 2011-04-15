@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="PasswordRecoveryWebPart" List="113" Url="_catalogs/wp">
+    <File Path="PasswordRecoveryWebPart\PasswordRecoveryWebPart.webpart" Url="PasswordRecoveryWebPart.webpart" Type="GhostableInLibrary">
+      <Property Name="Group" Value="Forms Based Authentication" />
+    </File>
+  </Module>
+</Elements>

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{656BA946-6354-466B-8472-2EE327937A46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visigo.Sharepoint.FormsBasedAuthentication</RootNamespace>
+    <AssemblyName>Visigo.Sharepoint.FormsBasedAuthentication</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SharePoint.IdentityModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Windows\assembly\GAC_MSIL\Microsoft.SharePoint.IdentityModel\14.0.0.0__71e9bce111e9429c\Microsoft.SharePoint.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChangePasswordWebPart\ChangePasswordWebPart.cs" />
+    <Compile Include="Code\Data\FBADataSource.cs" />
+    <Compile Include="Code\Data\FBARolesView.cs" />
+    <Compile Include="Code\Data\FBAUsersView.cs" />
+    <Compile Include="Code\Email.cs" />
+    <Compile Include="Code\HIP\BaseHipChallengeHandler.cs" />
+    <Compile Include="Code\HIP\HipChallenge.cs" />
+    <Compile Include="Code\HIP\HipValidator.cs" />
+    <Compile Include="Code\HIP\ImageHipChallenge.cs" />
+    <Compile Include="Code\HIP\RandomNumbers.cs" />
+    <Compile Include="Code\MembershipSettings.cs" />
+    <Compile Include="Code\TraceProvider.cs" />
+    <Compile Include="Code\UpdateLayoutsSitemap.cs" />
+    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Features\FBAManagement\FBAManagement.EventReceiver.cs">
+      <DependentUpon>FBAManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.cs">
+      <DependentUpon>FBASiteConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.designer.cs">
+      <DependentUpon>FBASiteConfiguration.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.cs">
+      <DependentUpon>RoleDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.designer.cs">
+      <DependentUpon>RoleDelete.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.cs">
+      <DependentUpon>RoleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.designer.cs">
+      <DependentUpon>RoleNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.cs">
+      <DependentUpon>RolesDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.designer.cs">
+      <DependentUpon>RolesDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.cs">
+      <DependentUpon>UserDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.designer.cs">
+      <DependentUpon>UserDelete.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.cs">
+      <DependentUpon>UserNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.designer.cs">
+      <DependentUpon>UserNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.cs">
+      <DependentUpon>UsersDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.designer.cs">
+      <DependentUpon>UsersDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipRequestWebPart\MembershipRequest.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestControl.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestGroupEditor.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestWebPart.cs" />
+    <Compile Include="MembershipReviewList\MembershipReviewHandler\MembershipReviewHandler.cs" />
+    <Compile Include="PasswordRecoveryWebPart\PasswordRecoveryWebPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChangePasswordWebPart\ChangePasswordWebPart.webpart" />
+    <None Include="ChangePasswordWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c45209a4-1a2f-4094-8802-e288c2f95c85}</SharePointProjectItemId>
+    </None>
+    <None Include="Deploy.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FBAMenus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ec357d9a-df03-49be-bd4f-163a0c341b26}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\FBAManagement\FBAManagement.feature">
+      <FeatureId>{bf26db31-5aaa-474d-ba76-36782c1a31eb}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9fdbeed1-91c3-4f15-bad2-6ea7b6dd9034}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\FBA\ImageHipChallenge.ashx" />
+    <None Include="MembershipRequestWebPart\MembershipRequestWebPart.webpart" />
+    <None Include="MembershipRequestWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4409a86e-3b2b-40c1-ac7b-f55cf44be023}</SharePointProjectItemId>
+    </None>
+    <None Include="MembershipReviewList\MembershipReviewHandler\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1cbf756a-10af-411a-8cfe-96a9bfb807f0}</SharePointProjectItemId>
+    </None>
+    <None Include="MembershipReviewList\Site Membership Review List\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{acb88936-3c1b-4873-88b5-b8203efc0ce3}</SharePointProjectItemId>
+    </None>
+    <None Include="MembershipReviewList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{45df47e9-2259-49c2-af68-01bcc9763998}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{956715d5-f34c-4b00-bfb7-8c35d5fa0f62}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PasswordRecoveryWebPart\PasswordRecoveryWebPart.webpart" />
+    <None Include="PasswordRecoveryWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ff75ab1a-5f8d-48c6-a397-8476cee0b38b}</SharePointProjectItemId>
+    </None>
+    <None Include="UnDeploy.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChangePasswordWebPart\ChangePasswordWebPart.resx">
+      <DependentUpon>ChangePasswordWebPart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MembershipRequestWebPart\MembershipRequestWebPart.resx">
+      <DependentUpon>MembershipRequestWebPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordRecoveryWebPart\PasswordRecoveryWebPart.resx">
+      <DependentUpon>PasswordRecoveryWebPart.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangePasswordWebPart\Elements.xml" />
+    <Content Include="FBAMenus\Elements.xml" />
+    <Content Include="Features\FBAManagement\FBAManagement.Template.xml">
+      <DependentUpon>FBAManagement.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\FBA\ChangePassword.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\EMAILS\MembershipApproved.xslt" />
+    <Content Include="Layouts\FBA\EMAILS\MembershipError.xslt" />
+    <Content Include="Layouts\FBA\EMAILS\MembershipPending.xslt" />
+    <Content Include="Layouts\FBA\EMAILS\MembershipRejected.xslt" />
+    <Content Include="Layouts\FBA\EMAILS\PasswordRecovery.xslt" />
+    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserNew.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\layouts.sitemap.FBAManagement.xml" />
+    <Content Include="MembershipRequestWebPart\Elements.xml" />
+    <Content Include="MembershipReviewList\Elements.xml" />
+    <Content Include="MembershipReviewList\MembershipReviewHandler\Elements.xml" />
+    <Content Include="MembershipReviewList\Site Membership Review List\Elements.xml" />
+    <Content Include="MembershipReviewList\Schema.xml" />
+    <Content Include="PasswordRecoveryWebPart\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+</Project>
