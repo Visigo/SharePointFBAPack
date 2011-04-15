@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<CustomAction
+  Id="FBAChangePassword"
+  GroupId="PersonalActions"
+  Location="Microsoft.SharePoint.StandardMenu"
+  Sequence="1"
+  Title="Change Password"
+  Description="Change your current password.">
+		<UrlAction Url="/_layouts/fba/ChangePassword.aspx" />
+	</CustomAction>
+
+	<CustomAction
+  Id="FBAUserManagement"
+  GroupId="UsersAndPermissions"
+  Location="Microsoft.SharePoint.SiteSettings"
+  Sequence="112"
+  RequireSiteAdministrator="TRUE"
+  Title="FBA Role Management"
+  Description="Manage the Forms Based Authentication roles in this site collection.">
+		<UrlAction Url="/_layouts/FBA/Management/RolesDisp.aspx" />
+	</CustomAction>
+
+	<CustomAction
+  Id="FBAUserManagement"
+  GroupId="UsersAndPermissions"
+  Location="Microsoft.SharePoint.SiteSettings"
+  Sequence="111"
+  RequireSiteAdministrator="TRUE"
+  Title="FBA Site Configuration"
+  Description="Manage the Forms Based Authentication site FBA properties.">
+		<UrlAction Url="~sitecollection/_layouts/FBA/Management/FBASiteConfiguration.aspx" />
+	</CustomAction>
+
+	<CustomAction
+    Id="FBAUserManagement"
+    GroupId="UsersAndPermissions"
+    Location="Microsoft.SharePoint.SiteSettings"
+    Sequence="111"
+    RequireSiteAdministrator="TRUE"
+    Title="FBA User Management"
+    Description="Manage the Forms Based Authentication users in this site collection.">
+		<UrlAction Url="/_layouts/FBA/Management/UsersDisp.aspx" />
+	</CustomAction>
+
+	<CustomAction
+  Id="FBAMembershipRequestManagement"
+  GroupId="UsersAndPermissions"
+  Location="Microsoft.SharePoint.SiteSettings"
+  Sequence="110"
+  RequireSiteAdministrator="TRUE"
+  Title="FBA Membership Request Management"
+  Description="Manage the membership requests for this site collection.">
+		<UrlAction Url="~sitecollection/Site Membership Review List/AllItems.aspx" />
+	</CustomAction>
+</Elements>

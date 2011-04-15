@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<!-- Do not change the value of the Name attribute below. If it does not match the folder name of the List Definition project item, an error will occur when the project is run. -->
+	<ListTemplate
+		Name="MembershipReviewList"
+		DisplayName="Site Membership Review List"
+		Type="100"
+		Description="Contains list of site memberships requests for review and approval."
+		OnQuickLaunch="FALSE"
+		SecurityBits="11"
+		BaseType="0"
+		Hidden="TRUE"
+		HiddenList="TRUE" 
+		NoCrawl="TRUE" 
+		VersioningEnabled="FALSE" 
+		FolderCreation="FALSE" 
+		DisallowContentTypes="TRUE" 
+		DisableAttachments="TRUE"		
+		/>
+</Elements>

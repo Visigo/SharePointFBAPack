@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="Visigo.Sharepoint.FormsBasedAuthentication.MembershipRequestWebPart, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Membership Request</property>
+        <property name="Description" type="string">This web part allows unauthenticated users to request membership to a site.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>
