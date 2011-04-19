@@ -6,12 +6,12 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Visigo.Sharepoint.FormsBasedAuthentication")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sharepoint 2010 FBA Pack")]
+[assembly: AssemblyDescription("Web parts and management tools for Sharepoint 2010 Forms Based Authentication")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Visigo.Sharepoint.FormsBasedAuthentication")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
+[assembly: AssemblyCompany("Visigo Software Consulting Inc.")]
+[assembly: AssemblyProduct("Sharepoint 2010 FBA Pack")]
+[assembly: AssemblyCopyright("Copyright © Visigo Software Consulting Inc 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
