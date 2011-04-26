@@ -20,6 +20,17 @@
     }
 }
 
+function DeleteTimerJob([string]$SolutionFileName)
+{ 
+    $JobName = "*solution-deployment*$SolutionFileName*"
+    $job = Get-SPTimerJob | ?{ $_.Name -like $JobName }
+    if ($job -ne $null) 
+    {
+        Write-Host 'Existing Timer job found. Deleting'
+		$job.Delete()
+    }
+}
+
 Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
  
 $url=$args[0]
@@ -31,6 +42,8 @@ $featureExists = Get-SPSolution $solutionName -ErrorAction SilentlyContinue
 if ($featureExists)
 {
 
+	DeleteTimerJob($solutionName)
+
 	Write-Host 'Going to disable feature'
 	disable-spfeature -identity $featureName -confirm:$false -url $url
  
@@ -41,7 +54,7 @@ if ($featureExists)
 	Uninstall-SPSolution -identity $solutionName  -allwebapplications -confirm:$false
 
 	Write-Host 'Waiting for job to finish'
-	WaitForJobToFinish 
+	WaitForJobToFinish($solutionName)
 
 	Write-Host 'Going to remove solution'
 	Remove-SPSolution –identity $solutionName -confirm:$false
