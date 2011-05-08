@@ -104,9 +104,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         public static string GetMembershipProvider(HttpContext context)
         {
-            SPWebApplication app = SPWebApplication.Lookup(new Uri(context.Request.Url.AbsoluteUri));
-            SPIisSettings settings = app.IisSettings[SPUrlZone.Default];
-            return settings.FormsClaimsAuthenticationProvider.MembershipProvider;
+            using (SPSite site = new SPSite(context.Request.Url.AbsoluteUri))
+            {
+                SPIisSettings settings = GetFBAIisSettings(site);
+                return settings.FormsClaimsAuthenticationProvider.MembershipProvider;
+            }
         }
 
         public static string GetMembershipProvider(SPSite site)
