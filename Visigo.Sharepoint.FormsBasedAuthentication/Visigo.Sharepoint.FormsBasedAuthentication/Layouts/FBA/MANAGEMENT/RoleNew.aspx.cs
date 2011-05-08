@@ -3,6 +3,7 @@ using System.Web.Security;
 using Microsoft.SharePoint.WebControls;
 using System.Web.UI.WebControls;
 using Microsoft.SharePoint.Utilities;
+using System.Web;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -21,7 +22,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     Roles.CreateRole(txtRole.Text);
                     // redirect to roles list
-                    Response.Redirect("RolesDisp.aspx");
+                    SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }
                 catch (Exception ex)
                 {

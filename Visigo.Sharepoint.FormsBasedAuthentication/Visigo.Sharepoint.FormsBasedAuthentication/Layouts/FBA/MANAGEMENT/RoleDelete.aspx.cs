@@ -3,6 +3,7 @@ using Microsoft.SharePoint.WebControls;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using Microsoft.SharePoint.Utilities;
+using System.Web;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -43,7 +44,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
                     // delete role
                     Roles.DeleteRole(roleName);
-                    Response.Redirect("RolesDisp.aspx");
+                    SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }
                 catch (Exception ex)
                 {
