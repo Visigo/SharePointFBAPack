@@ -7,7 +7,7 @@
   Sequence="1"
   Title="Change Password"
   Description="Change your current password.">
-		<UrlAction Url="/_layouts/fba/ChangePassword.aspx" />
+		<UrlAction Url="~site/_layouts/fba/ChangePassword.aspx" />
 	</CustomAction>
 
 	<CustomAction
@@ -18,7 +18,7 @@
   RequireSiteAdministrator="TRUE"
   Title="FBA Role Management"
   Description="Manage the Forms Based Authentication roles in this site collection.">
-		<UrlAction Url="/_layouts/FBA/Management/RolesDisp.aspx" />
+		<UrlAction Url="~sitecollection/_layouts/FBA/Management/RolesDisp.aspx" />
 	</CustomAction>
 
 	<CustomAction
@@ -29,7 +29,7 @@
   RequireSiteAdministrator="TRUE"
   Title="FBA Site Configuration"
   Description="Manage the Forms Based Authentication site FBA properties.">
-		<UrlAction Url="~sitecollection/_layouts/FBA/Management/FBASiteConfiguration.aspx" />
+		<UrlAction Url="~site/_layouts/FBA/Management/FBASiteConfiguration.aspx" />
 	</CustomAction>
 
 	<CustomAction
@@ -40,7 +40,7 @@
     RequireSiteAdministrator="TRUE"
     Title="FBA User Management"
     Description="Manage the Forms Based Authentication users in this site collection.">
-		<UrlAction Url="/_layouts/FBA/Management/UsersDisp.aspx" />
+		<UrlAction Url="~sitecollection/_layouts/FBA/Management/UsersDisp.aspx" />
 	</CustomAction>
 
 	<CustomAction
