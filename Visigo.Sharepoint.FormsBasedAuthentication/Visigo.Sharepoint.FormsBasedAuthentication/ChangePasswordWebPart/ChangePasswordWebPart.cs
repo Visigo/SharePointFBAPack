@@ -633,7 +633,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 ConfirmPasswordRequiredErrorMessage = _resourceManager.GetString("ConfirmPasswordRequiredErrorMessage_DefaultValue");
                 ContinueButtonImageUrl = _resourceManager.GetString("ContinueButtonImageUrl_DefaultValue");
                 ContinueButtonText = _resourceManager.GetString("ContinueButtonText_DefaultValue");
-                ContinueDestinationPageUrl = _resourceManager.GetString("ContinueDestinationPageUrl_DefaultValue");
                 CreateUserIconUrl = _resourceManager.GetString("CreateUserIconUrl_DefaultValue");
                 CreateUserText = _resourceManager.GetString("CreateUserText_DefaultValue");
                 CreateUserUrl = _resourceManager.GetString("CreateUserUrl_DefaultValue");
@@ -657,6 +656,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 SuccessText = _resourceManager.GetString("SuccessText_DefaultValue");
                 UserNameLabelText = _resourceManager.GetString("UserNameLabelText_DefaultValue");
                 UserNameRequiredErrorMessage = _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
+
+                //ContinueDestinationPageUrl = _resourceManager.GetString("ContinueDestinationPageUrl_DefaultValue");
+                //Default to the current url
+                ContinueDestinationPageUrl = HttpContext.Current.Request.Url.AbsolutePath;
             }
             catch (Exception ex)
             {
