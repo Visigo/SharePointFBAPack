@@ -5,6 +5,7 @@ using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.WebControls;
 using System.Web.UI.WebControls;
+using System.Web;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -60,7 +61,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 Utils.LogError(ex, true);                
             }
                         
-            Response.Redirect("UsersDisp.aspx");
+            SPUtility.Redirect("FBA/Management/UsersDisp.aspx",SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
         }
 
     }

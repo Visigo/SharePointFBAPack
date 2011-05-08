@@ -5,6 +5,7 @@ using Microsoft.SharePoint.WebControls;
 using Microsoft.SharePoint.Administration;
 using System.Web.UI.WebControls;
 using Microsoft.SharePoint.Utilities;
+using System.Web;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -132,7 +133,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
 
                     // redirect back to display page
-                    Response.Redirect("UsersDisp.aspx");
+                    SPUtility.Redirect("FBA/Management/UsersDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }
                 catch (Exception ex)
                 {
