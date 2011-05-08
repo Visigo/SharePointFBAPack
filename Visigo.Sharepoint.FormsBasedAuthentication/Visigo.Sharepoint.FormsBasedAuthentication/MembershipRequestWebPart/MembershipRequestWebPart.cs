@@ -620,12 +620,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             //Only set it if it's empty - as personalization will already have occurred by this point.
             if (GroupName == String.Empty)
             {
-                SPWeb web = SPControl.GetContextWeb(Context);
-                SPGroupCollection groups = web.Groups;
-                if (groups.Count > 0)
+                SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    GroupName = groups[0].Name;
-                }
+                    SPSite site = new SPSite(HttpContext.Current.Request.Url.ToString());
+                    SPWeb web = site.OpenWeb();
+
+                    SPGroupCollection groups = web.Groups;
+                    if (groups.Count > 0)
+                    {
+                        GroupName = groups[0].Name;
+                    }
+                });
             }
 
             base.OnInit(e);
