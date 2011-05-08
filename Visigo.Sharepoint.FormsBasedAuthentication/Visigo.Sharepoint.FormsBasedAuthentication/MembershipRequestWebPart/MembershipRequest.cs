@@ -484,7 +484,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
                     site = new SPSite(HttpContext.Current.Request.Url.ToString());
-                    web = site.OpenWeb();
+                    web = site.RootWeb;
                     if (web != null)
                     {
 
