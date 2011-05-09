@@ -222,29 +222,32 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         void _ctlPasswordRecovery_SendMailError(object sender, SendMailErrorEventArgs e)
         {
-            using (SPWeb _web = new SPSite(this.Page.Request.Url.ToString()).OpenWeb())
+            using (SPSite _site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
             {
-                PasswordRecovery prc = (PasswordRecovery)sender;
-                MembershipUser currentUser = Utils.GetUser(prc.UserName, _web.Site);
-                MembershipRequest membershipitem = new MembershipRequest();
-                membershipitem.UserEmail = currentUser.Email;
-                membershipitem.UserName = currentUser.UserName;
-                membershipitem.SiteName = _web.Title;
-                membershipitem.SiteURL = _web.Url;
-                membershipitem.PasswordQuestion = currentUser.PasswordQuestion;
-                membershipitem.Password = currentUser.ResetPassword(prc.Answer);
-
-                /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
-                MembershipSettings settings = new MembershipSettings(_web);
-                membershipitem.ChangePasswordURL = string.Format("{0}/{1}", _web.Url, settings.ChangePasswordPage);
-                membershipitem.PasswordQuestionURL = string.Format("{0}/{1}", _web.Url, settings.PasswordQuestionPage);
-                membershipitem.ThankYouURL = string.Format("{0}/{1}", _web.Url, settings.ThankYouPage);
-
-                if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
+                using (SPWeb _web = _site.OpenWeb())
                 {
-                    prc.SuccessText = "There was an error sending the email, please check with your administrator";
+                    PasswordRecovery prc = (PasswordRecovery)sender;
+                    MembershipUser currentUser = Utils.GetUser(prc.UserName, _web.Site);
+                    MembershipRequest membershipitem = new MembershipRequest();
+                    membershipitem.UserEmail = currentUser.Email;
+                    membershipitem.UserName = currentUser.UserName;
+                    membershipitem.SiteName = _web.Title;
+                    membershipitem.SiteURL = _web.Url;
+                    membershipitem.PasswordQuestion = currentUser.PasswordQuestion;
+                    membershipitem.Password = currentUser.ResetPassword(prc.Answer);
+
+                    /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
+                    MembershipSettings settings = new MembershipSettings(_web);
+                    membershipitem.ChangePasswordURL = string.Format("{0}/{1}", _web.Url, settings.ChangePasswordPage);
+                    membershipitem.PasswordQuestionURL = string.Format("{0}/{1}", _web.Url, settings.PasswordQuestionPage);
+                    membershipitem.ThankYouURL = string.Format("{0}/{1}", _web.Url, settings.ThankYouPage);
+
+                    if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
+                    {
+                        prc.SuccessText = "There was an error sending the email, please check with your administrator";
+                    }
+                    e.Handled = true;
                 }
-                e.Handled = true;
             }
         }
 

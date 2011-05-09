@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Resources;
 using System.Globalization;
 using System.Reflection;
+using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -659,7 +660,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                 //ContinueDestinationPageUrl = _resourceManager.GetString("ContinueDestinationPageUrl_DefaultValue");
                 //Default to the current url
-                ContinueDestinationPageUrl = HttpContext.Current.Request.Url.AbsolutePath;
+                ContinueDestinationPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
             }
             catch (Exception ex)
             {
@@ -671,65 +672,63 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Methods
         private void AddChangePasswordControl()
         {
-            using (SPWeb _web = new SPSite(this.Page.Request.Url.ToString()).OpenWeb())
+            if (SPContext.Current.Web.CurrentUser == null)
             {
-                if (_web.CurrentUser == null)
-                {
-                    //Login Control won't work with SP2010, so for now, just don't show a control at all
-                    //Login ctlLogin = new Login();
-                    //this.Controls.Add(ctlLogin);
-                }
-                else
-                {
-                    _ctlChangePassword = new System.Web.UI.WebControls.ChangePassword();
-                    _ctlChangePassword.MembershipProvider = Utils.GetMembershipProvider(Context);
-                    _ctlChangePassword.CancelButtonImageUrl = CancelButtonImageUrl;
-                    _ctlChangePassword.CancelButtonText = CancelButtonText;
-                    _ctlChangePassword.CancelButtonType = CancelButtonType;
-                    _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
-                    _ctlChangePassword.ChangePasswordButtonImageUrl = ChangePasswordButtonImageUrl;
-                    _ctlChangePassword.ChangePasswordButtonText = ChangePasswordButtonText;
-                    _ctlChangePassword.ChangePasswordButtonType = ChangePasswordButtonType;
-                    _ctlChangePassword.ChangePasswordFailureText = ChangePasswordFailureText;
-                    _ctlChangePassword.ChangePasswordTitleText = ChangePasswordTitleText;
-                    _ctlChangePassword.ConfirmNewPasswordLabelText = ConfirmNewPasswordLabelText;
-                    _ctlChangePassword.ConfirmPasswordCompareErrorMessage = ConfirmPasswordCompareErrorMessage;
-                    _ctlChangePassword.ConfirmPasswordRequiredErrorMessage = ConfirmPasswordRequiredErrorMessage;
-                    _ctlChangePassword.ContinueButtonImageUrl = ContinueButtonImageUrl;
-                    _ctlChangePassword.ContinueButtonText = ContinueButtonText;
-                    _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
-                    _ctlChangePassword.CreateUserIconUrl = CreateUserIconUrl;
-                    _ctlChangePassword.CreateUserText = CreateUserText;
-                    _ctlChangePassword.CreateUserUrl = CreateUserUrl;
-                    _ctlChangePassword.DisplayUserName = DisplayUserName;
-                    _ctlChangePassword.EditProfileIconUrl = EditProfileIconUrl;
-                    _ctlChangePassword.EditProfileText = EditProfileText;
-                    _ctlChangePassword.EditProfileUrl = EditProfileUrl;
-                    _ctlChangePassword.HelpPageIconUrl = HelpPageIconUrl;
-                    _ctlChangePassword.HelpPageText = HelpPageText;
-                    _ctlChangePassword.HelpPageUrl = HelpPageUrl;
-                    _ctlChangePassword.InstructionText = InstructionText;
-                    _ctlChangePassword.NewPasswordLabelText = NewPasswordLabelText;
-                    _ctlChangePassword.NewPasswordRegularExpressionErrorMessage = NewPasswordRegularExpressionErrorMessage;
-                    _ctlChangePassword.PasswordHintText = PasswordHintText;
-                    _ctlChangePassword.PasswordLabelText = PasswordLabelText;
-                    _ctlChangePassword.PasswordRecoveryIconUrl = PasswordRecoveryIconUrl;
-                    _ctlChangePassword.PasswordRecoveryText = PasswordRecoveryText;
-                    _ctlChangePassword.PasswordRecoveryUrl = PasswordRecoveryUrl;
-                    _ctlChangePassword.PasswordRequiredErrorMessage = PasswordRequiredErrorMessage;
-                    _ctlChangePassword.SuccessPageUrl = SuccessPageUrl;
-                    _ctlChangePassword.SuccessText = SuccessText;
-                    _ctlChangePassword.ToolTip = ToolTip;
-                    _ctlChangePassword.UserNameLabelText = UserNameLabelText;
-                    _ctlChangePassword.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
-
-                    //_ctlChangePassword.ChangingPassword += new LoginCancelEventHandler(ctlChangePassword_ChangingPassword);
-                    _ctlChangePassword.ChangedPassword += new EventHandler(_ctlChangePassword_ChangedPassword);
-                    _ctlChangePassword.Load += new EventHandler(_ctlChangePassword_Load);
-                    
-                    this.Controls.Add(_ctlChangePassword);
-                }
+                //Login Control won't work with SP2010, so for now, just don't show a control at all
+                //Login ctlLogin = new Login();
+                //this.Controls.Add(ctlLogin);
             }
+            else
+            {
+                _ctlChangePassword = new System.Web.UI.WebControls.ChangePassword();
+                _ctlChangePassword.MembershipProvider = Utils.GetMembershipProvider(Context);
+                _ctlChangePassword.CancelButtonImageUrl = CancelButtonImageUrl;
+                _ctlChangePassword.CancelButtonText = CancelButtonText;
+                _ctlChangePassword.CancelButtonType = CancelButtonType;
+                _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
+                _ctlChangePassword.ChangePasswordButtonImageUrl = ChangePasswordButtonImageUrl;
+                _ctlChangePassword.ChangePasswordButtonText = ChangePasswordButtonText;
+                _ctlChangePassword.ChangePasswordButtonType = ChangePasswordButtonType;
+                _ctlChangePassword.ChangePasswordFailureText = ChangePasswordFailureText;
+                _ctlChangePassword.ChangePasswordTitleText = ChangePasswordTitleText;
+                _ctlChangePassword.ConfirmNewPasswordLabelText = ConfirmNewPasswordLabelText;
+                _ctlChangePassword.ConfirmPasswordCompareErrorMessage = ConfirmPasswordCompareErrorMessage;
+                _ctlChangePassword.ConfirmPasswordRequiredErrorMessage = ConfirmPasswordRequiredErrorMessage;
+                _ctlChangePassword.ContinueButtonImageUrl = ContinueButtonImageUrl;
+                _ctlChangePassword.ContinueButtonText = ContinueButtonText;
+                _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
+                _ctlChangePassword.CreateUserIconUrl = CreateUserIconUrl;
+                _ctlChangePassword.CreateUserText = CreateUserText;
+                _ctlChangePassword.CreateUserUrl = CreateUserUrl;
+                _ctlChangePassword.DisplayUserName = DisplayUserName;
+                _ctlChangePassword.EditProfileIconUrl = EditProfileIconUrl;
+                _ctlChangePassword.EditProfileText = EditProfileText;
+                _ctlChangePassword.EditProfileUrl = EditProfileUrl;
+                _ctlChangePassword.HelpPageIconUrl = HelpPageIconUrl;
+                _ctlChangePassword.HelpPageText = HelpPageText;
+                _ctlChangePassword.HelpPageUrl = HelpPageUrl;
+                _ctlChangePassword.InstructionText = InstructionText;
+                _ctlChangePassword.NewPasswordLabelText = NewPasswordLabelText;
+                _ctlChangePassword.NewPasswordRegularExpressionErrorMessage = NewPasswordRegularExpressionErrorMessage;
+                _ctlChangePassword.PasswordHintText = PasswordHintText;
+                _ctlChangePassword.PasswordLabelText = PasswordLabelText;
+                _ctlChangePassword.PasswordRecoveryIconUrl = PasswordRecoveryIconUrl;
+                _ctlChangePassword.PasswordRecoveryText = PasswordRecoveryText;
+                _ctlChangePassword.PasswordRecoveryUrl = PasswordRecoveryUrl;
+                _ctlChangePassword.PasswordRequiredErrorMessage = PasswordRequiredErrorMessage;
+                _ctlChangePassword.SuccessPageUrl = SuccessPageUrl;
+                _ctlChangePassword.SuccessText = SuccessText;
+                _ctlChangePassword.ToolTip = ToolTip;
+                _ctlChangePassword.UserNameLabelText = UserNameLabelText;
+                _ctlChangePassword.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
+
+                //_ctlChangePassword.ChangingPassword += new LoginCancelEventHandler(ctlChangePassword_ChangingPassword);
+                _ctlChangePassword.ChangedPassword += new EventHandler(_ctlChangePassword_ChangedPassword);
+                _ctlChangePassword.Load += new EventHandler(_ctlChangePassword_Load);
+                    
+                this.Controls.Add(_ctlChangePassword);
+            }
+            
         }
 
         void _ctlChangePassword_ChangedPassword(object sender, EventArgs e)

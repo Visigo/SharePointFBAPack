@@ -19,5 +19,5 @@
     <FBA:ChangePasswordWebPart frametype="None" chrometype="None" id="PasswordWebPart"
         missingassembly="Cannot import this Web Part." passwordrequirederrormessage="Password is required."
         passwordlabeltext="Password:&nbsp;" runat="server" changepasswordtitletext=""
-        usernamelabeltext="Username:&nbsp;" continuedestinationpageurl="/" canceldestinationpageurl="/" />
+        usernamelabeltext="Username:&nbsp;"  />
 </asp:Content>
