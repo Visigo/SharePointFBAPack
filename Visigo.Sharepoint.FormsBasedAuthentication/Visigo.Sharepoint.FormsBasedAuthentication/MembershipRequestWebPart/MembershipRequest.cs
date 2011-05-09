@@ -259,7 +259,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 }
                 //create account
                 /* bms Create password at a minimum of 7 characters or Min from provider if greater */
-                int passwordLength = 7;
+                int passwordLength = 14;
                 if (passwordLength < membership.MinRequiredPasswordLength)
                 {
                     passwordLength = membership.MinRequiredPasswordLength;
