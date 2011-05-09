@@ -229,10 +229,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 MembershipRequest membershipitem = new MembershipRequest();
                 membershipitem.UserEmail = currentUser.Email;
                 membershipitem.UserName = currentUser.UserName;
-                membershipitem.SiteURL = _web.Site.Url.ToString();
-                membershipitem.SiteName = _web.Site.PortalName;
+                membershipitem.SiteName = _web.Title;
+                membershipitem.SiteURL = _web.Url;
                 membershipitem.PasswordQuestion = currentUser.PasswordQuestion;
                 membershipitem.Password = currentUser.ResetPassword(prc.Answer);
+
+                /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
+                MembershipSettings settings = new MembershipSettings(_web);
+                membershipitem.ChangePasswordURL = string.Format("{0}/{1}", _web.Url, settings.ChangePasswordPage);
+                membershipitem.PasswordQuestionURL = string.Format("{0}/{1}", _web.Url, settings.PasswordQuestionPage);
+                membershipitem.ThankYouURL = string.Format("{0}/{1}", _web.Url, settings.ThankYouPage);
+
                 if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
                 {
                     prc.SuccessText = "There was an error sending the email, please check with your administrator";
