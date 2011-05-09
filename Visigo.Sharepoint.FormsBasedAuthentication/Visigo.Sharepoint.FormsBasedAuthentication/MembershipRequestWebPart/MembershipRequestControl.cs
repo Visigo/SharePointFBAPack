@@ -400,7 +400,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 // Also, you can't use the original Site even with elevated privileges, otherwise it reverts back to anonymous.
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    using (SPSite site2 = new SPSite(this.Page.Request.Url.ToString()))
+                    using (SPSite site2 = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                     {
                         using (SPWeb web2 = site2.RootWeb)
                         {

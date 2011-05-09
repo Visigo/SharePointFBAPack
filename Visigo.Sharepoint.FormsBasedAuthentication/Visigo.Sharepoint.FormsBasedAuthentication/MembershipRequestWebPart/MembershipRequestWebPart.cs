@@ -20,6 +20,7 @@ using Microsoft.SharePoint.WebControls;
 using Microsoft.SharePoint.WebPartPages;
 using Visigo.Sharepoint.FormsBasedAuthentication.HIP;
 using Microsoft.SharePoint.Administration;
+using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -130,7 +131,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 HipErrorMessage = _resourceManager.GetString("HipErrorMessage_DefaultValue");
                 //FinishDestinationPageUrl = _resourceManager.GetString("FinishDestinationPageUrl_DefaultValue");
                 //Default to the current url
-                FinishDestinationPageUrl = HttpContext.Current.Request.Url.AbsolutePath;
+                FinishDestinationPageUrl =  SPUtility.GetPageUrlPath(HttpContext.Current);
 
             }
             catch (Exception ex)
@@ -622,13 +623,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    SPSite site = new SPSite(HttpContext.Current.Request.Url.ToString());
-                    SPWeb web = site.OpenWeb();
-
-                    SPGroupCollection groups = web.Groups;
-                    if (groups.Count > 0)
+                    using (SPSite site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                     {
-                        GroupName = groups[0].Name;
+                        using (SPWeb web = site.OpenWeb())
+                        {
+
+                            SPGroupCollection groups = web.Groups;
+                            if (groups.Count > 0)
+                            {
+                                GroupName = groups[0].Name;
+                            }
+                        }
                     }
                 });
             }
