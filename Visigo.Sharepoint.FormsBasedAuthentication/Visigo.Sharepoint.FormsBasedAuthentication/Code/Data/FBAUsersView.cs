@@ -117,6 +117,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 
             }
 
+            //Remove users that weren't found in SharePoint
+            for(int i = users.Rows.Count - 1; i >= 0; i--)
+            {
+                if (users.Rows[i]["IsInSharePoint"].ToString() != "Yes" && users.Rows[i]["IsInSharePoint"].ToString() != "No")
+                {
+                    users.Rows[i].Delete();
+                }
+            }
+
             // sort if a sort expression available
             DataView dataView = new DataView(users);
             if (selectArgs.SortExpression != String.Empty)
