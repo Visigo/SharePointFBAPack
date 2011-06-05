@@ -69,6 +69,11 @@
 		   <SharePoint:EncodedLiteral ID="EncodedLiteral2" runat="server" text="These are the paths to the XSLT used for the emails." EncodeMethod='HtmlEncode'/>
 	    </template_description>
             <template_inputformcontrols>
+		    <wssuc:InputFormControl runat="server" LabelText="Reply To Email Address:">
+			    <Template_Control>
+			       <SharePoint:InputFormTextBox Title="ReplyTo" class="ms-input" Columns="40" maxlength="255" ID="txtReplyTo" Direction="LeftToRight" Runat="server" />
+			    </Template_Control>
+		    </wssuc:InputFormControl>
 		    <wssuc:InputFormControl runat="server" LabelText="Membership Approved:">
 			    <Template_Control>
 			       <SharePoint:InputFormTextBox Title="MembershipApproved" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipApproved" Direction="LeftToRight" Runat="server" />

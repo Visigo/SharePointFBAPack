@@ -19,15 +19,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     {
         public static bool SendEmail(SPWeb web, string emailTo, string xsltTemplateFile)
         {
-            return SendEmail(web, emailTo, xsltTemplateFile, null);
+            return SendEmail(web, emailTo, xsltTemplateFile, (null as IDictionary));
         }
 
         public static bool SendEmail(SPWeb web, string emailTo, string xsltTemplateFile, IDictionary xslValues)
         {
-            if (!SPUtility.IsEmailServerSet(web))
-            {
-                return false;
-            }
+
 
             XmlDocument xmlDoc;
             XPathNavigator xpathNavigator;
@@ -68,15 +65,32 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                 subject = xmlNodeTitle.InnerText;
 
-                SPUtility.SendEmail(web, false, false, emailTo, subject, sbEmail.ToString());
+                return SendEmail(web, emailTo, subject, sbEmail.ToString());
             }
             catch (Exception ex)
             {
                 Utils.LogError(ex);
                 return false;
             }
-            return true;
             
+        }
+
+        public static bool SendEmail(SPWeb web, string emailTo, string subject, string body)
+        {
+            if (!SPUtility.IsEmailServerSet(web))
+            {
+                return false;
+            }
+
+            MembershipSettings settings = new MembershipSettings(web);
+
+            StringDictionary parameters = new StringDictionary();
+
+            parameters.Add("subject", subject);
+            parameters.Add("to", emailTo);
+            parameters.Add("from", settings.MembershipReplyToEmailAddress);
+
+            return SPUtility.SendEmail(web, parameters, body);
         }
     }
 }

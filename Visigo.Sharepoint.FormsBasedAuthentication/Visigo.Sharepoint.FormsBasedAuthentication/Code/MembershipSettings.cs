@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -43,6 +44,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
     public struct MembershipReviewSiteXSLTEmail
     {
+        public const string MEMBERSHIPREPLYTO = "MembershipReplyTo";
         public const string MEMBERSHIPAPPROVED = "MembershipApproved";
         public const string MEMBERSHIPERROR = "MembershipError";
         public const string MEMBERSHIPPENDING = "MembershipPending";
@@ -128,6 +130,19 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             set
             {
                 Utils.SetWebProperty(MembershipReviewSiteURL.THANKYOUPAGE, value, Web);
+            }
+        }
+
+        public string MembershipReplyToEmailAddress
+        {
+            get
+            {
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREPLYTO, Web.Site.WebApplication.OutboundMailReplyToAddress, Web);
+            }
+
+            set
+            {
+                Utils.SetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREPLYTO, value, Web);
             }
         }
 
