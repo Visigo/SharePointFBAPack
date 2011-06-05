@@ -59,6 +59,28 @@
 		        </wssuc:InputFormControl>
 	        </template_inputformcontrols>
         </wssuc:InputFormSection>
+        <!-- Security Question -->
+        <wssuc:InputFormSection id="QuestionSection" runat="server" Title="Security Question">
+            <template_inputformcontrols>
+		        <wssuc:InputFormControl runat="server" LabelText="Type the security question:">
+			        <Template_Control>
+			            <SharePoint:InputFormTextBox Title="Security Question" class="ms-input" Columns="40" maxlength="255" ID="txtQuestion" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator3" ControlToValidate="txtQuestion" Display="Dynamic" Runat="server"/>
+			        </Template_Control>
+		        </wssuc:InputFormControl>
+	        </template_inputformcontrols>
+        </wssuc:InputFormSection>
+        <!-- Security Answer -->
+        <wssuc:InputFormSection id="AnswerSection" runat="server" Title="Security Answer">
+            <template_inputformcontrols>
+		        <wssuc:InputFormControl runat="server" LabelText="Type the answer to the security question:">
+			        <Template_Control>
+			            <SharePoint:InputFormTextBox Title="Security Answer" class="ms-input" Columns="40" maxlength="255" ID="txtAnswer" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator4" ControlToValidate="txtAnswer" Display="Dynamic" Runat="server"/>
+			        </Template_Control>
+		        </wssuc:InputFormControl>
+	        </template_inputformcontrols>
+        </wssuc:InputFormSection>
         <!-- Email Address -->
         <wssuc:InputFormSection runat="server" Title="Email">
             <template_inputformcontrols>
