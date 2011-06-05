@@ -4,7 +4,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.WebPartPages;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.Security;
@@ -15,7 +14,7 @@ using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
-    public class ChangePasswordWebPart : Microsoft.SharePoint.WebPartPages.WebPart
+    public class ChangePasswordWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
         #region Fields
         private ResourceManager _resourceManager;
@@ -66,7 +65,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         #region Properties
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CancelButtonImageUrl_FriendlyName", "CancelButtonImageUrl_Category", "CancelButtonImageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_Description")]
         public string CancelButtonImageUrl
         {
             get
@@ -80,7 +81,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CancelButtonText_FriendlyName", "CancelButtonText_Category", "CancelButtonText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonText_Description")]        
         public string CancelButtonText
         {
             get
@@ -94,7 +97,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CancelButtonType_FriendlyName", "CancelButtonType_Category", "CancelButtonType_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonType_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonType_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonType_Description")]
         public ButtonType CancelButtonType
         {
             get
@@ -108,7 +113,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CancelDestinationPageUrl_FriendlyName", "CancelDestinationPageUrl_Category", "CancelDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_Description")]
         public string CancelDestinationPageUrl
         {
             get
@@ -122,7 +129,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ChangePasswordButtonImageUrl_FriendlyName", "ChangePasswordButtonImageUrl_Category", "ChangePasswordButtonImageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_Description")]
         public string ChangePasswordButtonImageUrl
         {
             get
@@ -136,7 +145,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ChangePasswordButtonText_FriendlyName", "ChangePasswordButtonText_Category", "ChangePasswordButtonText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_Description")]
         public string ChangePasswordButtonText
         {
             get
@@ -150,7 +161,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ChangePasswordButtonType_FriendlyName", "ChangePasswordButtonType_Category", "ChangePasswordButtonType_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_Description")]
         public ButtonType ChangePasswordButtonType
         {
             get
@@ -164,7 +177,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ChangePasswordFailureText_FriendlyName", "ChangePasswordFailureText_Category", "ChangePasswordFailureText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_Description")]
         public string ChangePasswordFailureText
         {
             get
@@ -178,7 +193,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ChangePasswordTitleText_FriendlyName", "ChangePasswordTitleText_Category", "ChangePasswordTitleText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_Description")]
         public string ChangePasswordTitleText
         {
             get
@@ -192,7 +209,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ConfirmNewPasswordLabelText_FriendlyName", "ConfirmNewPasswordLabelText_Category", "ConfirmNewPasswordLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_Description")]
         public string ConfirmNewPasswordLabelText
         {
             get
@@ -207,7 +226,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ConfirmPasswordCompareErrorMessage_FriendlyName", "ConfirmPasswordCompareErrorMessage_Category", "ConfirmPasswordCompareErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_Description")]
         public string ConfirmPasswordCompareErrorMessage
         {
             get
@@ -222,7 +243,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ConfirmPasswordRequiredErrorMessage_FriendlyName", "ConfirmPasswordRequiredErrorMessage_Category", "ConfirmPasswordRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_Description")]
         public string ConfirmPasswordRequiredErrorMessage
         {
             get
@@ -237,7 +260,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ContinueButtonImageUrl_FriendlyName", "ContinueButtonImageUrl_Category", "ContinueButtonImageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_Description")]
         public string ContinueButtonImageUrl
         {
             get
@@ -252,7 +277,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ContinueButtonText_FriendlyName", "ContinueButtonText_Category", "ContinueButtonText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueButtonText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueButtonText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueButtonText_Description")]
         public string ContinueButtonText
         {
             get
@@ -267,7 +294,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("ContinueDestinationPageUrl_FriendlyName", "ContinueDestinationPageUrl_Category", "ContinueDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_Description")]
         public string ContinueDestinationPageUrl
         {
             get
@@ -282,7 +311,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CreateUserIconUrl_FriendlyName", "CreateUserIconUrl_Category", "CreateUserIconUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserIconUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserIconUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserIconUrl_Description")]
         public string CreateUserIconUrl
         {
             get
@@ -297,7 +328,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CreateUserText_FriendlyName", "CreateUserText_Category", "CreateUserText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserText_Description")]
         public string CreateUserText
         {
             get
@@ -312,7 +345,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("CreateUserUrl_FriendlyName", "CreateUserUrl_Category", "CreateUserUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserUrl_Description")]
         public string CreateUserUrl
         {
             get
@@ -327,7 +362,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("DisplayUserName_FriendlyName", "DisplayUserName_Category", "DisplayUserName_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "DisplayUserName_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "DisplayUserName_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "DisplayUserName_Description")]
         public bool DisplayUserName
         {
             get
@@ -342,7 +379,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("EditProfileIconUrl_FriendlyName", "EditProfileIconUrl_Category", "EditProfileIconUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileIconUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileIconUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileIconUrl_Description")]
         public string EditProfileIconUrl
         {
             get
@@ -357,7 +396,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("EditProfileText_FriendlyName", "EditProfileText_Category", "EditProfileText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileText_Description")]
         public string EditProfileText
         {
             get
@@ -372,7 +413,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("EditProfileUrl_FriendlyName", "EditProfileUrl_Category", "EditProfileUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileUrl_Description")]
         public string EditProfileUrl
         {
             get
@@ -387,7 +430,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("HelpPageIconUrl_FriendlyName", "HelpPageIconUrl_Category", "HelpPageIconUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageIconUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageIconUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageIconUrl_Description")]
         public string HelpPageIconUrl
         {
             get
@@ -402,7 +447,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("HelpPageText_FriendlyName", "HelpPageText_Category", "HelpPageText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageText_Description")]
         public string HelpPageText
         {
             get
@@ -417,7 +464,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("HelpPageUrl_FriendlyName", "HelpPageUrl_Category", "HelpPageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageUrl_Description")]
         public string HelpPageUrl
         {
             get
@@ -431,7 +480,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("InstructionText_FriendlyName", "InstructionText_Category", "InstructionText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "InstructionText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "InstructionText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "InstructionText_Description")]
         public string InstructionText
         {
             get
@@ -445,7 +496,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("NewPasswordLabelText_FriendlyName", "NewPasswordLabelText_Category", "NewPasswordLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "NewPasswordLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "NewPasswordLabelText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "NewPasswordLabelText_Description")]
         public string NewPasswordLabelText
         {
             get
@@ -459,7 +512,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("NewPasswordRegularExpressionErrorMessage_FriendlyName", "NewPasswordRegularExpressionErrorMessage_Category", "NewPasswordRegularExpressionErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_Description")]
         public string NewPasswordRegularExpressionErrorMessage
         {
             get
@@ -473,7 +528,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordHintText_FriendlyName", "PasswordHintText_Category", "PasswordHintText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordHintText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordHintText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordHintText_Description")]
         public string PasswordHintText
         {
             get
@@ -487,7 +544,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordLabelText_FriendlyName", "PasswordLabelText_Category", "PasswordLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordLabelText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordLabelText_Description")]
         public string PasswordLabelText
         {
             get
@@ -501,7 +560,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordRecoveryIconUrl_FriendlyName", "PasswordRecoveryIconUrl_Category", "PasswordRecoveryIconUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_Description")]
         public string PasswordRecoveryIconUrl
         {
             get
@@ -515,7 +576,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordRecoveryText_FriendlyName", "PasswordRecoveryText_Category", "PasswordRecoveryText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryText_Description")]
         public string PasswordRecoveryText
         {
             get
@@ -529,7 +592,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordRecoveryUrl_FriendlyName", "PasswordRecoveryUrl_Category", "PasswordRecoveryUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_Description")]
         public string PasswordRecoveryUrl
         {
             get
@@ -543,7 +608,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("PasswordRequiredErrorMessage_FriendlyName", "PasswordRequiredErrorMessage_Category", "PasswordRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_Description")]
         public string PasswordRequiredErrorMessage
         {
             get
@@ -557,7 +624,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SuccessPageUrl_FriendlyName", "SuccessPageUrl_Category", "SuccessPageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "SuccessPageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "SuccessPageUrl_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "SuccessPageUrl_Description")]
         public string SuccessPageUrl
         {
             get
@@ -571,7 +640,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SuccessText_FriendlyName", "SuccessText_Category", "SuccessText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "SuccessText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "SuccessText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "SuccessText_Description")]
         public string SuccessText
         {
             get
@@ -585,7 +656,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameLabelText_FriendlyName", "UserNameLabelText_Category", "UserNameLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "UserNameLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "UserNameLabelText_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
             get
@@ -599,7 +672,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameRequiredErrorMessage_FriendlyName", "UserNameRequiredErrorMessage_Category", "UserNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
             get
@@ -753,10 +828,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             base.RenderContents(writer);
         }
 
-        public override string LoadResource(string id)
-        {
-            return (_resourceManager.GetString(id));
-        }
         #endregion
 
         #region Events
