@@ -4,7 +4,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.WebPartPages;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.Security;
@@ -16,7 +15,7 @@ using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
-    public class PasswordRecoveryWebPart : Microsoft.SharePoint.WebPartPages.WebPart
+    public class PasswordRecoveryWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
         #region Fields
         private ResourceManager _resourceManager;
@@ -41,7 +40,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         #region Properties
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("GeneralFailureText_FriendlyName", "GeneralFailureText_Category", "GeneralFailureText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "GeneralFailureText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "GeneralFailureText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "GeneralFailureText_Description")]
         public string GeneralFailureText
         {
             get { return _generalFailureText; }
@@ -49,7 +50,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("QuestionFailureText_FriendlyName", "QuestionFailureText_Category", "QuestionFailureText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "QuestionFailureText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "QuestionFailureText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "QuestionFailureText_Description")]
         public string QuestionFailureText
         {
             get { return _questionFailureText; }
@@ -57,7 +60,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("QuestionInstructionText_FriendlyName", "QuestionInstructionText_Category", "QuestionInstructionText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "QuestionInstructionText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "QuestionInstructionText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "QuestionInstructionText_Description")]
         public string QuestionInstructionText
         {
             get { return _questionInstructionText; }
@@ -65,7 +70,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("QuestionLabelText_FriendlyName", "QuestionLabelText_Category", "QuestionLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "QuestionLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "QuestionLabelText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "QuestionLabelText_Description")]
         public string QuestionLabelText
         {
             get { return _questionLabelText; }
@@ -73,7 +80,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("QuestionTitleText_FriendlyName", "QuestionTitleText_Category", "QuestionTitleText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "QuestionTitleText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "QuestionTitleText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "QuestionTitleText_Description")]
         public string QuestionTitleText
         {
             get { return _questionTitleText; }
@@ -81,7 +90,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SubmitButtonImageUrl_FriendlyName", "SubmitButtonImageUrl_Category", "SubmitButtonImageUrl_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "SubmitButtonImageUrl_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "SubmitButtonImageUrl_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "SubmitButtonImageUrl_Description")]
         public string SubmitButtonImageUrl
         {
             get { return _submitButtonImageUrl; }
@@ -89,7 +100,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SubmitButtonText_FriendlyName", "SubmitButtonText_Category", "SubmitButtonText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "SubmitButtonText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "SubmitButtonText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "SubmitButtonText_Description")]
         public string SubmitButtonText
         {
             get { return _submitButtonText; }
@@ -97,7 +110,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SubmitButtonType_FriendlyName", "SubmitButtonType_Category", "SubmitButtonType_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "SubmitButtonType_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "SubmitButtonType_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "SubmitButtonType_Description")]
         public ButtonType SubmitButtonType
         {
             get { return _submitButtonType; }
@@ -105,7 +120,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("SuccessText_FriendlyName", "SuccessText_Category", "SuccessText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "SuccessText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "SuccessText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "SuccessText_Description")]
         public string SuccessText
         {
             get { return _successText; }
@@ -113,7 +130,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameFailureText_FriendlyName", "UserNameFailureText_Category", "UserNameFailureText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "UserNameFailureText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "UserNameFailureText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "UserNameFailureText_Description")]
         public string UserNameFailureText
         {
             get { return _userNameFailureText; }
@@ -121,7 +140,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameInstructionText_FriendlyName", "UserNameInstructionText_Category", "UserNameInstructionText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "UserNameInstructionText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "UserNameInstructionText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "UserNameInstructionText_Description")]
         public string UserNameInstructionText
         {
             get { return _userNameInstructionText; }
@@ -129,7 +150,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameLabelText_FriendlyName", "UserNameLabelText_Category", "UserNameLabelText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "UserNameLabelText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "UserNameLabelText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
             get { return _userNameLabelText; }
@@ -137,7 +160,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameTitleText_FriendlyName", "UserNameTitleText_Category", "UserNameTitleText_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "UserNameTitleText_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "UserNameTitleText_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "UserNameTitleText_Description")]
         public string UserNameTitleText
         {
             get { return _userNameTitleText; }
@@ -145,7 +170,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("AnswerRequiredErrorMessage_FriendlyName", "AnswerRequiredErrorMessage_Category", "AnswerRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "AnswerRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "AnswerRequiredErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "AnswerRequiredErrorMessage_Description")]
         public string AnswerRequiredErrorMessage
         {
             get { return _answerRequiredErrorMessage; }
@@ -153,7 +180,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [ResourcesAttribute("UserNameRequiredErrorMessage_FriendlyName", "UserNameRequiredErrorMessage_Category", "UserNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName(typeof(PasswordRecoveryWebPart), "UserNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory(typeof(PasswordRecoveryWebPart), "UserNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription(typeof(PasswordRecoveryWebPart), "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
             get { return _userNameRequiredErrorMessage; }
@@ -263,10 +292,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             base.RenderContents(writer);
         }
 
-        public override string LoadResource(string id)
-        {
-            return (_resourceManager.GetString(id));
-        }
         #endregion
     }
 }

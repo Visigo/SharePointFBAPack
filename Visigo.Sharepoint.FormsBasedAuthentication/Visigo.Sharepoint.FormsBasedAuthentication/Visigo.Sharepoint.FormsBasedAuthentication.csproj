@@ -74,6 +74,9 @@
     <Compile Include="Code\HIP\HipValidator.cs" />
     <Compile Include="Code\HIP\ImageHipChallenge.cs" />
     <Compile Include="Code\HIP\RandomNumbers.cs" />
+    <Compile Include="Code\Localization\LocalizedCategoryAttribute.cs" />
+    <Compile Include="Code\Localization\LocalizedWebDisplayNameAttribute.cs" />
+    <Compile Include="Code\Localization\LocalizedWebDescriptionAttribute.cs" />
     <Compile Include="Code\MembershipSettings.cs" />
     <Compile Include="Code\TraceProvider.cs" />
     <Compile Include="Code\UpdateLayoutsSitemap.cs" />
