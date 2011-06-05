@@ -236,7 +236,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 string newPassword = user.ResetPassword();
                 // TODO: use xslt email
                 string body = "Your new password is: " + newPassword;
-                SPUtility.SendEmail(this.Web, false, false, user.Email, "Password Reset for " + this.Web.Title, body);
+                Email.SendEmail(this.Web, user.Email, "Password Reset for " + this.Web.Title, body);
             }
         }
     }

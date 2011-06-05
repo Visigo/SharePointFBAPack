@@ -129,7 +129,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         //InputFormTextBox txtEmailSubject = (InputFormTextBox)emailUser.FindControl("txtEmailSubject");
                         //InputFormTextBox txtEmailBody = (InputFormTextBox)emailUser.FindControl("txtEmailBody");
                         if ((!string.IsNullOrEmpty(txtEmailSubject.Text)) && (!string.IsNullOrEmpty(txtEmailBody.Text)))
-                            SPUtility.SendEmail(this.Web, false, false, user.Email, txtEmailSubject.Text, txtEmailBody.Text);
+                            Email.SendEmail(this.Web, user.Email, txtEmailSubject.Text, txtEmailBody.Text);
                     }
 
                     // redirect back to display page

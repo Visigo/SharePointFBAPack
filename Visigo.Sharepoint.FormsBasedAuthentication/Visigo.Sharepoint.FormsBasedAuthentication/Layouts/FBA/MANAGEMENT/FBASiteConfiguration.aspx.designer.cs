@@ -112,6 +112,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.EncodedLiteral EncodedLiteral2;
         
         /// <summary>
+        /// txtReplyTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtReplyTo;
+        
+        /// <summary>
         /// txtMembershipApproved control.
         /// </summary>
         /// <remarks>
