@@ -51,7 +51,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         groupList.DataBind();
                     }
 
-                    // 
+                    // Display Question and answer if required by provider
+                    if (System.Web.Security.Membership.RequiresQuestionAndAnswer)
+                    {
+                        QuestionSection.Visible = true;
+                        AnswerSection.Visible = true;
+                    }
+                    else
+                    {
+                        QuestionSection.Visible = false;
+                        AnswerSection.Visible = false;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -76,9 +86,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     string provider = settings.FormsClaimsAuthenticationProvider.MembershipProvider;
 
                     // create FBA database user
-                    user = Membership.CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text);
-                    user.IsApproved = isActive.Checked;
-                    Membership.UpdateUser(user);
+                    MembershipCreateStatus createStatus;
+
+                    if (Membership.RequiresQuestionAndAnswer)
+                    {
+                        user = Membership.CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, txtQuestion.Text, txtAnswer.Text, isActive.Checked, null, out createStatus);
+                    }
+                    else
+                    {
+                        user = Membership.CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, null, null, isActive.Checked, null, out createStatus);
+                    }
 
                     bool groupAdded = false;
 

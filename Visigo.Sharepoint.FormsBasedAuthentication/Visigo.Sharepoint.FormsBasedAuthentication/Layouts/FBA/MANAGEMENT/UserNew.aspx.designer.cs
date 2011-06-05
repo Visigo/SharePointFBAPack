@@ -121,6 +121,60 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.InputFormCompareValidator InputFormCompareValidatorPassword;
         
         /// <summary>
+        /// QuestionSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl QuestionSection;
+        
+        /// <summary>
+        /// txtQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtQuestion;
+        
+        /// <summary>
+        /// InputFormRequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator3;
+        
+        /// <summary>
+        /// AnswerSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl AnswerSection;
+        
+        /// <summary>
+        /// txtAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtAnswer;
+        
+        /// <summary>
+        /// InputFormRequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator4;
+        
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
