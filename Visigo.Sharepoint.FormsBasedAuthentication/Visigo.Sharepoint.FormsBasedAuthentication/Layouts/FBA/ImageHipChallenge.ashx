@@ -184,7 +184,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.HIP
 			}
 			
 			// Distort the final image and return it.  This distortion amount is fairly arbitrary.
-			DistortImage(bmp, NextRandom(5, 20) * (NextRandom(2) == 1 ? 1 : -1) );
+			DistortImage(bmp, NextRandom(5, 10) * (NextRandom(2) == 1 ? 1 : -1) );
 			return bmp;
 		}
 
