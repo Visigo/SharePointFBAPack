@@ -21,13 +21,15 @@
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
         <!-- User Name -->
         <wssuc:InputFormSection runat="server" Title="User Name">
             <template_inputformcontrols>
+                <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		        <wssuc:InputFormControl runat="server" LabelText="Type the user name:">
 			        <Template_Control>
-			            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="red"></asp:Label>
+			            
 			            <SharePoint:InputFormTextBox Title="User Name" class="ms-input" Columns="40" maxlength="255" ID="txtUsername" Direction="LeftToRight" Runat="server" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator1" ControlToValidate="txtUsername" Display="Dynamic" Runat="server"/>			            
 			        </Template_Control>
