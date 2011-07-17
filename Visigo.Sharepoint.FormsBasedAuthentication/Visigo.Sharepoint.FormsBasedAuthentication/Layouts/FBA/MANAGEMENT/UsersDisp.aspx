@@ -53,6 +53,8 @@
             </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="Active" HeaderText="Active" SortExpression="Active">
             </SharePoint:SPBoundField>
+            <SharePoint:SPBoundField DataField="Locked" HeaderText="Locked" SortExpression="Locked">
+            </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="IsInSharePoint" HeaderText="IsInSharePoint" SortExpression="IsInSharePoint">
             </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="Modified" HeaderText="Modified" SortExpression="Modified">

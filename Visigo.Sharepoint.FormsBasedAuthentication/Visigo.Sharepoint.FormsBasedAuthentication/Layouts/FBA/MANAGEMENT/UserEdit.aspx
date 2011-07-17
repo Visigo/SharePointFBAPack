@@ -69,6 +69,15 @@
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
+        <wssuc:InputFormSection runat="server" Title="Account Locked">
+            <template_inputformcontrols>
+		    <wssuc:InputFormControl runat="server">
+			    <Template_Control>
+				    <SharePoint:InputFormCheckBox ID="isLocked" ToolTip="If checked the account is locked." LabelText="Uncheck the box to unlock the user's account." runat="server"/>
+			    </Template_Control>
+		    </wssuc:InputFormControl>
+	    </template_inputformcontrols>
+        </wssuc:InputFormSection>
         <wssuc:InputFormSection runat="server" id="GroupSection" Title="Groups">
             <template_inputformcontrols>
 	        <wssuc:InputFormControl runat="server" LabelText="Choose atleast one group to add the user to:">

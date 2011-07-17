@@ -66,6 +66,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
                     txtUsername.Text = user.UserName;
                     isActive.Checked = user.IsApproved;
+                    isLocked.Checked = user.IsLockedOut;
+                    isLocked.Enabled = user.IsLockedOut;
 
                     // if roles activated display roles
                     if (_showRoles)
@@ -138,7 +140,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             }
             MembershipUser user = Utils.GetUser(userName);
-
+            
             // check user exists
             if (user != null)
             {
@@ -151,6 +153,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     // update membership provider info
                     user.Email = txtEmail.Text;
                     user.IsApproved = isActive.Checked;
+
+                    //Unlock Account
+                    if (user.IsLockedOut && !isLocked.Checked)
+                    {
+                        user.UnlockUser();
+                    }
                     Membership.UpdateUser(user);
 
                     // update sharepoint user info
