@@ -112,6 +112,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.InputFormCheckBox isActive;
         
         /// <summary>
+        /// isLocked control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormCheckBox isLocked;
+        
+        /// <summary>
         /// GroupSection control.
         /// </summary>
         /// <remarks>
