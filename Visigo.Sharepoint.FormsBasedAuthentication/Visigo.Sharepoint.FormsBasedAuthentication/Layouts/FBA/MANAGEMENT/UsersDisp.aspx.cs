@@ -21,6 +21,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             base.OnInit(e);
         }
+
+        protected void Search_Click(object sender, System.EventArgs e)
+        {
+            UserDataSource.SearchText = SearchText.Text;
+            MemberGrid.DataBind();
+        }
         
         protected override bool RequireSiteAdministrator
         {

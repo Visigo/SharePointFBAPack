@@ -26,6 +26,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             set { _viewName = value; }
         }
 
+        public string SearchText { 
+            get {
+                string s = (string)ViewState["SearchText"];
+                return (s != null) ? s : String.Empty;
+            }
+
+            set { ViewState["SearchText"] = value; }
+        }
+
         /// <summary>
         /// return a strongly typed view for the current data source control
         /// </summary>
@@ -36,6 +45,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             // only retrieve a view if a membership provider can be found
             if (_view == null)
             {
+                
                 try
                 {
                     if (ViewName == "FBAUsersView")

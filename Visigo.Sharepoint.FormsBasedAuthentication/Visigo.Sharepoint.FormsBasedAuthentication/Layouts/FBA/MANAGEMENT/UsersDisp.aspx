@@ -40,6 +40,7 @@
             ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%" Title="Delete">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
+    <div id="SearchControls">Search:<asp:TextBox ID="SearchText" runat="server"></asp:TextBox><asp:Button ID="Search" runat="server" Text="Search" onclick="Search_Click" /></div>
     <FBA:FBADataSource runat="server" ID="UserDataSource" ViewName="FBAUsersView" />
     <SharePoint:SPGridView ID="MemberGrid" runat="server" DataSourceID="UserDataSource"
         AutoGenerateColumns="false" AllowPaging="true" PageSize="20" AllowSorting="true">
