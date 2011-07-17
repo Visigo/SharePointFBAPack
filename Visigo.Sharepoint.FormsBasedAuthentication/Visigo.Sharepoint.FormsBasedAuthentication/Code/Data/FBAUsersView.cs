@@ -16,11 +16,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     /// </summary>
     class FBAUsersView : DataSourceView
     {
+        private FBADataSource _owner;
 
-        public FBAUsersView(IDataSource owner, string viewName) : base(owner, viewName) { }
-        
+        public FBAUsersView(FBADataSource owner, string viewName) : base(owner, viewName) 
+        {
+            _owner = owner;
+        }
+
         protected override IEnumerable ExecuteSelect(DataSourceSelectArguments selectArgs)
         {
+            
             // only continue if a membership provider has been configured
             if (!Utils.IsProviderConfigured())
                 return null;
@@ -134,6 +139,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             if (selectArgs.SortExpression != String.Empty)
             {
                 dataView.Sort = selectArgs.SortExpression;
+            }
+
+            //Filter the data if a filter is provided
+            if (_owner.SearchText.Length > 0)
+            {
+                dataView.RowFilter = string.Format("Name LIKE '%{0}%' OR Email LIKE '%{0}%'", _owner.SearchText);
+            }
+            else
+            {
+                dataView.RowFilter = "";
             }
 
             // return as a DataList            
