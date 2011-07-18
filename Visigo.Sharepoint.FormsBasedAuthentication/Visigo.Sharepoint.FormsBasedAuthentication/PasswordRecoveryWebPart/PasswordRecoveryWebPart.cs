@@ -260,7 +260,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 newUserName = Utils.GetUserNameByEmail(prc.UserName);
 
-                if (newUserName != null);
+                if (newUserName != null)
                 {
                     prc.UserName = newUserName;
                 }
