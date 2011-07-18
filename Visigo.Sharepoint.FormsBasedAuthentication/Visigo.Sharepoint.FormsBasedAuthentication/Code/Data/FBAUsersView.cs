@@ -144,7 +144,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             //Filter the data if a filter is provided
             if (_owner.SearchText.Length > 0)
             {
-                dataView.RowFilter = string.Format("Name LIKE '%{0}%' OR Email LIKE '%{0}%'", _owner.SearchText);
+                dataView.RowFilter = string.Format("Name LIKE '%{0}%' OR Email LIKE '%{0}%' OR Title LIKE '%{0}%'", _owner.SearchText);
             }
             else
             {
