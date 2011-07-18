@@ -181,27 +181,21 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return (settings.AuthenticationMode == AuthenticationMode.Forms);
         }
 
-        public static void LogError(string errorMessage, string errorCategory)
+        public static void LogError(string errorMessage, FBADiagnosticsService.FBADiagnosticsCategory errorCategory)
         {
             // log error to ULS log
-            TraceProvider.WriteTrace(0, TraceProvider.TraceSeverity.CriticalEvent, Guid.NewGuid(), Assembly.GetExecutingAssembly().FullName, "InternetExtranetEdition", errorCategory, errorMessage);
+            FBADiagnosticsService.Local.WriteTrace(0, errorCategory, TraceSeverity.High, errorMessage,null);
         }
 
         public static void LogError(Exception ex)
         {
-            // create error message
-            string errorMessage = ex.Message + " " + ex.StackTrace;
-           
-            // add any inner exceptions
-            Exception innerException = ex.InnerException;
-            while (innerException != null)
-            {
-                errorMessage += "Inner Error: " + innerException.Message + " " + innerException.StackTrace;
-                innerException = innerException.InnerException;
-            }
-
             // log error
-            LogError(errorMessage, ex.GetType().ToString());
+            LogError(ex.ToString(), FBADiagnosticsService.FBADiagnosticsCategory.General);
+        }
+
+        public static void LogError(string errorMessage)
+        {
+            LogError(errorMessage, FBADiagnosticsService.FBADiagnosticsCategory.General);
         }
 
         public static void LogError(Exception ex, bool transferToErrorPage)
