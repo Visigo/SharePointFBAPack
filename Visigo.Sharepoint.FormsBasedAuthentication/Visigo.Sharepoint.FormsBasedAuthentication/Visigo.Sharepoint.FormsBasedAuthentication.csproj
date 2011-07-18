@@ -69,6 +69,7 @@
     <Compile Include="Code\Data\FBARolesView.cs" />
     <Compile Include="Code\Data\FBAUsersView.cs" />
     <Compile Include="Code\Email.cs" />
+    <Compile Include="Code\FBADiagnosticsService.cs" />
     <Compile Include="Code\HIP\BaseHipChallengeHandler.cs" />
     <Compile Include="Code\HIP\HipChallenge.cs" />
     <Compile Include="Code\HIP\HipValidator.cs" />
@@ -78,9 +79,11 @@
     <Compile Include="Code\Localization\LocalizedWebDisplayNameAttribute.cs" />
     <Compile Include="Code\Localization\LocalizedWebDescriptionAttribute.cs" />
     <Compile Include="Code\MembershipSettings.cs" />
-    <Compile Include="Code\TraceProvider.cs" />
     <Compile Include="Code\UpdateLayoutsSitemap.cs" />
     <Compile Include="Code\Utils.cs" />
+    <Compile Include="Features\FBADiagnosticsService\FBADiagnosticsService.EventReceiver.cs">
+      <DependentUpon>FBADiagnosticsService.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\FBAManagement\FBAManagement.EventReceiver.cs">
       <DependentUpon>FBAManagement.feature</DependentUpon>
     </Compile>
@@ -169,6 +172,9 @@
     <None Include="Features\FBAManagement\FBAManagement.feature">
       <FeatureId>{bf26db31-5aaa-474d-ba76-36782c1a31eb}</FeatureId>
     </None>
+    <None Include="Features\FBADiagnosticsService\FBADiagnosticsService.feature">
+      <FeatureId>{ec57a65d-5853-4c44-b51d-b3fb2410d9f5}</FeatureId>
+    </None>
     <None Include="key.snk" />
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9fdbeed1-91c3-4f15-bad2-6ea7b6dd9034}</SharePointProjectItemId>
@@ -218,6 +224,9 @@
     <Content Include="FBAMenus\Elements.xml" />
     <Content Include="Features\FBAManagement\FBAManagement.Template.xml">
       <DependentUpon>FBAManagement.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\FBADiagnosticsService\FBADiagnosticsService.Template.xml">
+      <DependentUpon>FBADiagnosticsService.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\FBA\ChangePassword.aspx">
       <SubType>ASPXCodeBehind</SubType>

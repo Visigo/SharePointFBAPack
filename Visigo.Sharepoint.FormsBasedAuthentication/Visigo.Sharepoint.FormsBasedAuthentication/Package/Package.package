@@ -2,6 +2,7 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="956715d5-f34c-4b00-bfb7-8c35d5fa0f62" solutionId="956715d5-f34c-4b00-bfb7-8c35d5fa0f62" resetWebServer="false" name="Visigo.Sharepoint.FormsBasedAuthentication" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <features>
     <featureReference itemId="bf26db31-5aaa-474d-ba76-36782c1a31eb" />
+    <featureReference itemId="ec57a65d-5853-4c44-b51d-b3fb2410d9f5" />
   </features>
   <projectItems>
     <projectItemReference itemId="9fdbeed1-91c3-4f15-bad2-6ea7b6dd9034" />

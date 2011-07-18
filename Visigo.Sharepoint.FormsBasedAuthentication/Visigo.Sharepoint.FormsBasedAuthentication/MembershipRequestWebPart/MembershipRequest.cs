@@ -338,7 +338,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                         if (!bSentMail)
                         {
-                            Utils.LogError("SendEmail failed", "MembershipRequest");
+                            Utils.LogError("SendEmail failed");
                             throw new Exception("Error sending mail notification");
                         }
                         if (debuggingInfoItem != null)
@@ -511,7 +511,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         }
                         else
                         {
-                            Utils.LogError("Unable to find Membership Review List", "MembershipRequest");
+                            Utils.LogError("Unable to find Membership Review List");
                         }
                     }
                 });
