@@ -229,6 +229,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             _ctlPasswordRecovery = new System.Web.UI.WebControls.PasswordRecovery();
             //bms Added the event to catch the error and send our own email
             _ctlPasswordRecovery.SendMailError += new SendMailErrorEventHandler(_ctlPasswordRecovery_SendMailError);
+            _ctlPasswordRecovery.VerifyingUser +=new LoginCancelEventHandler(_ctlPasswordRecovery_VerifyingUser);
             _ctlPasswordRecovery.MembershipProvider = Utils.GetMembershipProvider(Context);
             _ctlPasswordRecovery.GeneralFailureText = GeneralFailureText;
             _ctlPasswordRecovery.QuestionFailureText = QuestionFailureText;
@@ -247,6 +248,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             _ctlPasswordRecovery.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
 
             this.Controls.Add(_ctlPasswordRecovery);
+        }
+
+        void _ctlPasswordRecovery_VerifyingUser(object sender, LoginCancelEventArgs e)
+        {
+            PasswordRecovery prc = (PasswordRecovery)sender;
+            MembershipUser currentUser = Utils.GetUser(prc.UserName);
+            string newUserName = null;
+            //If the username doesn't work, get the username by email address
+            if (currentUser == null)
+            {
+                newUserName = Utils.GetUserNameByEmail(prc.UserName);
+
+                if (newUserName != null);
+                {
+                    prc.UserName = newUserName;
+                }
+            }
+
         }
 
         void _ctlPasswordRecovery_SendMailError(object sender, SendMailErrorEventArgs e)

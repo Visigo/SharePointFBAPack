@@ -9,7 +9,11 @@
         <div>
             <p>You have requested this mail because you have forgotten your password to <xsl:value-of select="MembershipRequest:get_SiteName()" />.</p>
 
-            <p>Your temporary password is: <xsl:value-of select="MembershipRequest:get_Password()" /></p>
+          <p>
+            Your user name is: <xsl:value-of select="MembershipRequest:get_UserName()" />
+          </p>
+
+          <p>Your temporary password is: <xsl:value-of select="MembershipRequest:get_Password()" /></p>
 
             <p></p>
 

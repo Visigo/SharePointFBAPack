@@ -225,6 +225,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return GetUser(username, false, SPContext.Current.Site);
         }
 
+        public static string GetUserNameByEmail(string email, SPSite site) {
+            return BaseMembershipProvider(site).GetUserNameByEmail(email);
+        }
+
+        public static string GetUserNameByEmail(string email)
+        {
+            return GetUserNameByEmail(email, SPContext.Current.Site);
+        }
+
         public static string GetWebProperty(string key, string defaultValue, SPWeb web)
         {
             string value = null;
