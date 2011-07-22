@@ -159,8 +159,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     {
                         user.UnlockUser();
                     }
-                    Membership.UpdateUser(user);
-
+                    try
+                    {
+                        Membership.UpdateUser(user);
+                    }
+                    catch (System.Configuration.Provider.ProviderException ex)
+                    {
+                        lblMessage.Text = ex.Message;
+                        return;
+                    }
                     // update sharepoint user info
                     if (spuser != null)
                     {

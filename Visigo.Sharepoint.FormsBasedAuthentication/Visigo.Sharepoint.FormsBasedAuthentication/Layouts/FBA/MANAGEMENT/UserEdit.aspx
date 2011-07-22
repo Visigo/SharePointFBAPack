@@ -31,11 +31,12 @@
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
         <wssuc:InputFormSection runat="server" Title="User Name">
             <template_inputformcontrols>
+            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		    <wssuc:InputFormControl runat="server" LabelText="Username is read only:">
 			    <Template_Control>
 			    <SharePoint:InputFormTextBox Title="Username" Enabled="false" ReadOnly="true" class="ms-input" Columns="40" maxlength="255" ID="txtUsername" Direction="LeftToRight" Runat="server" />
 			    <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator1" ControlToValidate="txtUsername" Display="Dynamic" Runat="server"/>
-			    <asp:Label ID="usernameMessage" runat="server" Text="" ForeColor="red"></asp:Label>
+			    
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>

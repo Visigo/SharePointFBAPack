@@ -31,6 +31,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.EncodedLiteral TitleArea;
         
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
         /// txtUsername control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator1;
-        
-        /// <summary>
-        /// usernameMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameMessage;
         
         /// <summary>
         /// txtFullName control.
