@@ -26,9 +26,9 @@
             <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
                 <Template_Buttons>
                     <wssuc:ToolBarButton runat="server" Text="New User" ID="idNewNavNode" ToolTip="New User"
-                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                        NavigateUrl="UserNew.aspx?Source=RolesDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
                     <wssuc:ToolBarButton runat="server" Text="New Role" ID="idNewCatNode" ToolTip="New Role"
-                        NavigateUrl="RoleNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="R" />
+                        NavigateUrl="RoleNew.aspx?Source=RolesDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="R" />
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
@@ -37,7 +37,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <SharePoint:MenuTemplate ID="RoleMenu" runat="server">
         <SharePoint:MenuItemTemplate ID="DeleteRole" runat="server" Text="Delete" ImageUrl="/_layouts/images/delete.gif"
-            ClientOnClickNavigateUrl="RoleDelete.aspx?Role=%ROLE%" Title="Delete">
+            ClientOnClickNavigateUrl="RoleDelete.aspx?Role=%ROLE%&Source=RolesDisp.aspx" Title="Delete">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
     <FBA:FBADataSource runat="server" ID="RoleDataSource" ViewName="FBARolesView" />
@@ -45,7 +45,7 @@
         AutoGenerateColumns="false" AllowPaging="true" PageSize="3" AllowSorting="true">
         <Columns>
             <SharePoint:SPMenuField HeaderText="Role" TextFields="Role" MenuTemplateId="RoleMenu"
-                NavigateUrlFields="Role" NavigateUrlFormat="RoleDelete.aspx?Role={0}" TokenNameAndValueFields="ROLE=Role"
+                NavigateUrlFields="Role" NavigateUrlFormat="RoleDelete.aspx?Role={0}&Source=RolesDisp.aspx" TokenNameAndValueFields="ROLE=Role"
                 SortExpression="Role" />
             <SharePoint:SPBoundField HeaderText="Users In Role" DataField="UsersInRole" SortExpression="UsersInRole" />
         </Columns>

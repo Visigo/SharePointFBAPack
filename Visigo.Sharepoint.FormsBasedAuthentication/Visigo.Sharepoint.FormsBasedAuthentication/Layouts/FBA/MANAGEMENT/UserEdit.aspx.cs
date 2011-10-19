@@ -85,7 +85,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             // select roles associated with the user
                             for (int i = 0; i < roles.Length; i++)
                             {
-                                rolesList.Items.FindByText(roles[i].ToString()).Selected = Roles.IsUserInRole(user.UserName, roles[i].ToString());
+                                ListItem item = rolesList.Items.FindByText(roles[i].ToString()); 
+                                if (item != null) item.Selected = Roles.IsUserInRole(user.UserName, roles[i].ToString());
                             }
                         }
                         catch (Exception ex)
@@ -102,13 +103,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         try
                         {
                             // load groups
-                            groupList.DataSource = this.Web.Groups;
+                            groupList.DataSource = this.Web.SiteGroups;
                             groupList.DataBind();
 
                             // select groups associated with the user
                             foreach (SPGroup group in spuser.Groups)
                             {
-                                groupList.Items.FindByText(group.Name).Selected = true;
+                                ListItem item = groupList.Items.FindByText(group.Name);
+                                if (item != null) item.Selected = true;
                             }
                         }
                         catch (Exception ex)
@@ -216,14 +218,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             {
                                 // only add if not already in group
                                 if (!userInGroup)
-                                    this.Web.Groups[groupName].AddUser(spuser);
+                                    this.Web.SiteGroups[groupName].AddUser(spuser);
                             }
                             // else remove user from group
                             else
                             {
                                 // only attempt remove if actually in the group
                                 if (userInGroup)
-                                    this.Web.Groups[groupName].RemoveUser(spuser);
+                                    this.Web.SiteGroups[groupName].RemoveUser(spuser);
                             }
                         }
                     }

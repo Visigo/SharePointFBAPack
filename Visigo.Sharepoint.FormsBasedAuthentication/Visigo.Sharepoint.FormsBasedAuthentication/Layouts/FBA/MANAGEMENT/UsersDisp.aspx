@@ -25,7 +25,7 @@
             <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
                 <Template_Buttons>
                     <wssuc:ToolBarButton runat="server" Text="New User" ID="idNewNavNode" ToolTip="New User"
-                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                        NavigateUrl="UserNew.aspx?Source=UsersDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
@@ -34,10 +34,10 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <SharePoint:MenuTemplate ID="UserMenu" runat="server">
         <SharePoint:MenuItemTemplate ID="Edit" runat="server" Text="Edit" ImageUrl="/_layouts/images/edititem.gif"
-            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%" Title="Edit">
+            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="Edit">
         </SharePoint:MenuItemTemplate>
         <SharePoint:MenuItemTemplate ID="Delete" runat="server" Text="Delete" ImageUrl="/_layouts/images/delete.gif"
-            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%" Title="Delete">
+            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="Delete">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
     <div id="SearchControls">Search:<asp:TextBox ID="SearchText" runat="server"></asp:TextBox><asp:Button ID="Search" runat="server" Text="Search" onclick="Search_Click" /></div>
@@ -46,7 +46,7 @@
         AutoGenerateColumns="false" AllowPaging="true" PageSize="20" AllowSorting="true">
         <Columns>
             <SharePoint:SPMenuField HeaderText="User Name" TextFields="Name" MenuTemplateId="UserMenu"
-                NavigateUrlFields="Name" NavigateUrlFormat="UserEdit.aspx?UserName={0}" TokenNameAndValueFields="USERNAME=Name"
+                NavigateUrlFields="Name" NavigateUrlFormat="UserEdit.aspx?UserName={0}&Source=UsersDisp.aspx" TokenNameAndValueFields="USERNAME=Name"
                 SortExpression="Name" />
             <SharePoint:SPBoundField DataField="Email" HeaderText="Email" SortExpression="Email">
             </SharePoint:SPBoundField>

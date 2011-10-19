@@ -49,7 +49,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         RolesSection.Visible = false;
 
                         // load groups
-                        groupList.DataSource = this.Web.Groups;
+                        groupList.DataSource = this.Web.SiteGroups;
                         groupList.DataBind();
                     }
 
@@ -135,7 +135,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             if (groupList.Items[i].Selected)
                             {
                                 // add user to group
-                                SPGroup group = this.Web.Groups[groupList.Items[i].Value];
+                                SPGroup group = this.Web.SiteGroups[groupList.Items[i].Value];
                                 group.AddUser(
                                     Utils.EncodeUsername(user.UserName),
                                     user.Email,
