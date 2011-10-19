@@ -711,7 +711,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         using (SPWeb web = site.OpenWeb())
                         {
 
-                            SPGroupCollection groups = web.Groups;
+                            SPGroupCollection groups = web.SiteGroups;
                             if (groups.Count > 0)
                             {
                                 GroupName = groups[0].Name;

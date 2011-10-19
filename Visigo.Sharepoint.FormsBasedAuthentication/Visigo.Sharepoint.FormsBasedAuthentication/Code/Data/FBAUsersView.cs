@@ -40,7 +40,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // we only display users that have been added to SharePoint
             // we use the localized name, safe for non-English SharePoint servers
-            SPList list = web.Lists[SPUtility.GetLocalizedString("$Resources:userinfo_schema_listtitle", "core", web.Language)];
+            SPList list = web.SiteUserInfoList; //web.Lists[SPUtility.GetLocalizedString("$Resources:userinfo_schema_listtitle", "core", web.Language)];
 
             // create query list
             SPQuery query = new SPQuery();

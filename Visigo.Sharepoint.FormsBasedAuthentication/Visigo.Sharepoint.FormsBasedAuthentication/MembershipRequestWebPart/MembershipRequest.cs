@@ -307,7 +307,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         //Add the user to the default group
                         if (!String.IsNullOrEmpty(request.DefaultGroup))
                         {
-                            web.Groups[request.DefaultGroup].AddUser(Utils.EncodeUsername(request.UserName.ToLower(), web.Site), request.UserEmail, request.FirstName + " " + request.LastName, "Self Registration");
+                            web.SiteGroups[request.DefaultGroup].AddUser(Utils.EncodeUsername(request.UserName.ToLower(), web.Site), request.UserEmail, request.FirstName + " " + request.LastName, "Self Registration");
                             
                             //Login the user if selected
                             if (request.LoginCreatedUser)

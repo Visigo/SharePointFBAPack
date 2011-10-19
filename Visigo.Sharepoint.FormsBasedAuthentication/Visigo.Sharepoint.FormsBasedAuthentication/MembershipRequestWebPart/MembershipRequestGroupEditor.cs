@@ -29,7 +29,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             ddlGroup = new DropDownList();
             SPWeb web = SPControl.GetContextWeb(Context);
-            SPGroupCollection groups = web.Groups;
+            SPGroupCollection groups = web.SiteGroups;
             for (int idx = 0; idx < groups.Count; idx++)
             {
                 ddlGroup.Items.Add(groups[idx].Name);

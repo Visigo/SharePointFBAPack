@@ -337,7 +337,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 //        using (SPWeb web2 = site2.RootWeb)
                 //        {
                 //            web2.AllowUnsafeUpdates = true;
-                //            web2.Groups[this._DefaultGroup].AddUser(Utils.EncodeUsername(this.UserName.ToLower()), this.Email, this.FirstName + " " + this.LastName, "Self Registration");
+                //            web2.SiteGroups[this._DefaultGroup].AddUser(Utils.EncodeUsername(this.UserName.ToLower()), this.Email, this.FirstName + " " + this.LastName, "Self Registration");
                 //            web2.Update();
                 //        }
                 //    }
