@@ -25,8 +25,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
     public class MembershipRequestWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
-        private ResourceManager _resourceManager;
-
         #region Fields
         protected string[] _randCharacters = { "A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",
                 "2","3","4","5","6","7","8","9",
@@ -84,59 +82,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Constructors
         public MembershipRequestWebPart()
         {
-            _resourceManager = new ResourceManager("Visigo.Sharepoint.FormsBasedAuthentication.MembershipRequestWebPart", Assembly.GetExecutingAssembly());
             try
             {
-                AnswerLabelText = _resourceManager.GetString("AnswerLabelText_DefaultValue");
-                AnswerRequiredErrorMessage = _resourceManager.GetString("AnswerRequiredErrorMessage_DefaultValue");
-                CancelButtonImageUrl = _resourceManager.GetString("CancelButtonImageUrl_DefaultValue");
-                CancelButtonText = _resourceManager.GetString("CancelButtonText_DefaultValue");
-                CancelButtonType = (ButtonType)Convert.ToInt32(_resourceManager.GetString("CancelButtonType"));
-                CancelDestinationPageUrl = _resourceManager.GetString("CancelDestinationPageUrl_DefaultValue");
-                CompleteSuccessText = _resourceManager.GetString("CompleteSuccessText_DefaultValue");
-                CreateUserButtonImageUrl = _resourceManager.GetString("CreateUserButtonImageUrl_DefaultValue");
-                CreateUserButtonText = _resourceManager.GetString("CreateUserButtonText_DefaultValue");
-                CreateUserButtonType = (ButtonType)Convert.ToInt32(_resourceManager.GetString("CreateUserButtonType"));
-                CssClass = _resourceManager.GetString("CSSClass_DefaultValue");
-                DisplayCancelButton = bool.Parse(_resourceManager.GetString("DisplayCancelButton_DefaultValue"));
-                DuplicateEmailErrorMessage = _resourceManager.GetString("DuplicateEmailErrorMessage_DefaultValue");
-                DuplicateUserNameErrorMessage = _resourceManager.GetString("DuplicateUserNameErrorMessage_DefaultValue");
-                EditProfileIconUrl = _resourceManager.GetString("EditProfileIconUrl_DefaultValue");
-                EditProfileText = _resourceManager.GetString("EditProfileText_DefaultValue");
-                EditProfileUrl = _resourceManager.GetString("EditProfileUrl_DefaultValue");
-                EmailLabelText = _resourceManager.GetString("EmailLabelText_DefaultValue");
-                EmailRegularExpressionErrorMessage = _resourceManager.GetString("EmailRegularExpressionErrorMessage_DefaultValue");
-                EmailRequiredErrorMessage = _resourceManager.GetString("EmailRequiredErrorMessage_DefaultValue");
-                HeaderText = _resourceManager.GetString("HeaderText_DefaultValue");
-                InstructionText = _resourceManager.GetString("InstructionText_DefaultValue");
-                InvalidAnswerErrorMessage = _resourceManager.GetString("InvalidAnswerErrorMessage_DefaultValue");
-                InvalidEmailErrorMessage = _resourceManager.GetString("InvalidEmailErrorMessage_DefaultValue");
-                InvalidQuestionErrorMessage = _resourceManager.GetString("InvalidQuestionErrorMessage_DefaultValue");
-                LoginCreatedUser = bool.Parse(_resourceManager.GetString("LoginCreatedUser_DefaultValue"));
-                QuestionLabelText = _resourceManager.GetString("QuestionLabelText_DefaultValue");
-                QuestionRequiredErrorMessage = _resourceManager.GetString("QuestionRequiredErrorMessage_DefaultValue");
-                UnknownErrorMessage = _resourceManager.GetString("UnknownErrorMessage_DefaultValue");
-                UserNameLabelText = _resourceManager.GetString("UserNameLabelText_DefaultValue");
-                UserNameRequiredErrorMessage = _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
-                FirstNameLabelText = _resourceManager.GetString("FirstNameLabelText_DefaultValue");
-                LastNameLabelText = _resourceManager.GetString("LastNameLabelText_DefaultValue");
-                FirstNameRequiredErrorMessage = _resourceManager.GetString("FirstNameRequiredErrorMessage_DefaultValue");
-                LastNameRequiredErrorMessage = _resourceManager.GetString("LastNameRequiredErrorMessage_DefaultValue");
-                HipPictureLabelText = _resourceManager.GetString("HipPictureLabelText_DefaultValue");
-                HipCharactersLabelText = _resourceManager.GetString("HipCharactersLabelText_DefaultValue");
-                HipInstructionsLabelText = _resourceManager.GetString("HipInstructionsLabelText_DefaultValue");
-                HipPictureDescription = _resourceManager.GetString("HipPictureDescription_DefaultValue");
-                HipResetLabelText = _resourceManager.GetString("HipResetLabelText_DefaultValue");
-                HipErrorMessage = _resourceManager.GetString("HipErrorMessage_DefaultValue");
-                //FinishDestinationPageUrl = _resourceManager.GetString("FinishDestinationPageUrl_DefaultValue");
                 //Default to the current url
-                FinishDestinationPageUrl =  SPUtility.GetPageUrlPath(HttpContext.Current);
-
+                FinishDestinationPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
             }
             catch (Exception ex)
             {
                 Utils.LogError(ex);
-                this.Controls.Add(Utils.CreateErrorMessage(_resourceManager.GetString("Error_Message")));
             }
         }
 
@@ -153,9 +106,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "AnswerLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "AnswerLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "AnswerLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "AnswerLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "AnswerLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "AnswerLabelText_Description")]
         public string AnswerLabelText
         {
             get { return _AnswerLabelText; }
@@ -167,9 +120,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "AnswerRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "AnswerRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "AnswerRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "AnswerRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "AnswerRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "AnswerRequiredErrorMessage_Description")]
         public string AnswerRequiredErrorMessage
         {
             get { return _AnswerRequiredErrorMessage; }
@@ -177,9 +130,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CancelButtonImageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CancelButtonImageUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CancelButtonImageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CancelButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CancelButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelButtonImageUrl_Description")]
         public string CancelButtonImageUrl
         {
             get { return _CancelButtonImageUrl; }
@@ -191,9 +144,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CancelButtonText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CancelButtonText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CancelButtonText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CancelButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CancelButtonText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelButtonText_Description")]
         public string CancelButtonText
         {
             get { return _CancelButtonText; }
@@ -205,9 +158,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CancelButtonType_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CancelButtonType_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CancelButtonType_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CancelButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CancelButtonType_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelButtonType_Description")]
         public ButtonType CancelButtonType
         {
             get { return _CancelButtonType; }
@@ -219,9 +172,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CancelDestinationPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CancelDestinationPageUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CancelDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CancelDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CancelDestinationPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelDestinationPageUrl_Description")]
         public string CancelDestinationPageUrl
         {
             get { return _CancelDestinationPageUrl; }
@@ -229,9 +182,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CompleteSuccessText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CompleteSuccessText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CompleteSuccessText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CompleteSuccessText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CompleteSuccessText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CompleteSuccessText_Description")]
         public string CompleteSuccessText
         {
             get { return _CompleteSuccessText; }
@@ -239,9 +192,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CreateUserButtonImageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CreateUserButtonImageUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CreateUserButtonImageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CreateUserButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CreateUserButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserButtonImageUrl_Description")]
         public string CreateUserButtonImageUrl
         {
             get { return _CreateUserButtonImageUrl; }
@@ -253,9 +206,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CreateUserButtonText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CreateUserButtonText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CreateUserButtonText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CreateUserButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CreateUserButtonText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserButtonText_Description")]
         public string CreateUserButtonText
         {
             get { return _CreateUserButtonText; }
@@ -267,9 +220,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CreateUserButtonType_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CreateUserButtonType_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CreateUserButtonType_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CreateUserButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CreateUserButtonType_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserButtonType_Description")]
         public ButtonType CreateUserButtonType
         {
             get { return _CreateUserButtonType; }
@@ -281,9 +234,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "CssClass_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "CssClass_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "CssClass_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CssClass_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CssClass_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CssClass_Description")]
         public new string CssClass
         {
             get { return _CssClass; }
@@ -295,9 +248,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "DisplayCancelButton_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "DisplayCancelButton_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "DisplayCancelButton_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "DisplayCancelButton_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "DisplayCancelButton_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "DisplayCancelButton_Description")]
         public bool DisplayCancelButton
         {
             get { return _DisplayCancelButton; }
@@ -310,9 +263,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "DuplicateEmailErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "DuplicateEmailErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "DuplicateEmailErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "DuplicateEmailErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "DuplicateEmailErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "DuplicateEmailErrorMessage_Description")]
         public string DuplicateEmailErrorMessage
         {
             get { return _DuplicateEmailErrorMessage; }
@@ -320,9 +273,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "DuplicateUserNameErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "DuplicateUserNameErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "DuplicateUserNameErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "DuplicateUserNameErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "DuplicateUserNameErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "DuplicateUserNameErrorMessage_Description")]
         public string DuplicateUserNameErrorMessage
         {
             get { return _DuplicateUserNameErrorMessage; }
@@ -330,9 +283,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EditProfileIconUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EditProfileIconUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EditProfileIconUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EditProfileIconUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EditProfileIconUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileIconUrl_Description")]
         public string EditProfileIconUrl
         {
             get { return _EditProfileIconUrl; }
@@ -340,9 +293,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EditProfileText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EditProfileText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EditProfileText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EditProfileText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EditProfileText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileText_Description")]
         public string EditProfileText
         {
             get { return _EditProfileText; }
@@ -354,9 +307,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EditProfileUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EditProfileUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EditProfileUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EditProfileUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EditProfileUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileUrl_Description")]
         public string EditProfileUrl
         {
             get { return _EditProfileUrl; }
@@ -364,9 +317,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EmailLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EmailLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EmailLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EmailLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EmailLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailLabelText_Description")]
         public string EmailLabelText
         {
             get { return _EmailLabelText; }
@@ -378,9 +331,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EmailRegularExpressionErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EmailRegularExpressionErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EmailRegularExpressionErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EmailRegularExpressionErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EmailRegularExpressionErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailRegularExpressionErrorMessage_Description")]
         public string EmailRegularExpressionErrorMessage
         {
             get { return _EmailRegularExpressionErrorMessage; }
@@ -388,9 +341,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "EmailRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "EmailRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "EmailRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "EmailRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "EmailRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailRequiredErrorMessage_Description")]
         public string EmailRequiredErrorMessage
         {
             get { return _EmailRequiredErrorMessage; }
@@ -398,9 +351,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "FinishDestinationPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "FinishDestinationPageUrl_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "FinishDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "FinishDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "FinishDestinationPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FinishDestinationPageUrl_Description")]
         public string FinishDestinationPageUrl
         {
             get { return _FinishDestinationPageUrl; }
@@ -408,9 +361,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HeaderText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HeaderText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HeaderText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HeaderText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HeaderText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HeaderText_Description")]
         public string HeaderText
         {
             get { return _HeaderText; }
@@ -422,9 +375,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "InstructionText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "InstructionText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "InstructionText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InstructionText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "InstructionText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InstructionText_Description")]
         public string InstructionText
         {
             get { return _InstructionText; }
@@ -436,9 +389,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "InvalidAnswerErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "InvalidAnswerErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "InvalidAnswerErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InvalidAnswerErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "InvalidAnswerErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidAnswerErrorMessage_Description")]
         public string InvalidAnswerErrorMessage
         {
             get { return _InvalidAnswerErrorMessage; }
@@ -446,9 +399,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "InvalidEmailErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "InvalidEmailErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "InvalidEmailErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InvalidEmailErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "InvalidEmailErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidEmailErrorMessage_Description")]
         public string InvalidEmailErrorMessage
         {
             get { return _InvalidEmailErrorMessage; }
@@ -456,9 +409,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "InvalidQuestionErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "InvalidQuestionErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "InvalidQuestionErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_Description")]
         public string InvalidQuestionErrorMessage
         {
             get { return _InvalidQuestionErrorMessage; }
@@ -466,9 +419,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "LoginCreatedUser_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "LoginCreatedUser_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "LoginCreatedUser_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "LoginCreatedUser_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "LoginCreatedUser_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "LoginCreatedUser_Description")]
         public bool LoginCreatedUser
         {
             get { return _LoginCreatedUser; }
@@ -476,9 +429,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "QuestionLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "QuestionLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "QuestionLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "QuestionLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "QuestionLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "QuestionLabelText_Description")]
         public string QuestionLabelText
         {
             get { return _QuestionLabelText; }
@@ -490,9 +443,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "QuestionRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "QuestionRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "QuestionRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "QuestionRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "QuestionRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "QuestionRequiredErrorMessage_Description")]
         public string QuestionRequiredErrorMessage
         {
             get { return _QuestionRequiredErrorMessage; }
@@ -500,9 +453,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "UnknownErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "UnknownErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "UnknownErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "UnknownErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "UnknownErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UnknownErrorMessage_Description")]
         public string UnknownErrorMessage
         {
             get { return _UnknownErrorMessage; }
@@ -510,9 +463,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "UserNameLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "UserNameLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "UserNameLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "UserNameLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "UserNameLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
             get { return _UserNameLabelText; }
@@ -524,9 +477,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "UserNameRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "UserNameRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "UserNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "UserNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "UserNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
             get { return _UserNameRequiredErrorMessage; }
@@ -534,9 +487,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "FirstNameLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "FirstNameLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "FirstNameLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "FirstNameLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "FirstNameLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FirstNameLabelText_Description")]
         public string FirstNameLabelText
         {
             get { return _FirstNameLabelText; }
@@ -544,9 +497,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "LastNameLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "LastNameLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "LastNameLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "LastNameLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "LastNameLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "LastNameLabelText_Description")]
         public string LastNameLabelText
         {
             get { return _LastNameLabelText; }
@@ -554,9 +507,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "FirstNameRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "FirstNameRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "FirstNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "FirstNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "FirstNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FirstNameRequiredErrorMessage_Description")]
         public string FirstNameRequiredErrorMessage
         {
             get { return _FirstNameRequiredErrorMessage; }
@@ -564,9 +517,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "LastNameRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "LastNameRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "LastNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "LastNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "LastNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "LastNameRequiredErrorMessage_Description")]
         public string LastNameRequiredErrorMessage
         {
             get { return _LastNameRequiredErrorMessage; }
@@ -574,9 +527,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipPictureLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipPictureLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipPictureLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipPictureLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipPictureLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipPictureLabelText_Description")]
         public string HipPictureLabelText
         {
             get { return _HipPictureLabelText; }
@@ -584,9 +537,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipCharactersLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipCharactersLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipCharactersLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipCharactersLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipCharactersLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipCharactersLabelText_Description")]
         public string HipCharactersLabelText
         {
             get { return _HipCharactersLabelText; }
@@ -594,9 +547,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipInstructionsLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipInstructionsLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipInstructionsLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipInstructionsLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipInstructionsLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipInstructionsLabelText_Description")]
         public string HipInstructionsLabelText
         {
             get { return _HipInstructionsLabelText; }
@@ -604,9 +557,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipPictureDescription_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipPictureDescription_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipPictureDescription_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipPictureDescription_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipPictureDescription_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipPictureDescription_Description")]
         public string HipPictureDescription
         {
             get { return _HipPictureDescription; }
@@ -614,9 +567,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipResetLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipResetLabelText_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipResetLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipResetLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipResetLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipResetLabelText_Description")]
         public string HipResetLabelText
         {
             get { return _HipResetLabelText; }
@@ -624,9 +577,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(MembershipRequestWebPart), "HipErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(MembershipRequestWebPart), "HipErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(MembershipRequestWebPart), "HipErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "HipErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "HipErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipErrorMessage_Description")]
         public string HipErrorMessage
         {
             get { return _HipErrorMessage; }

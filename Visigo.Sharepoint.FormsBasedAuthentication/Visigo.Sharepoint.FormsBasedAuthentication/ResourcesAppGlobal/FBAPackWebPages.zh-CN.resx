@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountLockedHeaderText" xml:space="preserve">
+    <value>账户锁定</value>
+  </data>
+  <data name="AccountLockedLabelText" xml:space="preserve">
+    <value>取消选中复选框已解锁用户账户。</value>
+  </data>
+  <data name="AccountLockedToolTipText" xml:space="preserve">
+    <value>复选框选中意为账户已锁定。</value>
+  </data>
+  <data name="ActiveCheckBoxLabelText" xml:space="preserve">
+    <value>选中复选框将用户的状态设置为活动。</value>
+  </data>
+  <data name="ActiveCheckBoxToolTipText" xml:space="preserve">
+    <value>复选框选中的话，用户的状态为活动的。</value>
+  </data>
+  <data name="ActiveColHeaderText" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="ChangePassword_Desc" xml:space="preserve">
+    <value>允许用户更改他们的密码。</value>
+  </data>
+  <data name="ChangePassword_Title" xml:space="preserve">
+    <value>更改密码</value>
+  </data>
+  <data name="ConfirmPasswordLabelText" xml:space="preserve">
+    <value>输入并确认密码：</value>
+  </data>
+  <data name="ConfirmPasswordToolTipText" xml:space="preserve">
+    <value>输入确认密码。</value>
+  </data>
+  <data name="CreatedColHeaderText" xml:space="preserve">
+    <value>创建日期</value>
+  </data>
+  <data name="DeleteButtonText" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DeleteConfirmHeaderText" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
+  <data name="DeleteConfirmLabelText" xml:space="preserve">
+    <value>确认删除用户 [ {0}]</value>
+  </data>
+  <data name="DeleteConfirmText" xml:space="preserve">
+    <value>确定永久删除该用户么？</value>
+  </data>
+  <data name="DeleteContextMenuText" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DeleteRoleConfirmText" xml:space="preserve">
+    <value>确定永久删除该角色及所有属于该角色的用户？</value>
+  </data>
+  <data name="DeleteRole_Title" xml:space="preserve">
+    <value>删除角色</value>
+  </data>
+  <data name="DeleteUser_Title" xml:space="preserve">
+    <value>删除用户</value>
+  </data>
+  <data name="EditContextMenuText" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="EditUser_Title" xml:space="preserve">
+    <value>编辑用户资料</value>
+  </data>
+  <data name="EmailColHeaderText" xml:space="preserve">
+    <value>电邮地址</value>
+  </data>
+  <data name="EnableRolesLabelText" xml:space="preserve">
+    <value>启用角色：</value>
+  </data>
+  <data name="EnableRolesToolTipText" xml:space="preserve">
+    <value>启用角色</value>
+  </data>
+  <data name="EnterPasswordToolTipText" xml:space="preserve">
+    <value>输入密码。</value>
+  </data>
+  <data name="FullNameColHeaderText" xml:space="preserve">
+    <value>全名</value>
+  </data>
+  <data name="GroupHeaderText" xml:space="preserve">
+    <value>组别或角色</value>
+  </data>
+  <data name="GroupLabelText" xml:space="preserve">
+    <value>至少将用户加入一个组别或角色</value>
+  </data>
+  <data name="GroupToolTipText" xml:space="preserve">
+    <value>为用户选择组别或角色。</value>
+  </data>
+  <data name="IsInSharePointColHeaderText" xml:space="preserve">
+    <value>网站用户</value>
+  </data>
+  <data name="LockedColHeaderText" xml:space="preserve">
+    <value>锁定</value>
+  </data>
+  <data name="MembershipApprovedLabelText" xml:space="preserve">
+    <value>会员核准：</value>
+  </data>
+  <data name="MembershipApprovedToolTipText" xml:space="preserve">
+    <value>会员被核准</value>
+  </data>
+  <data name="MembershipEmailTemplateHeaderDesc" xml:space="preserve">
+    <value>会员邮件模板文件的路径。</value>
+  </data>
+  <data name="MembershipEmailTemplateHeaderText" xml:space="preserve">
+    <value>会员邮件模板（XSLT）</value>
+  </data>
+  <data name="MembershipErrorLabelText" xml:space="preserve">
+    <value>错误：</value>
+  </data>
+  <data name="MembershipErrorToolTipText" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="MembershipOptionHeaderDesc" xml:space="preserve">
+    <value>这些选项控制着 FBA Web 部件的功能。</value>
+  </data>
+  <data name="MembershipOptionHeaderText" xml:space="preserve">
+    <value>会员选项</value>
+  </data>
+  <data name="MembershipPendingLabelText" xml:space="preserve">
+    <value>审核进行中：</value>
+  </data>
+  <data name="MembershipPendingToolTipText" xml:space="preserve">
+    <value>审核进行中</value>
+  </data>
+  <data name="MembershipRejectedLabelText" xml:space="preserve">
+    <value>会员拒绝：</value>
+  </data>
+  <data name="MembershipRejectedToolTipText" xml:space="preserve">
+    <value>会员被拒绝</value>
+  </data>
+  <data name="MembershipSiteReviewHeaderDesc" xml:space="preserve">
+    <value>这些网页可用于电子邮件或 FBA Web 部件。</value>
+  </data>
+  <data name="MembershipSiteReviewHeaderText" xml:space="preserve">
+    <value>会员审核时用到的网站页面路径（Site URLs）</value>
+  </data>
+  <data name="MissingAssemblyMsg" xml:space="preserve">
+    <value>无法导入Web部件。</value>
+  </data>
+  <data name="ModifiedColHeaderText" xml:space="preserve">
+    <value>更改日期</value>
+  </data>
+  <data name="NewRoleLabelText" xml:space="preserve">
+    <value>新角色</value>
+  </data>
+  <data name="NewRole_Title" xml:space="preserve">
+    <value>新增角色</value>
+  </data>
+  <data name="NewUserLabelText" xml:space="preserve">
+    <value>新用户</value>
+  </data>
+  <data name="NewUser_Title" xml:space="preserve">
+    <value>新增用户</value>
+  </data>
+  <data name="PasswordChangePageLabelText" xml:space="preserve">
+    <value>更改密码页：</value>
+  </data>
+  <data name="PasswordChangePageToolTipText" xml:space="preserve">
+    <value>更改密码的网页</value>
+  </data>
+  <data name="PasswordConfirmText" xml:space="preserve">
+    <value>确定需要重置密码？
+新密码将通过电邮的方式传送到用户的电子邮件地址。</value>
+  </data>
+  <data name="PasswordHeaderText" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="PasswordQuestionPageLabelText" xml:space="preserve">
+    <value>密码问题页：</value>
+  </data>
+  <data name="PasswordQuestionPageToolTipText" xml:space="preserve">
+    <value>密码问题的网页</value>
+  </data>
+  <data name="PasswordRecoveryLabelText" xml:space="preserve">
+    <value>密码恢复：</value>
+  </data>
+  <data name="PasswordRecoveryToolTipText" xml:space="preserve">
+    <value>密码恢复</value>
+  </data>
+  <data name="ReplyToLabelText" xml:space="preserve">
+    <value>回复邮件地址：</value>
+  </data>
+  <data name="ReplyToToolTipText" xml:space="preserve">
+    <value>回复至</value>
+  </data>
+  <data name="ResetPasswordButonText" xml:space="preserve">
+    <value>重置密码</value>
+  </data>
+  <data name="ReviewMembershipRequestLabelText" xml:space="preserve">
+    <value>启用会员申请审核：</value>
+  </data>
+  <data name="ReviewMembershipRequestToolTipText" xml:space="preserve">
+    <value>启用会员申请审核</value>
+  </data>
+  <data name="RoleColHeaderText" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="RoleExistenceMsg" xml:space="preserve">
+    <value>角色已经存在！</value>
+  </data>
+  <data name="RoleNameHeaderText" xml:space="preserve">
+    <value>角色名</value>
+  </data>
+  <data name="RoleNameLabelText" xml:space="preserve">
+    <value>输入角色名：</value>
+  </data>
+  <data name="RoleNotExistenceMsg" xml:space="preserve">
+    <value>角色不存在！</value>
+  </data>
+  <data name="RolesMgmt_Desc" xml:space="preserve">
+    <value>此页用于管理基于窗体验证的用户角色。</value>
+  </data>
+  <data name="RolesMgmt_Title" xml:space="preserve">
+    <value>网站用户角色管理(FBA)</value>
+  </data>
+  <data name="SaveButonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SearchButtonText" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="SearchLabelText" xml:space="preserve">
+    <value>搜索：</value>
+  </data>
+  <data name="SecurityAnswerHeaderText" xml:space="preserve">
+    <value>安全问题的答案</value>
+  </data>
+  <data name="SecurityQuestionHeaderText" xml:space="preserve">
+    <value>安全问题</value>
+  </data>
+  <data name="SendEmailHeaderText" xml:space="preserve">
+    <value>发送电子邮件</value>
+  </data>
+  <data name="SendMailLabelText" xml:space="preserve">
+    <value>发送欢迎加入邮件给新用户</value>
+  </data>
+  <data name="SiteConfig_Desc" xml:space="preserve">
+    <value>此页用于管理基于窗体验证的其他网站设置，例如网站页面路径（Site URLs）的设置。</value>
+  </data>
+  <data name="SiteConfig_Title" xml:space="preserve">
+    <value>网站设置管理(FBA)</value>
+  </data>
+  <data name="ThankYouPageLabelText" xml:space="preserve">
+    <value>感谢页：</value>
+  </data>
+  <data name="ThankYouPageToolTipText" xml:space="preserve">
+    <value>感谢的网页</value>
+  </data>
+  <data name="TypeEmailAddrLabelText" xml:space="preserve">
+    <value>输入用户的电子邮件地址：</value>
+  </data>
+  <data name="TypeFullNameLabelText" xml:space="preserve">
+    <value>输入全名：</value>
+  </data>
+  <data name="TypeSecurityALableText" xml:space="preserve">
+    <value>输入安全问题的答案：</value>
+  </data>
+  <data name="TypeSecurityQLableText" xml:space="preserve">
+    <value>输入安全问题：</value>
+  </data>
+  <data name="TypeUserNameLabelText" xml:space="preserve">
+    <value>输入用户名：</value>
+  </data>
+  <data name="UserMgmt_Desc" xml:space="preserve">
+    <value>此页用于管理基于窗体验证的用户。</value>
+  </data>
+  <data name="UserMgmt_Title" xml:space="preserve">
+    <value>网站用户管理(FBA)</value>
+  </data>
+  <data name="UserNameColHeaderText" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="UserNameReadonlyLabelText" xml:space="preserve">
+    <value>用户名为只读：</value>
+  </data>
+  <data name="UsersInRoleColHeaderText" xml:space="preserve">
+    <value>用户数</value>
+  </data>
+  <data name="UsersInRoleMsg" xml:space="preserve">
+    <value>有 {0} 个用户属于这个角色。</value>
+  </data>
+</root>

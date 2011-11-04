@@ -46,7 +46,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     web = item.Web;
                     list = item.ParentList;
-                    status = (MembershipStatus)Enum.Parse(typeof(MembershipStatus), item[MembershipReviewListFields.STATUS].ToString());
+                    status = (MembershipStatus)Utils.GetChoiceIndex(list.Fields.GetFieldByInternalName(MembershipReviewListFields.STATUS) as SPFieldChoice, item[MembershipReviewListFields.STATUS].ToString());
                     switch (status)
                     {
                         case MembershipStatus.Approved:
@@ -126,9 +126,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
 
             /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
-            request.ChangePasswordURL = string.Format("{0}/{1}", web.Url, settings.ChangePasswordPage);
-            request.PasswordQuestionURL = string.Format("{0}/{1}", web.Url, settings.PasswordQuestionPage);
-            request.ThankYouURL = string.Format("{0}/{1}", web.Url, settings.ThankYouPage);
+            request.ChangePasswordURL = Utils.GetAbsoluteURL(web, settings.ChangePasswordPage);
+            request.PasswordQuestionURL = Utils.GetAbsoluteURL(web, settings.PasswordQuestionPage);
+            request.ThankYouURL = Utils.GetAbsoluteURL(web, settings.ThankYouPage);
 
             return request;
         }

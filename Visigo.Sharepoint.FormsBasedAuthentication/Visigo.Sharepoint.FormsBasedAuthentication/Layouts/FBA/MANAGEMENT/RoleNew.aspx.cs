@@ -31,7 +31,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                lblMessage.Text = "Role Already Exists";
+                lblMessage.Visible = true;
 
             }
         }

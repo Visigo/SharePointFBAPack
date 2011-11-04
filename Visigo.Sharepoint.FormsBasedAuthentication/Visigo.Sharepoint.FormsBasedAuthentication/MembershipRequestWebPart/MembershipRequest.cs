@@ -215,7 +215,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             /* This is just for debugging */
             try
             {
-                SPList memberlist = web.Lists[MembershipList.MEMBERSHIPREVIEWLIST];
+                SPList memberlist = web.GetList(Utils.GetAbsoluteURL(web,MembershipList.MEMBERSHIPREVIEWLIST));
                 
                 if (memberlist.Fields.ContainsField("LastError"))
                 {
@@ -334,7 +334,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         //email user to confirm that request is approved
                         xsltValues = new Hashtable(1);
                         xsltValues.Add("fba:MembershipRequest", request);
-                        bool bSentMail = Email.SendEmail(web, request.UserEmail, string.Format("{0}{1}", web.Url, settings.MembershipApprovedEmail), xsltValues);
+                        bool bSentMail = Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipApprovedEmail), xsltValues);
 
                         if (!bSentMail)
                         {
@@ -366,7 +366,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     //Add error information to list
                     try
                     {
-                        SPList memberlist = web.Lists[MembershipList.MEMBERSHIPREVIEWLIST];
+                        SPList memberlist = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
                         if (memberlist.Fields.ContainsField("LastError"))
                         {
                             foreach (SPListItem addItem in memberlist.Items)
@@ -397,7 +397,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 //Add error information to list
                 try
                 {
-                    SPList memberlist = web.Lists[MembershipList.MEMBERSHIPREVIEWLIST];
+                    SPList memberlist = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
                     if (memberlist.Fields.ContainsField("LastError"))
                     {
                         foreach (SPListItem addItem in memberlist.Items)
@@ -429,7 +429,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                Email.SendEmail(web, request.UserEmail, string.Format("{0}{1}", web.Url, settings.MembershipRejectedEmail), xsltValues);
+                Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipRejectedEmail), xsltValues);
             }
             catch (Exception ex)
             {
@@ -446,7 +446,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                Email.SendEmail(web, request.UserEmail, string.Format("{0}{1}", web.Url,settings.MembershipPendingEmail), xsltValues);
+                Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipPendingEmail), xsltValues);
             }
             catch (Exception ex)
             {
@@ -463,7 +463,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                return Email.SendEmail(web, request.UserEmail, string.Format("{0}{1}", web.Url,settings.PasswordRecoveryEmail), xsltValues);
+                return Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.PasswordRecoveryEmail), xsltValues);
             }
             catch (Exception ex)
             {
@@ -490,7 +490,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                         site.AllowUnsafeUpdates = true;
                         web.AllowUnsafeUpdates = true;
-                        reviewList = web.Lists[MembershipList.MEMBERSHIPREVIEWLIST];
+                        reviewList = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
                         if (reviewList != null)
                         {
                             reviewItem = reviewList.Items.Add();

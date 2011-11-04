@@ -17,9 +17,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         /// </summary>
         public MembershipRequestGroupEditor()
         {
+            LocalizedString resourceManager;
+            resourceManager = new LocalizedString("FBAPackMembershipRequestWebPart");
             this.ID = "GroupEditor";
-            this.Title = "Default Group For New Users";
-            this.Description = "Select A Default Group For All New Registrants";
+            this.Title = resourceManager.GetString("GroupEditor_Title");
+            this.Description = resourceManager.GetString("GroupEditor_Description");
         }
 
         /// <summary>

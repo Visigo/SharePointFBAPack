@@ -40,22 +40,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::System.Web.UI.WebControls.PlaceHolder ToolBarPlaceHolder;
         
         /// <summary>
-        /// onetidNavNodesTB control.
+        /// DescArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl onetidNavNodesTB;
-        
-        /// <summary>
-        /// idNewNavNode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UserControl idNewNavNode;
+        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral DescArea;
         
         /// <summary>
         /// UserMenu control.
@@ -83,6 +74,33 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.MenuItemTemplate Delete;
+        
+        /// <summary>
+        /// onetidNavNodesTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl onetidNavNodesTB;
+        
+        /// <summary>
+        /// idNewNavNode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl idNewNavNode;
+        
+        /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
         
         /// <summary>
         /// SearchText control.

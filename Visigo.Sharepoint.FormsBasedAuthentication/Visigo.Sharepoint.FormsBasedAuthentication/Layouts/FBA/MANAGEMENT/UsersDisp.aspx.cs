@@ -15,7 +15,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             // display error if membership provider not configured
             if (!Utils.IsProviderConfigured())
             {
-                lblMessage.Text = "A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.";
+                lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages","MembershipNotConfigured");
                 MemberGrid.Visible = false;
                 ToolBarPlaceHolder.Visible = false;
             }

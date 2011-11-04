@@ -24,7 +24,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // display role being deleted and number of users in that role
             txtRole.Text = Request.QueryString["ROLE"];
-            lblMessage.Text = "There are " + Roles.GetUsersInRole(txtRole.Text).Length + " users in this role.";
+            lblMessage.Text = string.Format(localizedMsg.Text, Roles.GetUsersInRole(txtRole.Text).Length);
         }
 
         protected void OnDelete(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                lblMessage.Text = "Role doesn't exist";
+                lblMessage.Text = notExistMsg.Text;
             }
         }
     }

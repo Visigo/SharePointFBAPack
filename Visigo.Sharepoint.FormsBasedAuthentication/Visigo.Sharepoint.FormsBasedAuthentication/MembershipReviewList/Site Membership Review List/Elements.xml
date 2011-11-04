@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="Site Membership Review List"
+  <ListInstance Title="$Resources:FBAPackFeatures, MembershipReviewList_DispName;"
                 OnQuickLaunch="FALSE"
                 TemplateType="100"
                 Url="Site Membership Review List"
-                Description="Contains list of users requesting a site account.">
+                Description="$Resources:FBAPackFeatures, MembershipReviewList_Desc;.">
   </ListInstance>
 </Elements>

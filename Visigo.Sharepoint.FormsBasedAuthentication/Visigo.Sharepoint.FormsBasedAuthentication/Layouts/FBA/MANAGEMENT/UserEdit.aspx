@@ -12,27 +12,27 @@
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
     Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    <SharePoint:EncodedLiteral ID="PageTitle" Text="Edit Forms Based Authentication User"
+    <SharePoint:EncodedLiteral ID="PageTitle" Text="<%$ Resources:FBAPackWebPages, EditUser_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea"
     runat="server">
-    <SharePoint:EncodedLiteral ID="TitleArea" Text="Edit Forms Based Authentication User"
+    <SharePoint:EncodedLiteral ID="TitleArea" Text="<%$ Resources:FBAPackWebPages, EditUser_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript">
         function confirmPasswordReset() {
-            return confirm("<SharePoint:EncodedLiteral runat='server' text='Are you sure you want to reset the password? The user will be emailed the new password' EncodeMethod='EcmaScriptStringLiteralEncode'/>");
+            return confirm("<SharePoint:EncodedLiteral runat='server' text='<%$ Resources:FBAPackWebPages, PasswordConfirmText %>' EncodeMethod='EcmaScriptStringLiteralEncode'/>");
         }
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
-        <wssuc:InputFormSection runat="server" Title="User Name">
+        <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, UserNameColHeaderText %>">
             <template_inputformcontrols>
             <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="red"></asp:Label>
-		    <wssuc:InputFormControl runat="server" LabelText="Username is read only:">
+		    <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, UserNameReadonlyLabelText %>">
 			    <Template_Control>
 			    <SharePoint:InputFormTextBox Title="Username" Enabled="false" ReadOnly="true" class="ms-input" Columns="40" maxlength="255" ID="txtUsername" Direction="LeftToRight" Runat="server" />
 			    <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator1" ControlToValidate="txtUsername" Display="Dynamic" Runat="server"/>
@@ -41,66 +41,66 @@
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" Title="Full Name">
+        <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, FullNameColHeaderText %>">
             <template_inputformcontrols>
-	        <wssuc:InputFormControl runat="server" LabelText="Type the full name:">
+	        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeFullNameLabelText %>">
 		        <Template_Control>
-		            <SharePoint:InputFormTextBox Title="Full Name" class="ms-input" Columns="40" maxlength="255" ID="txtFullName" Direction="LeftToRight" Runat="server" />
+		            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, FullNameColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtFullName" Direction="LeftToRight" Runat="server" />
 		            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator2" ControlToValidate="txtFullName" Display="Dynamic" Runat="server"/>
 		        </Template_Control>
 	        </wssuc:InputFormControl>
         </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" Title="Email">
+        <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>">
             <template_inputformcontrols>
-		    <wssuc:InputFormControl runat="server" LabelText="Type the user's email address:">
+		    <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeEmailAddrLabelText %>">
 			    <Template_Control>
-			    <SharePoint:InputFormTextBox Title="txtEmail" class="ms-input" Columns="40" maxlength="255" ID="txtEmail" Direction="LeftToRight" Runat="server" />
+			    <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtEmail" Direction="LeftToRight" Runat="server" />
 			    <SharePoint:InputFormRegularExpressionValidator ID="InputFormRegExpressionFieldValidator1"  ControlToValidate="txtEmail" Display="Dynamic" runat="server" ValidationExpression="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$" ErrorMessage="Enter a valid email address."/>
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" id="CategorySection1" Title="Active">
+        <wssuc:InputFormSection runat="server" id="CategorySection1" Title="<%$ Resources:FBAPackWebPages, ActiveColHeaderText %>">
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server">
 			    <Template_Control>
-				    <SharePoint:InputFormCheckBox ID="isActive" ToolTip="If checked the account is active." LabelText="Check the box if the user's account is active." runat="server"/>
+				    <SharePoint:InputFormCheckBox ID="isActive" ToolTip="<%$ Resources:FBAPackWebPages, ActiveCheckBoxToolTipText %>" LabelText="<%$ Resources:FBAPackWebPages, ActiveCheckBoxLabelText %>" runat="server"/>
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" Title="Account Locked">
+        <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, AccountLockedHeaderText %>">
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server">
 			    <Template_Control>
-				    <SharePoint:InputFormCheckBox ID="isLocked" ToolTip="If checked the account is locked." LabelText="Uncheck the box to unlock the user's account." runat="server"/>
+				    <SharePoint:InputFormCheckBox ID="isLocked" ToolTip="<%$ Resources:FBAPackWebPages, AccountLockedToolTipText %>" LabelText="<%$ Resources:FBAPackWebPages, AccountLockedLabelText %>" runat="server"/>
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" id="GroupSection" Title="Groups">
+        <wssuc:InputFormSection runat="server" id="GroupSection" Title="<%$ Resources:FBAPackWebPages, GroupHeaderText %>">
             <template_inputformcontrols>
-	        <wssuc:InputFormControl runat="server" LabelText="Choose atleast one group to add the user to:">
+	        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, GroupLabelText %>">
 		        <Template_Control>
-			        <SharePoint:InputFormCheckBoxList ID="groupList" CssClass="ms-RadioText" ToolTip="Select the roles for this user" runat="server"/>
+			        <SharePoint:InputFormCheckBoxList ID="groupList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server"/>
 		        </Template_Control>
 	        </wssuc:InputFormControl>
         </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" id="RolesSection" Title="Roles">
+        <wssuc:InputFormSection runat="server" id="RolesSection" Title="<%$ Resources:FBAPackWebPages, GroupLabelText %>">
             <template_inputformcontrols>
-	        <wssuc:InputFormControl runat="server">
+	        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, GroupLabelText %>">
 		        <Template_Control>
-			        <SharePoint:InputFormCheckBoxList ID="rolesList" CssClass="ms-RadioText" ToolTip="Select the roles for this user" runat="server"/>
+			        <SharePoint:InputFormCheckBoxList ID="rolesList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server"/>
 		        </Template_Control>
 	        </wssuc:InputFormControl>
         </template_inputformcontrols>
         </wssuc:InputFormSection>
         <wssuc:ButtonSection runat="server">
             <template_buttons>
-	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" Width="100px" OnClick="OnResetPassword" OnClientClick="if (!confirmPasswordReset()) return false;" Text="Reset Password" id="BtnReset" accesskey="P"/>
-    	    <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnSubmit" Text="Save" id="BtnOk" accesskey="<%$Resources:wss,okbutton_accesskey%>"/>	    
+	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" OnClientClick="if (!confirmPasswordReset()) return false;" Text="<%$ Resources:FBAPackWebPages, ResetPasswordButonText %>" id="BtnReset" accesskey="P"/>
+    	    <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnSubmit" Text="<%$ Resources:FBAPackWebPages, SaveButonText %>" id="BtnOk" accesskey="<%$Resources:wss,okbutton_accesskey%>"/>	    
 	    </template_buttons>
         </wssuc:ButtonSection>
     </table>

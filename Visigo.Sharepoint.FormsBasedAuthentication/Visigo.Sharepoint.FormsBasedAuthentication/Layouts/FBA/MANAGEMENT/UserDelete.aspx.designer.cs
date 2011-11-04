@@ -31,6 +31,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.EncodedLiteral TitleArea;
         
         /// <summary>
+        /// localizedMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label localizedMsg;
+        
+        /// <summary>
         /// deleteMsg control.
         /// </summary>
         /// <remarks>

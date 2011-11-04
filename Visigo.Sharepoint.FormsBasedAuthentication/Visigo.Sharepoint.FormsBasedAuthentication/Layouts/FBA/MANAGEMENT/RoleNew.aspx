@@ -12,23 +12,23 @@
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
     Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    <SharePoint:EncodedLiteral ID="PageTitle" Text="New Forms Based Authentication Role"
+    <SharePoint:EncodedLiteral ID="PageTitle" Text="<% $Resources: FBAPackWebPages, NewRole_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea"
     runat="server">
-    <SharePoint:EncodedLiteral ID="TitleArea" Text="New Forms Based Authentication Role"
+    <SharePoint:EncodedLiteral ID="TitleArea" Text="<% $Resources: FBAPackWebPages, NewRole_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
-        <wssuc:InputFormSection runat="server" Title="Role Name">
+        <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, RoleNameHeaderText %>">
             <template_inputformcontrols>
-		<wssuc:InputFormControl runat="server" LabelText="Type the role name:">
+		<wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, RoleNameLabelText %>">
 			<Template_Control>
-			<SharePoint:InputFormTextBox Title="Role Name" class="ms-input" Columns="40" maxlength="255" ID="txtRole" Direction="LeftToRight" Runat="server" />
+			<SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, RoleNameHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtRole" Direction="LeftToRight" Runat="server" />
 			<SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidatorRole" ControlToValidate="txtRole" Display="Dynamic" Runat="server"/>
-			<asp:Label ID="lblMessage" runat="server" Text="" ForeColor="red"></asp:Label>
+			<asp:Label ID="lblMessage" runat="server" Text="<% $Resources: FBAPackWebPages, RoleExistenceMsg %>" ForeColor="red" Visible="false"></asp:Label>
 			</Template_Control>
 		</wssuc:InputFormControl>
 	</template_inputformcontrols>
