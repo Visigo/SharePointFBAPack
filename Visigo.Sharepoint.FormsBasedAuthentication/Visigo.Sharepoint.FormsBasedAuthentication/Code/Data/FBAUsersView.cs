@@ -7,6 +7,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.Utilities;
 using System.Reflection;
+using System.Globalization;
 
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
@@ -37,6 +38,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return null;
             
             SPWeb web = site.RootWeb;
+
+            string yes = LocalizedString.GetString("FBAPackFeatures", "Yes");
+
+            string no = LocalizedString.GetString("FBAPackFeatures", "No");
 
             // we only display users that have been added to SharePoint
             // we use the localized name, safe for non-English SharePoint servers
@@ -103,9 +108,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     if (memberuser.UserName.ToLower() == row["NonProviderName"].ToString().ToLower())
                     {
                         row["Name"] = memberuser.UserName;
-                        row["Active"] = memberuser.IsApproved ? "Yes" : "No";
-                        row["Locked"] = memberuser.IsLockedOut ? "Yes" : "No";
-                        row["IsInSharePoint"] = "Yes";
+                        row["Active"] = memberuser.IsApproved ? yes : no;
+                        row["Locked"] = memberuser.IsLockedOut ? yes : no;
+                        row["IsInSharePoint"] = yes;
                         bFoundMember = true;
                         //users.Rows[i].Delete();
                         break;
@@ -117,9 +122,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     DataRow datanewuser = users.NewRow();
                     datanewuser["Name"] = memberuser.UserName;
                     datanewuser["Email"] = memberuser.Email;
-                    datanewuser["Active"] = memberuser.IsApproved ? "Yes" : "No";
-                    datanewuser["Locked"] = memberuser.IsLockedOut ? "Yes" : "No";
-                    datanewuser["IsInSharePoint"] = "No";
+                    datanewuser["Active"] = memberuser.IsApproved ? yes : no;
+                    datanewuser["Locked"] = memberuser.IsLockedOut ? yes : no;
+                    datanewuser["IsInSharePoint"] = no;
                     users.Rows.Add(datanewuser);
                 }
                 
@@ -128,7 +133,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             //Remove users that weren't found in SharePoint
             for(int i = users.Rows.Count - 1; i >= 0; i--)
             {
-                if (users.Rows[i]["IsInSharePoint"].ToString() != "Yes" && users.Rows[i]["IsInSharePoint"].ToString() != "No")
+                if (users.Rows[i]["IsInSharePoint"].ToString() != yes && users.Rows[i]["IsInSharePoint"].ToString() != no)
                 {
                     users.Rows[i].Delete();
                 }

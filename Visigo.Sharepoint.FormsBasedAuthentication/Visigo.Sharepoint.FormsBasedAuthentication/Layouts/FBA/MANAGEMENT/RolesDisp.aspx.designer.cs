@@ -40,6 +40,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::System.Web.UI.WebControls.PlaceHolder ToolBarPlaceHolder;
         
         /// <summary>
+        /// DescArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral DescArea;
+        
+        /// <summary>
         /// onetidNavNodesTB control.
         /// </summary>
         /// <remarks>

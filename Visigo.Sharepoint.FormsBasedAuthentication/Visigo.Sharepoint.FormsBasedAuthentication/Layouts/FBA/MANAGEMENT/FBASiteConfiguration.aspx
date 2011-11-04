@@ -11,92 +11,93 @@
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
     Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    <SharePoint:EncodedLiteral ID="PageTitle" Text="Manage Forms Based Authentication Users"
+    <SharePoint:EncodedLiteral ID="PageTitle" Text="<% $Resources: FBAPackWebPages, SiteConfig_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea"
     runat="server">
-    <SharePoint:EncodedLiteral ID="TitleArea" Text="Manage Forms Based Authentication Configuration"
+    <SharePoint:EncodedLiteral ID="TitleArea" Text="<% $Resources: FBAPackWebPages, SiteConfig_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderPageDescription" runat="server">
-    <asp:PlaceHolder ID="ToolBarPlaceHolder" runat="server">Use this page to manage forms
-        based authentication site configuration such as site URLs. </asp:PlaceHolder>
+    <asp:PlaceHolder ID="ToolBarPlaceHolder" runat="server">
+    <SharePoint:EncodedLiteral ID="DescArea" Text="<% $Resources: FBAPackWebPages, SiteConfig_Desc %>"
+        EncodeMethod="HtmlEncode" runat="server" /> </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
-        <wssuc:InputFormSection runat="server" Title="Membership Options">
+        <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, MembershipOptionHeaderText %>">
             <template_description>
-		   <SharePoint:EncodedLiteral ID="EncodedLiteral3" runat="server" text="These options control the functionality of the FBA web parts." EncodeMethod='HtmlEncode'/>
+		   <SharePoint:EncodedLiteral ID="EncodedLiteral3" runat="server" text="<% $Resources: FBAPackWebPages, MembershipOptionHeaderDesc %>" EncodeMethod='HtmlEncode'/>
 	    </template_description>
             <template_inputformcontrols>
-		    <wssuc:InputFormControl runat="server" LabelText="Enable Roles:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, EnableRolesLabelText %>">
 			    <Template_Control>
-                    <SharePoint:InputFormCheckBox Title="EnableRoles" ID="chkEnableRoles" runat="server" />			       
+                    <SharePoint:InputFormCheckBox Title="<% $Resources: FBAPackWebPages, EnableRolesToolTipText %>" ID="chkEnableRoles" runat="server" />			       
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Review Membership Requests:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, ReviewMembershipRequestLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormCheckBox Title="ReviewMembershipRequests" ID="chkReviewMembershipRequests" runat="server" />
+			       <SharePoint:InputFormCheckBox Title="<% $Resources: FBAPackWebPages, ReviewMembershipRequestToolTipText %>" ID="chkReviewMembershipRequests" runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" Title="Membership Review Site URLs">
+        <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderText %>">
             <template_description>
-		   <SharePoint:EncodedLiteral ID="EncodedLiteral1" runat="server" text="These pages can be used in email or FBA web parts." EncodeMethod='HtmlEncode'/>
+		   <SharePoint:EncodedLiteral ID="EncodedLiteral1" runat="server" text="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderDesc %>" EncodeMethod='HtmlEncode'/>
 	    </template_description>
             <template_inputformcontrols>
-		    <wssuc:InputFormControl runat="server" LabelText="Change Password Page:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordChangePageLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="ChangePasswordPage" class="ms-input" Columns="40" maxlength="255" ID="txtChangePasswordPage" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordChangePageToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtChangePasswordPage" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Password Question Page:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordQuestionPageLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="PasswordQuestionPage" class="ms-input" Columns="40" maxlength="255" ID="txtPasswordQuestionPage" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordQuestionPageToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtPasswordQuestionPage" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Thank You Page:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, ThankYouPageLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="ThankYouPage" class="ms-input" Columns="40" maxlength="255" ID="txtThankYouPage" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, ThankYouPageToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtThankYouPage" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
-        <wssuc:InputFormSection runat="server" Title="Membership Email XSLT">
+        <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, MembershipEmailTemplateHeaderText %>">
             <template_description>
-		   <SharePoint:EncodedLiteral ID="EncodedLiteral2" runat="server" text="These are the paths to the XSLT used for the emails." EncodeMethod='HtmlEncode'/>
+		   <SharePoint:EncodedLiteral ID="EncodedLiteral2" runat="server" text="<% $Resources: FBAPackWebPages, MembershipEmailTemplateHeaderDesc %>" EncodeMethod='HtmlEncode'/>
 	    </template_description>
             <template_inputformcontrols>
-		    <wssuc:InputFormControl runat="server" LabelText="Reply To Email Address:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, ReplyToLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="ReplyTo" class="ms-input" Columns="40" maxlength="255" ID="txtReplyTo" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, ReplyToToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtReplyTo" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Membership Approved:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipApprovedLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="MembershipApproved" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipApproved" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipApprovedToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipApproved" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Membership Error:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipErrorLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="MembershipError" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipError" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipErrorToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipError" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="Membership Pending:">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipPendingLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="MembershipPending" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipPending" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipPendingToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipPending" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    		    <wssuc:InputFormControl runat="server" LabelText="Membership Rejected:">
+		    		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipRejectedLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="MembershipRejected" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipRejected" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipRejectedToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipRejected" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
-		    		    <wssuc:InputFormControl runat="server" LabelText="Password Recovery:">
+		    		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordRecoveryLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="PasswordRecovery" class="ms-input" Columns="40" maxlength="255" ID="txtPasswordRecovery" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordRecoveryToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtPasswordRecovery" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>

@@ -420,7 +420,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             request.LastName = this.LastName;
                             request.SiteName = web2.Title;
                             request.SiteURL = web2.Url;
-                            request.ChangePasswordURL = string.Format("{0}/{1}", web2.Url, settings.ChangePasswordPage);
+                            request.ChangePasswordURL = Utils.GetAbsoluteURL(web, settings.ChangePasswordPage);
                             request.DefaultGroup = this.DefaultGroup;
                             request.LoginCreatedUser = SPLoginCreatedUser;
 

@@ -17,7 +17,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public class ChangePasswordWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
         #region Fields
-        private ResourceManager _resourceManager;
         private string _cancelButtonImageUrl = string.Empty;
         private string _cancelButtonText = string.Empty;
         private ButtonType _cancelButtonType = ButtonType.Button;
@@ -65,9 +64,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         #region Properties
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonImageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_Description")]
         public string CancelButtonImageUrl
         {
             get
@@ -81,9 +80,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonText_Description")]        
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CancelButtonText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CancelButtonText_Description")]        
         public string CancelButtonText
         {
             get
@@ -97,9 +96,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelButtonType_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelButtonType_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelButtonType_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CancelButtonType_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CancelButtonType_Description")]
         public ButtonType CancelButtonType
         {
             get
@@ -113,9 +112,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CancelDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CancelDestinationPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CancelDestinationPageUrl_Description")]
         public string CancelDestinationPageUrl
         {
             get
@@ -129,9 +128,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonImageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordButtonImageUrl_Description")]
         public string ChangePasswordButtonImageUrl
         {
             get
@@ -145,9 +144,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordButtonText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordButtonText_Description")]
         public string ChangePasswordButtonText
         {
             get
@@ -161,9 +160,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordButtonType_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordButtonType_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordButtonType_Description")]
         public ButtonType ChangePasswordButtonType
         {
             get
@@ -177,9 +176,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordFailureText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordFailureText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordFailureText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordFailureText_Description")]
         public string ChangePasswordFailureText
         {
             get
@@ -193,9 +192,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ChangePasswordTitleText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordTitleText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordTitleText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordTitleText_Description")]
         public string ChangePasswordTitleText
         {
             get
@@ -209,9 +208,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmNewPasswordLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ConfirmNewPasswordLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ConfirmNewPasswordLabelText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ConfirmNewPasswordLabelText_Description")]
         public string ConfirmNewPasswordLabelText
         {
             get
@@ -226,9 +225,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmPasswordCompareErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ConfirmPasswordCompareErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ConfirmPasswordCompareErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ConfirmPasswordCompareErrorMessage_Description")]
         public string ConfirmPasswordCompareErrorMessage
         {
             get
@@ -243,9 +242,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ConfirmPasswordRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ConfirmPasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ConfirmPasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ConfirmPasswordRequiredErrorMessage_Description")]
         public string ConfirmPasswordRequiredErrorMessage
         {
             get
@@ -260,9 +259,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueButtonImageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ContinueButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ContinueButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ContinueButtonImageUrl_Description")]
         public string ContinueButtonImageUrl
         {
             get
@@ -277,9 +276,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueButtonText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueButtonText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueButtonText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ContinueButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ContinueButtonText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ContinueButtonText_Description")]
         public string ContinueButtonText
         {
             get
@@ -294,9 +293,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "ContinueDestinationPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ContinueDestinationPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ContinueDestinationPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ContinueDestinationPageUrl_Description")]
         public string ContinueDestinationPageUrl
         {
             get
@@ -311,9 +310,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserIconUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserIconUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserIconUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CreateUserIconUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CreateUserIconUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CreateUserIconUrl_Description")]
         public string CreateUserIconUrl
         {
             get
@@ -328,9 +327,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CreateUserText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CreateUserText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CreateUserText_Description")]
         public string CreateUserText
         {
             get
@@ -345,9 +344,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "CreateUserUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "CreateUserUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "CreateUserUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CreateUserUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "CreateUserUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "CreateUserUrl_Description")]
         public string CreateUserUrl
         {
             get
@@ -362,9 +361,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "DisplayUserName_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "DisplayUserName_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "DisplayUserName_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "DisplayUserName_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "DisplayUserName_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "DisplayUserName_Description")]
         public bool DisplayUserName
         {
             get
@@ -379,9 +378,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileIconUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileIconUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileIconUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "EditProfileIconUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "EditProfileIconUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "EditProfileIconUrl_Description")]
         public string EditProfileIconUrl
         {
             get
@@ -396,9 +395,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "EditProfileText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "EditProfileText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "EditProfileText_Description")]
         public string EditProfileText
         {
             get
@@ -413,9 +412,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "EditProfileUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "EditProfileUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "EditProfileUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "EditProfileUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "EditProfileUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "EditProfileUrl_Description")]
         public string EditProfileUrl
         {
             get
@@ -430,9 +429,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageIconUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageIconUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageIconUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "HelpPageIconUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "HelpPageIconUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "HelpPageIconUrl_Description")]
         public string HelpPageIconUrl
         {
             get
@@ -447,9 +446,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "HelpPageText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "HelpPageText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "HelpPageText_Description")]
         public string HelpPageText
         {
             get
@@ -464,9 +463,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "HelpPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "HelpPageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "HelpPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "HelpPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "HelpPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "HelpPageUrl_Description")]
         public string HelpPageUrl
         {
             get
@@ -480,9 +479,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "InstructionText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "InstructionText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "InstructionText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "InstructionText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "InstructionText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "InstructionText_Description")]
         public string InstructionText
         {
             get
@@ -496,9 +495,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "NewPasswordLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "NewPasswordLabelText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "NewPasswordLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "NewPasswordLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "NewPasswordLabelText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "NewPasswordLabelText_Description")]
         public string NewPasswordLabelText
         {
             get
@@ -512,9 +511,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "NewPasswordRegularExpressionErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "NewPasswordRegularExpressionErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "NewPasswordRegularExpressionErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "NewPasswordRegularExpressionErrorMessage_Description")]
         public string NewPasswordRegularExpressionErrorMessage
         {
             get
@@ -528,9 +527,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordHintText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordHintText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordHintText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordHintText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordHintText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordHintText_Description")]
         public string PasswordHintText
         {
             get
@@ -544,9 +543,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordLabelText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordLabelText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordLabelText_Description")]
         public string PasswordLabelText
         {
             get
@@ -560,9 +559,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryIconUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordRecoveryIconUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordRecoveryIconUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordRecoveryIconUrl_Description")]
         public string PasswordRecoveryIconUrl
         {
             get
@@ -576,9 +575,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordRecoveryText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordRecoveryText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordRecoveryText_Description")]
         public string PasswordRecoveryText
         {
             get
@@ -592,9 +591,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRecoveryUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordRecoveryUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordRecoveryUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordRecoveryUrl_Description")]
         public string PasswordRecoveryUrl
         {
             get
@@ -608,9 +607,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "PasswordRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "PasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "PasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "PasswordRequiredErrorMessage_Description")]
         public string PasswordRequiredErrorMessage
         {
             get
@@ -624,9 +623,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "SuccessPageUrl_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "SuccessPageUrl_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "SuccessPageUrl_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "SuccessPageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "SuccessPageUrl_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "SuccessPageUrl_Description")]
         public string SuccessPageUrl
         {
             get
@@ -640,9 +639,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "SuccessText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "SuccessText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "SuccessText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "SuccessText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "SuccessText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "SuccessText_Description")]
         public string SuccessText
         {
             get
@@ -656,9 +655,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "UserNameLabelText_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "UserNameLabelText_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "UserNameLabelText_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "UserNameLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "UserNameLabelText_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
             get
@@ -672,9 +671,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
-        [LocalizedWebDisplayName(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_FriendlyName")]
-        [LocalizedCategory(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_Category")]
-        [LocalizedWebDescription(typeof(ChangePasswordWebPart), "UserNameRequiredErrorMessage_Description")]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "UserNameRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "UserNameRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
             get
@@ -692,48 +691,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Constructors
         public ChangePasswordWebPart()
         {
-            _resourceManager = new ResourceManager("Visigo.Sharepoint.FormsBasedAuthentication.ChangePasswordWebPart", Assembly.GetExecutingAssembly());
             try
             {
-                CancelButtonImageUrl = _resourceManager.GetString("CancelButtonImageUrl_DefaultValue");
-                CancelButtonText = _resourceManager.GetString("CancelButtonText_DefaultValue");
-                CancelButtonType = (ButtonType)Convert.ToInt32(_resourceManager.GetString("CancelButtonType_DefaultValue"), CultureInfo.InvariantCulture);
-                CancelDestinationPageUrl = _resourceManager.GetString("CancelDestinationPageUrl_DefaultValue");
-                ChangePasswordButtonImageUrl = _resourceManager.GetString("ChangePasswordButtonImageUrl_DefaultValue");
-                ChangePasswordButtonText = _resourceManager.GetString("ChangePasswordButtonText_DefaultValue");
-                ChangePasswordButtonType = (ButtonType)Convert.ToInt32(_resourceManager.GetString("ChangePasswordButtonType_DefaultValue"), CultureInfo.InvariantCulture);
-                ChangePasswordFailureText = _resourceManager.GetString("ChangePasswordFailureText_DefaultValue");
-                ChangePasswordTitleText = _resourceManager.GetString("ChangePasswordTitleText_DefaultValue");
-                ConfirmNewPasswordLabelText = _resourceManager.GetString("ConfirmNewPasswordLabelText_DefaultValue");
-                ConfirmPasswordCompareErrorMessage = _resourceManager.GetString("ConfirmPasswordCompareErrorMessage_DefaultValue");
-                ConfirmPasswordRequiredErrorMessage = _resourceManager.GetString("ConfirmPasswordRequiredErrorMessage_DefaultValue");
-                ContinueButtonImageUrl = _resourceManager.GetString("ContinueButtonImageUrl_DefaultValue");
-                ContinueButtonText = _resourceManager.GetString("ContinueButtonText_DefaultValue");
-                CreateUserIconUrl = _resourceManager.GetString("CreateUserIconUrl_DefaultValue");
-                CreateUserText = _resourceManager.GetString("CreateUserText_DefaultValue");
-                CreateUserUrl = _resourceManager.GetString("CreateUserUrl_DefaultValue");
-                DisplayUserName = Convert.ToBoolean(_resourceManager.GetString("DisplayUserName_DefaultValue"), CultureInfo.InvariantCulture);
-                EditProfileIconUrl = _resourceManager.GetString("EditProfileIconUrl_DefaultValue");
-                EditProfileText = _resourceManager.GetString("EditProfileText_DefaultValue");
-                EditProfileUrl = _resourceManager.GetString("EditProfileUrl_DefaultValue");
-                HelpPageIconUrl = _resourceManager.GetString("HelpPageIconUrl_DefaultValue");
-                HelpPageText = _resourceManager.GetString("HelpPageText_DefaultValue");
-                HelpPageUrl = _resourceManager.GetString("HelpPageUrl_DefaultValue");
-                InstructionText = _resourceManager.GetString("InstructionText_DefaultValue");
-                NewPasswordLabelText = _resourceManager.GetString("NewPasswordLabelText_DefaultValue");
-                NewPasswordRegularExpressionErrorMessage = _resourceManager.GetString("NewPasswordRegularExpressionErrorMessage_DefaultValue");
-                PasswordHintText = _resourceManager.GetString("PasswordHintText_DefaultValue");
-                PasswordLabelText = _resourceManager.GetString("PasswordLabelText_DefaultValue");
-                PasswordRecoveryIconUrl = _resourceManager.GetString("PasswordRecoveryIconUrl_DefaultValue");
-                PasswordRecoveryText = _resourceManager.GetString("PasswordRecoveryText_DefaultValue");
-                PasswordRecoveryUrl = _resourceManager.GetString("PasswordRecoveryUrl_DefaultValue");
-                PasswordRequiredErrorMessage = _resourceManager.GetString("PasswordRequiredErrorMessage_DefaultValue");
-                SuccessPageUrl = _resourceManager.GetString("SuccessPageUrl_DefaultValue");
-                SuccessText = _resourceManager.GetString("SuccessText_DefaultValue");
-                UserNameLabelText = _resourceManager.GetString("UserNameLabelText_DefaultValue");
-                UserNameRequiredErrorMessage = _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
-
-                //ContinueDestinationPageUrl = _resourceManager.GetString("ContinueDestinationPageUrl_DefaultValue");
                 //Default to the current url
                 ContinueDestinationPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
             }

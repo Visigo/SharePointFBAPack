@@ -40,6 +40,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtRole;
         
         /// <summary>
+        /// localizedMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label localizedMsg;
+        
+        /// <summary>
+        /// notExistMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notExistMsg;
+        
+        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>

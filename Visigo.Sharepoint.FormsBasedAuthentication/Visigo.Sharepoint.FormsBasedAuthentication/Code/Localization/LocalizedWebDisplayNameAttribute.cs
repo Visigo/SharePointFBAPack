@@ -10,9 +10,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     internal class LocalizedWebDisplayNameAttribute : WebDisplayNameAttribute
     {
         private bool _localized;
-        private Type _resourceSource;
+        private string _resourceSource;
 
-        public LocalizedWebDisplayNameAttribute(Type resourceSource, string displayName)
+        public LocalizedWebDisplayNameAttribute(string resourceSource, string displayName)
             : base(displayName)
         {
             _resourceSource = resourceSource;
@@ -24,8 +24,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 if (!_localized)
                 {
-                    ResourceManager manager = new ResourceManager(_resourceSource);
-                    DisplayNameValue = manager.GetString(base.DisplayName);
+                    DisplayNameValue = LocalizedString.GetString(_resourceSource,base.DisplayName);
                     _localized = true;
                 }
                 return base.DisplayName;

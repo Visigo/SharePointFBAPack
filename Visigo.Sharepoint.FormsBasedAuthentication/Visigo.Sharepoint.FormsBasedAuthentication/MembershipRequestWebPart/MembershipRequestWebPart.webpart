@@ -7,8 +7,51 @@
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">Membership Request</property>
-        <property name="Description" type="string">This web part allows unauthenticated users to request membership to a site.</property>
+        <property name="Title" type="string">$Resources:FBAPackFeatures,MembershipRequest_Title;</property>
+        <property name="Description" type="string">$Resources:FBAPackFeatures,MembershipRequest_Desc;</property>
+
+        <property name="AnswerLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,AnswerLabelText_DefaultValue;</property>
+        <property name="AnswerRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,AnswerRequiredErrorMessage_DefaultValue;</property>
+        <property name="CancelButtonImageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CancelButtonImageUrl_DefaultValue;</property>
+        <property name="CancelButtonText" type="string">$Resources:FBAPackMembershipRequestWebPart,CancelButtonText_DefaultValue;</property>
+        <property name="CancelButtonType" type="enum">$Resources:FBAPackMembershipRequestWebPart,CancelButtonType_DefaultValue;</property>
+        <property name="CancelDestinationPageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CancelDestinationPageUrl_DefaultValue;</property>
+        <property name="CompleteSuccessText" type="string">$Resources:FBAPackMembershipRequestWebPart,CompleteSuccessText_DefaultValue;</property>
+        <property name="CreateUserButtonImageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonImageUrl_DefaultValue;</property>
+        <property name="CreateUserButtonText" type="string">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonText_DefaultValue;</property>
+        <property name="CreateUserButtonType" type="enum">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonType_DefaultValue;</property>
+        <property name="CssClass" type="string">$Resources:FBAPackMembershipRequestWebPart,CSSClass_DefaultValue;</property>
+        <property name="DisplayCancelButton" type="bool">false</property>
+        <property name="DuplicateEmailErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,DuplicateEmailErrorMessage_DefaultValue;</property>
+        <property name="DuplicateUserNameErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,DuplicateUserNameErrorMessage_DefaultValue;</property>
+        <property name="EditProfileIconUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,EditProfileIconUrl_DefaultValue;</property>
+        <property name="EditProfileText" type="string">$Resources:FBAPackMembershipRequestWebPart,EditProfileText_DefaultValue;</property>
+        <property name="EditProfileUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,EditProfileUrl_DefaultValue;</property>
+        <property name="EmailLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,EmailLabelText_DefaultValue;</property>
+        <property name="EmailRegularExpressionErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,EmailRegularExpressionErrorMessage_DefaultValue;</property>
+        <property name="EmailRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,EmailRequiredErrorMessage_DefaultValue;</property>
+        <property name="HeaderText" type="string">$Resources:FBAPackMembershipRequestWebPart,HeaderText_DefaultValue;</property>
+        <property name="InstructionText" type="string">$Resources:FBAPackMembershipRequestWebPart,InstructionText_DefaultValue;</property>
+        <property name="InvalidAnswerErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,InvalidAnswerErrorMessage_DefaultValue;</property>
+        <property name="InvalidEmailErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,InvalidEmailErrorMessage_DefaultValue;</property>
+        <property name="InvalidQuestionErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,InvalidQuestionErrorMessage_DefaultValue;</property>
+        <property name="LoginCreatedUser" type="bool">false</property>
+        <property name="QuestionLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,QuestionLabelText_DefaultValue;</property>
+        <property name="QuestionRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,QuestionRequiredErrorMessage_DefaultValue;</property>
+        <property name="UnknownErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,UnknownErrorMessage_DefaultValue;</property>
+        <property name="UserNameLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,UserNameLabelText_DefaultValue;</property>
+        <property name="UserNameRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,UserNameRequiredErrorMessage_DefaultValue;</property>
+        <property name="FirstNameLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,FirstNameLabelText_DefaultValue;</property>
+        <property name="LastNameLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,LastNameLabelText_DefaultValue;</property>
+        <property name="FirstNameRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,FirstNameRequiredErrorMessage_DefaultValue;</property>
+        <property name="LastNameRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,LastNameRequiredErrorMessage_DefaultValue;</property>
+        <property name="HipPictureLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,HipPictureLabelText_DefaultValue;</property>
+        <property name="HipCharactersLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,HipCharactersLabelText_DefaultValue;</property>
+        <property name="HipInstructionsLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,HipInstructionsLabelText_DefaultValue;</property>
+        <property name="HipPictureDescription" type="string">$Resources:FBAPackMembershipRequestWebPart,HipPictureDescription_DefaultValue;</property>
+        <property name="HipResetLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,HipResetLabelText_DefaultValue;</property>
+        <property name="HipErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,HipErrorMessage_DefaultValue;</property>
+        <property name="//FinishDestinationPageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,FinishDestinationPageUrl_DefaultValue;</property>
       </properties>
     </data>
   </webPart>

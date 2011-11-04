@@ -282,5 +282,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             return BaseRoleProvider(site).RoleExists(roleName);
         }
+
+        public static string GetAbsoluteURL(SPWeb web, string path)
+        {
+            return SPUtility.ConcatUrls(web.Url, path);
+        }
+
+        public static int GetChoiceIndex(SPFieldChoice field, string value)
+        {
+            if (field == null || value == null)
+            {
+                return -1;
+            }
+            for (int i = 0; i < field.Choices.Count; i++)
+            {
+                if (field.Choices[i] == value)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
     }
 }

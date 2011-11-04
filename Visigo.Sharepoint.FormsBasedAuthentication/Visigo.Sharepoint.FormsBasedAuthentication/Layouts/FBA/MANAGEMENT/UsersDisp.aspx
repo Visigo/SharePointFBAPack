@@ -10,57 +10,61 @@
 <%@ Register TagPrefix="FBA" Namespace="Visigo.Sharepoint.FormsBasedAuthentication"
     Assembly="Visigo.Sharepoint.FormsBasedAuthentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9dba9f460226d31d" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    <SharePoint:EncodedLiteral ID="PageTitle" Text="Manage Forms Based Authentication Users"
+    <SharePoint:EncodedLiteral ID="PageTitle" Text="<%$ Resources:FBAPackWebPages, UserMgmt_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea"
     runat="server">
-    <SharePoint:EncodedLiteral ID="TitleArea" Text="Manage Forms Based Authentication Users"
+    <SharePoint:EncodedLiteral ID="TitleArea" Text="<%$ Resources:FBAPackWebPages, UserMgmt_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderPageDescription" runat="server">
-    <asp:PlaceHolder ID="ToolBarPlaceHolder" runat="server">Use this page to manage forms
-        based authentication users
-        <div style="padding-top: 4px;">
-            <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
-                <Template_Buttons>
-                    <wssuc:ToolBarButton runat="server" Text="New User" ID="idNewNavNode" ToolTip="New User"
-                        NavigateUrl="UserNew.aspx?Source=UsersDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
-                </Template_Buttons>
-            </wssuc:ToolBar>
-        </div>
+    <asp:PlaceHolder ID="ToolBarPlaceHolder" runat="server">
+        <SharePoint:EncodedLiteral ID="DescArea" Text="<%$ Resources:FBAPackWebPages, UserMgmt_Desc %>"
+            EncodeMethod="HtmlEncode" runat="server" />
     </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <SharePoint:MenuTemplate ID="UserMenu" runat="server">
-        <SharePoint:MenuItemTemplate ID="Edit" runat="server" Text="Edit" ImageUrl="/_layouts/images/edititem.gif"
-            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="Edit">
+        <SharePoint:MenuItemTemplate ID="Edit" runat="server" Text="<%$ Resources:FBAPackWebPages, EditContextMenuText %>" ImageUrl="/_layouts/images/edititem.gif"
+            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, EditContextMenuText %>">
         </SharePoint:MenuItemTemplate>
-        <SharePoint:MenuItemTemplate ID="Delete" runat="server" Text="Delete" ImageUrl="/_layouts/images/delete.gif"
-            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="Delete">
+        <SharePoint:MenuItemTemplate ID="Delete" runat="server" Text="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/images/delete.gif"
+            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
-    <div id="SearchControls">Search:<asp:TextBox ID="SearchText" runat="server"></asp:TextBox><asp:Button ID="Search" runat="server" Text="Search" onclick="Search_Click" /></div>
+        <div style="padding-top: 4px;padding-bottom: 4px;">
+            <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
+                <Template_Buttons>
+                    <wssuc:ToolBarButton runat="server" Text="<%$ Resources:FBAPackWebPages, NewUserLabelText %>" ID="idNewNavNode" ToolTip="<%$ Resources:FBAPackWebPages, NewUserLabelText %>"
+                        NavigateUrl="UserNew.aspx?Source=UsersDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                </Template_Buttons>
+            </wssuc:ToolBar>
+        </div>
+    <div id="SearchControls">
+    <asp:Label runat="server" ID="lblSearch" Text="<%$ Resources:FBAPackWebPages, SearchLabelText %>" />
+    <asp:TextBox ID="SearchText" runat="server"></asp:TextBox><asp:Button ID="Search"
+            runat="server" Text="<%$ Resources:FBAPackWebPages, SearchButtonText %>" OnClick="Search_Click" /></div>
     <FBA:FBADataSource runat="server" ID="UserDataSource" ViewName="FBAUsersView" />
     <SharePoint:SPGridView ID="MemberGrid" runat="server" DataSourceID="UserDataSource"
         AutoGenerateColumns="false" AllowPaging="true" PageSize="20" AllowSorting="true">
         <Columns>
-            <SharePoint:SPMenuField HeaderText="User Name" TextFields="Name" MenuTemplateId="UserMenu"
+            <SharePoint:SPMenuField HeaderText="<%$ Resources:FBAPackWebPages, UserNameColHeaderText %>" TextFields="Name" MenuTemplateId="UserMenu"
                 NavigateUrlFields="Name" NavigateUrlFormat="UserEdit.aspx?UserName={0}&Source=UsersDisp.aspx" TokenNameAndValueFields="USERNAME=Name"
                 SortExpression="Name" />
-            <SharePoint:SPBoundField DataField="Email" HeaderText="Email" SortExpression="Email">
+            <SharePoint:SPBoundField DataField="Email" HeaderText="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" SortExpression="Email">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="Title" HeaderText="Full Name" SortExpression="Title">
+            <SharePoint:SPBoundField DataField="Title" HeaderText="<%$ Resources:FBAPackWebPages, FullNameColHeaderText %>" SortExpression="Title">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="Active" HeaderText="Active" SortExpression="Active">
+            <SharePoint:SPBoundField DataField="Active" HeaderText="<%$ Resources:FBAPackWebPages, ActiveColHeaderText %>" SortExpression="Active">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="Locked" HeaderText="Locked" SortExpression="Locked">
+            <SharePoint:SPBoundField DataField="Locked" HeaderText="<%$ Resources:FBAPackWebPages, LockedColHeaderText %>" SortExpression="Locked">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="IsInSharePoint" HeaderText="IsInSharePoint" SortExpression="IsInSharePoint">
+            <SharePoint:SPBoundField DataField="IsInSharePoint" HeaderText="<%$ Resources:FBAPackWebPages, IsInSharePointColHeaderText %>" SortExpression="IsInSharePoint">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="Modified" HeaderText="Modified" SortExpression="Modified">
+            <SharePoint:SPBoundField DataField="Modified" HeaderText="<%$ Resources:FBAPackWebPages, ModifiedColHeaderText %>" SortExpression="Modified">
             </SharePoint:SPBoundField>
-            <SharePoint:SPBoundField DataField="Created" HeaderText="Created" SortExpression="Created">
+            <SharePoint:SPBoundField DataField="Created" HeaderText="<%$ Resources:FBAPackWebPages, CreatedColHeaderText %>" SortExpression="Created">
             </SharePoint:SPBoundField>
         </Columns>
     </SharePoint:SPGridView>

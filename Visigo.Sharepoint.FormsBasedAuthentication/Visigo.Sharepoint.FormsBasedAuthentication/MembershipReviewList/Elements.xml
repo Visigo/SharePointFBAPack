@@ -3,9 +3,9 @@
 	<!-- Do not change the value of the Name attribute below. If it does not match the folder name of the List Definition project item, an error will occur when the project is run. -->
 	<ListTemplate
 		Name="MembershipReviewList"
-		DisplayName="Site Membership Review List"
+		DisplayName="$Resources:FBAPackFeatures, MembershipReviewList_DispName;"
 		Type="100"
-		Description="Contains list of site memberships requests for review and approval."
+		Description="$Resources:FBAPackFeatures, MembershipReviewList_Desc;"
 		OnQuickLaunch="FALSE"
 		SecurityBits="11"
 		BaseType="0"

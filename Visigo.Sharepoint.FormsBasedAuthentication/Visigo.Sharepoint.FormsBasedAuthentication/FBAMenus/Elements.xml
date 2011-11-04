@@ -5,8 +5,8 @@
   GroupId="PersonalActions"
   Location="Microsoft.SharePoint.StandardMenu"
   Sequence="1"
-  Title="Change Password"
-  Description="Change your current password.">
+  Title="$Resources:FBAPackMenus, FBAChangePassword_Title;"
+  Description="$Resources:FBAPackMenus, FBAChangePassword_Desc;">
 		<UrlAction Url="~site/_layouts/fba/ChangePassword.aspx" />
 	</CustomAction>
 
@@ -16,8 +16,8 @@
   Location="Microsoft.SharePoint.SiteSettings"
   Sequence="112"
   RequireSiteAdministrator="TRUE"
-  Title="FBA Role Management"
-  Description="Manage the Forms Based Authentication roles in this site collection.">
+  Title="$Resources:FBAPackMenus, FBARoleManagement_Title;"
+  Description="$Resources:FBAPackMenus, FBARoleManagement_Desc;">
 		<UrlAction Url="~sitecollection/_layouts/FBA/Management/RolesDisp.aspx" />
 	</CustomAction>
 
@@ -27,8 +27,8 @@
   Location="Microsoft.SharePoint.SiteSettings"
   Sequence="111"
   RequireSiteAdministrator="TRUE"
-  Title="FBA Site Configuration"
-  Description="Manage the Forms Based Authentication site FBA properties.">
+  Title="$Resources:FBAPackMenus, FBASiteConfiguration_Title;"
+  Description="$Resources:FBAPackMenus, FBASiteConfiguration_Desc;">
 		<UrlAction Url="~site/_layouts/FBA/Management/FBASiteConfiguration.aspx" />
 	</CustomAction>
 
@@ -38,8 +38,8 @@
     Location="Microsoft.SharePoint.SiteSettings"
     Sequence="111"
     RequireSiteAdministrator="TRUE"
-    Title="FBA User Management"
-    Description="Manage the Forms Based Authentication users in this site collection.">
+    Title="$Resources:FBAPackMenus, FBAUserManagement_Title;"
+    Description="$Resources:FBAPackMenus, FBAUserManagement_Desc;">
 		<UrlAction Url="~sitecollection/_layouts/FBA/Management/UsersDisp.aspx" />
 	</CustomAction>
 
@@ -49,8 +49,8 @@
   Location="Microsoft.SharePoint.SiteSettings"
   Sequence="110"
   RequireSiteAdministrator="TRUE"
-  Title="FBA Membership Request Management"
-  Description="Manage the membership requests for this site collection.">
+  Title="$Resources:FBAPackMenus, FBAMembershipRequestManagement_Title;"
+  Description="$Resources:FBAPackMenus, FBAMembershipRequestManagement_Desc;">
 		<UrlAction Url="~sitecollection/Site Membership Review List/AllItems.aspx" />
 	</CustomAction>
 </Elements>

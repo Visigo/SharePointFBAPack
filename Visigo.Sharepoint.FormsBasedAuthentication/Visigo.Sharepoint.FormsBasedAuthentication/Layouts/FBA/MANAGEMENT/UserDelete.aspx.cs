@@ -6,6 +6,7 @@ using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.WebControls;
 using System.Web.UI.WebControls;
 using System.Web;
+using System.Globalization;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -28,7 +29,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             string userName = Request.QueryString["USERNAME"];
             if (!string.IsNullOrEmpty(userName))
             {
-                deleteMsg.Text = "Confirm that you want to delete the user '" + Request.QueryString["USERNAME"] + "'";
+                deleteMsg.Text = string.Format(localizedMsg.Text, Request.QueryString["USERNAME"]);
             }
             else
             {

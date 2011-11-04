@@ -122,7 +122,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                SPUtility.TransferToErrorPage("User Not Found");
+                SPUtility.TransferToErrorPage(LocalizedString.GetGlobalString("FBAPackWebPages", "UserNotFound"));
             }
         }
 
@@ -238,7 +238,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                SPUtility.TransferToErrorPage("User Not Found");
+                SPUtility.TransferToErrorPage(LocalizedString.GetGlobalString("FBAPackWebPages","UserNotFound"));
             }
         }
 
@@ -252,8 +252,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 MembershipUser user = Utils.GetUser(userName);
                 string newPassword = user.ResetPassword();
                 // TODO: use xslt email
-                string body = "Your new password is: " + newPassword;
-                Email.SendEmail(this.Web, user.Email, "Password Reset for " + this.Web.Title, body);
+                string body = String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","PasswordResetBody"),newPassword);
+                Email.SendEmail(this.Web, user.Email, String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","PasswordResetSubject"),this.Web.Title), body);
             }
         }
     }

@@ -183,34 +183,34 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             switch (status)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "Username already exists. Please enter a different user name.";
-
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateUserName");
+                    
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A username for that e-mail address already exists. Please enter a different e-mail address.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateEmail");
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidPassword");
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidEmail");
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidAnswer");
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidQuestion");
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidUserName");
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "ProviderError");
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "UserRejected");
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return LocalizedString.GetGlobalString("FBAPackWebPages", "UnknownError");
             }
         }
 

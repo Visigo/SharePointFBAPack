@@ -3,11 +3,11 @@
 	<MetaData>
 		<Fields>
 			<Field ID="{03e45e84-1992-4d42-9116-26f756012634}" RowOrdinal="0" Type="ContentTypeId" Sealed="TRUE" ReadOnly="TRUE" Hidden="TRUE" DisplayName="Content Type ID" Name="ContentTypeId" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentTypeId" ColName="tp_ContentTypeId" FromBaseType="TRUE"/>
-			<Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="User Name" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" FromBaseType="TRUE" ColName="nvarchar1" MaxLength="255" Version="1" RowOrdinal="0">
+			<Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_UserName;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" FromBaseType="TRUE" ColName="nvarchar1" MaxLength="255" Version="1" RowOrdinal="0">
 				<Default/>
 			</Field>
-			<Field ID="{34ad21eb-75bd-4544-8c73-0e08330291fe}" ReadOnly="TRUE" Type="Note" Name="_ModerationComments" DisplayName="Approver Comments" Hidden="TRUE" CanToggleHidden="TRUE" Filterable="FALSE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_ModerationComments" FromBaseType="TRUE" ColName="ntext1"/>
-			<Field ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" ReadOnly="TRUE" Type="Computed" Name="LinkTitleNoMenu" DisplayName="User Name" Dir="" DisplayNameSrcField="Title" AuthoringInfo="(linked to item)" EnableLookup="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LinkTitleNoMenu" FromBaseType="TRUE">
+			<Field ID="{34ad21eb-75bd-4544-8c73-0e08330291fe}" ReadOnly="TRUE" Type="Note" Name="_ModerationComments" DisplayName="$Resources: FBAPackFeatures, ReviewList_ApproverComments;" Hidden="TRUE" CanToggleHidden="TRUE" Filterable="FALSE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_ModerationComments" FromBaseType="TRUE" ColName="ntext1"/>
+			<Field ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" ReadOnly="TRUE" Type="Computed" Name="LinkTitleNoMenu" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_UserName;" Dir="" DisplayNameSrcField="Title" AuthoringInfo="(linked to item)" EnableLookup="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LinkTitleNoMenu" FromBaseType="TRUE">
 				<FieldRefs>
 					<FieldRef Name="Title"/>
 					<FieldRef Name="LinkFilenameNoMenu"/>
@@ -47,7 +47,7 @@
 					</IfEqual>
 				</DisplayPattern>
 			</Field>
-			<Field ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" ReadOnly="TRUE" Type="Computed" Name="LinkTitle" DisplayName="User Name" DisplayNameSrcField="Title" ClassInfo="Menu" AuthoringInfo="(linked to item with edit menu)" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LinkTitle" FromBaseType="TRUE">
+			<Field ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" ReadOnly="TRUE" Type="Computed" Name="LinkTitle" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_UserName;" DisplayNameSrcField="Title" ClassInfo="Menu" AuthoringInfo="(linked to item with edit menu)" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LinkTitle" FromBaseType="TRUE">
 				<FieldRefs>
 					<FieldRef Name="Title"/>
 					<FieldRef Name="LinkTitleNoMenu"/>
@@ -73,14 +73,14 @@
 				</DisplayPattern>
 			</Field>
 			<Field ID="{39360f11-34cf-4356-9945-25c44e68dade}" ReadOnly="TRUE" Hidden="TRUE" Type="Text" Name="File_x0020_Type" DisplaceOnUpgrade="TRUE" DisplayName="File Type" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="File_x0020_Type" FromBaseType="TRUE" ColName="nvarchar2"/>
-			<Field DisplayName="RequestID" Type="Guid" Required="TRUE" ID="{66fc155d-2688-4d47-88fe-5df454c0013b}" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="RequestID" Name="RequestID" ColName="uniqueidentifier1" RowOrdinal="0" />
-			<Field ID="{4a722dd4-d406-4356-93f9-2550b8f50dd0}" Name="FirstName" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="FirstName" Group="Core Contact and Calendar Columns" DisplayName="First Name" Type="Text" ColName="nvarchar3" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
+			<Field DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_RequestID;" Type="Guid" Required="TRUE" ID="{66fc155d-2688-4d47-88fe-5df454c0013b}" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="RequestID" Name="RequestID" ColName="uniqueidentifier1" RowOrdinal="0" />
+			<Field ID="{4a722dd4-d406-4356-93f9-2550b8f50dd0}" Name="FirstName" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="FirstName" Group="Core Contact and Calendar Columns" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_FirstName;" Type="Text" ColName="nvarchar3" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
 				<Default/>
 			</Field>
-			<Field ID="{fdc8216d-dabf-441d-8ac0-f6c626fbdc24}" Name="LastNamePhonetic" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LastNamePhonetic" Group="Extended Columns" DisplayName="Last Name" Type="Text" ColName="nvarchar4" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
+			<Field ID="{fdc8216d-dabf-441d-8ac0-f6c626fbdc24}" Name="LastNamePhonetic" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LastNamePhonetic" Group="Extended Columns" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_LastName;" Type="Text" ColName="nvarchar4" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
 				<Default/>
 			</Field>
-			<Field Type="Calculated" DisplayName="Display Name" Format="DateOnly" LCID="1033" ResultType="Text" ReadOnly="TRUE" ID="{a2ab59c3-8f5a-4762-8b11-55fd14250496}" SourceID="{04a30bf6-1da3-4048-a0cc-b548b89b0697}" StaticName="Display_x0020_Name" Name="Display_x0020_Name" ColName="sql_variant1" RowOrdinal="0" Required="FALSE" Version="3">
+			<Field Type="Calculated" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_DisplayName;" Format="DateOnly" LCID="1033" ResultType="Text" ReadOnly="TRUE" ID="{a2ab59c3-8f5a-4762-8b11-55fd14250496}" SourceID="{04a30bf6-1da3-4048-a0cc-b548b89b0697}" StaticName="Display_x0020_Name" Name="Display_x0020_Name" ColName="sql_variant1" RowOrdinal="0" Required="FALSE" Version="3">
 				<Formula>=FirstName&amp;" "&amp;LastNamePhonetic</Formula>
 				<FormulaDisplayNames>=[First Name]&amp;" "&amp;[Last Name]</FormulaDisplayNames>
 				<FormulaDisplayNames>=[First Name]+[Last Name]</FormulaDisplayNames>
@@ -90,18 +90,18 @@
 					<FieldRef Name="FirstName" />
 				</FieldRefs>
 			</Field>
-			<Field ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="Email" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Email" Group="Core Contact and Calendar Columns" DisplayName="Email Address" ReadOnly="FALSE" Type="Text" FromBaseType="TRUE" AllowDeletion="TRUE" ColName="nvarchar5" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
+			<Field ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="Email" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Email" Group="Core Contact and Calendar Columns" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_Email;" ReadOnly="FALSE" Type="Text" FromBaseType="TRUE" AllowDeletion="TRUE" ColName="nvarchar5" RowOrdinal="0" Required="TRUE" MaxLength="255" Version="1">
 				<Default/>
 			</Field>
-			<Field Type="Text" DisplayName="Default Group" BaseType="Text" Name="DefaultGroup" />
-			<Field ID="{9F8B4EE0-84B7-42c6-A094-5CBDE2115EB9}" Type="DateTime" Format="DateTime" Group="Core Document Columns" Name="_DCDateCreated" DisplayName="Date Submitted" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="_DCDateCreated" ColName="datetime1" RowOrdinal="0" Required="TRUE" CalType="0" Version="1">
+			<Field Type="Text" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_DefaultGroup;" BaseType="Text" Name="DefaultGroup" />
+			<Field ID="{9F8B4EE0-84B7-42c6-A094-5CBDE2115EB9}" Type="DateTime" Format="DateTime" Group="Core Document Columns" Name="_DCDateCreated" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_DateSubmitted;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="_DCDateCreated" ColName="datetime1" RowOrdinal="0" Required="TRUE" CalType="0" Version="1">
 				<Default/>
 			</Field>
-			<Field ID="{1DAB9B48-2D1A-47b3-878C-8E84F0D211BA}" Name="_Status" Group="Core Document Columns" Type="Choice" DisplayName="Status" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="_Status" FillInChoice="FALSE" ColName="nvarchar8" RowOrdinal="0" Required="TRUE" Format="Dropdown" Version="1">
+			<Field ID="{1DAB9B48-2D1A-47b3-878C-8E84F0D211BA}" Name="_Status" Group="Core Document Columns" Type="Choice" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_Status;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="_Status" FillInChoice="FALSE" ColName="nvarchar8" RowOrdinal="0" Required="TRUE" Format="Dropdown" Version="1">
 				<CHOICES>
-					<CHOICE>Pending</CHOICE>
-					<CHOICE>Approved</CHOICE>
-					<CHOICE>Rejected</CHOICE>
+					<CHOICE>$Resources: FBAPackFeatures, MembershipRequestList_Pending;</CHOICE>
+					<CHOICE>$Resources: FBAPackFeatures, MembershipRequestList_Approved;</CHOICE>
+					<CHOICE>$Resources: FBAPackFeatures, MembershipRequestList_Rejected;</CHOICE>
 				</CHOICES>
 				<Default/>
 			</Field>
@@ -110,19 +110,19 @@
 				<Default/>
 			</Field>
 			<Field ID="{1d22ea11-1e32-424e-89ab-9fedbadb6ce1}" ColName="tp_ID" RowOrdinal="0" ReadOnly="TRUE" Type="Counter" Name="ID" PrimaryKey="TRUE" DisplayName="ID" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ID" FromBaseType="TRUE"/>
-			<Field ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" RowOrdinal="0" Type="Text" DisplayName="Content Type" ReadOnly="TRUE" Name="ContentType" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentType" ColName="tp_ContentType" Group="_Hidden" PITarget="MicrosoftWindowsSharePointServices" PIAttribute="ContentTypeID" FromBaseType="TRUE"/>
-			<Field ID="{28cf69c5-fa48-462a-b5cd-27b6f9d2bd5f}" ColName="tp_Modified" RowOrdinal="0" ReadOnly="TRUE" Type="DateTime" Name="Modified" DisplayName="Modified" StorageTZ="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Modified" FromBaseType="TRUE"/>
-			<Field ID="{8c06beca-0777-48f7-91c7-6da68bc07b69}" ColName="tp_Created" RowOrdinal="0" ReadOnly="TRUE" Type="DateTime" Name="Created" DisplayName="Created" StorageTZ="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Created" FromBaseType="TRUE"/>
-			<Field ID="{1df5e554-ec7e-46a6-901d-d85a3881cb18}" ColName="tp_Author" RowOrdinal="0" ReadOnly="TRUE" Type="User" List="UserInfo" Name="Author" DisplayName="Created By" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Author" FromBaseType="TRUE"/>
-			<Field ID="{d31655d1-1d5b-4511-95a1-7a09e9b75bf2}" ColName="tp_Editor" RowOrdinal="0" ReadOnly="TRUE" Type="User" List="UserInfo" Name="Editor" DisplayName="Modified By" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Editor" FromBaseType="TRUE"/>
+			<Field ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" RowOrdinal="0" Type="Text" DisplayName="Content Type" ReadOnly="TRUE" Name="ContentType" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="$Resources: FBAPackFeatures, MembershipRequestList_ContentType;" ColName="tp_ContentType" Group="_Hidden" PITarget="MicrosoftWindowsSharePointServices" PIAttribute="ContentTypeID" FromBaseType="TRUE"/>
+			<Field ID="{28cf69c5-fa48-462a-b5cd-27b6f9d2bd5f}" ColName="tp_Modified" RowOrdinal="0" ReadOnly="TRUE" Type="DateTime" Name="Modified" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_Modified;" StorageTZ="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Modified" FromBaseType="TRUE"/>
+			<Field ID="{8c06beca-0777-48f7-91c7-6da68bc07b69}" ColName="tp_Created" RowOrdinal="0" ReadOnly="TRUE" Type="DateTime" Name="Created" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_Created;" StorageTZ="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Created" FromBaseType="TRUE"/>
+			<Field ID="{1df5e554-ec7e-46a6-901d-d85a3881cb18}" ColName="tp_Author" RowOrdinal="0" ReadOnly="TRUE" Type="User" List="UserInfo" Name="Author" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_CreatedBy;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Author" FromBaseType="TRUE"/>
+			<Field ID="{d31655d1-1d5b-4511-95a1-7a09e9b75bf2}" ColName="tp_Editor" RowOrdinal="0" ReadOnly="TRUE" Type="User" List="UserInfo" Name="Editor" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_ModifiedBy;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Editor" FromBaseType="TRUE"/>
 			<Field ID="{26d0756c-986a-48a7-af35-bf18ab85ff4a}" ColName="tp_HasCopyDestinations" RowOrdinal="0" Sealed="TRUE" Hidden="TRUE" ReadOnly="TRUE" Type="Boolean" Name="_HasCopyDestinations" DisplaceOnUpgrade="TRUE" DisplayName="Has Copy Destinations" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_HasCopyDestinations" FromBaseType="TRUE"/>
 			<Field ID="{6b4e226d-3d88-4a36-808d-a129bf52bccf}" ColName="tp_CopySource" RowOrdinal="0" Sealed="TRUE" Hidden="TRUE" ReadOnly="TRUE" Type="Text" Name="_CopySource" DisplaceOnUpgrade="TRUE" DisplayName="Copy Source" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_CopySource" FromBaseType="TRUE"/>
 			<Field ID="{d4e44a66-ee3a-4d02-88c9-4ec5ff3f4cd5}" ColName="tp_Version" RowOrdinal="0" Hidden="TRUE" ReadOnly="TRUE" Type="Integer" SetAs="owshiddenversion" Name="owshiddenversion" DisplayName="owshiddenversion" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="owshiddenversion" FromBaseType="TRUE"/>
 			<Field ID="{f1e020bc-ba26-443f-bf2f-b68715017bbc}" ColName="tp_WorkflowVersion" RowOrdinal="0" Hidden="TRUE" ReadOnly="TRUE" Type="Integer" Name="WorkflowVersion" DisplaceOnUpgrade="TRUE" DisplayName="Workflow Version" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkflowVersion" FromBaseType="TRUE"/>
 			<Field ID="{7841bf41-43d0-4434-9f50-a673baef7631}" ColName="tp_UIVersion" RowOrdinal="0" ReadOnly="TRUE" Type="Integer" Name="_UIVersion" DisplaceOnUpgrade="TRUE" DisplayName="UI Version" Hidden="TRUE" CanToggleHidden="TRUE" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_UIVersion" FromBaseType="TRUE"/>
 			<Field ID="{dce8262a-3ae9-45aa-aab4-83bd75fb738a}" ColName="tp_UIVersionString" RowOrdinal="0" ReadOnly="TRUE" Type="Text" Name="_UIVersionString" DisplaceOnUpgrade="TRUE" DisplayName="Version" CanToggleHidden="TRUE" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_UIVersionString" FromBaseType="TRUE"/>
-			<Field ID="{67df98f4-9dec-48ff-a553-29bece9c5bf4}" ColName="tp_HasAttachment" RowOrdinal="0" Type="Attachments" Name="Attachments" DisplayName="Attachments" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Attachments" FromBaseType="TRUE"/>
-			<Field ID="{fdc3b2ed-5bf2-4835-a4bc-b885f3396a61}" ColName="tp_ModerationStatus" RowOrdinal="0" ReadOnly="TRUE" Type="ModStat" Name="_ModerationStatus" DisplayName="Approval Status" Hidden="TRUE" CanToggleHidden="TRUE" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_ModerationStatus" FromBaseType="TRUE">
+			<Field ID="{67df98f4-9dec-48ff-a553-29bece9c5bf4}" ColName="tp_HasAttachment" RowOrdinal="0" Type="Attachments" Name="Attachments" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_Attachments;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Attachments" FromBaseType="TRUE"/>
+			<Field ID="{fdc3b2ed-5bf2-4835-a4bc-b885f3396a61}" ColName="tp_ModerationStatus" RowOrdinal="0" ReadOnly="TRUE" Type="ModStat" Name="_ModerationStatus" DisplayName="$Resources: FBAPackFeatures, MembershipRequestList_ApprovalStatus;" Hidden="TRUE" CanToggleHidden="TRUE" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_ModerationStatus" FromBaseType="TRUE">
 				<CHOICES>
 					<CHOICE>0;#Approved</CHOICE>
 					<CHOICE>1;#Rejected</CHOICE>
@@ -2188,16 +2188,16 @@ ctx]]>
 						<Then>
 							<HTML><![CDATA[<TD Class="ms-vb"> ]]></HTML>
 							<HTML>
-								<HTML>There are no items to show in this view of the &quot;</HTML>
+								<HTML>$Resources: FBAPackFeatures, MembershipRequestList_ListNoItemMsg;</HTML>
 								<ListProperty Select="Title" HTMLEncode="TRUE"/>
-								<HTML>&quot; list.</HTML>
+								<HTML>$Resources: FBAPackFeatures, MembershipRequestList_List;</HTML>
 							</HTML>
 							<IfHasRights>
 								<RightsChoices>
 									<RightsGroup PermAddListItems="required"/>
 								</RightsChoices>
 								<Then>
-									<HTML> To create a new item, click &quot;New&quot; above.</HTML>
+									<HTML>$Resources: FBAPackFeatures, MembershipRequestList_ListNew;</HTML>
 								</Then>
 							</IfHasRights>
 							<HTML><![CDATA[</TD>]]></HTML>

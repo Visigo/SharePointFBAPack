@@ -9,9 +9,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
     internal class LocalizedCategoryAttribute : CategoryAttribute
     {
-        private Type _resourceSource;
+        private string _resourceSource;
 
-        public LocalizedCategoryAttribute(Type resourceSource, string category)
+        public LocalizedCategoryAttribute(string resourceSource, string category)
             : base(category)
         {
             _resourceSource = resourceSource;
@@ -19,8 +19,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         protected override string  GetLocalizedString(string value)
         {
- 	        ResourceManager manager = new ResourceManager(_resourceSource);
-            return manager.GetString(base.Category);
+            return LocalizedString.GetString(_resourceSource,base.Category);
         }
 
     }
