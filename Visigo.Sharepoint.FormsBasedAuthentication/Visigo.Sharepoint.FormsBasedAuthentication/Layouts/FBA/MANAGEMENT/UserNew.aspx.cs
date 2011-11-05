@@ -108,7 +108,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                     if (user == null)
                     {
-                        lblMessage.Text = "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                        lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "UnknownError");
                         return;
                     }
 
@@ -174,7 +174,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                lblMessage.Text = "User Already Exists";
+                lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateUserName"); ;
             }
         }
 
