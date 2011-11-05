@@ -269,7 +269,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     passwordLength = membership.MinRequiredNonAlphanumericCharacters;
                 }
                 tempPassword = System.Web.Security.Membership.GeneratePassword(passwordLength, membership.MinRequiredNonAlphanumericCharacters);
-                MembershipUser existingUser = Utils.GetUser(request.UserName, web.Site);
+                MembershipUser existingUser = Utils.BaseMembershipProvider(web.Site).GetUser(request.UserName,false);
                 if (existingUser != null)
                 {
                     membership.DeleteUser(request.UserName, true);
@@ -357,7 +357,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 }
                 catch(Exception AdduserExp)
                 {
-                    MembershipUser addUser = Utils.GetUser(request.UserName, web.Site);
+                    MembershipUser addUser = Utils.BaseMembershipProvider(web.Site).GetUser(request.UserName, false);
                     if (addUser != null)
                     {
                         membership.DeleteUser(request.UserName, true);

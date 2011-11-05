@@ -223,12 +223,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         void _ctlPasswordRecovery_VerifyingUser(object sender, LoginCancelEventArgs e)
         {
             PasswordRecovery prc = (PasswordRecovery)sender;
-            MembershipUser currentUser = Utils.GetUser(prc.UserName);
+            MembershipUser currentUser = Utils.BaseMembershipProvider().GetUser(prc.UserName,false);
             string newUserName = null;
             //If the username doesn't work, get the username by email address
             if (currentUser == null)
             {
-                newUserName = Utils.GetUserNameByEmail(prc.UserName);
+                newUserName = Utils.BaseMembershipProvider().GetUserNameByEmail(prc.UserName);
 
                 if (newUserName != null)
                 {
@@ -245,7 +245,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 using (SPWeb _web = _site.OpenWeb())
                 {
                     PasswordRecovery prc = (PasswordRecovery)sender;
-                    MembershipUser currentUser = Utils.GetUser(prc.UserName, _web.Site);
+                    MembershipUser currentUser = Utils.BaseMembershipProvider(_web.Site).GetUser(prc.UserName, false);
                     MembershipRequest membershipitem = new MembershipRequest();
                     membershipitem.UserEmail = currentUser.Email;
                     membershipitem.UserName = currentUser.UserName;

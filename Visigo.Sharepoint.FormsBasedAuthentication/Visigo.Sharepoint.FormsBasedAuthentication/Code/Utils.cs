@@ -69,21 +69,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return SPClaimProviderManager.Local.EncodeClaim(claim);
         }
 
-        public static Table CreateErrorMessage(string ErrorMessage)
-        {
-            Table tbl = new Table();
-            TableRow tr = new TableRow();
-            TableCell td = new TableCell();
-
-            td.Text = ErrorMessage;
-
-            tr.Cells.Add(td);
-            tbl.Rows.Add(tr);
-            tbl.CssClass = "ms-WPBody";
-
-            return tbl;
-        }
-
         public static string GetMembershipProvider()
         {
             return GetMembershipProvider(SPContext.Current.Site);
@@ -126,7 +111,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             try
             {
                 settings = site.WebApplication.IisSettings[site.Zone];
-                if (settings.AuthenticationMode == AuthenticationMode.Forms)
+                if (settings.UseFormsClaimsAuthenticationProvider)
                     return settings;
             }
             catch 
@@ -140,7 +125,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 try
                 {
                     settings = site.WebApplication.IisSettings[(SPUrlZone)zone];
-                    if (settings.AuthenticationMode == AuthenticationMode.Forms)
+                    if (settings.UseFormsClaimsAuthenticationProvider)
                         return settings;
                 }
                 catch
@@ -163,7 +148,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             int numUsers;
             try
             {
-                Membership.GetAllUsers(0,1,out numUsers);
+                BaseMembershipProvider().GetAllUsers(0,1,out numUsers);
             }
             catch 
             {
@@ -175,12 +160,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return true;
         }    
     
-        public static bool IsWebAppFBAEnabled(SPSite site)
-        {
-            SPIisSettings settings = site.WebApplication.IisSettings[site.Zone];
-            return (settings.AuthenticationMode == AuthenticationMode.Forms);
-        }
-
         public static void LogError(string errorMessage, FBADiagnosticsService.FBADiagnosticsCategory errorCategory)
         {
             // log error to ULS log
@@ -202,30 +181,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             LogError(ex);
             SPUtility.TransferToErrorPage(ex.Message);
-        }
-
-        public static MembershipUser GetUser(string username, bool userIsOnline, SPSite site)
-        {
-            return BaseMembershipProvider(site).GetUser(username, userIsOnline);
-        }
-
-        public static MembershipUser GetUser(string username, SPSite site)
-        {
-            return GetUser(username,false, site);
-        }
-
-        public static MembershipUser GetUser(string username)
-        {
-            return GetUser(username, false, SPContext.Current.Site);
-        }
-
-        public static string GetUserNameByEmail(string email, SPSite site) {
-            return BaseMembershipProvider(site).GetUserNameByEmail(email);
-        }
-
-        public static string GetUserNameByEmail(string email)
-        {
-            return GetUserNameByEmail(email, SPContext.Current.Site);
         }
 
         public static string GetWebProperty(string key, string defaultValue, SPWeb web)
@@ -271,16 +226,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         public static void SetSiteProperty(string key, bool value)
         {
             SetWebProperty(key, value.ToString(), SPContext.Current.Site.RootWeb);
-        }
-
-        public static bool RoleExists(string roleName)
-        {
-            return BaseRoleProvider(SPContext.Current.Site).RoleExists(roleName);
-        }
-
-        public static bool RoleExists(string roleName, SPSite site)
-        {
-            return BaseRoleProvider(site).RoleExists(roleName);
         }
 
         public static string GetAbsoluteURL(SPWeb web, string path)

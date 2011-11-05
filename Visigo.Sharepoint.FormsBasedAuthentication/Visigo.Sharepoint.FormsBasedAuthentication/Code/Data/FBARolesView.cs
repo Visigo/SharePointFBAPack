@@ -25,7 +25,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                           
             // get roles and build data table
             DataTable dataTable = new DataTable();
-            String[] roles = Roles.GetAllRoles();
+            String[] roles = Utils.BaseRoleProvider().GetAllRoles();
             dataTable.Columns.Add("Role");
             dataTable.Columns.Add("UsersInRole");
 
@@ -34,7 +34,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 DataRow row = dataTable.NewRow();
                 row["Role"] = roles[i];
-                row["UsersInRole"] = Roles.GetUsersInRole(roles[i].ToString()).Length;
+                row["UsersInRole"] = Utils.BaseRoleProvider().GetUsersInRole(roles[i].ToString()).Length;
                 dataTable.Rows.Add(row);
             }
             dataTable.AcceptChanges();

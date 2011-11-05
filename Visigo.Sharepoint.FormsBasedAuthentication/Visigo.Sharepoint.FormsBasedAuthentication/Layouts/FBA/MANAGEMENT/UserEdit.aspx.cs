@@ -27,7 +27,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // If Membership.RequiresQuestionAndAnswer is true, then we need the password answer, which we don't have.
             // Also check to make sure ResetPassword is allowed.  
-            if (System.Web.Security.Membership.RequiresQuestionAndAnswer || !System.Web.Security.Membership.EnablePasswordReset)
+            if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer || !Utils.BaseMembershipProvider().EnablePasswordReset)
             {
                 BtnReset.Visible = false;
             }
@@ -47,7 +47,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 
             }
-            MembershipUser user = Utils.GetUser(userName);
+            MembershipUser user = Utils.BaseMembershipProvider().GetUser(userName,false);
 
             if (user != null)
             {
@@ -78,15 +78,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         try
                         {
                             // load roles
-                            string[] roles = Roles.GetAllRoles();
+                            string[] roles = Utils.BaseRoleProvider().GetAllRoles();
                             rolesList.DataSource = roles;
                             rolesList.DataBind();
 
                             // select roles associated with the user
                             for (int i = 0; i < roles.Length; i++)
                             {
-                                ListItem item = rolesList.Items.FindByText(roles[i].ToString()); 
-                                if (item != null) item.Selected = Roles.IsUserInRole(user.UserName, roles[i].ToString());
+                                ListItem item = rolesList.Items.FindByText(roles[i].ToString());
+                                if (item != null) item.Selected = Utils.BaseRoleProvider().IsUserInRole(user.UserName, roles[i].ToString());
                             }
                         }
                         catch (Exception ex)
@@ -141,7 +141,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
 
             }
-            MembershipUser user = Utils.GetUser(userName);
+            MembershipUser user = Utils.BaseMembershipProvider().GetUser(userName,false);
             
             // check user exists
             if (user != null)
@@ -163,7 +163,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
                     try
                     {
-                        Membership.UpdateUser(user);
+                        Utils.BaseMembershipProvider().UpdateUser(user);
                     }
                     catch (System.Configuration.Provider.ProviderException ex)
                     {
@@ -185,13 +185,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         {
                             if (rolesList.Items[i].Selected)
                             {
-                                if (!Roles.IsUserInRole(user.UserName, rolesList.Items[i].Value))
-                                    Roles.AddUserToRole(user.UserName, rolesList.Items[i].Value);
+                                if (!Utils.BaseRoleProvider().IsUserInRole(user.UserName, rolesList.Items[i].Value))
+                                    Utils.BaseRoleProvider().AddUsersToRoles(new string[] {user.UserName}, new string[] {rolesList.Items[i].Value});
                             }
                             else
                             {
-                                if (Roles.IsUserInRole(user.UserName, rolesList.Items[i].Value))
-                                    Roles.RemoveUserFromRole(user.UserName, rolesList.Items[i].Value);
+                                if (Utils.BaseRoleProvider().IsUserInRole(user.UserName, rolesList.Items[i].Value))
+                                    Utils.BaseRoleProvider().RemoveUsersFromRoles(new string[] {user.UserName}, new string[] {rolesList.Items[i].Value});
                             }
                         }
                     }
@@ -246,10 +246,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             // If Membership.RequiresQuestionAndAnswer is true, then we need the password answer, which we don't have.
             // Also check to make sure ResetPassword is allowed.  
-            if (!System.Web.Security.Membership.RequiresQuestionAndAnswer && System.Web.Security.Membership.EnablePasswordReset)
+            if (!Utils.BaseMembershipProvider().RequiresQuestionAndAnswer && Utils.BaseMembershipProvider().EnablePasswordReset)
             {
                 string userName = this.Request.QueryString["USERNAME"];
-                MembershipUser user = Utils.GetUser(userName);
+                MembershipUser user = Utils.BaseMembershipProvider().GetUser(userName,false);
                 string newPassword = user.ResetPassword();
                 // TODO: use xslt email
                 string body = String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","PasswordResetBody"),newPassword);
