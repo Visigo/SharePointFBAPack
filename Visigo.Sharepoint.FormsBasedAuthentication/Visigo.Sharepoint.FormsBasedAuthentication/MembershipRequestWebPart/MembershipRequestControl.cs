@@ -321,7 +321,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 /* bms Prevent user from being added to the list multiple times if the user */
                 /* is already in use.                                                       */
-                if (Utils.GetUser(this.UserName, web.Site) == null)
+                if (Utils.BaseMembershipProvider(web.Site).GetUser(this.UserName, false) == null)
                 {
                     MembershipRequest request = new MembershipRequest();
                     request.UserEmail = this.Email;

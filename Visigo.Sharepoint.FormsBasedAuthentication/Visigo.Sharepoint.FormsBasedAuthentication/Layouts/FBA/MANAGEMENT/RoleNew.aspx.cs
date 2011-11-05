@@ -16,11 +16,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         protected void OnSubmit(object sender, EventArgs e)
         {
             // add the role to the membership provider
-            if (!Utils.RoleExists(txtRole.Text))
+            if (!Utils.BaseRoleProvider().RoleExists(txtRole.Text))
             {
                 try
                 {
-                    Roles.CreateRole(txtRole.Text);
+                    Utils.BaseRoleProvider().CreateRole(txtRole.Text);
                     // redirect to roles list
                     SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }

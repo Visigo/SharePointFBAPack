@@ -24,26 +24,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // display role being deleted and number of users in that role
             txtRole.Text = Request.QueryString["ROLE"];
-            lblMessage.Text = string.Format(localizedMsg.Text, Roles.GetUsersInRole(txtRole.Text).Length);
+            lblMessage.Text = string.Format(localizedMsg.Text, Utils.BaseRoleProvider().GetUsersInRole(txtRole.Text).Length);
         }
 
         protected void OnDelete(object sender, EventArgs e)
         {
             // get role and users
-            string roleName = Request.QueryString["ROLE"];
-            string[] usersInRole = Roles.GetUsersInRole(roleName);
+            string[] roleName = new string[1];
+            roleName[0] = Request.QueryString["ROLE"];
+            string[] usersInRole = Utils.BaseRoleProvider().GetUsersInRole(roleName[0]);
 
-            if (Utils.RoleExists(roleName))
+            if (Utils.BaseRoleProvider().RoleExists(roleName[0]))
             {
                 try
                 {
                     // remove all users from role if needed
-                    if (Roles.GetUsersInRole(roleName).Length > 0)
+                    if (usersInRole.Length > 0)
                     {
-                        Roles.RemoveUsersFromRole(usersInRole, roleName);
+                        Utils.BaseRoleProvider().RemoveUsersFromRoles(usersInRole, roleName);
                     }
                     // delete role
-                    Roles.DeleteRole(roleName);
+                    Utils.BaseRoleProvider().DeleteRole(roleName[0],false);
                     SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }
                 catch (Exception ex)

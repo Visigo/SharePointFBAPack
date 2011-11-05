@@ -44,7 +44,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             try
             {
                 // delete user from FBA data store
-                Membership.DeleteUser(userName);
+                Utils.BaseMembershipProvider().DeleteUser(userName,true);
 
                 // delete user from SharePoint            
                 try

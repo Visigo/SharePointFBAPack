@@ -12,6 +12,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Web.Configuration;
 using System.Configuration;
+using System.Net;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -34,11 +35,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             XmlTextWriter xmlWriter;
             XmlNode xmlNodeTitle;
             XmlDocument xmlEmail;
+            XsltSettings settings = new XsltSettings(true, true); 
+            XmlUrlResolver resolver = new XmlUrlResolver();  
+            resolver.Credentials = CredentialCache.DefaultCredentials;  
             string subject = string.Empty;
 
             try
             {
-                xslEmailTransform.Load(xsltTemplateFile);
+                xslEmailTransform.Load(xsltTemplateFile, settings, resolver);
 
                 xmlDoc = new XmlDocument();
                 xmlDoc.AppendChild(xmlDoc.CreateElement("DocumentRoot"));

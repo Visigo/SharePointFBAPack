@@ -100,7 +100,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 row["NonProviderName"] = userName;
             }
 
-            foreach (MembershipUser memberuser in Membership.GetAllUsers())
+            int totalRecords = 0;
+
+            foreach (MembershipUser memberuser in Utils.BaseMembershipProvider(site).GetAllUsers(0,100000, out totalRecords))
             {
                 bool bFoundMember = false;
                 foreach (DataRow row in users.Rows)

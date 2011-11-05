@@ -39,7 +39,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         GroupSection.Visible = false;
 
                         // load roles
-                        rolesList.DataSource = Roles.GetAllRoles();
+                        rolesList.DataSource = Utils.BaseRoleProvider().GetAllRoles();
                         rolesList.DataBind();
                     }
                     // otherwise display groups
@@ -54,7 +54,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
 
                     // Display Question and answer if required by provider
-                    if (System.Web.Security.Membership.RequiresQuestionAndAnswer)
+                    if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer)
                     {
                         QuestionSection.Visible = true;
                         AnswerSection.Visible = true;
@@ -77,7 +77,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             bool _showRoles = (new MembershipSettings(SPContext.Current.Web)).EnableRoles;
 
             // check to see if username already in use
-            MembershipUser user = Utils.GetUser(txtUsername.Text);
+            MembershipUser user = Utils.BaseMembershipProvider().GetUser(txtUsername.Text,false);
             
             if (user == null)
             {
@@ -90,13 +90,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     // create FBA database user
                     MembershipCreateStatus createStatus;
 
-                    if (Membership.RequiresQuestionAndAnswer)
+                    if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer)
                     {
-                        user = Membership.CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, txtQuestion.Text, txtAnswer.Text, isActive.Checked, null, out createStatus);
+                        user = Utils.BaseMembershipProvider().CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, txtQuestion.Text, txtAnswer.Text, isActive.Checked, null, out createStatus);
                     }
                     else
                     {
-                        user = Membership.CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, null, null, isActive.Checked, null, out createStatus);
+                        user = Utils.BaseMembershipProvider().CreateUser(txtUsername.Text, txtPassword.Text, txtEmail.Text, null, null, isActive.Checked, null, out createStatus);
                     }
 
 
@@ -120,7 +120,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         {
                             if (rolesList.Items[i].Selected)
                             {
-                                Roles.AddUserToRole(user.UserName, rolesList.Items[i].Value);
+                                Utils.BaseRoleProvider().AddUsersToRoles(new string[] {user.UserName}, new string[] {rolesList.Items[i].Value});
                             }
                         }
 
