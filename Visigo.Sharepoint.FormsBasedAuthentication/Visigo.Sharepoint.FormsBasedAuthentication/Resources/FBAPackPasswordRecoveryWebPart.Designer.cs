@@ -98,6 +98,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error sending the email, please check with your administrator.
+        /// </summary>
+        internal static string ErrorSendingEmail {
+            get {
+                return ResourceManager.GetString("ErrorSendingEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Validation.
         /// </summary>
         internal static string GeneralFailureText_Category {
