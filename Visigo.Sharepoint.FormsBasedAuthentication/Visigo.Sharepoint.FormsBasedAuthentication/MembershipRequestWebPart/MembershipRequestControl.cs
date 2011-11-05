@@ -48,6 +48,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         protected LinkButton lnkHip;
         protected TextBox txtFirstName;
         protected TextBox txtLastName;
+        protected Label lblError;
         #endregion
 
         #region Properties
@@ -290,12 +291,25 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             cuwTable.Rows.AddAt(4, tr2);
         }
 
+
+        private void AddErrorField()
+        {
+            //Add Error Field
+            lblError = new Label();
+            lblError.ID = "lblError";
+            Literal br = new Literal();
+            br.Text = "<br />";
+            this.CreateUserStep.ContentTemplateContainer.Controls.Add(br);
+            this.CreateUserStep.ContentTemplateContainer.Controls.Add(lblError);
+        }
         protected override void CreateControlHierarchy()
         {
             base.CreateControlHierarchy();
+            AddErrorField();
             AddNameFields();
             AddHipControls();
             this.CreateUserStep.Title = ""; // This needs to be a config item
+            this.CompleteStep.Title = "";
         }
 
         protected override void OnCreatingUser(LoginCancelEventArgs e)
@@ -318,7 +332,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     request.LastName = this.LastName;
                     request.DefaultGroup = this._DefaultGroup;
                     request.LoginCreatedUser = SPLoginCreatedUser;
-                    MembershipRequest.CopyToReviewList(request);
+                    if (!MembershipRequest.CopyToReviewList(request))
+                    {
+                        lblError.Text = this.UnknownErrorMessage;
+                        e.Cancel = true;
+                        return;
+                    }
                 }
                 this.MoveTo(this.CompleteStep);
             }
@@ -423,9 +442,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             request.ChangePasswordURL = Utils.GetAbsoluteURL(web, settings.ChangePasswordPage);
                             request.DefaultGroup = this.DefaultGroup;
                             request.LoginCreatedUser = SPLoginCreatedUser;
-
-                            MembershipRequest.ApproveMembership(request, web2);
-
+                            
+                            try
+                            {
+                                MembershipRequest.ApproveMembership(request, web2);
+                            }
+                            catch (Exception ex)
+                            {
+                                Utils.LogError(ex);
+                                this.CompleteSuccessText = this.UnknownErrorMessage;
+                                return;
+                            }
                             this.MoveTo(this.CompleteStep);
                         }
                     }

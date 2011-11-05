@@ -13,24 +13,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public class MembershipReviewHandler : SPItemEventReceiver
     {
 
-
-        public override void ItemAdded(SPItemEventProperties properties)
-        {
-            SPListItem item = null;
-            try
-            {
-                item = properties.ListItem;
-
-                /* bms Send email that new item has been added */
-                MembershipRequest request = GetMembershipRequest(item.Web, item);
-                MembershipRequest.SendPendingMembershipEmail(request, item.Web);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError(ex);
-            }
-        }
-
         public override void ItemUpdated(SPItemEventProperties properties)
         {
             this.EventFiringEnabled = false;
@@ -54,21 +36,18 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             // Maybe the list should have the "LastError" field which will get the error info, or else the status can have an extra error value in addition to pending | approved | rejected
                             // Then in the calling code, we must not delete the item from the list!
                             // It would have been better if ApproveMembership returned a status code, rather than use exception handling, but here we are.
-                            try
-                            {
-                                MembershipRequest.ApproveMembership(GetMembershipRequest(web, item), web);
-                                item.Delete();
-                                list.Update();
-                            }
-                            catch
-                            {
-                                // this has already been handled and logged.  We just need to prevent the item from being deleted.
-                            }
+                            MembershipRequest.ApproveMembership(GetMembershipRequest(web, item), web);
+                            item.Delete();
+                            list.Update();
+
                             break;
                         case MembershipStatus.Pending:
                             break;
                         case MembershipStatus.Rejected:
-                            MembershipRequest.RejectMembership(GetMembershipRequest(web, item), web);
+                            if (!MembershipRequest.RejectMembership(GetMembershipRequest(web, item), web))
+                            {
+                                throw new Exception("Error rejecting membership");
+                            }
                             //bms Removed Delete from Reject Membership to allow administrators to approve user later and delete with UI
                             //item.Delete();
                             //list.Update();
@@ -78,15 +57,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex);
-                //HttpContext.Current.Response.Redirect(SPContext.Current.Web.Url + "/_layouts/error.aspx");
+                throw new Exception("Error updating item in Membership Request List", ex);
             }
             finally
             {
-                if (web != null)
-                {
-                    //web.Dispose();
-                }
                 this.EventFiringEnabled = true;
             }
         }

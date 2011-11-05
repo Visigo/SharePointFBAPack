@@ -262,7 +262,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                     if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
                     {
-                        prc.SuccessText = "There was an error sending the email, please check with your administrator";
+                        prc.SuccessText = LocalizedString.GetString("FBAPackPasswordRecoveryWebPart", "ErrorSendingEmail");
                     }
                     e.Handled = true;
                 }
