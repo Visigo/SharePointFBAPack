@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangePasswordWebPart\ChangePasswordWebPart.cs" />
+    <Compile Include="Code\TemplateHelper.cs" />
     <Compile Include="Code\Data\FBADataSource.cs" />
     <Compile Include="Code\Data\FBARolesView.cs" />
     <Compile Include="Code\Data\FBAUsersView.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Code\Localization\LocalizedWebDisplayNameAttribute.cs" />
     <Compile Include="Code\Localization\LocalizedWebDescriptionAttribute.cs" />
     <Compile Include="Code\MembershipSettings.cs" />
+    <Compile Include="Code\TemplateLoader.cs" />
     <Compile Include="Code\UpdateLayoutsSitemap.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Features\FBADiagnosticsService\FBADiagnosticsService.EventReceiver.cs">
@@ -315,6 +317,27 @@
     <Content Include="Layouts\FBA\EMAILS\MembershipPending.xslt" />
     <Content Include="Layouts\FBA\EMAILS\MembershipRejected.xslt" />
     <Content Include="Layouts\FBA\EMAILS\PasswordRecovery.xslt" />
+    <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\ChangePasswordTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\SuccessTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\MembershipRequestWebPart\CompleteStepTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\MembershipRequestWebPart\CreateUserStepTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\QuestionTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\SuccessTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\UserNameTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="MembershipReviewList\Site Membership Review List\Elements.xml" />
     <Content Include="Resources\FBAPackMenus.resx">
       <Generator>ResXFileCodeGenerator</Generator>

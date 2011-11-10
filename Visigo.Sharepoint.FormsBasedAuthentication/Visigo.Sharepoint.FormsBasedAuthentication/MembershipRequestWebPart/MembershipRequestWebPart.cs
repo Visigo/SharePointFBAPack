@@ -36,6 +36,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         private ButtonType _CancelButtonType = ButtonType.Button;
         private string _CancelDestinationPageUrl = String.Empty;
         private string _CompleteSuccessText = String.Empty;
+        private string _ContinueButtonImageUrl = String.Empty;
+        private string _ContinueButtonText = String.Empty;
+        private ButtonType _ContinueButtonType = ButtonType.Button;
         private string _ConfirmPasswordCompareErrorMessage = String.Empty;
         private string _ConfirmPasswordLabelText = String.Empty;
         private string _ConfirmPasswordRequiredErrorMessage = String.Empty;
@@ -104,6 +107,18 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             get { return _GroupName; }
             set { _GroupName = value; }
         }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_Description")]
+        public string CreateUserStepTemplate { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_Description")]
+        public string CompleteStepTemplate { get; set; }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "AnswerLabelText_FriendlyName")]
@@ -189,6 +204,48 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get { return _CompleteSuccessText; }
             set { _CompleteSuccessText = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ContinueButtonImageUrl_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ContinueButtonImageUrl_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ContinueButtonImageUrl_Description")]
+        public string ContinueButtonImageUrl
+        {
+            get { return _ContinueButtonImageUrl; }
+            set
+            {
+                _ContinueButtonImageUrl = value;
+                if (cuw != null) cuw.ContinueButtonImageUrl = value;
+            }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ContinueButtonText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ContinueButtonText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ContinueButtonText_Description")]
+        public string ContinueButtonText
+        {
+            get { return _ContinueButtonText; }
+            set
+            {
+                _ContinueButtonText = value;
+                if (cuw != null) cuw.ContinueButtonText = value;
+            }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ContinueButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ContinueButtonType_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ContinueButtonType_Description")]
+        public ButtonType ContinueButtonType
+        {
+            get { return _ContinueButtonType; }
+            set
+            {
+                _ContinueButtonType = value;
+                if (cuw != null) cuw.ContinueButtonType = value;
+            }
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
@@ -594,55 +651,125 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Methods
         private void AddCreateUserControl()
         {
-            cuw = new MembershipRequestControl();
-            cuw.ID = "fbaCreateUserWizard";
-            cuw.AutoGeneratePassword = true;
+            TemplateHelper helper;
 
+            cuw = new MembershipRequestControl();
+            cuw.CreateUserStep.ContentTemplate = new TemplateLoader(CreateUserStepTemplate, Page);
+            cuw.CompleteStep.ContentTemplate = new TemplateLoader(CompleteStepTemplate, Page);
+            cuw.ID = "FBACreateUserWizard";
+            cuw.AutoGeneratePassword = true;
             cuw.MembershipProvider = Utils.GetMembershipProvider(Context);
-            cuw.AnswerLabelText = AnswerLabelText;
-            cuw.AnswerRequiredErrorMessage = AnswerRequiredErrorMessage;
-            cuw.CancelButtonImageUrl = CancelButtonImageUrl;
-            cuw.CancelButtonText = CancelButtonText;
-            cuw.CancelButtonType = CancelButtonType;
-            cuw.CancelDestinationPageUrl = CancelDestinationPageUrl;
-            cuw.CompleteSuccessText = CompleteSuccessText;
-            cuw.CreateUserButtonImageUrl = CreateUserButtonImageUrl;
-            cuw.CreateUserButtonText = CreateUserButtonText;
-            cuw.CreateUserButtonType = CreateUserButtonType;
-            cuw.CssClass = CssClass;
-            cuw.DisplayCancelButton = DisplayCancelButton;
             cuw.DuplicateEmailErrorMessage = DuplicateEmailErrorMessage;
             cuw.DuplicateUserNameErrorMessage = DuplicateUserNameErrorMessage;
-            cuw.EditProfileIconUrl = EditProfileIconUrl;
-            cuw.EditProfileText = EditProfileText;
-            cuw.EditProfileUrl = EditProfileUrl;
-            cuw.EmailLabelText = EmailLabelText;
             cuw.EmailRegularExpressionErrorMessage = EmailRegularExpressionErrorMessage;
-            cuw.EmailRequiredErrorMessage = EmailRequiredErrorMessage;
-            cuw.FinishDestinationPageUrl = FinishDestinationPageUrl;
-            cuw.HeaderText = HeaderText;
-            cuw.InstructionText = InstructionText;
             cuw.InvalidAnswerErrorMessage = InvalidAnswerErrorMessage;
             cuw.InvalidEmailErrorMessage = InvalidEmailErrorMessage;
             cuw.InvalidQuestionErrorMessage = InvalidQuestionErrorMessage;
             cuw.LoginCreatedUser = false;
             cuw.SPLoginCreatedUser = LoginCreatedUser;
-            cuw.QuestionLabelText = QuestionLabelText;
-            cuw.QuestionRequiredErrorMessage = QuestionRequiredErrorMessage;
             cuw.UnknownErrorMessage = UnknownErrorMessage;
-            cuw.UserNameLabelText = UserNameLabelText;
-            cuw.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
-            cuw.FirstNameLabelText = FirstNameLabelText;
-            cuw.FirstNameRequiredErrorMessage = FirstNameRequiredErrorMessage;
-            cuw.LastNameLabelText = LastNameLabelText;
-            cuw.LastNameRequiredErrorMessage = LastNameRequiredErrorMessage;
-            cuw.HipCharactersLabelText = HipCharactersLabelText;
-            cuw.HipErrorMessage = HipErrorMessage;
-            cuw.HipInstructionsLabelText = HipInstructionsLabelText;
-            cuw.HipPictureDescription = HipPictureDescription;
-            cuw.HipPictureLabelText = HipPictureLabelText;
-            cuw.HipResetLabelText = HipResetLabelText;
+            cuw.FinishDestinationPageUrl = FinishDestinationPageUrl;
+            cuw.CancelDestinationPageUrl = CancelDestinationPageUrl;
             cuw.DefaultGroup = this._GroupName;
+            cuw.CreateUserStep.CustomNavigationTemplateContainer.Controls[0].Visible = false;
+
+            //CreateUserStep
+            helper = new TemplateHelper(cuw.CreateUserStep.ContentTemplateContainer);
+
+            helper.SetCSS("MembershipRequestTable", CssClass);
+            helper.SetText("Header", HeaderText);
+            helper.SetText("Instruction", InstructionText);
+            helper.SetText("UserNameLabel", UserNameLabelText);
+            helper.SetValidation("UserNameRequired", UserNameRequiredErrorMessage, this.UniqueID);
+            helper.SetText("FirstNameLabel", FirstNameLabelText);
+            helper.SetValidation("FirstNameRequired", FirstNameRequiredErrorMessage, this.UniqueID); 
+            helper.SetText("LastNameLabel", LastNameLabelText);
+            helper.SetValidation("LastNameRequired", LastNameRequiredErrorMessage, this.UniqueID);
+            helper.SetText("EmailLabel", EmailLabelText);
+            helper.SetValidation("EmailRequired", EmailRequiredErrorMessage, this.UniqueID);
+
+            if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer)
+            {
+                helper.SetVisible("QuestionRow", true);
+                helper.SetVisible("AnswerRow", true);
+                helper.SetText("QuestionLabel", QuestionLabelText);
+                helper.SetValidation("QuestionRequired", QuestionRequiredErrorMessage, this.UniqueID);
+                helper.SetText("AnswerLabel", AnswerLabelText);
+                helper.SetValidation("AnswerRequired", AnswerRequiredErrorMessage, this.UniqueID);
+            }
+
+            helper.SetText("HipPictureLabel", HipPictureLabelText);
+            helper.SetText("HipInstructionsLabel", HipInstructionsLabelText);
+            helper.SetText("HipPictureDescriptionLabel", HipPictureDescription);
+            helper.SetText("HipAnswerLabel", HipCharactersLabelText);
+            helper.SetValidation("HipAnswerValidator", HipErrorMessage, this.UniqueID);
+            helper.SetButton("HipReset", HipResetLabelText, "");
+
+            switch (CreateUserButtonType)
+            {
+                case ButtonType.Button:
+                    helper.SetButton("CreateUserButton", CreateUserButtonText, this.UniqueID);
+                    helper.SetVisible("CreateUserButton", true);
+                    break;
+
+                case ButtonType.Image:
+                    helper.SetImageButton("CreateUserImageButton", CreateUserButtonImageUrl, CreateUserButtonText, this.UniqueID);
+                    helper.SetVisible("CreateUserImageButton", true);
+                    break;
+
+                case ButtonType.Link:
+                    helper.SetButton("CreateUserLinkButton", CreateUserButtonText, this.UniqueID);
+                    helper.SetVisible("CreateUserLinkButton", true);
+                    break;
+            }
+
+            if (DisplayCancelButton)
+            {
+                switch (CancelButtonType)
+                {
+                    case ButtonType.Button:
+                        helper.SetButton("CancelButton", CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelButton", true);
+                        break;
+
+                    case ButtonType.Image:
+                        helper.SetImageButton("CancelImageButton", CancelButtonImageUrl, CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelImageButton", true);
+                        break;
+
+                    case ButtonType.Link:
+                        helper.SetButton("CancelLinkButton", CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelLinkButton", true);
+                        break;
+                }
+            }
+
+            //SuccessTemplate
+            helper = new TemplateHelper(cuw.CompleteStep.ContentTemplateContainer);
+            helper.SetText("CompleteSuccess", CompleteSuccessText);
+
+            helper.SetVisible("EditProfileRow", !String.IsNullOrEmpty(EditProfileUrl));
+            helper.SetImage("EditProfileIcon", EditProfileIconUrl, EditProfileText, false);
+            helper.SetLink("EditProfileLink", EditProfileText, EditProfileUrl);
+
+            switch (ContinueButtonType)
+            {
+                case ButtonType.Button:
+                    helper.SetButton("ContinueButton", ContinueButtonText, this.UniqueID);
+                    helper.SetVisible("ContinueButton", true);
+                    break;
+
+                case ButtonType.Image:
+                    helper.SetImageButton("ContinueImageButton", ContinueButtonImageUrl, ContinueButtonText, this.UniqueID);
+                    helper.SetVisible("ContinueImageButton", true);
+                    break;
+
+                case ButtonType.Link:
+                    helper.SetButton("ContinueLinkButton", ContinueButtonText, this.UniqueID);
+                    helper.SetVisible("ContinueLinkButton", true);
+                    break;
+            }
+            
             Controls.Add(cuw);
         }
         #region Rendering Methods

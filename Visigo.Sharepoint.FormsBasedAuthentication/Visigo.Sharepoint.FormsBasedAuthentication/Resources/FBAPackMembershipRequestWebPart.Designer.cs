@@ -278,6 +278,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string CompleteStepTemplate_Category {
+            get {
+                return ResourceManager.GetString("CompleteStepTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx.
+        /// </summary>
+        internal static string CompleteStepTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("CompleteStepTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CompleteStepTemplate_Description {
+            get {
+                return ResourceManager.GetString("CompleteStepTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete Step Template.
+        /// </summary>
+        internal static string CompleteStepTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("CompleteStepTemplate_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string CompleteSucccessText_Description {
@@ -310,6 +346,114 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string CompleteSuccessText_FriendlyName {
             get {
                 return ResourceManager.GetString("CompleteSuccessText_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string ContinueButtonImageUrl_Category {
+            get {
+                return ResourceManager.GetString("ContinueButtonImageUrl_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ContinueButtonImageUrl_DefaultValue {
+            get {
+                return ResourceManager.GetString("ContinueButtonImageUrl_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ContinueButtonImageUrl_Description {
+            get {
+                return ResourceManager.GetString("ContinueButtonImageUrl_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue Button Image Url.
+        /// </summary>
+        internal static string ContinueButtonImageUrl_FriendlyName {
+            get {
+                return ResourceManager.GetString("ContinueButtonImageUrl_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string ContinueButtonText_Category {
+            get {
+                return ResourceManager.GetString("ContinueButtonText_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        internal static string ContinueButtonText_DefaultValue {
+            get {
+                return ResourceManager.GetString("ContinueButtonText_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ContinueButtonText_Description {
+            get {
+                return ResourceManager.GetString("ContinueButtonText_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue Button Text.
+        /// </summary>
+        internal static string ContinueButtonText_FriendlyName {
+            get {
+                return ResourceManager.GetString("ContinueButtonText_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string ContinueButtonType_Category {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string ContinueButtonType_DefaultValue {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ContinueButtonType_Description {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue Button Type.
+        /// </summary>
+        internal static string ContinueButtonType_FriendlyName {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_FriendlyName", resourceCulture);
             }
         }
         
@@ -418,6 +562,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string CreateUserButtonType_FriendlyName {
             get {
                 return ResourceManager.GetString("CreateUserButtonType_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string CreateUserStepTemplate_Category {
+            get {
+                return ResourceManager.GetString("CreateUserStepTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx.
+        /// </summary>
+        internal static string CreateUserStepTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("CreateUserStepTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CreateUserStepTemplate_Description {
+            get {
+                return ResourceManager.GetString("CreateUserStepTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create User Step Template.
+        /// </summary>
+        internal static string CreateUserStepTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("CreateUserStepTemplate_FriendlyName", resourceCulture);
             }
         }
         
