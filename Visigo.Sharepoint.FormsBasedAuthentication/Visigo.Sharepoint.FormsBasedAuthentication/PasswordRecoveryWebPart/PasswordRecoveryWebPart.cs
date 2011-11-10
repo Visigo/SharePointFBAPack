@@ -20,21 +20,26 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Fields
         private System.Web.UI.WebControls.PasswordRecovery _ctlPasswordRecovery;
 
-        private string _generalFailureText = string.Empty;
-        private string _questionFailureText = string.Empty;
-        private string _questionInstructionText = string.Empty;
-        private string _questionLabelText = string.Empty;
-        private string _questionTitleText = string.Empty;
-        private string _submitButtonImageUrl = string.Empty;
-        private string _submitButtonText = string.Empty;
+        private LocalizedString _resourceManager = new LocalizedString("FBAPackPasswordRecoveryWebPart");
+
+        private string _questionTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/QuestionTemplate.ascx";
+        private string _successTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/SuccessTemplate.ascx";
+        private string _userNameTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/UserNameTemplate.ascx";
+        private string _generalFailureText = null;
+        private string _questionFailureText = null;
+        private string _questionInstructionText = null;
+        private string _questionLabelText = null;
+        private string _questionTitleText = null;
+        private string _submitButtonImageUrl = null;
+        private string _submitButtonText = null;
         private ButtonType _submitButtonType = ButtonType.Button;
-        private string _successText = string.Empty;
-        private string _userNameFailureText = string.Empty;
-        private string _userNameInstructionText = string.Empty;
-        private string _userNameLabelText = string.Empty;
-        private string _userNameTitleText = string.Empty;
-        private string _answerRequiredErrorMessage = string.Empty;
-        private string _userNameRequiredErrorMessage = string.Empty;
+        private string _successText = null;
+        private string _userNameFailureText = null;
+        private string _userNameInstructionText = null;
+        private string _userNameLabelText = null;
+        private string _userNameTitleText = null;
+        private string _answerRequiredErrorMessage = null;
+        private string _userNameRequiredErrorMessage = null;
         #endregion
 
         #region Properties
@@ -42,19 +47,31 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_Category")]
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_Description")]
-        public string QuestionTemplate { get; set; }
+        public string QuestionTemplate
+        {
+            get { return _questionTemplate; }
+            set { _questionTemplate = value; }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_Category")]
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_Description")]
-        public string SuccessTemplate { get; set; }
+        public string SuccessTemplate
+        {
+            get { return _successTemplate; }
+            set { _successTemplate = value; }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_Category")]
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_Description")]
-        public string UserNameTemplate { get; set; }
+        public string UserNameTemplate
+        {
+            get { return _userNameTemplate; }
+            set { _userNameTemplate = value; }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "GeneralFailureText_FriendlyName")]
@@ -62,7 +79,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "GeneralFailureText_Description")]
         public string GeneralFailureText
         {
-            get { return _generalFailureText; }
+            get
+            {
+                if (_generalFailureText != null)
+                {
+                    return _generalFailureText;
+                }
+                return _resourceManager.GetString("GeneralFailureText_DefaultValue");
+            }
+
             set { _generalFailureText = value; }
         }
 
@@ -72,7 +97,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionFailureText_Description")]
         public string QuestionFailureText
         {
-            get { return _questionFailureText; }
+            get
+            {
+                if (_questionFailureText != null)
+                {
+                    return _questionFailureText;
+                }
+                return _resourceManager.GetString("QuestionFailureText_DefaultValue");
+            }
             set { _questionFailureText = value; }
         }
 
@@ -82,7 +114,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionInstructionText_Description")]
         public string QuestionInstructionText
         {
-            get { return _questionInstructionText; }
+            get
+            {
+                if (_questionInstructionText != null)
+                {
+                    return _questionInstructionText;
+                }
+                return _resourceManager.GetString("QuestionInstructionText_DefaultValue");
+            }
             set { _questionInstructionText = value; }
         }
 
@@ -92,7 +131,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionLabelText_Description")]
         public string QuestionLabelText
         {
-            get { return _questionLabelText; }
+            get
+            {
+                if (_questionLabelText != null)
+                {
+                    return _questionLabelText;
+                }
+                return _resourceManager.GetString("QuestionLabelText_DefaultValue");
+            }
             set { _questionLabelText = value; }
         }
 
@@ -102,7 +148,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionTitleText_Description")]
         public string QuestionTitleText
         {
-            get { return _questionTitleText; }
+            get
+            {
+                if (_questionTitleText != null)
+                {
+                    return _questionTitleText;
+                }
+                return _resourceManager.GetString("QuestionTitleText_DefaultValue");
+            }
             set { _questionTitleText = value; }
         }
 
@@ -112,7 +165,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "SubmitButtonImageUrl_Description")]
         public string SubmitButtonImageUrl
         {
-            get { return _submitButtonImageUrl; }
+            get
+            {
+                if (_submitButtonImageUrl != null)
+                {
+                    return _submitButtonImageUrl;
+                }
+                return _resourceManager.GetString("SubmitButtonImageUrl_DefaultValue");
+            }
             set { _submitButtonImageUrl = value; }
         }
 
@@ -122,7 +182,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "SubmitButtonText_Description")]
         public string SubmitButtonText
         {
-            get { return _submitButtonText; }
+            get
+            {
+                if (_submitButtonText != null)
+                {
+                    return _submitButtonText;
+                }
+                return _resourceManager.GetString("SubmitButtonText_DefaultValue");
+            }
             set { _submitButtonText = value; }
         }
 
@@ -142,7 +209,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "SuccessText_Description")]
         public string SuccessText
         {
-            get { return _successText; }
+            get
+            {
+                if (_successText != null)
+                {
+                    return _successText;
+                }
+                return _resourceManager.GetString("SuccessText_DefaultValue");
+            }
             set { _successText = value; }
         }
 
@@ -152,7 +226,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameFailureText_Description")]
         public string UserNameFailureText
         {
-            get { return _userNameFailureText; }
+            get
+            {
+                if (_userNameFailureText != null)
+                {
+                    return _userNameFailureText;
+                }
+                return _resourceManager.GetString("UserNameFailureText_DefaultValue");
+            }
             set { _userNameFailureText = value; }
         }
 
@@ -162,7 +243,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameInstructionText_Description")]
         public string UserNameInstructionText
         {
-            get { return _userNameInstructionText; }
+            get
+            {
+                if (_userNameInstructionText != null)
+                {
+                    return _userNameInstructionText;
+                }
+                return _resourceManager.GetString("UserNameInstructionText_DefaultValue");
+            }
             set { _userNameInstructionText = value; }
         }
 
@@ -172,7 +260,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
-            get { return _userNameLabelText; }
+            get
+            {
+                if (_userNameLabelText != null)
+                {
+                    return _userNameLabelText;
+                }
+                return _resourceManager.GetString("UserNameLabelText_DefaultValue");
+            }
             set { _userNameLabelText = value; }
         }
 
@@ -182,7 +277,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameTitleText_Description")]
         public string UserNameTitleText
         {
-            get { return _userNameTitleText; }
+            get
+            {
+                if (_userNameTitleText != null)
+                {
+                    return _userNameTitleText;
+                }
+                return _resourceManager.GetString("UserNameTitleText_DefaultValue");
+            }
             set { _userNameTitleText = value; }
         }
 
@@ -192,7 +294,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "AnswerRequiredErrorMessage_Description")]
         public string AnswerRequiredErrorMessage
         {
-            get { return _answerRequiredErrorMessage; }
+            get
+            {
+                if (_answerRequiredErrorMessage != null)
+                {
+                    return _answerRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("AnswerRequiredErrorMessage_DefaultValue");
+            }
             set { _answerRequiredErrorMessage = value; }
         }
 
@@ -202,7 +311,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
-            get { return _userNameRequiredErrorMessage; }
+            get
+            {
+                if (_userNameRequiredErrorMessage != null)
+                {
+                    return _userNameRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
+            }
             set { _userNameRequiredErrorMessage = value; }
         }
         #endregion

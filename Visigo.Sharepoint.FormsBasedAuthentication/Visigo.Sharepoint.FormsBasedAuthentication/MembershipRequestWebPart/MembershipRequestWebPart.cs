@@ -26,77 +26,67 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public class MembershipRequestWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
         #region Fields
+        private LocalizedString _resourceManager = new LocalizedString("FBAPackMembershipRequestWebPart");
+
         protected string[] _randCharacters = { "A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",
                 "2","3","4","5","6","7","8","9",
                 "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"};
-        private string _AnswerLabelText = String.Empty;
-        private string _AnswerRequiredErrorMessage = String.Empty;
-        private string _CancelButtonImageUrl = String.Empty;
-        private string _CancelButtonText = String.Empty;
+
+        private string _createUserStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx";
+        private string _completeStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx";
+        private string _AnswerLabelText = null;
+        private string _AnswerRequiredErrorMessage = null;
+        private string _CancelButtonImageUrl = null;
+        private string _CancelButtonText = null;
         private ButtonType _CancelButtonType = ButtonType.Button;
-        private string _CancelDestinationPageUrl = String.Empty;
-        private string _CompleteSuccessText = String.Empty;
-        private string _ContinueButtonImageUrl = String.Empty;
-        private string _ContinueButtonText = String.Empty;
+        private string _CancelDestinationPageUrl = null;
+        private string _CompleteSuccessText = null;
+        private string _ContinueButtonImageUrl = null;
+        private string _ContinueButtonText = null;
         private ButtonType _ContinueButtonType = ButtonType.Button;
-        private string _ConfirmPasswordCompareErrorMessage = String.Empty;
-        private string _ConfirmPasswordLabelText = String.Empty;
-        private string _ConfirmPasswordRequiredErrorMessage = String.Empty;
-        private string _CreateUserButtonImageUrl = String.Empty;
-        private string _CreateUserButtonText = String.Empty;
+        private string _ConfirmPasswordCompareErrorMessage = null;
+        private string _ConfirmPasswordLabelText = null;
+        private string _ConfirmPasswordRequiredErrorMessage = null;
+        private string _CreateUserButtonImageUrl = null;
+        private string _CreateUserButtonText = null;
         private ButtonType _CreateUserButtonType = ButtonType.Button;
-        private string _CssClass = String.Empty;
+        private string _CssClass = null;
         private bool _DisplayCancelButton = false;
-        private string _DuplicateEmailErrorMessage = String.Empty;
-        private string _DuplicateUserNameErrorMessage = String.Empty;
-        private string _EditProfileIconUrl = String.Empty;
-        private string _EditProfileText = String.Empty;
-        private string _EditProfileUrl = String.Empty;
-        private string _EmailLabelText = String.Empty;
-        private string _EmailRegularExpressionErrorMessage = String.Empty;
-        private string _EmailRequiredErrorMessage = String.Empty;
-        private string _FinishDestinationPageUrl = String.Empty;
-        private string _HeaderText = String.Empty;
-        private string _InstructionText = String.Empty;
-        private string _InvalidAnswerErrorMessage = String.Empty;
-        private string _InvalidEmailErrorMessage = String.Empty;
-        private string _InvalidPasswordErrorMessage = String.Empty;
-        private string _InvalidQuestionErrorMessage = String.Empty;
-        private bool _LoginCreatedUser = true;
-        private string _QuestionLabelText = String.Empty;
-        private string _QuestionRequiredErrorMessage = String.Empty;
-        private string _UnknownErrorMessage = String.Empty;
-        private string _UserNameLabelText = String.Empty;
-        private string _UserNameRequiredErrorMessage = String.Empty;
-        private string _FirstNameLabelText = String.Empty;
-        private string _LastNameLabelText = string.Empty;
-        private string _FirstNameRequiredErrorMessage = String.Empty;
-        private string _LastNameRequiredErrorMessage = String.Empty;
-        private string _HipPictureLabelText = String.Empty;
-        private string _HipCharactersLabelText = string.Empty;
-        private string _HipInstructionsLabelText = string.Empty;
-        private string _HipPictureDescription = string.Empty;
-        private string _HipResetLabelText = string.Empty;
-        private string _HipErrorMessage = string.Empty;
-        private string _GroupName = string.Empty;
+        private string _DuplicateEmailErrorMessage = null;
+        private string _DuplicateUserNameErrorMessage = null;
+        private string _EditProfileIconUrl = null;
+        private string _EditProfileText = null;
+        private string _EditProfileUrl = null;
+        private string _EmailLabelText = null;
+        private string _EmailRegularExpressionErrorMessage = null;
+        private string _EmailRequiredErrorMessage = null;
+        private string _FinishDestinationPageUrl = null;
+        private string _HeaderText = null;
+        private string _InstructionText = null;
+        private string _InvalidAnswerErrorMessage = null;
+        private string _InvalidEmailErrorMessage = null;
+        private string _InvalidPasswordErrorMessage = null;
+        private string _InvalidQuestionErrorMessage = null;
+        private bool _LoginCreatedUser = false;
+        private string _QuestionLabelText = null;
+        private string _QuestionRequiredErrorMessage = null;
+        private string _UnknownErrorMessage = null;
+        private string _UserNameLabelText = null;
+        private string _UserNameRequiredErrorMessage = null;
+        private string _FirstNameLabelText = null;
+        private string _LastNameLabelText = null;
+        private string _FirstNameRequiredErrorMessage = null;
+        private string _LastNameRequiredErrorMessage = null;
+        private string _HipPictureLabelText = null;
+        private string _HipCharactersLabelText = null;
+        private string _HipInstructionsLabelText = null;
+        private string _HipPictureDescription = null;
+        private string _HipResetLabelText = null;
+        private string _HipErrorMessage = null;
+        private string _GroupName = null;
 
         #endregion
 
-        #region Constructors
-        public MembershipRequestWebPart()
-        {
-            try
-            {
-                //Default to the current url
-                FinishDestinationPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError(ex);
-            }
-        }
-
-        #endregion
 
         #region Properties
         /// <summary>
@@ -104,21 +94,69 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         /// </summary>
         public string GroupName
         {
-            get { return _GroupName; }
-            set { _GroupName = value; }
+            get
+            {
+                if (_GroupName != null)
+                {
+                    return _GroupName;
+                }
+
+                //Set default group name to first group in group list
+                _GroupName = "";
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+                    using (SPSite site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
+                    {
+                        using (SPWeb web = site.OpenWeb())
+                        {
+
+                            SPGroupCollection groups = web.SiteGroups;
+                            if (groups.Count > 0)
+                            {
+                                _GroupName = groups[0].Name;
+                            }
+                        }
+                    }
+                });
+                return _GroupName;
+            }
+            set
+            {
+                _GroupName = value;
+            }
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_Category")]
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserStepTemplate_Description")]
-        public string CreateUserStepTemplate { get; set; }
+        public string CreateUserStepTemplate
+        {
+            get
+            {
+                return _createUserStepTemplate;
+            }
+            set
+            {
+                _createUserStepTemplate = value;
+            }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_Category")]
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CompleteStepTemplate_Description")]
-        public string CompleteStepTemplate { get; set; }
+        public string CompleteStepTemplate
+        {
+            get
+            {
+                return _completeStepTemplate;
+            }
+            set
+            {
+                _completeStepTemplate = value;
+            }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "AnswerLabelText_FriendlyName")]
@@ -126,7 +164,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "AnswerLabelText_Description")]
         public string AnswerLabelText
         {
-            get { return _AnswerLabelText; }
+            get
+            {
+                if (_AnswerLabelText != null)
+                {
+                    return _AnswerLabelText;
+                }
+                return _resourceManager.GetString("AnswerLabelText_DefaultValue");
+            }
             set
             {
                 _AnswerLabelText = value;
@@ -140,7 +185,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "AnswerRequiredErrorMessage_Description")]
         public string AnswerRequiredErrorMessage
         {
-            get { return _AnswerRequiredErrorMessage; }
+            get
+            {
+                if (_AnswerRequiredErrorMessage != null)
+                {
+                    return _AnswerRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("AnswerRequiredErrorMessage_DefaultValue");
+            }
             set { _AnswerRequiredErrorMessage = value; }
         }
 
@@ -150,7 +202,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelButtonImageUrl_Description")]
         public string CancelButtonImageUrl
         {
-            get { return _CancelButtonImageUrl; }
+            get
+            {
+                if (_CancelButtonImageUrl != null)
+                {
+                    return _CancelButtonImageUrl;
+                }
+                return _resourceManager.GetString("CancelButtonImageUrl_DefaultValue");
+            }
             set
             {
                 _CancelButtonImageUrl = value;
@@ -164,7 +223,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelButtonText_Description")]
         public string CancelButtonText
         {
-            get { return _CancelButtonText; }
+            get
+            {
+                if (_CancelButtonText != null)
+                {
+                    return _CancelButtonText;
+                }
+                return _resourceManager.GetString("CancelButtonText_DefaultValue");
+            }
             set
             {
                 _CancelButtonText = value;
@@ -192,7 +258,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CancelDestinationPageUrl_Description")]
         public string CancelDestinationPageUrl
         {
-            get { return _CancelDestinationPageUrl; }
+            get
+            {
+                if (_CancelDestinationPageUrl != null)
+                {
+                    return _CancelDestinationPageUrl;
+                }
+                return _resourceManager.GetString("CancelDestinationPageUrl_DefaultValue");
+            }
             set { _CancelDestinationPageUrl = value; }
         }
 
@@ -202,7 +275,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CompleteSuccessText_Description")]
         public string CompleteSuccessText
         {
-            get { return _CompleteSuccessText; }
+            get
+            {
+                if (_CompleteSuccessText != null)
+                {
+                    return _CompleteSuccessText;
+                }
+                return _resourceManager.GetString("CompleteSuccessText_DefaultValue");
+            }
             set { _CompleteSuccessText = value; }
         }
 
@@ -212,7 +292,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ContinueButtonImageUrl_Description")]
         public string ContinueButtonImageUrl
         {
-            get { return _ContinueButtonImageUrl; }
+            get
+            {
+                if (_ContinueButtonImageUrl != null)
+                {
+                    return _ContinueButtonImageUrl;
+                }
+                return _resourceManager.GetString("ContinueButtonImageUrl_DefaultValue");
+            }
             set
             {
                 _ContinueButtonImageUrl = value;
@@ -226,7 +313,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ContinueButtonText_Description")]
         public string ContinueButtonText
         {
-            get { return _ContinueButtonText; }
+            get
+            {
+                if (_ContinueButtonText != null)
+                {
+                    return _ContinueButtonText;
+                }
+                return _resourceManager.GetString("ContinueButtonText_DefaultValue");
+            }
             set
             {
                 _ContinueButtonText = value;
@@ -254,7 +348,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserButtonImageUrl_Description")]
         public string CreateUserButtonImageUrl
         {
-            get { return _CreateUserButtonImageUrl; }
+            get
+            {
+                if (_CreateUserButtonImageUrl != null)
+                {
+                    return _CreateUserButtonImageUrl;
+                }
+                return _resourceManager.GetString("CreateUserButtonImageUrl_DefaultValue");
+            }
             set
             {
                 _CreateUserButtonImageUrl = value;
@@ -268,7 +369,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CreateUserButtonText_Description")]
         public string CreateUserButtonText
         {
-            get { return _CreateUserButtonText; }
+            get
+            {
+                if (_CreateUserButtonText != null)
+                {
+                    return _CreateUserButtonText;
+                }
+                return _resourceManager.GetString("CreateUserButtonText_DefaultValue");
+            }
             set
             {
                 _CreateUserButtonText = value;
@@ -296,7 +404,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CssClass_Description")]
         public new string CssClass
         {
-            get { return _CssClass; }
+            get
+            {
+                if (_CssClass != null)
+                {
+                    return _CssClass;
+                }
+                return _resourceManager.GetString("CssClass_DefaultValue");
+            }
             set
             {
                 _CssClass = value;
@@ -325,7 +440,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "DuplicateEmailErrorMessage_Description")]
         public string DuplicateEmailErrorMessage
         {
-            get { return _DuplicateEmailErrorMessage; }
+            get
+            {
+                if (_DuplicateEmailErrorMessage != null)
+                {
+                    return _DuplicateEmailErrorMessage;
+                }
+                return _resourceManager.GetString("DuplicateEmailErrorMessage_DefaultValue");
+            }
             set { _DuplicateEmailErrorMessage = value; }
         }
 
@@ -335,7 +457,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "DuplicateUserNameErrorMessage_Description")]
         public string DuplicateUserNameErrorMessage
         {
-            get { return _DuplicateUserNameErrorMessage; }
+            get
+            {
+                if (_DuplicateUserNameErrorMessage != null)
+                {
+                    return _DuplicateUserNameErrorMessage;
+                }
+                return _resourceManager.GetString("DuplicateUserNameErrorMessage_DefaultValue");
+            }
             set { _DuplicateUserNameErrorMessage = value; }
         }
 
@@ -345,7 +474,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileIconUrl_Description")]
         public string EditProfileIconUrl
         {
-            get { return _EditProfileIconUrl; }
+            get
+            {
+                if (_EditProfileIconUrl != null)
+                {
+                    return _EditProfileIconUrl;
+                }
+                return _resourceManager.GetString("EditProfileIconUrl_DefaultValue");
+            }
             set { _EditProfileIconUrl = value; }
         }
 
@@ -355,7 +491,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileText_Description")]
         public string EditProfileText
         {
-            get { return _EditProfileText; }
+            get
+            {
+                if (_EditProfileText != null)
+                {
+                    return _EditProfileText;
+                }
+                return _resourceManager.GetString("EditProfileText_DefaultValue");
+            }
             set
             {
                 _EditProfileText = value;
@@ -369,7 +512,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EditProfileUrl_Description")]
         public string EditProfileUrl
         {
-            get { return _EditProfileUrl; }
+            get
+            {
+                if (_EditProfileUrl != null)
+                {
+                    return _EditProfileUrl;
+                }
+                return _resourceManager.GetString("EditProfileUrl_DefaultValue");
+            }
             set { _EditProfileUrl = value; }
         }
 
@@ -379,7 +529,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailLabelText_Description")]
         public string EmailLabelText
         {
-            get { return _EmailLabelText; }
+            get
+            {
+                if (_EmailLabelText != null)
+                {
+                    return _EmailLabelText;
+                }
+                return _resourceManager.GetString("EmailLabelText_DefaultValue");
+            }
             set
             {
                 _EmailLabelText = value;
@@ -393,7 +550,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailRegularExpressionErrorMessage_Description")]
         public string EmailRegularExpressionErrorMessage
         {
-            get { return _EmailRegularExpressionErrorMessage; }
+            get
+            {
+                if (_EmailRegularExpressionErrorMessage != null)
+                {
+                    return _EmailRegularExpressionErrorMessage;
+                }
+                return _resourceManager.GetString("EmailRegularExpressionErrorMessage_DefaultValue");
+            }
             set { _EmailRegularExpressionErrorMessage = value; }
         }
 
@@ -403,7 +567,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "EmailRequiredErrorMessage_Description")]
         public string EmailRequiredErrorMessage
         {
-            get { return _EmailRequiredErrorMessage; }
+            get
+            {
+                if (_EmailRequiredErrorMessage != null)
+                {
+                    return _EmailRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("EmailRequiredErrorMessage_DefaultValue");
+            }
             set { _EmailRequiredErrorMessage = value; }
         }
 
@@ -413,7 +584,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FinishDestinationPageUrl_Description")]
         public string FinishDestinationPageUrl
         {
-            get { return _FinishDestinationPageUrl; }
+            get
+            {
+                if (_FinishDestinationPageUrl != null)
+                {
+                    return _FinishDestinationPageUrl;
+                }
+                return SPUtility.GetPageUrlPath(HttpContext.Current);
+            }
             set { _FinishDestinationPageUrl = value; }
         }
 
@@ -423,7 +601,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HeaderText_Description")]
         public string HeaderText
         {
-            get { return _HeaderText; }
+            get
+            {
+                if (_HeaderText != null)
+                {
+                    return _HeaderText;
+                }
+                return _resourceManager.GetString("HeaderText_DefaultValue");
+            }
             set
             {
                 _HeaderText = value;
@@ -437,7 +622,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InstructionText_Description")]
         public string InstructionText
         {
-            get { return _InstructionText; }
+            get
+            {
+                if (_InstructionText != null)
+                {
+                    return _InstructionText;
+                }
+                return _resourceManager.GetString("InstructionText_DefaultValue");
+            }
             set
             {
                 _InstructionText = value;
@@ -451,7 +643,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidAnswerErrorMessage_Description")]
         public string InvalidAnswerErrorMessage
         {
-            get { return _InvalidAnswerErrorMessage; }
+            get
+            {
+                if (_InvalidAnswerErrorMessage != null)
+                {
+                    return _InvalidAnswerErrorMessage;
+                }
+                return _resourceManager.GetString("InvalidAnswerErrorMessage_DefaultValue");
+            }
             set { _InvalidAnswerErrorMessage = value; }
         }
 
@@ -461,7 +660,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidEmailErrorMessage_Description")]
         public string InvalidEmailErrorMessage
         {
-            get { return _InvalidEmailErrorMessage; }
+            get
+            {
+                if (_InvalidEmailErrorMessage != null)
+                {
+                    return _InvalidEmailErrorMessage;
+                }
+                return _resourceManager.GetString("InvalidEmailErrorMessage_DefaultValue");
+            }
             set { _InvalidEmailErrorMessage = value; }
         }
 
@@ -471,7 +677,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_Description")]
         public string InvalidQuestionErrorMessage
         {
-            get { return _InvalidQuestionErrorMessage; }
+            get
+            {
+                if (_InvalidQuestionErrorMessage != null)
+                {
+                    return _InvalidQuestionErrorMessage;
+                }
+                return _resourceManager.GetString("InvalidQuestionErrorMessage_DefaultValue");
+            }
             set { _InvalidQuestionErrorMessage = value; }
         }
 
@@ -491,7 +704,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "QuestionLabelText_Description")]
         public string QuestionLabelText
         {
-            get { return _QuestionLabelText; }
+            get
+            {
+                if (_QuestionLabelText != null)
+                {
+                    return _QuestionLabelText;
+                }
+                return _resourceManager.GetString("QuestionLabelText_DefaultValue");
+            }
             set
             {
                 _QuestionLabelText = value;
@@ -505,7 +725,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "QuestionRequiredErrorMessage_Description")]
         public string QuestionRequiredErrorMessage
         {
-            get { return _QuestionRequiredErrorMessage; }
+            get
+            {
+                if (_QuestionRequiredErrorMessage != null)
+                {
+                    return _QuestionRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("QuestionRequiredErrorMessage_DefaultValue");
+            }
             set { _QuestionRequiredErrorMessage = value; }
         }
 
@@ -515,7 +742,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UnknownErrorMessage_Description")]
         public string UnknownErrorMessage
         {
-            get { return _UnknownErrorMessage; }
+            get
+            {
+                if (_UnknownErrorMessage != null)
+                {
+                    return _UnknownErrorMessage;
+                }
+                return _resourceManager.GetString("UnknownErrorMessage_DefaultValue");
+            }
             set { _UnknownErrorMessage = value; }
         }
 
@@ -525,7 +759,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UserNameLabelText_Description")]
         public string UserNameLabelText
         {
-            get { return _UserNameLabelText; }
+            get
+            {
+                if (_UserNameLabelText != null)
+                {
+                    return _UserNameLabelText;
+                }
+                return _resourceManager.GetString("UserNameLabelText_DefaultValue");
+            }
             set
             {
                 _UserNameLabelText = value;
@@ -539,7 +780,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "UserNameRequiredErrorMessage_Description")]
         public string UserNameRequiredErrorMessage
         {
-            get { return _UserNameRequiredErrorMessage; }
+            get
+            {
+                if (_UserNameRequiredErrorMessage != null)
+                {
+                    return _UserNameRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
+            }
             set { _UserNameRequiredErrorMessage = value; }
         }
 
@@ -549,7 +797,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FirstNameLabelText_Description")]
         public string FirstNameLabelText
         {
-            get { return _FirstNameLabelText; }
+            get
+            {
+                if (_FirstNameLabelText != null)
+                {
+                    return _FirstNameLabelText;
+                }
+                return _resourceManager.GetString("FirstNameLabelText_DefaultValue");
+            }
             set { _FirstNameLabelText = value; }
         }
 
@@ -559,7 +814,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "LastNameLabelText_Description")]
         public string LastNameLabelText
         {
-            get { return _LastNameLabelText; }
+            get
+            {
+                if (_LastNameLabelText != null)
+                {
+                    return _LastNameLabelText;
+                }
+                return _resourceManager.GetString("LastNameLabelText_DefaultValue");
+            }
             set { _LastNameLabelText = value; }
         }
 
@@ -569,7 +831,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "FirstNameRequiredErrorMessage_Description")]
         public string FirstNameRequiredErrorMessage
         {
-            get { return _FirstNameRequiredErrorMessage; }
+            get
+            {
+                if (_FirstNameRequiredErrorMessage != null)
+                {
+                    return _FirstNameRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("FirstNameRequiredErrorMessage_DefaultValue");
+            }
             set { _FirstNameRequiredErrorMessage = value; }
         }
 
@@ -579,7 +848,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "LastNameRequiredErrorMessage_Description")]
         public string LastNameRequiredErrorMessage
         {
-            get { return _LastNameRequiredErrorMessage; }
+            get
+            {
+                if (_LastNameRequiredErrorMessage != null)
+                {
+                    return _LastNameRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("LastNameRequiredErrorMessage_DefaultValue");
+            }
             set { _LastNameRequiredErrorMessage = value; }
         }
 
@@ -589,7 +865,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipPictureLabelText_Description")]
         public string HipPictureLabelText
         {
-            get { return _HipPictureLabelText; }
+            get
+            {
+                if (_HipPictureLabelText != null)
+                {
+                    return _HipPictureLabelText;
+                }
+                return _resourceManager.GetString("HipPictureLabelText_DefaultValue");
+            }
             set { _HipPictureLabelText = value; }
         }
 
@@ -599,7 +882,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipCharactersLabelText_Description")]
         public string HipCharactersLabelText
         {
-            get { return _HipCharactersLabelText; }
+            get
+            {
+                if (_HipCharactersLabelText != null)
+                {
+                    return _HipCharactersLabelText;
+                }
+                return _resourceManager.GetString("HipCharactersLabelText_DefaultValue");
+            }
             set { _HipCharactersLabelText = value; }
         }
 
@@ -609,7 +899,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipInstructionsLabelText_Description")]
         public string HipInstructionsLabelText
         {
-            get { return _HipInstructionsLabelText; }
+            get
+            {
+                if (_HipInstructionsLabelText != null)
+                {
+                    return _HipInstructionsLabelText;
+                }
+                return _resourceManager.GetString("HipInstructionsLabelText_DefaultValue");
+            }
             set { _HipInstructionsLabelText = value; }
         }
 
@@ -619,7 +916,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipPictureDescription_Description")]
         public string HipPictureDescription
         {
-            get { return _HipPictureDescription; }
+            get
+            {
+                if (_HipPictureDescription != null)
+                {
+                    return _HipPictureDescription;
+                }
+                return _resourceManager.GetString("HipPictureDescription_DefaultValue");
+            }
             set { _HipPictureDescription = value; }
         }
 
@@ -629,7 +933,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipResetLabelText_Description")]
         public string HipResetLabelText
         {
-            get { return _HipResetLabelText; }
+            get
+            {
+                if (_HipResetLabelText != null)
+                {
+                    return _HipResetLabelText;
+                }
+                return _resourceManager.GetString("HipResetLabelText_DefaultValue");
+            }
             set { _HipResetLabelText = value; }
         }
 
@@ -639,7 +950,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "HipErrorMessage_Description")]
         public string HipErrorMessage
         {
-            get { return _HipErrorMessage; }
+            get
+            {
+                if (_HipErrorMessage != null)
+                {
+                    return _HipErrorMessage;
+                }
+                return _resourceManager.GetString("HipErrorMessage_DefaultValue");
+            }
             set { _HipErrorMessage = value; }
         }
         #endregion
@@ -776,32 +1094,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         protected override void CreateChildControls()
         {
             AddCreateUserControl();
-        }
-
-        protected override void OnInit(EventArgs e)
-        {
-            //Initialize the group name.  Calls to the sharepoint object model don't work in the constructor.
-            //Only set it if it's empty - as personalization will already have occurred by this point.
-            if (GroupName == String.Empty)
-            {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-                    using (SPSite site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
-                    {
-                        using (SPWeb web = site.OpenWeb())
-                        {
-
-                            SPGroupCollection groups = web.SiteGroups;
-                            if (groups.Count > 0)
-                            {
-                                GroupName = groups[0].Name;
-                            }
-                        }
-                    }
-                });
-            }
-
-            base.OnInit(e);
         }
 
         protected override void RenderContents(HtmlTextWriter writer)

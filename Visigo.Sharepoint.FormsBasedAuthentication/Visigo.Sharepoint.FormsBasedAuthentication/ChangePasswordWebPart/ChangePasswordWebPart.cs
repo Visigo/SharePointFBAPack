@@ -17,47 +17,51 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public class ChangePasswordWebPart : System.Web.UI.WebControls.WebParts.WebPart
     {
         #region Fields
-        private string _cancelButtonImageUrl = string.Empty;
-        private string _cancelButtonText = string.Empty;
+        private LocalizedString _resourceManager = new LocalizedString("FBAPackChangePasswordWebPart");
+
+        private string _changePasswordTemplate = "/_layouts/FBA/WEBPARTS/ChangePasswordWebPart/ChangePasswordTemplate.ascx";
+        private string _successTemplate = "/_layouts/FBA/WEBPARTS/ChangePasswordWebPart/SuccessTemplate.ascx";
+        private string _cancelButtonImageUrl = null;
+        private string _cancelButtonText = null;
         private ButtonType _cancelButtonType = ButtonType.Button;
-        private string _cancelDestinationPageUrl = string.Empty;
-        private string _changePasswordButtonImageUrl = string.Empty;
-        private string _changePasswordButtonText = string.Empty;
+        private string _cancelDestinationPageUrl = null;
+        private string _changePasswordButtonImageUrl = null;
+        private string _changePasswordButtonText = null;
         private ButtonType _changePasswordButtonType = ButtonType.Button;
-        private string _changePasswordFailureText = string.Empty;
-        private string _changePasswordTitleText = string.Empty;
-        private string _confirmNewPasswordLabelText = string.Empty;
-        private string _confirmPasswordCompareErrorMessage = string.Empty;
-        private string _confirmPasswordRequiredErrorMessage = string.Empty;
-        private string _newPasswordRequiredErrorMessage = string.Empty;
-        private string _continueButtonImageUrl = string.Empty;
-        private string _continueButtonText = string.Empty;
+        private string _changePasswordFailureText = null;
+        private string _changePasswordTitleText = null;
+        private string _confirmNewPasswordLabelText = null;
+        private string _confirmPasswordCompareErrorMessage = null;
+        private string _confirmPasswordRequiredErrorMessage = null;
+        private string _newPasswordRequiredErrorMessage = null;
+        private string _continueButtonImageUrl = null;
+        private string _continueButtonText = null;
         private ButtonType _continueButtonType = ButtonType.Button;
-        private string _continueDestinationPageUrl = string.Empty;
-        private string _createUserIconUrl = string.Empty;
-        private string _createUserText = string.Empty;
-        private string _createUserUrl = string.Empty;
+        private string _continueDestinationPageUrl = null;
+        private string _createUserIconUrl = null;
+        private string _createUserText = null;
+        private string _createUserUrl = null;
         private bool _displayUserName = false;
-        private string _editProfileIconUrl = string.Empty;
-        private string _editProfileText = string.Empty;
-        private string _editProfileUrl = string.Empty;
-        private string _helpPageIconUrl = string.Empty;
-        private string _helpPageText = string.Empty;
-        private string _helpPageUrl = string.Empty;
-        private string _instructionText = string.Empty;
-        private string _newPasswordLabelText = string.Empty;
-        private string _newPasswordRegularExpressionErrorMessage = string.Empty;
-        private string _passwordHintText = string.Empty;
-        private string _passwordLabelText = string.Empty;
-        private string _passwordRecoveryIconUrl = string.Empty;
-        private string _passwordRecoveryText = string.Empty;
-        private string _passwordRecoveryUrl = string.Empty;
-        private string _passwordRequiredErrorMessage = string.Empty;
-        private string _successPageUrl = string.Empty;
-        private string _successText = string.Empty;
+        private string _editProfileIconUrl = null;
+        private string _editProfileText = null;
+        private string _editProfileUrl = null;
+        private string _helpPageIconUrl = null;
+        private string _helpPageText = null;
+        private string _helpPageUrl = null;
+        private string _instructionText = null;
+        private string _newPasswordLabelText = null;
+        private string _newPasswordRegularExpressionErrorMessage = null;
+        private string _passwordHintText = null;
+        private string _passwordLabelText = null;
+        private string _passwordRecoveryIconUrl = null;
+        private string _passwordRecoveryText = null;
+        private string _passwordRecoveryUrl = null;
+        private string _passwordRequiredErrorMessage = null;
+        private string _successPageUrl = null;
+        private string _successText = null;
         //private string _toolTip = string.Empty;
-        private string _userNameLabelText = string.Empty;
-        private string _userNameRequiredErrorMessage = string.Empty;
+        private string _userNameLabelText = null;
+        private string _userNameRequiredErrorMessage = null;
         #endregion
 
         #region Controls
@@ -69,13 +73,34 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_Category")]
         [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_Description")]
-        public string ChangePasswordTemplate { get; set; }
+        public string ChangePasswordTemplate
+        {
+            get
+            {
+                return _changePasswordTemplate;
+            }
+            set
+            {
+                _changePasswordTemplate = value;
+            }
+        }
+
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "SuccessTemplate_FriendlyName")]
         [LocalizedCategory("FBAPackChangePasswordWebPart", "SuccessTemplate_Category")]
         [LocalizedWebDescription("FBAPackChangePasswordWebPart", "SuccessTemplate_Description")]
-        public string SuccessTemplate { get; set; }
+        public string SuccessTemplate
+        {
+            get
+            {
+                return _successTemplate;
+            }
+            set
+            {
+                _successTemplate = value;
+            }
+        }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_FriendlyName")]
@@ -85,7 +110,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _cancelButtonImageUrl;
+                if (_cancelButtonImageUrl != null)
+                {
+                    return _cancelButtonImageUrl;
+                }
+                return _resourceManager.GetString("CancelButtonImageUrl_DefaultValue");
             }
             set
             {
@@ -101,7 +130,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _cancelButtonText;
+                if (_cancelButtonText != null)
+                {
+                    return _cancelButtonText;
+                }
+                return _resourceManager.GetString("CancelButtonText_DefaultValue");
             }
             set
             {
@@ -133,7 +166,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _cancelDestinationPageUrl;
+                if (_cancelDestinationPageUrl != null)
+                {
+                    return _cancelDestinationPageUrl;
+                }
+                return _resourceManager.GetString("CancelDestinationPageUrl_DefaultValue");
             }
             set
             {
@@ -149,7 +186,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _changePasswordButtonImageUrl;
+                if (_changePasswordButtonImageUrl != null)
+                {
+                    return _changePasswordButtonImageUrl;
+                }
+                return _resourceManager.GetString("ChangePasswordButtonImageUrl_DefaultValue");
             }
             set
             {
@@ -165,7 +206,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _changePasswordButtonText;
+                if (_changePasswordButtonText != null)
+                {
+                    return _changePasswordButtonText;
+                }
+                return _resourceManager.GetString("ChangePasswordButtonText_DefaultValue");
             }
             set
             {
@@ -197,7 +242,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _changePasswordFailureText;
+                if (_changePasswordFailureText != null)
+                {
+                    return _changePasswordFailureText;
+                }
+                return _resourceManager.GetString("ChangePasswordFailureText_DefaultValue");
             }
             set
             {
@@ -213,7 +262,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _changePasswordTitleText;
+                if (_changePasswordTitleText != null)
+                {
+                    return _changePasswordTitleText;
+                }
+                return _resourceManager.GetString("ChangePasswordTitleText_DefaultValue");
             }
             set
             {
@@ -229,7 +282,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _confirmNewPasswordLabelText;
+                if (_confirmNewPasswordLabelText != null)
+                {
+                    return _confirmNewPasswordLabelText;
+                }
+                return _resourceManager.GetString("ConfirmNewPasswordLabelText_DefaultValue");
             }
             set
             {
@@ -246,7 +303,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _confirmPasswordCompareErrorMessage;
+                if (_confirmPasswordCompareErrorMessage != null)
+                {
+                    return _confirmPasswordCompareErrorMessage;
+                }
+                return _resourceManager.GetString("ConfirmPasswordCompareErrorMessage_DefaultValue");
             }
             set
             {
@@ -263,7 +324,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _confirmPasswordRequiredErrorMessage;
+                if (_confirmPasswordRequiredErrorMessage != null)
+                {
+                    return _confirmPasswordRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("ConfirmPasswordRequiredErrorMessage_DefaultValue");
             }
             set
             {
@@ -279,7 +344,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _newPasswordRequiredErrorMessage;
+                if (_newPasswordRequiredErrorMessage != null)
+                {
+                    return _newPasswordRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("NewPasswordRequiredErrorMessage_DefaultValue");
             }
             set
             {
@@ -296,7 +365,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _continueButtonImageUrl;
+                if (_continueButtonImageUrl != null)
+                {
+                    return _continueButtonImageUrl;
+                }
+                return _resourceManager.GetString("ContinueButtonImageUrl_DefaultValue");
             }
             set
             {
@@ -313,7 +386,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _continueButtonText;
+                if (_continueButtonText != null)
+                {
+                    return _continueButtonText;
+                }
+                return _resourceManager.GetString("ContinueButtonText_DefaultValue");
             }
             set
             {
@@ -346,7 +423,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _continueDestinationPageUrl;
+                if (_continueDestinationPageUrl != null)
+                {
+                    return _continueDestinationPageUrl;
+                }
+                return SPUtility.GetPageUrlPath(HttpContext.Current);
             }
             set
             {
@@ -363,7 +444,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _createUserIconUrl;
+                if (_createUserIconUrl != null)
+                {
+                    return _createUserIconUrl;
+                }
+                return _resourceManager.GetString("CreateUserIconUrl_DefaultValue");
             }
             set
             {
@@ -380,7 +465,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _createUserText;
+                if (_createUserText != null)
+                {
+                    return _createUserText;
+                }
+                return _resourceManager.GetString("CreateUserText_DefaultValue");
             }
             set
             {
@@ -397,7 +486,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _createUserUrl;
+                if (_createUserUrl != null)
+                {
+                    return _createUserUrl;
+                }
+                return _resourceManager.GetString("CreateUserUrl_DefaultValue");
             }
             set
             {
@@ -431,7 +524,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _editProfileIconUrl;
+                if (_editProfileIconUrl != null)
+                {
+                    return _editProfileIconUrl;
+                }
+                return _resourceManager.GetString("EditProfileIconUrl_DefaultValue");
             }
             set
             {
@@ -448,7 +545,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _editProfileText;
+                if (_editProfileText != null)
+                {
+                    return _editProfileText;
+                }
+                return _resourceManager.GetString("EditProfileText_DefaultValue");
             }
             set
             {
@@ -465,7 +566,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _editProfileUrl;
+                if (_editProfileUrl != null)
+                {
+                    return _editProfileUrl;
+                }
+                return _resourceManager.GetString("EditProfileUrl_DefaultValue");
             }
             set
             {
@@ -482,7 +587,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _helpPageIconUrl;
+                if (_helpPageIconUrl != null)
+                {
+                    return _helpPageIconUrl;
+                }
+                return _resourceManager.GetString("HelpPageIconUrl_DefaultValue");
             }
             set
             {
@@ -499,7 +608,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _helpPageText;
+                if (_helpPageText != null)
+                {
+                    return _helpPageText;
+                }
+                return _resourceManager.GetString("HelpPageText_DefaultValue");
             }
             set
             {
@@ -516,7 +629,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _helpPageUrl;
+                if (_helpPageUrl != null)
+                {
+                    return _helpPageUrl;
+                }
+                return _resourceManager.GetString("HelpPageUrl_DefaultValue");
             }
             set
             {
@@ -532,7 +649,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _instructionText;
+                if (_instructionText != null)
+                {
+                    return _instructionText;
+                }
+                return _resourceManager.GetString("InstructionText_DefaultValue");
             }
             set
             {
@@ -548,7 +669,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _newPasswordLabelText;
+                if (_newPasswordLabelText != null)
+                {
+                    return _newPasswordLabelText;
+                }
+                return _resourceManager.GetString("NewPasswordLabelText_DefaultValue");
             }
             set
             {
@@ -564,7 +689,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _newPasswordRegularExpressionErrorMessage;
+                if (_newPasswordRegularExpressionErrorMessage != null)
+                {
+                    return _newPasswordRegularExpressionErrorMessage;
+                }
+                return _resourceManager.GetString("NewPasswordRegularExpressionErrorMessage_DefaultValue");
             }
             set
             {
@@ -580,7 +709,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordHintText;
+                if (_passwordHintText != null)
+                {
+                    return _passwordHintText;
+                }
+                return _resourceManager.GetString("PasswordHintText_DefaultValue");
             }
             set
             {
@@ -596,7 +729,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordLabelText;
+                if (_passwordLabelText != null)
+                {
+                    return _passwordLabelText;
+                }
+                return _resourceManager.GetString("PasswordLabelText_DefaultValue");
             }
             set
             {
@@ -612,7 +749,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordRecoveryIconUrl;
+                if (_passwordRecoveryIconUrl != null)
+                {
+                    return _passwordRecoveryIconUrl;
+                }
+                return _resourceManager.GetString("PasswordRecoveryIconUrl_DefaultValue");
             }
             set
             {
@@ -628,7 +769,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordRecoveryText;
+                if (_passwordRecoveryText != null)
+                {
+                    return _passwordRecoveryText;
+                }
+                return _resourceManager.GetString("PasswordRecoveryText_DefaultValue");
             }
             set
             {
@@ -644,7 +789,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordRecoveryUrl;
+                if (_passwordRecoveryUrl != null)
+                {
+                    return _passwordRecoveryUrl;
+                }
+                return _resourceManager.GetString("PasswordRecoveryUrl_DefaultValue");
             }
             set
             {
@@ -660,7 +809,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _passwordRequiredErrorMessage;
+                if (_passwordRequiredErrorMessage != null)
+                {
+                    return _passwordRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("PasswordRequiredErrorMessage_DefaultValue");
             }
             set
             {
@@ -676,7 +829,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _successPageUrl;
+                if (_successPageUrl != null)
+                {
+                    return _successPageUrl;
+                }
+                return _resourceManager.GetString("SuccessPageUrl_DefaultValue");
             }
             set
             {
@@ -692,7 +849,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _successText;
+                if (_successText != null)
+                {
+                    return _successText;
+                }
+                return _resourceManager.GetString("SuccessText_DefaultValue");
             }
             set
             {
@@ -708,7 +869,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _userNameLabelText;
+                if (_userNameLabelText != null)
+                {
+                    return _userNameLabelText;
+                }
+                return _resourceManager.GetString("UserNameLabelText_DefaultValue");
             }
             set
             {
@@ -724,7 +889,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _userNameRequiredErrorMessage;
+                if (_userNameRequiredErrorMessage != null)
+                {
+                    return _userNameRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("UserNameRequiredErrorMessage_DefaultValue");
             }
             set
             {
@@ -732,21 +901,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
         }
 
-        #endregion
-
-        #region Constructors
-        public ChangePasswordWebPart()
-        {
-            try
-            {
-                //Default to the current url
-                ContinueDestinationPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError(ex);
-            }
-        }
         #endregion
 
         #region Methods
