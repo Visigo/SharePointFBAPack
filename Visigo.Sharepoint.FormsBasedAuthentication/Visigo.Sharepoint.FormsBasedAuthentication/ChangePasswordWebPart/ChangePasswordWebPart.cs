@@ -29,8 +29,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         private string _confirmNewPasswordLabelText = string.Empty;
         private string _confirmPasswordCompareErrorMessage = string.Empty;
         private string _confirmPasswordRequiredErrorMessage = string.Empty;
+        private string _newPasswordRequiredErrorMessage = string.Empty;
         private string _continueButtonImageUrl = string.Empty;
         private string _continueButtonText = string.Empty;
+        private ButtonType _continueButtonType = ButtonType.Button;
         private string _continueDestinationPageUrl = string.Empty;
         private string _createUserIconUrl = string.Empty;
         private string _createUserText = string.Empty;
@@ -63,6 +65,18 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #endregion
 
         #region Properties
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ChangePasswordTemplate_Description")]
+        public string ChangePasswordTemplate { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "SuccessTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "SuccessTemplate_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "SuccessTemplate_Description")]
+        public string SuccessTemplate { get; set; }
+
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_FriendlyName")]
         [LocalizedCategory("FBAPackChangePasswordWebPart", "CancelButtonImageUrl_Category")]
@@ -257,6 +271,22 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
         }
 
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "NewPasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "NewPasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "NewPasswordRequiredErrorMessage_Description")]
+        public string NewPasswordRequiredErrorMessage
+        {
+            get
+            {
+                return _newPasswordRequiredErrorMessage;
+            }
+            set
+            {
+                _newPasswordRequiredErrorMessage = value;
+            }
+        }
+
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ContinueButtonImageUrl_FriendlyName")]
@@ -288,6 +318,22 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             set
             {
                 _continueButtonText = value;
+            }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackChangePasswordWebPart", "ContinueButtonType_FriendlyName")]
+        [LocalizedCategory("FBAPackChangePasswordWebPart", "ContinueButtonType_Category")]
+        [LocalizedWebDescription("FBAPackChangePasswordWebPart", "ContinueButtonType_Description")]
+        public ButtonType ContinueButtonType
+        {
+            get
+            {
+                return _continueButtonType;
+            }
+            set
+            {
+                _continueButtonType = value;
             }
         }
 
@@ -706,6 +752,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Methods
         private void AddChangePasswordControl()
         {
+            TemplateHelper helper;
+
             if (SPContext.Current.Web.CurrentUser == null)
             {
                 //Login Control won't work with SP2010, so for now, just don't show a control at all
@@ -715,46 +763,114 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             else
             {
                 _ctlChangePassword = new System.Web.UI.WebControls.ChangePassword();
+                _ctlChangePassword.ChangePasswordTemplate = new TemplateLoader(ChangePasswordTemplate, Page);
+                _ctlChangePassword.SuccessTemplate = new TemplateLoader(SuccessTemplate, Page);
                 _ctlChangePassword.MembershipProvider = Utils.GetMembershipProvider(Context);
-                _ctlChangePassword.CancelButtonImageUrl = CancelButtonImageUrl;
-                _ctlChangePassword.CancelButtonText = CancelButtonText;
-                _ctlChangePassword.CancelButtonType = CancelButtonType;
                 _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
-                _ctlChangePassword.ChangePasswordButtonImageUrl = ChangePasswordButtonImageUrl;
-                _ctlChangePassword.ChangePasswordButtonText = ChangePasswordButtonText;
-                _ctlChangePassword.ChangePasswordButtonType = ChangePasswordButtonType;
                 _ctlChangePassword.ChangePasswordFailureText = ChangePasswordFailureText;
-                _ctlChangePassword.ChangePasswordTitleText = ChangePasswordTitleText;
-                _ctlChangePassword.ConfirmNewPasswordLabelText = ConfirmNewPasswordLabelText;
-                _ctlChangePassword.ConfirmPasswordCompareErrorMessage = ConfirmPasswordCompareErrorMessage;
-                _ctlChangePassword.ConfirmPasswordRequiredErrorMessage = ConfirmPasswordRequiredErrorMessage;
-                _ctlChangePassword.ContinueButtonImageUrl = ContinueButtonImageUrl;
-                _ctlChangePassword.ContinueButtonText = ContinueButtonText;
                 _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
-                _ctlChangePassword.CreateUserIconUrl = CreateUserIconUrl;
-                _ctlChangePassword.CreateUserText = CreateUserText;
-                _ctlChangePassword.CreateUserUrl = CreateUserUrl;
-                _ctlChangePassword.DisplayUserName = DisplayUserName;
-                _ctlChangePassword.EditProfileIconUrl = EditProfileIconUrl;
-                _ctlChangePassword.EditProfileText = EditProfileText;
-                _ctlChangePassword.EditProfileUrl = EditProfileUrl;
-                _ctlChangePassword.HelpPageIconUrl = HelpPageIconUrl;
-                _ctlChangePassword.HelpPageText = HelpPageText;
-                _ctlChangePassword.HelpPageUrl = HelpPageUrl;
-                _ctlChangePassword.InstructionText = InstructionText;
-                _ctlChangePassword.NewPasswordLabelText = NewPasswordLabelText;
-                _ctlChangePassword.NewPasswordRegularExpressionErrorMessage = NewPasswordRegularExpressionErrorMessage;
-                _ctlChangePassword.PasswordHintText = PasswordHintText;
-                _ctlChangePassword.PasswordLabelText = PasswordLabelText;
-                _ctlChangePassword.PasswordRecoveryIconUrl = PasswordRecoveryIconUrl;
-                _ctlChangePassword.PasswordRecoveryText = PasswordRecoveryText;
-                _ctlChangePassword.PasswordRecoveryUrl = PasswordRecoveryUrl;
-                _ctlChangePassword.PasswordRequiredErrorMessage = PasswordRequiredErrorMessage;
-                _ctlChangePassword.SuccessPageUrl = SuccessPageUrl;
-                _ctlChangePassword.SuccessText = SuccessText;
+                
                 _ctlChangePassword.ToolTip = ToolTip;
-                _ctlChangePassword.UserNameLabelText = UserNameLabelText;
-                _ctlChangePassword.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
+                _ctlChangePassword.SuccessPageUrl = SuccessPageUrl;
+                _ctlChangePassword.NewPasswordRegularExpressionErrorMessage = NewPasswordRegularExpressionErrorMessage;
+
+                //ChangePasswordTemplate
+                //have to initially force DisplayUserName true to access template
+                _ctlChangePassword.DisplayUserName = true;
+                helper = new TemplateHelper(_ctlChangePassword.ChangePasswordTemplateContainer);
+                _ctlChangePassword.DisplayUserName = DisplayUserName;
+                helper.SetText("ChangePasswordTitle", ChangePasswordTitleText);
+                helper.SetText("Instruction", InstructionText);
+                helper.SetVisible("UserNameRow", DisplayUserName);
+                helper.SetText("UserNameLabel", UserNameLabelText);
+                helper.SetValidation("UserNameRequired", UserNameRequiredErrorMessage, this.UniqueID);
+                helper.SetText("CurrentPasswordLabel", PasswordLabelText);
+                helper.SetValidation("CurrentPasswordRequired", PasswordRequiredErrorMessage, this.UniqueID);
+                helper.SetText("NewPasswordLabel", NewPasswordLabelText);
+                helper.SetValidation("NewPasswordRequired", NewPasswordRequiredErrorMessage, this.UniqueID);
+                helper.SetText("PasswordHint", PasswordHintText);
+                helper.SetVisible("PasswordHintRow", !String.IsNullOrEmpty(PasswordHintText));
+                helper.SetText("ConfirmNewPasswordLabel", ConfirmNewPasswordLabelText);
+                helper.SetValidation("ConfirmNewPasswordRequired", ConfirmPasswordRequiredErrorMessage, this.UniqueID);
+                helper.SetValidation("ConfirmNewPasswordCompare", ConfirmPasswordCompareErrorMessage, this.UniqueID);
+
+                switch (ChangePasswordButtonType)
+                {
+                    case ButtonType.Button:
+                        helper.SetButton("ChangePasswordButton", ChangePasswordButtonText, this.UniqueID);
+                        helper.SetVisible("ChangePasswordButton", true);
+                        break;
+
+                    case ButtonType.Image:
+                        helper.SetImageButton("ChangePasswordImageButton", ChangePasswordButtonImageUrl, ChangePasswordButtonText, this.UniqueID);
+                        helper.SetVisible("ChangePasswordImageButton", true);
+                        break;
+
+                    case ButtonType.Link:
+                        helper.SetButton("ChangePasswordLinkButton", ChangePasswordButtonText, this.UniqueID);
+                        helper.SetVisible("ChangePasswordLinkButton", true);
+                        break;
+                }
+
+                switch (CancelButtonType)
+                {
+                    case ButtonType.Button:
+                        helper.SetButton("CancelButton", CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelButton", true);
+                        break;
+
+                    case ButtonType.Image:
+                        helper.SetImageButton("CancelImageButton", CancelButtonImageUrl, CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelImageButton", true);
+                        break;
+
+                    case ButtonType.Link:
+                        helper.SetButton("CancelLinkButton", CancelButtonText, this.UniqueID);
+                        helper.SetVisible("CancelLinkButton", true);
+                        break;
+                }
+
+                helper.SetVisible("EditProfileRow", !String.IsNullOrEmpty(EditProfileUrl));
+                helper.SetImage("EditProfileIcon", EditProfileIconUrl, EditProfileText,false);
+                helper.SetLink("EditProfileLink", EditProfileText, EditProfileUrl);
+
+                helper.SetVisible("HelpPageRow", !String.IsNullOrEmpty(HelpPageUrl));
+                helper.SetImage("HelpPageIcon", HelpPageIconUrl, HelpPageText, false);
+                helper.SetLink("HelpPageLink", HelpPageText, HelpPageUrl);
+
+                helper.SetVisible("CreateUserRow", !String.IsNullOrEmpty(CreateUserUrl));
+                helper.SetImage("CreateUserIcon", CreateUserIconUrl, CreateUserText, false);
+                helper.SetLink("CreateUserLink", CreateUserText, CreateUserUrl);
+
+                helper.SetVisible("PasswordRecoveryRow", !String.IsNullOrEmpty(PasswordRecoveryUrl));
+                helper.SetImage("PasswordRecoveryIcon", PasswordRecoveryIconUrl, PasswordRecoveryText, false);
+                helper.SetLink("PasswordRecoveryLink", PasswordRecoveryText, PasswordRecoveryUrl);
+
+                //SuccessTemplate
+                helper = new TemplateHelper(_ctlChangePassword.SuccessTemplateContainer);
+                helper.SetText("Success", SuccessText);
+
+                helper.SetVisible("EditProfileRow", !String.IsNullOrEmpty(EditProfileUrl));
+                helper.SetImage("EditProfileIcon", EditProfileIconUrl, EditProfileText, false);
+                helper.SetLink("EditProfileLink", EditProfileText, EditProfileUrl);
+
+                switch (ContinueButtonType)
+                {
+                    case ButtonType.Button:
+                        helper.SetButton("ContinueButton", ContinueButtonText, this.UniqueID);
+                        helper.SetVisible("ContinueButton", true);
+                        break;
+
+                    case ButtonType.Image:
+                        helper.SetImageButton("ContinueImageButton", ContinueButtonImageUrl, ContinueButtonText, this.UniqueID);
+                        helper.SetVisible("ContinueImageButton", true);
+                        break;
+
+                    case ButtonType.Link:
+                        helper.SetButton("ContinueLinkButton", ContinueButtonText, this.UniqueID);
+                        helper.SetVisible("ContinueLinkButton", true);
+                        break;
+                }
 
                 //_ctlChangePassword.ChangingPassword += new LoginCancelEventHandler(ctlChangePassword_ChangingPassword);
                 _ctlChangePassword.ChangedPassword += new EventHandler(_ctlChangePassword_ChangedPassword);

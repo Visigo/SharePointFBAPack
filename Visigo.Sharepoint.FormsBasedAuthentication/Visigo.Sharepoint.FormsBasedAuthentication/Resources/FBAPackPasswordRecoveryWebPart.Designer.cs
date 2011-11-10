@@ -253,6 +253,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
+        internal static string QuestionTemplate_Category {
+            get {
+                return ResourceManager.GetString("QuestionTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/QuestionTemplate.ascx.
+        /// </summary>
+        internal static string QuestionTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("QuestionTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string QuestionTemplate_Description {
+            get {
+                return ResourceManager.GetString("QuestionTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question Template.
+        /// </summary>
+        internal static string QuestionTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("QuestionTemplate_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
         internal static string QuestionTitleText_Category {
             get {
                 return ResourceManager.GetString("QuestionTitleText_Category", resourceCulture);
@@ -391,6 +427,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string SubmitButtonType_FriendlyName {
             get {
                 return ResourceManager.GetString("SubmitButtonType_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string SuccessTemplate_Category {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/SuccessTemplate.ascx.
+        /// </summary>
+        internal static string SuccessTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SuccessTemplate_Description {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success Template.
+        /// </summary>
+        internal static string SuccessTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_FriendlyName", resourceCulture);
             }
         }
         
@@ -571,6 +643,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string UserNameRequiredErrorMessage_FriendlyName {
             get {
                 return ResourceManager.GetString("UserNameRequiredErrorMessage_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string UsernameTemplate_Category {
+            get {
+                return ResourceManager.GetString("UsernameTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/UserNameTemplate.ascx.
+        /// </summary>
+        internal static string UsernameTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("UsernameTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string UsernameTemplate_Description {
+            get {
+                return ResourceManager.GetString("UsernameTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName Template.
+        /// </summary>
+        internal static string UsernameTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("UsernameTemplate_FriendlyName", resourceCulture);
             }
         }
         

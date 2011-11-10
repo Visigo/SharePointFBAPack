@@ -10,6 +10,8 @@
         <property name="Title" type="string">$Resources:FBAPackFeatures,MembershipRequest_Title;</property>
         <property name="Description" type="string">$Resources:FBAPackFeatures,MembershipRequest_Desc;</property>
 
+        <property name="CreateUserStepTemplate" type="string">/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx</property>
+        <property name="CompleteStepTemplate" type="string">/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx</property>
         <property name="AnswerLabelText" type="string">$Resources:FBAPackMembershipRequestWebPart,AnswerLabelText_DefaultValue;</property>
         <property name="AnswerRequiredErrorMessage" type="string">$Resources:FBAPackMembershipRequestWebPart,AnswerRequiredErrorMessage_DefaultValue;</property>
         <property name="CancelButtonImageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CancelButtonImageUrl_DefaultValue;</property>
@@ -17,6 +19,9 @@
         <property name="CancelButtonType" type="enum">$Resources:FBAPackMembershipRequestWebPart,CancelButtonType_DefaultValue;</property>
         <property name="CancelDestinationPageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CancelDestinationPageUrl_DefaultValue;</property>
         <property name="CompleteSuccessText" type="string">$Resources:FBAPackMembershipRequestWebPart,CompleteSuccessText_DefaultValue;</property>
+        <property name="ContinueButtonImageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,ContinueButtonImageUrl_DefaultValue;</property>
+        <property name="ContinueButtonText" type="string">$Resources:FBAPackMembershipRequestWebPart,ContinueButtonText_DefaultValue;</property>
+        <property name="ContinueButtonType" type="enum">$Resources:FBAPackMembershipRequestWebPart,ContinueButtonType_DefaultValue;</property>
         <property name="CreateUserButtonImageUrl" type="string">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonImageUrl_DefaultValue;</property>
         <property name="CreateUserButtonText" type="string">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonText_DefaultValue;</property>
         <property name="CreateUserButtonType" type="enum">$Resources:FBAPackMembershipRequestWebPart,CreateUserButtonType_DefaultValue;</property>

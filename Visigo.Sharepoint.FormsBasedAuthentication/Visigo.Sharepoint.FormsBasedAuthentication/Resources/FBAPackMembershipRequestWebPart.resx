@@ -663,4 +663,64 @@
   <data name="GroupEditor_Title" xml:space="preserve">
     <value>Default Group For New Users</value>
   </data>
+  <data name="ContinueButtonImageUrl_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonImageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonImageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonImageUrl_FriendlyName" xml:space="preserve">
+    <value>Continue Button Image Url</value>
+  </data>
+  <data name="ContinueButtonText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonText_DefaultValue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ContinueButtonText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonText_FriendlyName" xml:space="preserve">
+    <value>Continue Button Text</value>
+  </data>
+  <data name="ContinueButtonType_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonType_DefaultValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ContinueButtonType_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonType_FriendlyName" xml:space="preserve">
+    <value>Continue Button Type</value>
+  </data>
+  <data name="CompleteStepTemplate_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CompleteStepTemplate_DefaultValue" xml:space="preserve">
+    <value>/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx</value>
+  </data>
+  <data name="CompleteStepTemplate_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CompleteStepTemplate_FriendlyName" xml:space="preserve">
+    <value>Complete Step Template</value>
+  </data>
+  <data name="CreateUserStepTemplate_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CreateUserStepTemplate_DefaultValue" xml:space="preserve">
+    <value>/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx</value>
+  </data>
+  <data name="CreateUserStepTemplate_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserStepTemplate_FriendlyName" xml:space="preserve">
+    <value>Create User Step Template</value>
+  </data>
 </root>

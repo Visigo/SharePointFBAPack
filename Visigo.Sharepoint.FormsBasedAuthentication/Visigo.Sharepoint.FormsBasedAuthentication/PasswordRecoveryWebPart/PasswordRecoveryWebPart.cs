@@ -39,6 +39,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         #region Properties
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_Category")]
+        [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "QuestionTemplate_Description")]
+        public string QuestionTemplate { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_Category")]
+        [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "SuccessTemplate_Description")]
+        public string SuccessTemplate { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_FriendlyName")]
+        [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_Category")]
+        [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "UserNameTemplate_Description")]
+        public string UserNameTemplate { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackPasswordRecoveryWebPart", "GeneralFailureText_FriendlyName")]
         [LocalizedCategory("FBAPackPasswordRecoveryWebPart", "GeneralFailureText_Category")]
         [LocalizedWebDescription("FBAPackPasswordRecoveryWebPart", "GeneralFailureText_Description")]
@@ -192,31 +210,75 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Methods
         private void AddPasswordRecoveryControl()
         {
-
+            TemplateHelper helper;
 
             /* bms I couldn't figure out how to set the smtp server from code so I added the SendMailError as a hack for now */
 
             _ctlPasswordRecovery = new System.Web.UI.WebControls.PasswordRecovery();
+            _ctlPasswordRecovery.UserNameTemplate = new TemplateLoader(UserNameTemplate, Page);
+            _ctlPasswordRecovery.SuccessTemplate = new TemplateLoader(SuccessTemplate, Page);
+            _ctlPasswordRecovery.QuestionTemplate = new TemplateLoader(QuestionTemplate, Page);
             //bms Added the event to catch the error and send our own email
             _ctlPasswordRecovery.SendMailError += new SendMailErrorEventHandler(_ctlPasswordRecovery_SendMailError);
             _ctlPasswordRecovery.VerifyingUser += new LoginCancelEventHandler(_ctlPasswordRecovery_VerifyingUser);
             _ctlPasswordRecovery.MembershipProvider = Utils.GetMembershipProvider(Context);
             _ctlPasswordRecovery.GeneralFailureText = GeneralFailureText;
             _ctlPasswordRecovery.QuestionFailureText = QuestionFailureText;
-            _ctlPasswordRecovery.QuestionInstructionText = QuestionInstructionText;
-            _ctlPasswordRecovery.QuestionLabelText = QuestionLabelText;
-            _ctlPasswordRecovery.QuestionTitleText = QuestionTitleText;
-            _ctlPasswordRecovery.SubmitButtonImageUrl = SubmitButtonImageUrl;
-            _ctlPasswordRecovery.SubmitButtonText = SubmitButtonText;
-            _ctlPasswordRecovery.SubmitButtonType = SubmitButtonType;
-            _ctlPasswordRecovery.SuccessText = SuccessText;
             _ctlPasswordRecovery.UserNameFailureText = UserNameFailureText;
-            _ctlPasswordRecovery.UserNameInstructionText = UserNameInstructionText;
-            _ctlPasswordRecovery.UserNameLabelText = UserNameLabelText;
-            _ctlPasswordRecovery.UserNameTitleText = UserNameTitleText;
-            _ctlPasswordRecovery.AnswerRequiredErrorMessage = AnswerRequiredErrorMessage;
-            _ctlPasswordRecovery.UserNameRequiredErrorMessage = UserNameRequiredErrorMessage;
 
+            //UsernameTemplate
+            helper = new TemplateHelper(_ctlPasswordRecovery.UserNameTemplateContainer);
+            helper.SetText("UserNameInstruction", UserNameInstructionText);
+            helper.SetText("UserNameLabel", UserNameLabelText);
+            helper.SetText("UserNameTitle", UserNameTitleText);
+            helper.SetValidation("UserNameRequired", UserNameRequiredErrorMessage, this.UniqueID);
+            switch (SubmitButtonType)
+            {
+                case ButtonType.Button:
+                    helper.SetButton("SubmitButton", SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitButton", true);
+                    break;
+
+                case ButtonType.Image:
+                    helper.SetImageButton("SubmitImageButton", SubmitButtonImageUrl, SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitImageButton", true);
+                    break;
+
+                case ButtonType.Link:
+                    helper.SetButton("SubmitLinkButton", SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitLinkButton", true);
+                    break;
+            }
+
+            //QuestionTemplate
+            helper = new TemplateHelper(_ctlPasswordRecovery.QuestionTemplateContainer);
+            helper.SetText("QuestionInstruction", QuestionInstructionText);
+            helper.SetText("UserNameLabel", UserNameLabelText);
+            helper.SetText("QuestionLabel", QuestionLabelText);
+            helper.SetText("QuestionTitle", QuestionTitleText);
+            helper.SetValidation("AnswerRequired", AnswerRequiredErrorMessage, this.UniqueID);
+            switch (SubmitButtonType)
+            {
+                case ButtonType.Button:
+                    helper.SetButton("SubmitButton", SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitButton", true);
+                    break;
+
+                case ButtonType.Image:
+                    helper.SetImageButton("SubmitImageButton", SubmitButtonImageUrl, SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitImageButton", true);
+                    break;
+
+                case ButtonType.Link:
+                    helper.SetButton("SubmitLinkButton", SubmitButtonText, this.UniqueID);
+                    helper.SetVisible("SubmitLinkButton", true);
+                    break;
+            }
+
+            //SuccessTemplate
+            helper = new TemplateHelper(_ctlPasswordRecovery.SuccessTemplateContainer);
+            helper.SetText("Success", SuccessText);
+            
             this.Controls.Add(_ctlPasswordRecovery);
         }
 

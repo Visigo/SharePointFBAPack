@@ -352,6 +352,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
+        internal static string ChangePasswordTemplate_Category {
+            get {
+                return ResourceManager.GetString("ChangePasswordTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/ChangePasswordWebPart/ChangePasswordTemplate.ascx.
+        /// </summary>
+        internal static string ChangePasswordTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("ChangePasswordTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ChangePasswordTemplate_Description {
+            get {
+                return ResourceManager.GetString("ChangePasswordTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Password Template.
+        /// </summary>
+        internal static string ChangePasswordTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("ChangePasswordTemplate_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
         internal static string ChangePasswordTitleText_Category {
             get {
                 return ResourceManager.GetString("ChangePasswordTitleText_Category", resourceCulture);
@@ -566,6 +602,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string ContinueButtonType_Category {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string ContinueButtonType_DefaultValue {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ContinueButtonType_Description {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue Button Type.
+        /// </summary>
+        internal static string ContinueButtonType_FriendlyName {
+            get {
+                return ResourceManager.GetString("ContinueButtonType_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Links.
         /// </summary>
         internal static string ContinueDestinationPageUrl_Category {
@@ -602,7 +674,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display.
+        ///   Looks up a localized string similar to Links.
         /// </summary>
         internal static string CreateUserIconUrl_Category {
             get {
@@ -863,7 +935,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Miscellaneous.
+        ///   Looks up a localized string similar to Links.
         /// </summary>
         internal static string HelpPageIconUrl_Category {
             get {
@@ -899,7 +971,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Miscellaneous.
+        ///   Looks up a localized string similar to Links.
         /// </summary>
         internal static string HelpPageText_Category {
             get {
@@ -1075,6 +1147,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string NewPasswordRegularExpressionErrorMessage_FriendlyName {
             get {
                 return ResourceManager.GetString("NewPasswordRegularExpressionErrorMessage_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        internal static string NewPasswordRequiredErrorMessage_Category {
+            get {
+                return ResourceManager.GetString("NewPasswordRequiredErrorMessage_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password is required..
+        /// </summary>
+        internal static string NewPasswordRequiredErrorMessage_DefaultValue {
+            get {
+                return ResourceManager.GetString("NewPasswordRequiredErrorMessage_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string NewPasswordRequiredErrorMessage_Description {
+            get {
+                return ResourceManager.GetString("NewPasswordRequiredErrorMessage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password Required Error Message.
+        /// </summary>
+        internal static string NewPasswordRequiredErrorMessage_FriendlyName {
+            get {
+                return ResourceManager.GetString("NewPasswordRequiredErrorMessage_FriendlyName", resourceCulture);
             }
         }
         
@@ -1327,6 +1435,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string SuccessPageUrl_FriendlyName {
             get {
                 return ResourceManager.GetString("SuccessPageUrl_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string SuccessTemplate_Category {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /_layouts/FBA/WEBPARTS/ChangePasswordWebPart/SuccessTemplate.ascx.
+        /// </summary>
+        internal static string SuccessTemplate_DefaultValue {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SuccessTemplate_Description {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success Template.
+        /// </summary>
+        internal static string SuccessTemplate_FriendlyName {
+            get {
+                return ResourceManager.GetString("SuccessTemplate_FriendlyName", resourceCulture);
             }
         }
         
