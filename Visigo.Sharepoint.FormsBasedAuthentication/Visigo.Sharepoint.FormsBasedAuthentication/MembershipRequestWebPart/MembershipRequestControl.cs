@@ -232,6 +232,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                                 request.PasswordQuestion = this.Question;
                                 request.PasswordAnswer = this.Answer;
                             }
+                            if (!AutoGeneratePassword)
+                            {
+                                request.Password = this.Password;
+                            }
                             request.FirstName = this.FirstName;
                             request.LastName = this.LastName;
                             request.SiteName = web2.Title;

@@ -14,6 +14,22 @@
                 <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" Display="Dynamic"></asp:RequiredFieldValidator></td>
 		</tr>
+        <tr id="PasswordRow" runat="server" visible="false">
+            <td align="right">
+                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" /></td>
+            <td>
+                <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"  Display="Dynamic" />
+            </td>
+        </tr>
+        <tr id="ConfirmPasswordRow" runat="server" visible="false">
+            <td align="right">
+                <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword"/></td>
+            <td>
+                <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" Display="Dynamic" />
+            </td>
+        </tr>
         <tr>
 			<td align="right"><asp:Label ID="FirstNameLabel" AssociatedControlID="FirstName" runat="server" /></td>
             <td>
@@ -41,10 +57,10 @@
         <tr id="AnswerRow" runat="server" visible="false">
 			<td align="right"><asp:Label ID="AnswerLabel" AssociatedControlID="Answer" runat="server" /></td>
             <td>
-                <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Answer" runat="server" EnableViewState="False"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" Display="Dynamic"></asp:RequiredFieldValidator></td>
 		</tr>
-        <tr>
+        <tr id="HipPictureRow" runat="server" visible="false">
 			<td align="right"><asp:Label ID="HipPictureLabel" AssociatedControlID="HipPicture" runat="server" /></td>
             <td align="left">
                 <asp:Label ID="HipInstructionsLabel" runat="server" /><br />
@@ -52,7 +68,7 @@
                 <asp:Label ID="HipPictureDescriptionLabel" runat="server" />
             </td>
 		</tr>
-        <tr>
+        <tr id="HipAnswerRow" runat="server" visible="false">
 			<td align="right"><asp:Label ID="HipAnswerLabel" AssociatedControlID="HipAnswer" runat="server" /></td>
             <td>
                 <asp:TextBox ID="HipAnswer" runat="server"></asp:TextBox>
@@ -60,6 +76,11 @@
                 <asp:LinkButton ID="HipReset" runat="server" CommandName="HipReset" CausesValidation="false" />
             </td>
 		</tr>
+        <tr id="ConfirmPasswordCompareRow" runat="server" visible="false">
+	        <td align="center" colspan="2">
+                <asp:CompareValidator ID="ConfirmPasswordCompare" ControlToValidate="ConfirmPassword" ControlToCompare="Password"
+                runat="server" Display="Dynamic"></asp:CompareValidator></td>
+        </tr>
         <tr>
             <td align="center" colspan="2" style="color: red">
                 <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>

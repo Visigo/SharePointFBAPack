@@ -27,19 +27,22 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     {
         #region Fields
         private LocalizedString _resourceManager = new LocalizedString("FBAPackMembershipRequestWebPart");
+        MembershipSettings _Settings = new MembershipSettings(SPContext.Current.Web);
 
         protected string[] _randCharacters = { "A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",
                 "2","3","4","5","6","7","8","9",
                 "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"};
 
-        private string _createUserStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx";
-        private string _completeStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx";
+        private string _CreateUserStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx";
+        private string _CompleteStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx";
         private string _AnswerLabelText = null;
         private string _AnswerRequiredErrorMessage = null;
+        private bool _AutoGeneratePassword = true;
         private string _CancelButtonImageUrl = null;
         private string _CancelButtonText = null;
         private ButtonType _CancelButtonType = ButtonType.Button;
         private string _CancelDestinationPageUrl = null;
+        private bool _CaptchaValidation = true;
         private string _CompleteSuccessText = null;
         private string _ContinueButtonImageUrl = null;
         private string _ContinueButtonText = null;
@@ -47,6 +50,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         private string _ConfirmPasswordCompareErrorMessage = null;
         private string _ConfirmPasswordLabelText = null;
         private string _ConfirmPasswordRequiredErrorMessage = null;
+        private string _PasswordLabelText = null;
+        private string _PasswordRequiredErrorMessage = null;
         private string _CreateUserButtonImageUrl = null;
         private string _CreateUserButtonText = null;
         private ButtonType _CreateUserButtonType = ButtonType.Button;
@@ -134,11 +139,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _createUserStepTemplate;
+                return _CreateUserStepTemplate;
             }
             set
             {
-                _createUserStepTemplate = value;
+                _CreateUserStepTemplate = value;
             }
         }
 
@@ -150,11 +155,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return _completeStepTemplate;
+                return _CompleteStepTemplate;
             }
             set
             {
-                _completeStepTemplate = value;
+                _CompleteStepTemplate = value;
             }
         }
 
@@ -194,6 +199,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return _resourceManager.GetString("AnswerRequiredErrorMessage_DefaultValue");
             }
             set { _AnswerRequiredErrorMessage = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "AutoGeneratePassword_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "AutoGeneratePassword_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "AutoGeneratePassword_Description")]
+        public bool AutoGeneratePassword
+        {
+            get
+            {
+                //Passwords must be auto generated if reviewing membership requests
+                if (_Settings.ReviewMembershipRequests)
+                {
+                    return true;
+                }
+                return _AutoGeneratePassword;
+            }
+            set { _AutoGeneratePassword = value; }
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
@@ -270,6 +293,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CaptchaValidation_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "CaptchaValidation_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CaptchaValidation_Description")]
+        public bool CaptchaValidation
+        {
+            get { return _CaptchaValidation; }
+            set { _CaptchaValidation = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "CompleteSuccessText_FriendlyName")]
         [LocalizedCategory("FBAPackMembershipRequestWebPart", "CompleteSuccessText_Category")]
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "CompleteSuccessText_Description")]
@@ -284,6 +317,91 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return _resourceManager.GetString("CompleteSuccessText_DefaultValue");
             }
             set { _CompleteSuccessText = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ConfirmPasswordLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ConfirmPasswordLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ConfirmPasswordLabelText_Description")]
+        public string ConfirmPasswordLabelText
+        {
+            get
+            {
+                if (_ConfirmPasswordLabelText != null)
+                {
+                    return _ConfirmPasswordLabelText;
+                }
+                return _resourceManager.GetString("ConfirmPasswordLabelText_DefaultValue");
+            }
+            set { _ConfirmPasswordLabelText = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ConfirmPasswordCompareErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ConfirmPasswordCompareErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ConfirmPasswordCompareErrorMessage_Description")]
+        public string ConfirmPasswordCompareErrorMessage
+        {
+            get
+            {
+                if (_ConfirmPasswordCompareErrorMessage != null)
+                {
+                    return _ConfirmPasswordCompareErrorMessage;
+                }
+                return _resourceManager.GetString("ConfirmPasswordCompareErrorMessage_DefaultValue");
+            }
+            set { _ConfirmPasswordCompareErrorMessage = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "ConfirmPasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "ConfirmPasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "ConfirmPasswordRequiredErrorMessage_Description")]
+        public string ConfirmPasswordRequiredErrorMessage
+        {
+            get
+            {
+                if (_ConfirmPasswordRequiredErrorMessage != null)
+                {
+                    return _ConfirmPasswordRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("ConfirmPasswordRequiredErrorMessage_DefaultValue");
+            }
+            set { _ConfirmPasswordRequiredErrorMessage = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "PasswordLabelText_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "PasswordLabelText_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "PasswordLabelText_Description")]
+        public string PasswordLabelText
+        {
+            get
+            {
+                if (_PasswordLabelText != null)
+                {
+                    return _PasswordLabelText;
+                }
+                return _resourceManager.GetString("PasswordLabelText_DefaultValue");
+            }
+            set { _PasswordLabelText = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "PasswordRequiredErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "PasswordRequiredErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "PasswordRequiredErrorMessage_Description")]
+        public string PasswordRequiredErrorMessage
+        {
+            get
+            {
+                if (_PasswordRequiredErrorMessage != null)
+                {
+                    return _PasswordRequiredErrorMessage;
+                }
+                return _resourceManager.GetString("PasswordRequiredErrorMessage_DefaultValue");
+            }
+            set { _PasswordRequiredErrorMessage = value; }
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
@@ -672,6 +790,23 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         }
 
         [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
+        [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InvalidPasswordErrorMessage_FriendlyName")]
+        [LocalizedCategory("FBAPackMembershipRequestWebPart", "InvalidPasswordErrorMessage_Category")]
+        [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidPasswordErrorMessage_Description")]
+        public string InvalidPasswordErrorMessage
+        {
+            get
+            {
+                if (_InvalidPasswordErrorMessage != null)
+                {
+                    return _InvalidPasswordErrorMessage;
+                }
+                return _resourceManager.GetString("InvalidPasswordErrorMessage_DefaultValue");
+            }
+            set { _InvalidPasswordErrorMessage = value; }
+        }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable()]
         [LocalizedWebDisplayName("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_FriendlyName")]
         [LocalizedCategory("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_Category")]
         [LocalizedWebDescription("FBAPackMembershipRequestWebPart", "InvalidQuestionErrorMessage_Description")]
@@ -975,11 +1110,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             cuw.CreateUserStep.ContentTemplate = new TemplateLoader(CreateUserStepTemplate, Page);
             cuw.CompleteStep.ContentTemplate = new TemplateLoader(CompleteStepTemplate, Page);
             cuw.ID = "FBACreateUserWizard";
-            cuw.AutoGeneratePassword = true;
+            cuw.AutoGeneratePassword = AutoGeneratePassword;
             cuw.MembershipProvider = Utils.GetMembershipProvider(Context);
             cuw.DuplicateEmailErrorMessage = DuplicateEmailErrorMessage;
             cuw.DuplicateUserNameErrorMessage = DuplicateUserNameErrorMessage;
             cuw.EmailRegularExpressionErrorMessage = EmailRegularExpressionErrorMessage;
+            cuw.InvalidPasswordErrorMessage = _InvalidPasswordErrorMessage;
             cuw.InvalidAnswerErrorMessage = InvalidAnswerErrorMessage;
             cuw.InvalidEmailErrorMessage = InvalidEmailErrorMessage;
             cuw.InvalidQuestionErrorMessage = InvalidQuestionErrorMessage;
@@ -988,7 +1124,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             cuw.UnknownErrorMessage = UnknownErrorMessage;
             cuw.FinishDestinationPageUrl = FinishDestinationPageUrl;
             cuw.CancelDestinationPageUrl = CancelDestinationPageUrl;
-            cuw.DefaultGroup = this._GroupName;
+            cuw.DefaultGroup = GroupName;
             cuw.CreateUserStep.CustomNavigationTemplateContainer.Controls[0].Visible = false;
 
             //CreateUserStep
@@ -1006,6 +1142,18 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             helper.SetText("EmailLabel", EmailLabelText);
             helper.SetValidation("EmailRequired", EmailRequiredErrorMessage, this.UniqueID);
 
+            if (!AutoGeneratePassword)
+            {
+                helper.SetVisible("PasswordRow", true);
+                helper.SetVisible("ConfirmPasswordRow", true);
+                helper.SetVisible("ConfirmPasswordCompareRow", true);
+                helper.SetText("PasswordLabel", PasswordLabelText);
+                helper.SetValidation("PasswordRequired", PasswordRequiredErrorMessage, this.UniqueID);
+                helper.SetText("ConfirmPasswordLabel", ConfirmPasswordLabelText);
+                helper.SetValidation("ConfirmPasswordRequired", ConfirmPasswordRequiredErrorMessage, this.UniqueID);
+                helper.SetValidation("ConfirmPasswordCompare", ConfirmPasswordCompareErrorMessage, this.UniqueID);
+            }
+
             if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer)
             {
                 helper.SetVisible("QuestionRow", true);
@@ -1016,13 +1164,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 helper.SetValidation("AnswerRequired", AnswerRequiredErrorMessage, this.UniqueID);
             }
 
-            helper.SetText("HipPictureLabel", HipPictureLabelText);
-            helper.SetText("HipInstructionsLabel", HipInstructionsLabelText);
-            helper.SetText("HipPictureDescriptionLabel", HipPictureDescription);
-            helper.SetText("HipAnswerLabel", HipCharactersLabelText);
-            helper.SetValidation("HipAnswerValidator", HipErrorMessage, this.UniqueID);
-            helper.SetButton("HipReset", HipResetLabelText, "");
-
+            if (CaptchaValidation)
+            {
+                helper.SetVisible("HipPictureRow", true);
+                helper.SetVisible("HipAnswerRow", true);
+                helper.SetText("HipPictureLabel", HipPictureLabelText);
+                helper.SetText("HipInstructionsLabel", HipInstructionsLabelText);
+                helper.SetText("HipPictureDescriptionLabel", HipPictureDescription);
+                helper.SetText("HipAnswerLabel", HipCharactersLabelText);
+                helper.SetValidation("HipAnswerValidator", HipErrorMessage, this.UniqueID);
+                helper.SetButton("HipReset", HipResetLabelText, "");
+            }
             switch (CreateUserButtonType)
             {
                 case ButtonType.Button:
