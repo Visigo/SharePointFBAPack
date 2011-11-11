@@ -208,7 +208,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             Hashtable xsltValues;
             MembershipCreateStatus createStatus;
-            string tempPassword = string.Empty;
             SPListItem debuggingInfoItem = null;
             MembershipSettings settings = new MembershipSettings(web);
             MembershipProvider membership = Utils.BaseMembershipProvider(web.Site);
@@ -268,7 +267,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     passwordLength = membership.MinRequiredNonAlphanumericCharacters;
                 }
-                tempPassword = System.Web.Security.Membership.GeneratePassword(passwordLength, membership.MinRequiredNonAlphanumericCharacters);
+                if (String.IsNullOrEmpty(request.Password))
+                {
+                    request.Password = System.Web.Security.Membership.GeneratePassword(passwordLength, membership.MinRequiredNonAlphanumericCharacters);
+                }
                 MembershipUser existingUser = Utils.BaseMembershipProvider(web.Site).GetUser(request.UserName,false);
                 if (existingUser != null)
                 {
@@ -281,17 +283,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     if (membership.RequiresQuestionAndAnswer)
                     {
                         //membership.CreateUser(request.UserName, tempPassword, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, out createStatus);
-                        membership.CreateUser(request.UserName, tempPassword, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, null, out createStatus);                    
+                        membership.CreateUser(request.UserName, request.Password, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, null, out createStatus);                    
                     }
                     else
                     {
                         //  With this method the MembershipCreateUserException will take care of things if the user can't be created, so no worry that createStatus is set to success
                         //membership.CreateUser(.CreateUser(request.UserName, tempPassword, request.UserEmail);
-                        membership.CreateUser(request.UserName, tempPassword, request.UserEmail, null, null, true, null, out createStatus);
+                        membership.CreateUser(request.UserName, request.Password, request.UserEmail, null, null, true, null, out createStatus);
                         createStatus = MembershipCreateStatus.Success;
                     }
-                    /* bms Add tempPassword to the request object to pass to emails sent to use */
-                    request.Password = tempPassword;
+
                     if (debuggingInfoItem != null)
                     {
                         if (debuggingInfoItem.Fields.ContainsField("LastError"))

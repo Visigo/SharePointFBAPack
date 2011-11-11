@@ -134,6 +134,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Behavior.
+        /// </summary>
+        internal static string AutoGeneratePassword_Category {
+            get {
+                return ResourceManager.GetString("AutoGeneratePassword_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to true.
+        /// </summary>
+        internal static string AutoGeneratePassword_DefaultValue {
+            get {
+                return ResourceManager.GetString("AutoGeneratePassword_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto generates the users password. This is required when Review Membership Requests is enabled..
+        /// </summary>
+        internal static string AutoGeneratePassword_Description {
+            get {
+                return ResourceManager.GetString("AutoGeneratePassword_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Generate Password.
+        /// </summary>
+        internal static string AutoGeneratePassword_FriendlyName {
+            get {
+                return ResourceManager.GetString("AutoGeneratePassword_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Links.
         /// </summary>
         internal static string CancelButtonImageUrl_Category {
@@ -278,6 +314,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Behavior.
+        /// </summary>
+        internal static string CaptchaValidation_Category {
+            get {
+                return ResourceManager.GetString("CaptchaValidation_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to true.
+        /// </summary>
+        internal static string CaptchaValidation_DefaultValue {
+            get {
+                return ResourceManager.GetString("CaptchaValidation_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CaptchaValidation_Description {
+            get {
+                return ResourceManager.GetString("CaptchaValidation_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Captcha Validation.
+        /// </summary>
+        internal static string CaptchaValidation_FriendlyName {
+            get {
+                return ResourceManager.GetString("CaptchaValidation_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
         internal static string CompleteStepTemplate_Category {
@@ -346,6 +418,114 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string CompleteSuccessText_FriendlyName {
             get {
                 return ResourceManager.GetString("CompleteSuccessText_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        internal static string ConfirmPasswordCompareErrorMessage_Category {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordCompareErrorMessage_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password and Confirm Password must match..
+        /// </summary>
+        internal static string ConfirmPasswordCompareErrorMessage_DefaultValue {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordCompareErrorMessage_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ConfirmPasswordCompareErrorMessage_Description {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordCompareErrorMessage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password Compare Error Message.
+        /// </summary>
+        internal static string ConfirmPasswordCompareErrorMessage_FriendlyName {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordCompareErrorMessage_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string ConfirmPasswordLabelText_Category {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabelText_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password:.
+        /// </summary>
+        internal static string ConfirmPasswordLabelText_DefaultValue {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabelText_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ConfirmPasswordLabelText_Description {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabelText_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password Label Text.
+        /// </summary>
+        internal static string ConfirmPasswordLabelText_FriendlyName {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabelText_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        internal static string ConfirmPasswordRequiredErrorMessage_Category {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordRequiredErrorMessage_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password is required..
+        /// </summary>
+        internal static string ConfirmPasswordRequiredErrorMessage_DefaultValue {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordRequiredErrorMessage_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ConfirmPasswordRequiredErrorMessage_Description {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordRequiredErrorMessage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password Required Error Message.
+        /// </summary>
+        internal static string ConfirmPasswordRequiredErrorMessage_FriendlyName {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordRequiredErrorMessage_FriendlyName", resourceCulture);
             }
         }
         
@@ -1477,6 +1657,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Validation.
         /// </summary>
+        internal static string InvalidPasswordErrorMessage_Category {
+            get {
+                return ResourceManager.GetString("InvalidPasswordErrorMessage_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid password..
+        /// </summary>
+        internal static string InvalidPasswordErrorMessage_DefaultValue {
+            get {
+                return ResourceManager.GetString("InvalidPasswordErrorMessage_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string InvalidPasswordErrorMessage_Description {
+            get {
+                return ResourceManager.GetString("InvalidPasswordErrorMessage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Password Error Message.
+        /// </summary>
+        internal static string InvalidPasswordErrorMessage_FriendlyName {
+            get {
+                return ResourceManager.GetString("InvalidPasswordErrorMessage_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
         internal static string InvalidQuestionErrorMessage_Category {
             get {
                 return ResourceManager.GetString("InvalidQuestionErrorMessage_Category", resourceCulture);
@@ -1624,6 +1840,78 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string MembershipRequestConfirmationMessage {
             get {
                 return ResourceManager.GetString("MembershipRequestConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        internal static string PasswordLabelText_Category {
+            get {
+                return ResourceManager.GetString("PasswordLabelText_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        internal static string PasswordLabelText_DefaultValue {
+            get {
+                return ResourceManager.GetString("PasswordLabelText_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PasswordLabelText_Description {
+            get {
+                return ResourceManager.GetString("PasswordLabelText_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Label Text.
+        /// </summary>
+        internal static string PasswordLabelText_FriendlyName {
+            get {
+                return ResourceManager.GetString("PasswordLabelText_FriendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        internal static string PasswordRequiredErrorMessage_Category {
+            get {
+                return ResourceManager.GetString("PasswordRequiredErrorMessage_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required..
+        /// </summary>
+        internal static string PasswordRequiredErrorMessage_DefaultValue {
+            get {
+                return ResourceManager.GetString("PasswordRequiredErrorMessage_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PasswordRequiredErrorMessage_Description {
+            get {
+                return ResourceManager.GetString("PasswordRequiredErrorMessage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Required Error Message.
+        /// </summary>
+        internal static string PasswordRequiredErrorMessage_FriendlyName {
+            get {
+                return ResourceManager.GetString("PasswordRequiredErrorMessage_FriendlyName", resourceCulture);
             }
         }
         

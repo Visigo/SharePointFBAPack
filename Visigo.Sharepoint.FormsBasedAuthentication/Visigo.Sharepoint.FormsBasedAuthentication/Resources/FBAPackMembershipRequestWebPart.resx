@@ -723,4 +723,100 @@
   <data name="CreateUserStepTemplate_FriendlyName" xml:space="preserve">
     <value>Create User Step Template</value>
   </data>
+  <data name="AutoGeneratePassword_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="AutoGeneratePassword_DefaultValue" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="AutoGeneratePassword_Description" xml:space="preserve">
+    <value>Auto generates the users password. This is required when Review Membership Requests is enabled.</value>
+  </data>
+  <data name="AutoGeneratePassword_FriendlyName" xml:space="preserve">
+    <value>Auto Generate Password</value>
+  </data>
+  <data name="CaptchaValidation_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="CaptchaValidation_DefaultValue" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="CaptchaValidation_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CaptchaValidation_FriendlyName" xml:space="preserve">
+    <value>Captcha Validation</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Password and Confirm Password must match.</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Compare Error Message</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_DefaultValue" xml:space="preserve">
+    <value>Confirm Password:</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordLabelText_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Label Text</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Confirm Password is required.</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Required Error Message</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a valid password.</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidPasswordErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Invalid Password Error Message</value>
+  </data>
+  <data name="PasswordLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="PasswordLabelText_DefaultValue" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="PasswordLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PasswordLabelText_FriendlyName" xml:space="preserve">
+    <value>Password Label Text</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Password is required.</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PasswordRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Password Required Error Message</value>
+  </data>
 </root>
