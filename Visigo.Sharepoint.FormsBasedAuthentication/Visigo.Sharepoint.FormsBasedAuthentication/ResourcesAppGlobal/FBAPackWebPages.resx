@@ -198,6 +198,9 @@
   <data name="EnterPasswordToolTipText" xml:space="preserve">
     <value>Enter password.</value>
   </data>
+  <data name="ErrorAddingToSharePoint" xml:space="preserve">
+    <value>An error occurred while adding this user to SharePoint</value>
+  </data>
   <data name="FullNameColHeaderText" xml:space="preserve">
     <value>Full Name</value>
   </data>
