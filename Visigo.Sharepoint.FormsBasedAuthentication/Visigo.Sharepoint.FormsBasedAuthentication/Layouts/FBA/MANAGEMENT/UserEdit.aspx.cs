@@ -95,7 +95,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         }
                     }
                     // otherwise display groups
-                    else if(spuser != null)
+                    else 
                     {
                         GroupSection.Visible = true;
                         RolesSection.Visible = false;
@@ -106,11 +106,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             groupList.DataSource = this.Web.SiteGroups;
                             groupList.DataBind();
 
-                            // select groups associated with the user
-                            foreach (SPGroup group in spuser.Groups)
+                            if (spuser != null)
                             {
-                                ListItem item = groupList.Items.FindByText(group.Name);
-                                if (item != null) item.Selected = true;
+                                // select groups associated with the user
+                                foreach (SPGroup group in spuser.Groups)
+                                {
+                                    ListItem item = groupList.Items.FindByText(group.Name);
+                                    if (item != null) item.Selected = true;
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -170,13 +173,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         lblMessage.Text = ex.Message;
                         return;
                     }
-                    // update sharepoint user info
-                    if (spuser != null)
-                    {
-                        spuser.Email = txtEmail.Text;
-                        spuser.Name = txtFullName.Text;
-                        spuser.Update();
-                    }
 
                     // if roles enabled add/remove user to selected role(s)
                     if (_showRoles)
@@ -196,7 +192,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         }
                     }
                     // or add/remove user to selected group(s)
-                    else if(spuser != null)
+                    else
                     {
                         for (int i = 0; i < groupList.Items.Count; i++)
                         {
@@ -204,12 +200,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                             // determine whether user is in group
                             bool userInGroup = false;
-                            foreach (SPGroup group in spuser.Groups)
+
+                            if (spuser != null)
                             {
-                                if (group.Name == groupName)
+                                foreach (SPGroup group in spuser.Groups)
                                 {
-                                    userInGroup = true;
-                                    break;
+                                    if (group.Name == groupName)
+                                    {
+                                        userInGroup = true;
+                                        break;
+                                    }
                                 }
                             }
 
@@ -218,7 +218,23 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             {
                                 // only add if not already in group
                                 if (!userInGroup)
+                                {
+                                    //Add the user to SharePoint if they're not already a SharePoint user
+                                    if (spuser == null)
+                                    {
+                                        try
+                                        {
+                                            spuser = this.Web.EnsureUser(Utils.EncodeUsername(userName));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "ErrorAddingToSharePoint");
+                                            Utils.LogError(ex, false);
+                                            return;
+                                        }
+                                    }
                                     this.Web.SiteGroups[groupName].AddUser(spuser);
+                                }
                             }
                             // else remove user from group
                             else
@@ -229,6 +245,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             }
                         }
                     }
+
+                    // update sharepoint user info
+                    if (spuser != null)
+                    {
+                        spuser.Email = txtEmail.Text;
+                        spuser.Name = txtFullName.Text;
+                        spuser.Update();
+                    }
+
+
                     SPUtility.Redirect("FBA/Management/UsersDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
                 }
                 catch (Exception ex)

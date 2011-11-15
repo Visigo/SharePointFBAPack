@@ -304,6 +304,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred while adding this user to SharePoint.
+        /// </summary>
+        internal static string ErrorAddingToSharePoint {
+            get {
+                return ResourceManager.GetString("ErrorAddingToSharePoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
         internal static string FullNameColHeaderText {
