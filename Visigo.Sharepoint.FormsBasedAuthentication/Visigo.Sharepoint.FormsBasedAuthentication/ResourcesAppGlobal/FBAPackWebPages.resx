@@ -231,6 +231,9 @@
   <data name="IsInSharePointColHeaderText" xml:space="preserve">
     <value>IsInSharePoint</value>
   </data>
+  <data name="LastLoginColHeaderText" xml:space="preserve">
+    <value>Last Login</value>
+  </data>
   <data name="LockedColHeaderText" xml:space="preserve">
     <value>Locked</value>
   </data>

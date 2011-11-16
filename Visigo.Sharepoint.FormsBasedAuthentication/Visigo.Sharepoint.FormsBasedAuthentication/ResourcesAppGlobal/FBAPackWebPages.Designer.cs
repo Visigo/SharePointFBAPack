@@ -403,6 +403,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Login.
+        /// </summary>
+        internal static string LastLoginColHeaderText {
+            get {
+                return ResourceManager.GetString("LastLoginColHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Locked.
         /// </summary>
         internal static string LockedColHeaderText {

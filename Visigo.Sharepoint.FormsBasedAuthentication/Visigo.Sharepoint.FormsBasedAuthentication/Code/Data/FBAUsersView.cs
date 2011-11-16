@@ -82,12 +82,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 users.Columns.Add("Name");
                 users.Columns.Add("LinkTitle");
                 users.Columns.Add("Email");
-                users.Columns.Add("Modified");
-                users.Columns.Add("Created");
+                users.Columns.Add("Modified", typeof(DateTime));
+                users.Columns.Add("Created", typeof(DateTime));
             }
 
             users.Columns.Add("Active");
             users.Columns.Add("Locked");
+            users.Columns.Add("LastLogin", typeof(DateTime));
             users.Columns.Add("IsInSharePoint");
             users.Columns.Add("NonProviderName");
 
@@ -112,6 +113,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         row["Name"] = memberuser.UserName;
                         row["Active"] = memberuser.IsApproved ? yes : no;
                         row["Locked"] = memberuser.IsLockedOut ? yes : no;
+                        row["LastLogin"] = memberuser.LastLoginDate;
                         row["IsInSharePoint"] = yes;
                         bFoundMember = true;
                         //users.Rows[i].Delete();
@@ -126,6 +128,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     datanewuser["Email"] = memberuser.Email;
                     datanewuser["Active"] = memberuser.IsApproved ? yes : no;
                     datanewuser["Locked"] = memberuser.IsLockedOut ? yes : no;
+                    datanewuser["LastLogin"] = memberuser.LastLoginDate;
                     datanewuser["IsInSharePoint"] = no;
                     users.Rows.Add(datanewuser);
                 }
