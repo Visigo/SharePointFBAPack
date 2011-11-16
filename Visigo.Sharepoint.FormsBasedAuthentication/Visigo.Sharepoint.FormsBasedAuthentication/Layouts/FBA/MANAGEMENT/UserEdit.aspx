@@ -17,8 +17,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea"
     runat="server">
+   	<a href="../../settings.aspx"><SharePoint:EncodedLiteral ID="EncodedLiteral1" runat="server" text="<%$Resources:wss,settings_pagetitle%>" EncodeMethod="HtmlEncode"/></a>&#32;<SharePoint:ClusteredDirectionalSeparatorArrow ID="ClusteredDirectionalSeparatorArrow1" runat="server" />
+    <a href="UsersDisp.aspx"><SharePoint:EncodedLiteral ID="EncodedLiteral2" Text="<%$ Resources:FBAPackWebPages, UserMgmt_Title %>"
+        EncodeMethod="HtmlEncode" runat="server" /></a>&#32;<SharePoint:ClusteredDirectionalSeparatorArrow ID="ClusteredDirectionalSeparatorArrow2" runat="server" />
     <SharePoint:EncodedLiteral ID="TitleArea" Text="<%$ Resources:FBAPackWebPages, EditUser_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
+</asp:Content>
+<asp:Content ID="Content5" contentplaceholderid="PlaceHolderTitleBreadcrumb" runat="server">
+  <SharePoint:UIVersionedContent ID="UIVersionedContent1" UIVersion="3" runat="server"><ContentTemplate>
+	<asp:SiteMapPath
+		SiteMapProvider="SPXmlContentMapProvider"
+		id="ContentMap"
+		SkipLinkText=""
+		NodeStyle-CssClass="ms-sitemapdirectional"
+		RootNodeStyle-CssClass="s4-die"
+		PathSeparator="&#160;&gt; "
+		PathSeparatorStyle-CssClass = "s4-bcsep"
+		runat="server" />
+  </ContentTemplate></SharePoint:UIVersionedContent>
+  <SharePoint:UIVersionedContent ID="UIVersionedContent2" UIVersion="4" runat="server"><ContentTemplate>
+	<SharePoint:ListSiteMapPath
+		runat="server"
+		SiteMapProviders="SPSiteMapProvider,SPXmlContentMapProvider"
+		RenderCurrentNodeAsLink="false"
+		PathSeparator=""
+		CssClass="s4-breadcrumb"
+		NodeStyle-CssClass="s4-breadcrumbNode"
+		CurrentNodeStyle-CssClass="s4-breadcrumbCurrentNode"
+		RootNodeStyle-CssClass="s4-breadcrumbRootNode"
+		HideInteriorRootNodes="true"
+		SkipLinkText="" />
+  </ContentTemplate></SharePoint:UIVersionedContent>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript">
