@@ -4,6 +4,7 @@ using System.Security.Permissions;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Security;
 using System.Reflection;
+using Microsoft.SharePoint.Administration;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
 {
@@ -135,9 +136,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
             // update layouts site map
             try
             {
-                UpdateLayoutsSitemap uls = new UpdateLayoutsSitemap(site.WebApplication);
-                uls.AddSitemap("layouts.sitemap.FBAManagement.xml");
-                uls.SubmitJob();
+                //UpdateLayoutsSitemap uls = new UpdateLayoutsSitemap(site.WebApplication);
+                //uls.AddSitemap("layouts.sitemap.FBAManagement.xml");
+                //uls.SubmitJob();
+
+                SPFarm.Local.Services.GetValue<SPWebService>().
+                    ApplyApplicationContentToLocalServer(); 
             }
             catch (Exception ex)
             {
