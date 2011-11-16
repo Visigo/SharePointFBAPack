@@ -87,6 +87,8 @@
             </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="Locked" HeaderText="<%$ Resources:FBAPackWebPages, LockedColHeaderText %>" SortExpression="Locked">
             </SharePoint:SPBoundField>
+            <SharePoint:SPBoundField DataField="LastLogin" HeaderText="<%$ Resources:FBAPackWebPages, LastLoginColHeaderText %>" SortExpression="LastLogin">
+            </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="IsInSharePoint" HeaderText="<%$ Resources:FBAPackWebPages, IsInSharePointColHeaderText %>" SortExpression="IsInSharePoint">
             </SharePoint:SPBoundField>
             <SharePoint:SPBoundField DataField="Modified" HeaderText="<%$ Resources:FBAPackWebPages, ModifiedColHeaderText %>" SortExpression="Modified">
