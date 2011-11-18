@@ -336,7 +336,7 @@
   <data name="ResetPasswordBody" xml:space="preserve">
     <value>Your new password is: {0}</value>
   </data>
-  <data name="ResetPasswordButonText" xml:space="preserve">
+  <data name="ResetPasswordButtonText" xml:space="preserve">
     <value>Reset Password</value>
   </data>
   <data name="ResetPasswordSubject" xml:space="preserve">

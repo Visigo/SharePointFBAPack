@@ -349,7 +349,7 @@
   <data name="ReplyToToolTipText" xml:space="preserve">
     <value>回復至</value>
   </data>
-  <data name="ResetPasswordButonText" xml:space="preserve">
+  <data name="ResetPasswordButtonText" xml:space="preserve">
     <value>重置密碼</value>
   </data>
   <data name="ReviewMembershipRequestLabelText" xml:space="preserve">

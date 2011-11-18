@@ -128,7 +128,7 @@
         </wssuc:InputFormSection>
         <wssuc:ButtonSection runat="server">
             <template_buttons>
-	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" OnClientClick="if (!confirmPasswordReset()) return false;" Text="<%$ Resources:FBAPackWebPages, ResetPasswordButonText %>" id="BtnReset" accesskey="P"/>
+	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" OnClientClick="if (!confirmPasswordReset()) return false;" Text="<%$ Resources:FBAPackWebPages, ResetPasswordButtonText %>" id="BtnReset" accesskey="P"/>
     	    <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnSubmit" Text="<%$ Resources:FBAPackWebPages, SaveButonText %>" id="BtnOk" accesskey="<%$Resources:wss,okbutton_accesskey%>"/>	    
 	    </template_buttons>
         </wssuc:ButtonSection>
