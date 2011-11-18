@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MembershipRequestList_Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="MembershipRequestList_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="MembershipRequestList_Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
   <data name="ChangePassword_Desc" xml:space="preserve">
     <value>允許用戶更改他們的密碼。</value>
   </data>
