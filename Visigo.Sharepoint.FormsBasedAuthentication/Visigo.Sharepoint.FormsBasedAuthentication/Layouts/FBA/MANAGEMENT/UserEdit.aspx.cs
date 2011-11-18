@@ -278,8 +278,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 MembershipUser user = Utils.BaseMembershipProvider().GetUser(userName,false);
                 string newPassword = user.ResetPassword();
                 // TODO: use xslt email
-                string body = String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","PasswordResetBody"),newPassword);
-                Email.SendEmail(this.Web, user.Email, String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","PasswordResetSubject"),this.Web.Title), body);
+                string body = String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","ResetPasswordBody"),newPassword);
+                Email.SendEmail(this.Web, user.Email, String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","ResetPasswordSubject"),this.Web.Title), body);
             }
         }
     }
