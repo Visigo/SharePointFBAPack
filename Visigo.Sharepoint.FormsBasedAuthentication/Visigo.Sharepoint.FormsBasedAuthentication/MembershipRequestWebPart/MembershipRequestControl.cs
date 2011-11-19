@@ -58,11 +58,25 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 if (_lblError == null)
                 {
-                    _lblError = (ITextControl)this.CreateUserStep.ContentTemplateContainer.FindControl("ErrorMessage");
+                    _lblError = (ITextControl)this.CreateUserStep.ContentTemplateContainer.FindControl("FBAErrorMessage");
                 }
                 return _lblError;
             }
         }
+
+        private ITextControl _lblCompleteSuccess;
+        protected ITextControl lblCompleteSuccess
+        {
+            get
+            {
+                if (_lblCompleteSuccess == null)
+                {
+                    _lblCompleteSuccess = (ITextControl)this.CompleteStep.ContentTemplateContainer.FindControl("CompleteSuccess");
+                }
+                return _lblCompleteSuccess;
+            }
+        }
+
         #endregion
 
         #region Properties
@@ -251,7 +265,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             catch (Exception ex)
                             {
                                 Utils.LogError(ex);
-                                this.CompleteSuccessText = this.UnknownErrorMessage;
+                                this.lblCompleteSuccess.Text = this.UnknownErrorMessage;
                                 return;
                             }
                             this.MoveTo(this.CompleteStep);

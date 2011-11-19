@@ -84,6 +84,7 @@
         <tr>
             <td align="center" colspan="2" style="color: red">
                 <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+                <asp:Literal ID="FBAErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
             </td>
         </tr>
         <tr>

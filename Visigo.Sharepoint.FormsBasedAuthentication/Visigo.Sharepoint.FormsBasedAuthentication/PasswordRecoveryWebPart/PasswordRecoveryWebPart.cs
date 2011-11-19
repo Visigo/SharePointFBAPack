@@ -440,7 +440,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                     if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
                     {
-                        prc.SuccessText = LocalizedString.GetString("FBAPackPasswordRecoveryWebPart", "ErrorSendingEmail");
+                        TemplateHelper helper = new TemplateHelper(_ctlPasswordRecovery.SuccessTemplateContainer);
+                        helper.SetText("Success", LocalizedString.GetString("FBAPackPasswordRecoveryWebPart", "ErrorSendingEmail"));
                     }
                     e.Handled = true;
                 }
