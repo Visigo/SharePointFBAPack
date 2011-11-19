@@ -256,7 +256,7 @@
     <value>Membership Error</value>
   </data>
   <data name="MembershipNotConfigured" xml:space="preserve">
-    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.";</value>
+    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.</value>
   </data>
   <data name="MembershipOptionHeaderDesc" xml:space="preserve">
     <value>These options control the functionality of the FBA web parts.</value>

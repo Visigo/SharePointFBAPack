@@ -91,8 +91,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             using (SPSite site = new SPSite(SPUtility.GetPageUrlPath(context)))
             {
-                SPIisSettings settings = GetFBAIisSettings(site);
-                return settings.FormsClaimsAuthenticationProvider.MembershipProvider;
+                return GetMembershipProvider(site);
             }
         }
 
@@ -100,6 +99,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             // get membership provider of whichever zone in the web app is fba enabled 
             SPIisSettings settings = GetFBAIisSettings(site);
+            if (settings == null) return null;
             return settings.FormsClaimsAuthenticationProvider.MembershipProvider;
         }
 

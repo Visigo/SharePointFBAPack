@@ -145,7 +145,7 @@
     <value>Last Login</value>
   </data>
   <data name="MembershipNotConfigured" xml:space="preserve">
-    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.";</value>
+    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.</value>
   </data>
   <data name="ProviderError" xml:space="preserve">
     <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>

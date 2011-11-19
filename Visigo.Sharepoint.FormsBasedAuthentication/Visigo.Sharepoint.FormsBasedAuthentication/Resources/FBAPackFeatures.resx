@@ -129,6 +129,9 @@
   <data name="FbaManagement_Title" xml:space="preserve">
     <value>Forms Based Authentication Management</value>
   </data>
+  <data name="MembershipNotConfigured" xml:space="preserve">
+    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.</value>
+  </data>
   <data name="MembershipRequestConfirmationMessage" xml:space="preserve">
     <value>Your membership request has been received.</value>
   </data>

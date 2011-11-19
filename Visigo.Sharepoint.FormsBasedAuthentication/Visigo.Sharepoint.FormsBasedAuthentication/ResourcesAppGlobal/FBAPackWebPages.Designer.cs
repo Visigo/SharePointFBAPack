@@ -475,7 +475,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.&quot;;.
+        ///   Looks up a localized string similar to A Membership Provider has not been configured correctly. Check the web.config setttings for this web application..
         /// </summary>
         internal static string MembershipNotConfigured {
             get {

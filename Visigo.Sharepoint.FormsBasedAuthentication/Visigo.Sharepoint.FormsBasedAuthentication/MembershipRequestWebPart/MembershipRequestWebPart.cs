@@ -1105,13 +1105,20 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         private void AddCreateUserControl()
         {
             TemplateHelper helper;
+            string provider = Utils.GetMembershipProvider(Context);
+            //Exit if membership provider not defined
+            if (provider == null)
+            {
+                Controls.Add(new LiteralControl(LocalizedString.GetString("FBAPackFeatures", "MembershipNotConfigured")));
+                return;
+            }
 
             cuw = new MembershipRequestControl();
             cuw.CreateUserStep.ContentTemplate = new TemplateLoader(CreateUserStepTemplate, Page);
             cuw.CompleteStep.ContentTemplate = new TemplateLoader(CompleteStepTemplate, Page);
             cuw.ID = "FBACreateUserWizard";
             cuw.AutoGeneratePassword = AutoGeneratePassword;
-            cuw.MembershipProvider = Utils.GetMembershipProvider(Context);
+            cuw.MembershipProvider = provider;
             cuw.DuplicateEmailErrorMessage = DuplicateEmailErrorMessage;
             cuw.DuplicateUserNameErrorMessage = DuplicateUserNameErrorMessage;
             cuw.EmailRegularExpressionErrorMessage = EmailRegularExpressionErrorMessage;

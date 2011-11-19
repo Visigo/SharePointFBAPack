@@ -225,4 +225,7 @@
   <data name="ReviewList_ApproverComments" xml:space="preserve">
     <value>同意者意见</value>
   </data>
+  <data name="MembershipNotConfigured" xml:space="preserve">
+    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.</value>
+  </data>
 </root>
