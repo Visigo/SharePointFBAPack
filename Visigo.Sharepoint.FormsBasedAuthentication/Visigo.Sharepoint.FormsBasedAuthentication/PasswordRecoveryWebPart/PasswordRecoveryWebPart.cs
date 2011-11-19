@@ -328,6 +328,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             TemplateHelper helper;
 
+            string provider = Utils.GetMembershipProvider(Context);
+            //Exit if membership provider not defined
+            if (provider == null)
+            {
+                Controls.Add(new LiteralControl(LocalizedString.GetString("FBAPackFeatures", "MembershipNotConfigured")));
+                return;
+            }
+
             /* bms I couldn't figure out how to set the smtp server from code so I added the SendMailError as a hack for now */
 
             _ctlPasswordRecovery = new System.Web.UI.WebControls.PasswordRecovery();
@@ -337,7 +345,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             //bms Added the event to catch the error and send our own email
             _ctlPasswordRecovery.SendMailError += new SendMailErrorEventHandler(_ctlPasswordRecovery_SendMailError);
             _ctlPasswordRecovery.VerifyingUser += new LoginCancelEventHandler(_ctlPasswordRecovery_VerifyingUser);
-            _ctlPasswordRecovery.MembershipProvider = Utils.GetMembershipProvider(Context);
+            _ctlPasswordRecovery.MembershipProvider = provider;
             _ctlPasswordRecovery.GeneralFailureText = GeneralFailureText;
             _ctlPasswordRecovery.QuestionFailureText = QuestionFailureText;
             _ctlPasswordRecovery.UserNameFailureText = UserNameFailureText;

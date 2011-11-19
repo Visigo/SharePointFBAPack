@@ -908,6 +908,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             TemplateHelper helper;
 
+            string provider = Utils.GetMembershipProvider(Context);
+            //Exit if membership provider not defined
+            if (provider == null)
+            {
+                Controls.Add(new LiteralControl(LocalizedString.GetString("FBAPackFeatures", "MembershipNotConfigured")));
+                return;
+            }
+
             if (SPContext.Current.Web.CurrentUser == null)
             {
                 //Login Control won't work with SP2010, so for now, just don't show a control at all
@@ -919,7 +927,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 _ctlChangePassword = new System.Web.UI.WebControls.ChangePassword();
                 _ctlChangePassword.ChangePasswordTemplate = new TemplateLoader(ChangePasswordTemplate, Page);
                 _ctlChangePassword.SuccessTemplate = new TemplateLoader(SuccessTemplate, Page);
-                _ctlChangePassword.MembershipProvider = Utils.GetMembershipProvider(Context);
+                _ctlChangePassword.MembershipProvider = provider;
                 _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
                 _ctlChangePassword.ChangePasswordFailureText = ChangePasswordFailureText;
                 _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
