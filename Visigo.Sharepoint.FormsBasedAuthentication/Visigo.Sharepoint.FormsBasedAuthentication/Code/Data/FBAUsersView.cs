@@ -33,8 +33,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // get site details
             SPSite site = SPContext.Current.Site;
-            SPIisSettings settings = Utils.GetFBAIisSettings(site);
-            if (settings == null)
+            string provider = Utils.GetMembershipProvider(site);
+            if (provider == null)
                 return null;
             
             SPWeb web = site.RootWeb;
@@ -58,7 +58,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 "</Where>" +
                 "<OrderBy>" +
                     "<FieldRef Name='LinkTitle' />" +
-                "</OrderBy>", settings.FormsClaimsAuthenticationProvider.MembershipProvider.ToString());
+                "</OrderBy>", provider);
 
             query.ViewFields = "<FieldRef Name='Name' /><FieldRef Name='LinkTitle' /><FieldRef Name='Email' /><FieldRef Name='Modified' /><FieldRef Name='Created' />";
 

@@ -17,6 +17,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "MembershipNotConfigured");
                 RoleGrid.Visible = false;
                 ToolBarPlaceHolder.Visible = false;
+                onetidNavNodesTB.Visible = false;
             }
             base.OnInit(e);
         }

@@ -103,7 +103,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return settings.FormsClaimsAuthenticationProvider.MembershipProvider;
         }
 
-        public static SPIisSettings GetFBAIisSettings(SPSite site)
+        private static SPIisSettings GetFBAIisSettings(SPSite site)
         {
             SPIisSettings settings = null;
 

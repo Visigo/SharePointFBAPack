@@ -34,7 +34,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             // init
             _showRoles = (new MembershipSettings(SPContext.Current.Web)).EnableRoles;
-            SPIisSettings settings = Utils.GetFBAIisSettings(this.Site);
 
             // get user info
             string userName = this.Request.QueryString["USERNAME"];
@@ -132,7 +131,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         protected void OnSubmit(object sender, EventArgs e)
         {
             // get user info
-            SPIisSettings settings = Utils.GetFBAIisSettings(this.Site);
             string userName = this.Request.QueryString["USERNAME"];
             SPUser spuser = null;
             // This could be done with EnsureUsers, which won't throw an exception if the user hasn't logged on to the site.
