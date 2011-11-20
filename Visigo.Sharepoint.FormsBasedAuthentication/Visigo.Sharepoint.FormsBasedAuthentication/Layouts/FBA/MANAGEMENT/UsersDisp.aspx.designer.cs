@@ -139,6 +139,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::System.Web.UI.UserControl idNewNavNode;
         
         /// <summary>
+        /// SearchControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SearchControls;
+        
+        /// <summary>
         /// lblSearch control.
         /// </summary>
         /// <remarks>

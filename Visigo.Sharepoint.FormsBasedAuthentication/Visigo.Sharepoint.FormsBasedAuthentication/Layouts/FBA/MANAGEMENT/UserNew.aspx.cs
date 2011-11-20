@@ -84,8 +84,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 try
                 {
                     // get site reference             
-                    SPIisSettings settings = Utils.GetFBAIisSettings(this.Site);
-                    string provider = settings.FormsClaimsAuthenticationProvider.MembershipProvider;
+                    string provider = Utils.GetMembershipProvider(this.Site);
 
                     // create FBA database user
                     MembershipCreateStatus createStatus;

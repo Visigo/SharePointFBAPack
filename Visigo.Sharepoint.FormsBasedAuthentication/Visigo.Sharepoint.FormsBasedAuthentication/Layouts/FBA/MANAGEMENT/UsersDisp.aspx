@@ -68,7 +68,7 @@
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
-    <div id="SearchControls">
+    <div id="SearchControls" runat="server">
     <asp:Label runat="server" ID="lblSearch" Text="<%$ Resources:FBAPackWebPages, SearchLabelText %>" />
     <asp:TextBox ID="SearchText" runat="server"></asp:TextBox><asp:Button ID="Search"
             runat="server" Text="<%$ Resources:FBAPackWebPages, SearchButtonText %>" OnClick="Search_Click" /></div>

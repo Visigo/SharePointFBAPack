@@ -330,7 +330,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             string provider = Utils.GetMembershipProvider(Context);
             //Exit if membership provider not defined
-            if (provider == null)
+            if (provider == null || !Utils.IsProviderConfigured())
             {
                 Controls.Add(new LiteralControl(LocalizedString.GetString("FBAPackFeatures", "MembershipNotConfigured")));
                 return;
