@@ -1045,8 +1045,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         void _ctlChangePassword_ChangedPassword(object sender, EventArgs e)
         {
+            //Need to remove authentication cookie created by ChangePassword control.
             FormsAuthentication.SignOut();
-            Microsoft.SharePoint.IdentityModel.SPClaimsUtility.AuthenticateFormsUser(new Uri(SPContext.Current.Web.Url), _ctlChangePassword.UserName, _ctlChangePassword.NewPassword);
+            if (_ctlChangePassword.UserName == Utils.GetCurrentUsername())
+            {                
+                Microsoft.SharePoint.IdentityModel.SPClaimsUtility.AuthenticateFormsUser(new Uri(SPContext.Current.Web.Url), _ctlChangePassword.UserName, _ctlChangePassword.NewPassword);
+            }
         }
 
         void _ctlChangePassword_Load(object sender, EventArgs e)
