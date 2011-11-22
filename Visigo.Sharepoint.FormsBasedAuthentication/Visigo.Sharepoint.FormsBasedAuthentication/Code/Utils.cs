@@ -198,12 +198,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         public static bool GetSiteProperty(string key, bool defaultValue)
         {
-            return Boolean.Parse(GetWebProperty(key, defaultValue.ToString(), SPContext.Current.Site.RootWeb));
+            return GetSiteProperty(key, defaultValue, SPContext.Current.Site);
         }
 
         public static bool GetSiteProperty(string key, bool defaultValue, SPSite site)
         {
-            return Boolean.Parse(GetWebProperty(key, defaultValue.ToString(), site.RootWeb));
+            bool result = defaultValue;
+
+            SPSecurity.RunWithElevatedPrivileges(delegate()
+            {
+                using (SPSite privSite = new SPSite(site.ID, site.Zone))
+                {
+                    using (SPWeb web = privSite.RootWeb)
+                    {
+                        result = Boolean.Parse(GetWebProperty(key, defaultValue.ToString(), web));
+                    }
+                }
+            });
+            return result;
         }
 
         public static void SetWebProperty(string key, string value, SPWeb web)

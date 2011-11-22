@@ -147,6 +147,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     request.LastName = this.LastName;
                     request.DefaultGroup = this._DefaultGroup;
                     request.LoginCreatedUser = false;
+                    request.SiteName = web.Title;
+                    request.SiteURL = web.Url;
                     if (!MembershipRequest.CopyToReviewList(request))
                     {
                         lblError.Text = this.UnknownErrorMessage;
