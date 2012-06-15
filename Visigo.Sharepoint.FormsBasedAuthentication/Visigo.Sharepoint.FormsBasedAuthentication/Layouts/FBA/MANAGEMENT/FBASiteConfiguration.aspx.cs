@@ -3,6 +3,8 @@ using Microsoft.SharePoint;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using System;
+using Microsoft.SharePoint.Utilities;
+using System.Web;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -62,6 +64,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             settings.MembershipPendingEmail = txtMembershipPending.Text;
             settings.MembershipRejectedEmail = txtMembershipRejected.Text;
             settings.PasswordRecoveryEmail = txtPasswordRecovery.Text;
+
+            SPUtility.Redirect("settings.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
         }
                 
     }
