@@ -444,4 +444,10 @@
   <data name="UsersInRoleMsg" xml:space="preserve">
     <value>There are {0} users in this role.</value>
   </data>
+  <data name="VersionHeaderDesc" xml:space="preserve">
+    <value>The currently installed version of the FBA Pack.</value>
+  </data>
+  <data name="VersionHeaderText" xml:space="preserve">
+    <value>Version</value>
+  </data>
 </root>

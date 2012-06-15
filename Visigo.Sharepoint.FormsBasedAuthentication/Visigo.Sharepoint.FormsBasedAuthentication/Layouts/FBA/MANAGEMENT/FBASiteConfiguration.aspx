@@ -2,7 +2,7 @@
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FBASiteConfiguration.aspx.cs"
     Inherits="Visigo.Sharepoint.FormsBasedAuthentication.FBASiteConfiguration" DynamicMasterPageFile="~masterurl/default.master" %>
-
+     
 <%@ Register TagPrefix="wssuc" TagName="ToolBar" Src="~/_controltemplates/ToolBar.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="ToolBarButton" Src="~/_controltemplates/ToolBarButton.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="InputFormSection" Src="~/_controltemplates/InputFormSection.ascx" %>
@@ -129,6 +129,16 @@
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
         </wssuc:InputFormSection>
+        <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, VersionHeaderText %>" Description="<% $Resources: FBAPackWebPages,VersionHeaderDesc %>">
+            <template_inputformcontrols>
+		        <wssuc:InputFormControl runat="server" LabelText="" >
+                    <Template_Control>
+			            <asp:Label id="lblVersion" runat="server" />
+                    </Template_Control>
+		        </wssuc:InputFormControl>
+	        </template_inputformcontrols>
+        </wssuc:InputFormSection>
+
         <wssuc:ButtonSection runat="server">
             <template_buttons>
 		  <asp:Button UseSubmitBehavior="false" 

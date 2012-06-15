@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using System;
 using Microsoft.SharePoint.Utilities;
 using System.Web;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -41,6 +43,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 txtMembershipPending.Text = settings.MembershipPendingEmail;
                 txtMembershipRejected.Text = settings.MembershipRejectedEmail;
                 txtPasswordRecovery.Text = settings.PasswordRecoveryEmail;
+
+                /* display the version */
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+                lblVersion.Text = fvi.ProductName + " " + fvi.FileVersion;
             }
         }
 
