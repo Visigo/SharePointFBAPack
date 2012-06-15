@@ -59,7 +59,7 @@
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeUserNameLabelText %>">
 			        <Template_Control>
 			            
-			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, UserNameColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtUsername" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, UserNameColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtUsername" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator1" ControlToValidate="txtUsername" Display="Dynamic" Runat="server"/>			            
 			        </Template_Control>
 		        </wssuc:InputFormControl>
@@ -70,7 +70,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeFullNameLabelText %>">
 			        <Template_Control>
-			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, FullNameColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtFullName" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, FullNameColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtFullName" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator2" ControlToValidate="txtFullName" Display="Dynamic" Runat="server"/>
 			        </Template_Control>
 		        </wssuc:InputFormControl>
@@ -81,9 +81,9 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, ConfirmPasswordLabelText %>">
 			        <Template_Control>
-			            <SharePoint:InputFormTextBox Title="password" ToolTip="<%$ Resources:FBAPackWebPages, EnterPasswordToolTipText %>" class="ms-input" Columns="40" textmode="Password" maxlength="255" ID="txtPassword" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="password" ToolTip="<%$ Resources:FBAPackWebPages, EnterPasswordToolTipText %>" class="ms-input" Columns="40" textmode="Password" maxlength="255" ID="txtPassword" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="txtPasswordValidator1" ControlToValidate="txtPassword" Display="Dynamic" Runat="server"/>
-			            <SharePoint:InputFormTextBox Title="confirm" ToolTip="<%$ Resources:FBAPackWebPages, ConfirmPasswordToolTipText %>" class="ms-input" Columns="40" textmode="Password" maxlength="255" ID="txtConfirm" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="confirm" ToolTip="<%$ Resources:FBAPackWebPages, ConfirmPasswordToolTipText %>" class="ms-input" Columns="40" textmode="Password" maxlength="255" ID="txtConfirm" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="txtConfirmValidator1" ControlToValidate="txtConfirm" Display="Dynamic" Runat="server"/>
 			            <SharePoint:InputFormCompareValidator ID="InputFormCompareValidatorPassword" SetFocusOnError="true"  ControlToValidate="txtConfirm" ControlToCompare="txtPassword" Type="String" Display="Dynamic" Operator="Equal" ErrorMessage="Password and confirmation do not match." runat="server"/>
 			        </Template_Control>
@@ -95,7 +95,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeSecurityQLableText %>">
 			        <Template_Control>
-			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityQuestionHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtQuestion" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityQuestionHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtQuestion" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator3" ControlToValidate="txtQuestion" Display="Dynamic" Runat="server"/>
 			        </Template_Control>
 		        </wssuc:InputFormControl>
@@ -106,7 +106,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeSecurityALableText %>">
 			        <Template_Control>
-			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityAnswerHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtAnswer" Direction="LeftToRight" Runat="server" />
+			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityAnswerHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtAnswer" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			            <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidator4" ControlToValidate="txtAnswer" Display="Dynamic" Runat="server"/>
 			        </Template_Control>
 		        </wssuc:InputFormControl>
@@ -117,7 +117,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeEmailAddrLabelText %>">
 			        <Template_Control>
-			        <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtEmail" Direction="LeftToRight" Runat="server" />
+			        <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtEmail" Direction="LeftToRight" Runat="server" autocomplete="off" />
 			        <SharePoint:InputFormRegularExpressionValidator ID="InputFormRegExpressionFieldValidator1"  ControlToValidate="txtEmail" Display="Dynamic" runat="server" ValidationExpression="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$" ErrorMessage="Enter a valid email address."/>
 			        </Template_Control>
 		        </wssuc:InputFormControl>
@@ -138,7 +138,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, GroupLabelText %>">
 			        <Template_Control>
-				        <SharePoint:InputFormCheckBoxList ID="groupList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server"/>
+				        <SharePoint:InputFormCheckBoxList ID="groupList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server" />
 			        </Template_Control>
 		        </wssuc:InputFormControl>
 	        </template_inputformcontrols>
@@ -148,7 +148,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, GroupLabelText %>">
 			        <Template_Control>
-				        <SharePoint:InputFormCheckBoxList ID="rolesList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server"/>
+				        <SharePoint:InputFormCheckBoxList ID="rolesList" CssClass="ms-RadioText" ToolTip="<%$ Resources:FBAPackWebPages, GroupToolTipText %>" runat="server" />
 			        </Template_Control>
 		        </wssuc:InputFormControl>
 	        </template_inputformcontrols>
