@@ -96,54 +96,63 @@
     </Compile>
     <Compile Include="Layouts\FBA\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.cs">
       <DependentUpon>FBASiteConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.designer.cs">
       <DependentUpon>FBASiteConfiguration.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.cs">
       <DependentUpon>RoleDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.designer.cs">
       <DependentUpon>RoleDelete.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.cs">
       <DependentUpon>RoleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.designer.cs">
       <DependentUpon>RoleNew.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.cs">
       <DependentUpon>RolesDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.designer.cs">
       <DependentUpon>RolesDisp.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.cs">
       <DependentUpon>UserDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.designer.cs">
       <DependentUpon>UserDelete.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.cs">
       <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.designer.cs">
       <DependentUpon>UserEdit.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.cs">
       <DependentUpon>UserNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.designer.cs">
       <DependentUpon>UserNew.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.cs">
       <DependentUpon>UsersDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.designer.cs">
       <DependentUpon>UsersDisp.aspx.cs</DependentUpon>
@@ -394,9 +403,7 @@
     <Content Include="Layouts\FBA\EMAILS\3076\MembershipPending.xslt" />
     <Content Include="Layouts\FBA\EMAILS\3076\MembershipRejected.xslt" />
     <Content Include="Layouts\FBA\EMAILS\3076\PasswordRecovery.xslt" />
-    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx">
