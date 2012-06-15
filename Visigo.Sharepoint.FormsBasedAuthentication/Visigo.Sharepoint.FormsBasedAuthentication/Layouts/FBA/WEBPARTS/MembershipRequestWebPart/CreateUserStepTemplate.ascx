@@ -92,9 +92,9 @@
                 <asp:Button ID="CreateUserButton" Visible="false" runat="server" CommandName="MoveNext" />
                 <asp:LinkButton ID="CreateUserLinkButton" Visible="false" runat="server" CommandName="MoveNext" />
                 <asp:ImageButton ID="CreateUserImageButton" Visible="false" runat="server" CommandName="MoveNext" />&nbsp;
-                <asp:Button ID="CancelButton" Visible="false" runat="server" CommandName="Cancel" />
-                <asp:LinkButton ID="CancelLinkButton" Visible="false" runat="server" CommandName="Cancel" />
-                <asp:ImageButton ID="CancelImageButton" Visible="false" runat="server" CommandName="Cancel" /></td>
+                <asp:Button ID="CancelButton" Visible="false" runat="server" CommandName="Cancel" CausesValidation="false" />
+                <asp:LinkButton ID="CancelLinkButton" Visible="false" runat="server" CommandName="Cancel"  CausesValidation="false" />
+                <asp:ImageButton ID="CancelImageButton" Visible="false" runat="server" CommandName="Cancel"  CausesValidation="false" /></td>
 		</tr>
 	</tbody>
 </table>

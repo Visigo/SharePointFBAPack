@@ -57,9 +57,9 @@
                 <asp:ImageButton ID="ChangePasswordImageButton" Visible="false" runat="server" CommandName="ChangePassword" />
             </td>
             <td>
-                <asp:Button ID="CancelButton" Visible="false" runat="server" CommandName="Cancel" />
-                <asp:LinkButton ID="CancelLinkButton" Visible="false" runat="server" CommandName="Cancel" />
-                <asp:ImageButton ID="CancelImageButton" Visible="false" runat="server" CommandName="Cancel" />
+                <asp:Button ID="CancelButton" Visible="false" runat="server" CommandName="Cancel" CausesValidation="false" />
+                <asp:LinkButton ID="CancelLinkButton" Visible="false" runat="server" CommandName="Cancel" CausesValidation="false" />
+                <asp:ImageButton ID="CancelImageButton" Visible="false" runat="server" CommandName="Cancel" CausesValidation="false" />
             </td>
         </tr>
         <tr id="HelpPageRow" runat="server">
