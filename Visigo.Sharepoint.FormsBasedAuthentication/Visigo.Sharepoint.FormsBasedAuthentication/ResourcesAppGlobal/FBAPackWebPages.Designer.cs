@@ -844,7 +844,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Security Question.
+        ///   Looks up a localized string similar to Security Answer.
         /// </summary>
         internal static string SecurityAnswerHeaderText {
             get {
@@ -934,7 +934,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type the security question:.
+        ///   Looks up a localized string similar to Type the security answer:.
         /// </summary>
         internal static string TypeSecurityALableText {
             get {

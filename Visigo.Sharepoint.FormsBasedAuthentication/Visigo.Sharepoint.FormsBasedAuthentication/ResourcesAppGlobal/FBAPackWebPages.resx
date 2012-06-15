@@ -379,7 +379,7 @@
     <value>Search:</value>
   </data>
   <data name="SecurityAnswerHeaderText" xml:space="preserve">
-    <value>Security Question</value>
+    <value>Security Answer</value>
   </data>
   <data name="SecurityQuestionHeaderText" xml:space="preserve">
     <value>Security Question</value>
@@ -409,7 +409,7 @@
     <value>Type the Full Name:</value>
   </data>
   <data name="TypeSecurityALableText" xml:space="preserve">
-    <value>Type the security question:</value>
+    <value>Type the security answer:</value>
   </data>
   <data name="TypeSecurityQLableText" xml:space="preserve">
     <value>Type the security question:</value>
