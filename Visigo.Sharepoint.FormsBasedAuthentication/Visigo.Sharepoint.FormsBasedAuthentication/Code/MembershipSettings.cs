@@ -133,7 +133,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteURL.CHANGEPASSWORDPAGE, "Pages/ChangePassword.aspx", _web);
+                return Utils.GetWebProperty(MembershipReviewSiteURL.CHANGEPASSWORDPAGE, "_Layouts/FBA/ChangePassword.aspx", _web);
             }
 
             set

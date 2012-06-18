@@ -72,7 +72,7 @@
         </wssuc:InputFormSection>
         <wssuc:InputFormSection runat="server" Title="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderText %>">
             <template_description>
-		   <SharePoint:EncodedLiteral ID="EncodedLiteral1" runat="server" text="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderDesc %>" EncodeMethod='HtmlEncode'/>
+		   <asp:Literal  runat="server" text="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderDesc %>" />
 	    </template_description>
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordChangePageLabelText %>">

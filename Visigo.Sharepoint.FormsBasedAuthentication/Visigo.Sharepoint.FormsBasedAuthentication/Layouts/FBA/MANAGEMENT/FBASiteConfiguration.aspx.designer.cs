@@ -121,15 +121,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.InputFormCheckBox chkReviewMembershipRequests;
         
         /// <summary>
-        /// EncodedLiteral1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral EncodedLiteral1;
-        
-        /// <summary>
         /// txtChangePasswordPage control.
         /// </summary>
         /// <remarks>
