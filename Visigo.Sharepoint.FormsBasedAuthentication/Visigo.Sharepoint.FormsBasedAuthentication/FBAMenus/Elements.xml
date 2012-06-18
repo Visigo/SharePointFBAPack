@@ -11,7 +11,7 @@
 	</CustomAction>
 
 	<CustomAction
-  Id="FBAUserManagement"
+  Id="FBARoleManagement"
   GroupId="UsersAndPermissions"
   Location="Microsoft.SharePoint.SiteSettings"
   Sequence="112"
@@ -22,7 +22,7 @@
 	</CustomAction>
 
 	<CustomAction
-  Id="FBAUserManagement"
+  Id="FBASiteConfiguration"
   GroupId="UsersAndPermissions"
   Location="Microsoft.SharePoint.SiteSettings"
   Sequence="111"
