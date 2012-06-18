@@ -649,7 +649,7 @@
     <value>Validation</value>
   </data>
   <data name="UnknownErrorMessage_DefaultValue" xml:space="preserve">
-    <value>Unknown Error</value>
+    <value>An unexpected error has occurred. Please contact your administrator if this problem persists, or check the SharePoint log file for more details.</value>
   </data>
   <data name="UnknownErrorMessage_Description" xml:space="preserve">
     <value />
