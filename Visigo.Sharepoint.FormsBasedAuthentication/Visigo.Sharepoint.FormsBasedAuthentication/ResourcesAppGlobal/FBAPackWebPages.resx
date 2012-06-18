@@ -277,7 +277,12 @@
     <value>Membership Rejected</value>
   </data>
   <data name="MembershipSiteReviewHeaderDesc" xml:space="preserve">
-    <value>These pages can be used in email or FBA web parts.</value>
+    <value>These pages can be used in the email XSLT templates using the following syntax:
+&lt;pre&gt;
+&amp;lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&amp;gt;
+&amp;lt;xsl:value-of select="MembershipRequest:get_PasswordQuestionURL()" /&amp;gt;
+&amp;lt;xsl:value-of select="MembershipRequest:get_ThankYouURL()" /&amp;gt;
+&lt;/pre&gt;</value>
   </data>
   <data name="MembershipSiteReviewHeaderText" xml:space="preserve">
     <value>Membership Review Site URLs</value>

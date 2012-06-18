@@ -538,7 +538,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These pages can be used in email or FBA web parts..
+        ///   Looks up a localized string similar to These pages can be used in the email XSLT templates using the following syntax:
+        ///&lt;pre&gt;
+        ///&amp;lt;xsl:value-of select=&quot;MembershipRequest:get_ChangePasswordURL()&quot; /&amp;gt;
+        ///&amp;lt;xsl:value-of select=&quot;MembershipRequest:get_PasswordQuestionURL()&quot; /&amp;gt;
+        ///&amp;lt;xsl:value-of select=&quot;MembershipRequest:get_ThankYouURL()&quot; /&amp;gt;
+        ///&lt;/pre&gt;.
         /// </summary>
         internal static string MembershipSiteReviewHeaderDesc {
             get {
@@ -1038,6 +1043,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         internal static string UsersInRoleMsg {
             get {
                 return ResourceManager.GetString("UsersInRoleMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The currently installed version of the FBA Pack..
+        /// </summary>
+        internal static string VersionHeaderDesc {
+            get {
+                return ResourceManager.GetString("VersionHeaderDesc", resourceCulture);
             }
         }
         
