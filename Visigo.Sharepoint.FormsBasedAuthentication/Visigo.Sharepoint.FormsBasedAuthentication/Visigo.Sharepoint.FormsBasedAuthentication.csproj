@@ -445,6 +445,7 @@
     <Content Include="Resources\FBAPackMembershipRequestWebPart.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FBAPackMembershipRequestWebPart.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\FBAPackMembershipRequestWebPart.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
