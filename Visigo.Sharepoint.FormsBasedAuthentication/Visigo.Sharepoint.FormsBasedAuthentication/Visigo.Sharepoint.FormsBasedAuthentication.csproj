@@ -420,7 +420,6 @@
     <Content Include="MembershipReviewList\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="MembershipReviewList\MembershipReviewHandler\Elements.xml" />
     <Content Include="MembershipReviewList\Schema.xml" />
     <Content Include="PasswordRecoveryWebPart\Elements.xml" />
   </ItemGroup>
