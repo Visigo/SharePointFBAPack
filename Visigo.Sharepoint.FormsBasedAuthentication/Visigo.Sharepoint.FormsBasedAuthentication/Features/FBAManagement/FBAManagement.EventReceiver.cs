@@ -21,87 +21,91 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
 
         #region Constants
 
-        //private string _ListName = "Site Membership Review List";
+        private string _ListName = "Site Membership Review List";
         //private string _ListDesc = "Contains list of users requesting a site account.";
         
         #endregion
-        // Handled by Instance Definitions
-        //public void ActivateMembershipReviewList(SPFeatureReceiverProperties properties)
-        //{
-        //    SPSite site = null;
-        //    SPWeb web = null;
-        //    SPList list = null;
 
-        //    try
-        //    {
-        //        site = properties.Feature.Parent as SPSite;
-        //        web = site.RootWeb;
+        /// <summary>
+        /// Activate the membership review event receiver here, as the declarative definition will link
+        /// the event receiver to all lists within the site, if the feature is scoped to site
+        /// </summary>
+        /// <param name="properties"></param>
+        public void ActivateMembershipReviewList(SPFeatureReceiverProperties properties)
+        {
+            SPSite site = null;
+            SPWeb web = null;
+            SPList list = null;
 
-        //        if (web != null)
-        //        {
-                    
-        //            //guidList = web.Lists.Add(_ListName, _ListDesc, _ListName, new Guid("{69CE2076-9A2F-4c71-AEDF-F4252C01DE4E}").ToString(), (int)SPListTemplateType.GenericList, "100");
-        //            //web.Update();
+            try
+            {
+                site = properties.Feature.Parent as SPSite;
+                web = site.RootWeb;
 
-        //            list = web.Lists[_ListName];
-        //            //list.EventReceivers.Add(SPEventReceiverType.ItemUpdated, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
-        //            //list.EventReceivers.Add(SPEventReceiverType.ItemAdded, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
-        //            list.ContentTypesEnabled = false;
-        //            list.EnableAttachments = false;
-        //            list.EnableFolderCreation = false;
-        //            list.EnableVersioning = false;
-        //            list.NoCrawl = true;
+                if (web != null)
+                {
 
-        //            list.Update();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Utils.LogError(ex);
-        //    }
-        //    finally
-        //    {
-        //        if (web != null)
-        //            web.Dispose();
-        //        if (site != null)
-        //            site.Dispose();
-        //    }
-        //}
+                    //guidList = web.Lists.Add(_ListName, _ListDesc, _ListName, new Guid("{69CE2076-9A2F-4c71-AEDF-F4252C01DE4E}").ToString(), (int)SPListTemplateType.GenericList, "100");
+                    //web.Update();
 
-        //Taking care of with List Instance
-        //public void DeactivateMembershipReviewList(SPFeatureReceiverProperties properties)
-        //{
-        //    SPSite site = null;
-        //    SPWeb web = null;
-        //    SPList list;
+                    list = web.Lists[_ListName];
+                    list.EventReceivers.Add(SPEventReceiverType.ItemUpdated, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
+                    //list.EventReceivers.Add(SPEventReceiverType.ItemAdded, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
+                    //list.ContentTypesEnabled = false;
+                    //list.EnableAttachments = false;
+                    //list.EnableFolderCreation = false;
+                    //list.EnableVersioning = false;
+                    //list.NoCrawl = true;
 
-        //    try
-        //    {
-        //        site = properties.Feature.Parent as SPSite;
-        //        web = site.RootWeb;
+                    list.Update();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex);
+            }
+            finally
+            {
+                if (web != null)
+                    web.Dispose();
+                if (site != null)
+                    site.Dispose();
+            }
+        }
 
-        //        if (web != null)
-        //        {
-        //            list = web.Lists[_ListName];
-        //            if (list != null)
-        //            {
-        //                list.Delete();
-        //                web.Update();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Utils.LogError(ex);
-        //    }
-        //    finally
-        //    {
-        //        if (web != null)
-        //            web.Dispose();
-        //        if (site != null)
-        //            site.Dispose();
-        //    }
-        //}
+        public void DeactivateMembershipReviewList(SPFeatureReceiverProperties properties)
+        {
+            SPSite site = null;
+            SPWeb web = null;
+            SPList list;
+
+            try
+            {
+                site = properties.Feature.Parent as SPSite;
+                web = site.RootWeb;
+
+                if (web != null)
+                {
+                    list = web.Lists[_ListName];
+                    if (list != null)
+                    {
+                        list.Delete();
+                        web.Update();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex);
+            }
+            finally
+            {
+                if (web != null)
+                    web.Dispose();
+                if (site != null)
+                    site.Dispose();
+            }
+        }
 
         public void ActivateFBAManagement(SPFeatureReceiverProperties properties)
         {
@@ -168,16 +172,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             ActivateFBAManagement(properties);
-            //ActivateMembershipReviewList(properties);
+            ActivateMembershipReviewList(properties);
         }
 
 
         // Uncomment the method below to handle the event raised before a feature is deactivated.
 
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //    //DeactivateMembershipReviewList(properties);
-        //}
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {
+            DeactivateMembershipReviewList(properties);
+        }
 
 
         // Uncomment the method below to handle the event raised after a feature has been installed.

@@ -4,7 +4,7 @@
 	<ListTemplate
 		Name="MembershipReviewList"
 		DisplayName="$Resources:FBAPackFeatures, MembershipReviewList_DispName;"
-		Type="100"
+		Type="10101"
 		Description="$Resources:FBAPackFeatures, MembershipReviewList_Desc;"
 		OnQuickLaunch="FALSE"
 		SecurityBits="11"
