@@ -549,7 +549,7 @@
   <data name="MembershipRequestConfirmationMessage" xml:space="preserve">
     <value>Your membership request has been received.</value>
   </data>
-  <data name="CompleteSucccessText_Description" xml:space="preserve">
+  <data name="CompleteSuccessText_Description" xml:space="preserve">
     <value />
   </data>
   <data name="CompleteSuccessText_Category" xml:space="preserve">
@@ -818,5 +818,8 @@
   </data>
   <data name="PasswordRequiredErrorMessage_FriendlyName" xml:space="preserve">
     <value>Password Required Error Message</value>
+  </data>
+  <data name="CssClass_DefaultValue" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -386,15 +386,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string CompleteSucccessText_Description {
-            get {
-                return ResourceManager.GetString("CompleteSucccessText_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
         internal static string CompleteSuccessText_Category {
@@ -409,6 +400,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string CompleteSuccessText_DefaultValue {
             get {
                 return ResourceManager.GetString("CompleteSuccessText_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CompleteSuccessText_Description {
+            get {
+                return ResourceManager.GetString("CompleteSuccessText_Description", resourceCulture);
             }
         }
         
@@ -787,6 +787,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Resources {
         internal static string CssClass_Category {
             get {
                 return ResourceManager.GetString("CssClass_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CssClass_DefaultValue {
+            get {
+                return ResourceManager.GetString("CssClass_DefaultValue", resourceCulture);
             }
         }
         
