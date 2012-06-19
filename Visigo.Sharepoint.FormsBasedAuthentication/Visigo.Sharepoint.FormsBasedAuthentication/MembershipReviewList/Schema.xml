@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<List xmlns:ows="Microsoft SharePoint" Title="Site Membership Review List" Direction="$Resources:Direction;" Url="Lists/Site Membership Review List" BaseType="0">
+<List xmlns:ows="Microsoft SharePoint" Title="Site Membership Review List" Direction="LTR" Url="Lists/Site Membership Review List" BaseType="0">
 	<MetaData>
 		<Fields>
 			<Field ID="{03e45e84-1992-4d42-9116-26f756012634}" RowOrdinal="0" Type="ContentTypeId" Sealed="TRUE" ReadOnly="TRUE" Hidden="TRUE" DisplayName="Content Type ID" Name="ContentTypeId" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentTypeId" ColName="tp_ContentTypeId" FromBaseType="TRUE"/>
