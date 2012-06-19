@@ -4,5 +4,6 @@
     <ProjectItemFile Source="FBAPackWebPages.zh-CN.resx" Type="AppGlobalResource" />
     <ProjectItemFile Source="FBAPackWebPages.resx" Type="AppGlobalResource" />
     <ProjectItemFile Source="FBAPackWebPages.zh-HK.resx" Type="AppGlobalResource" />
+    <ProjectItemFile Source="FBAPackWebPages.en-US.resx" Type="AppGlobalResource" />
   </Files>
 </ProjectItem>
