@@ -345,6 +345,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             //bms Added the event to catch the error and send our own email
             _ctlPasswordRecovery.SendMailError += new SendMailErrorEventHandler(_ctlPasswordRecovery_SendMailError);
             _ctlPasswordRecovery.VerifyingUser += new LoginCancelEventHandler(_ctlPasswordRecovery_VerifyingUser);
+            _ctlPasswordRecovery.SendingMail += new MailMessageEventHandler(_ctlPasswordRecovery_SendingMail);
             _ctlPasswordRecovery.MembershipProvider = provider;
             _ctlPasswordRecovery.GeneralFailureText = GeneralFailureText;
             _ctlPasswordRecovery.QuestionFailureText = QuestionFailureText;
@@ -406,6 +407,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             this.Controls.Add(_ctlPasswordRecovery);
         }
 
+        /// <summary>
+        /// Overrides the built in mail sending and calls our mail sending function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void _ctlPasswordRecovery_SendingMail(object sender, MailMessageEventArgs e)
+        {
+            e.Cancel = true;
+            SendEmail();
+        }
+
         void _ctlPasswordRecovery_VerifyingUser(object sender, LoginCancelEventArgs e)
         {
             PasswordRecovery prc = (PasswordRecovery)sender;
@@ -424,9 +436,21 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         }
 
+        /// <summary>
+        /// Called if the mailsettings don't exist in the web.config.  This is ok, since we use SharePoint
+        /// to send the email. Simply call our send email function.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void _ctlPasswordRecovery_SendMailError(object sender, SendMailErrorEventArgs e)
         {
+            e.Handled = true;
+            SendEmail();
 
+        }
+
+        private void SendEmail()
+        {
             SPSecurity.RunWithElevatedPrivileges(delegate()
             {
                 using (SPSite _site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
@@ -440,7 +464,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             _web.AllowUnsafeUpdates = true;
 
 
-                            PasswordRecovery prc = (PasswordRecovery)sender;
+                            PasswordRecovery prc = _ctlPasswordRecovery;
                             MembershipUser currentUser = Utils.BaseMembershipProvider(_web.Site).GetUser(prc.UserName, false);
                             MembershipRequest membershipitem = new MembershipRequest();
                             membershipitem.UserEmail = currentUser.Email;
@@ -462,12 +486,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                                 helper.SetText("Success", LocalizedString.GetString("FBAPackPasswordRecoveryWebPart", "ErrorSendingEmail"));
                             }
 
-                            e.Handled = true;
+                            
                         }
                     }
                 }
-            });            
-
+            });      
         }
 
         protected override void CreateChildControls()
