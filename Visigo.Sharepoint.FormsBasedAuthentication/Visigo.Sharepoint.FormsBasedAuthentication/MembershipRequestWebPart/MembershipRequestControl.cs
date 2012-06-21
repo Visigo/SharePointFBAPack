@@ -129,56 +129,70 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         protected override void OnCreatingUser(LoginCancelEventArgs e)
         {
-            SPWeb web = SPContext.Current.Web;
-            MembershipSettings settings = new MembershipSettings(web);
-
-            if (settings.ReviewMembershipRequests)
+            // Note: this doesn't run using the privileges of the anonymous user, so we elevate them
+            // Also, you can't use the original Site even with elevated privileges, otherwise it reverts back to anonymous.
+            SPSecurity.RunWithElevatedPrivileges(delegate()
             {
-                /* bms Prevent user from being added to the list multiple times if the user */
-                /* is already in use.                                                       */
-                if (Utils.BaseMembershipProvider(web.Site).GetUser(this.UserName, false) == null)
+                using (SPSite site2 = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                 {
-                    MembershipRequest request = new MembershipRequest();
-                    request.UserEmail = this.Email;
-                    request.UserName = this.UserName;
-                    request.PasswordQuestion = this.Question;
-                    request.PasswordAnswer = this.Answer;
-                    request.FirstName = this.FirstName;
-                    request.LastName = this.LastName;
-                    request.DefaultGroup = this._DefaultGroup;
-                    request.LoginCreatedUser = false;
-                    request.SiteName = web.Title;
-                    request.SiteURL = web.Url;
-                    if (!MembershipRequest.CopyToReviewList(request))
+                    using (SPWeb web2 = site2.OpenWeb(SPContext.Current.Web.ID))
                     {
-                        lblError.Text = this.UnknownErrorMessage;
-                        e.Cancel = true;
-                        return;
+
+                        MembershipSettings settings = new MembershipSettings(web2);
+
+                        if (settings.ReviewMembershipRequests)
+                        {
+                            /* bms Prevent user from being added to the list multiple times if the user */
+                            /* is already in use.                                                       */
+
+
+                                        if (Utils.BaseMembershipProvider(site2).GetUser(this.UserName, false) == null)
+                                        {
+                                            MembershipRequest request = new MembershipRequest();
+                                            request.UserEmail = this.Email;
+                                            request.UserName = this.UserName;
+                                            request.PasswordQuestion = this.Question;
+                                            request.PasswordAnswer = this.Answer;
+                                            request.FirstName = this.FirstName;
+                                            request.LastName = this.LastName;
+                                            request.DefaultGroup = this._DefaultGroup;
+                                            request.LoginCreatedUser = false;
+                                            request.SiteName = web2.Title;
+                                            request.SiteURL = web2.Url;
+                                            if (!MembershipRequest.CopyToReviewList(request))
+                                            {
+                                                lblError.Text = this.UnknownErrorMessage;
+                                                e.Cancel = true;
+                                                return;
+                                            }
+                                        }
+                                        this.MoveTo(this.CompleteStep);
+
+                        }
+                        else
+                        {
+                            base.OnCreatingUser(e);
+                            //Add the user to the default group
+                            // Note: this doesn't run using the privileges of the anonymous user, so we elevate them
+                            // Also, you can't use the original RootWeb even with elevated privileges, otherwise it reverts back to anonymous.
+
+                            //This is done in approvemembership - so not sure why it's being done here before the user is actually created
+                            //SPSecurity.RunWithElevatedPrivileges(delegate()
+                            //{
+                            //    using (SPSite site2 = new SPSite(this.Page.Request.Url.ToString()))
+                            //    {
+                            //        using (SPWeb web2 = site2.RootWeb)
+                            //        {
+                            //            web2.AllowUnsafeUpdates = true;
+                            //            web2.SiteGroups[this._DefaultGroup].AddUser(Utils.EncodeUsername(this.UserName.ToLower()), this.Email, this.FirstName + " " + this.LastName, "Self Registration");
+                            //            web2.Update();
+                            //        }
+                            //    }
+                            //});
+                        }
                     }
                 }
-                this.MoveTo(this.CompleteStep);
-            }
-            else
-            {
-                base.OnCreatingUser(e);
-                //Add the user to the default group
-                // Note: this doesn't run using the privileges of the anonymous user, so we elevate them
-                // Also, you can't use the original RootWeb even with elevated privileges, otherwise it reverts back to anonymous.
-
-                //This is done in approvemembership - so not sure why it's being done here before the user is actually created
-                //SPSecurity.RunWithElevatedPrivileges(delegate()
-                //{
-                //    using (SPSite site2 = new SPSite(this.Page.Request.Url.ToString()))
-                //    {
-                //        using (SPWeb web2 = site2.RootWeb)
-                //        {
-                //            web2.AllowUnsafeUpdates = true;
-                //            web2.SiteGroups[this._DefaultGroup].AddUser(Utils.EncodeUsername(this.UserName.ToLower()), this.Email, this.FirstName + " " + this.LastName, "Self Registration");
-                //            web2.Update();
-                //        }
-                //    }
-                //});
-            }
+            });
         }
 
         #endregion
@@ -222,20 +236,21 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         
         protected override void OnCreatedUser(EventArgs e)
         {
-            SPWeb web = SPContext.Current.Web;
-            MembershipSettings settings = new MembershipSettings(web);
-
-            if (!settings.ReviewMembershipRequests)
+            // Note: this doesn't run using the privileges of the anonymous user, so we elevate them
+            // Also, you can't use the original Site even with elevated privileges, otherwise it reverts back to anonymous.
+            SPSecurity.RunWithElevatedPrivileges(delegate()
             {
-                #region Process new user request if we're NOT using the Request List
-                // Note: this doesn't run using the privileges of the anonymous user, so we elevate them
-                // Also, you can't use the original Site even with elevated privileges, otherwise it reverts back to anonymous.
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                using (SPSite site2 = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                 {
-                    using (SPSite site2 = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
+                    using (SPWeb web2 = site2.OpenWeb(SPContext.Current.Web.ID))
                     {
-                        using (SPWeb web2 = site2.RootWeb)
+                        MembershipSettings settings = new MembershipSettings(web2);
+
+                        if (!settings.ReviewMembershipRequests)
                         {
+                            #region Process new user request if we're NOT using the Request List
+
+                
                             // from this point allowunsafeupdates is required because the call is initiated from a browser with
                             // anonymouse rights only
                             web2.AllowUnsafeUpdates = true;
@@ -256,7 +271,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             request.LastName = this.LastName;
                             request.SiteName = web2.Title;
                             request.SiteURL = web2.Url;
-                            request.ChangePasswordURL = Utils.GetAbsoluteURL(web, settings.ChangePasswordPage);
+                            request.ChangePasswordURL = Utils.GetAbsoluteURL(web2, settings.ChangePasswordPage);
                             request.DefaultGroup = this.DefaultGroup;
                             request.LoginCreatedUser = SPLoginCreatedUser;
                             
@@ -271,17 +286,18 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                                 return;
                             }
                             this.MoveTo(this.CompleteStep);
+
+                            #endregion
                         }
+                        else
+                        {
+                            base.OnCreatedUser(e);
+                        }
+
                     }
-                });
-                #endregion
-            }
-            else
-            {
-                base.OnCreatedUser(e);
-            }
+                }
+            });
         }
-         
 
     }
 }

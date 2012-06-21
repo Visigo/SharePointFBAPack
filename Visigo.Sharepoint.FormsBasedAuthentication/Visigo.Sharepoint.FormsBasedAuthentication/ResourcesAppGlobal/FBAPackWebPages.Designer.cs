@@ -439,7 +439,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the paths to the XSLT used for the emails..
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:MembershipRequest=&quot;fba:MembershipRequest&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;html&gt;
+        ///      &lt;head&gt;
+        ///        &lt;title&gt;Membership Approved&lt;/title&gt;
+        ///      &lt;/head&gt;
+        ///      &lt;body&gt;
+        ///        &lt;div&gt;
+        ///            &lt;br /&gt;
+        ///            &lt;p&gt;Your request for an account on &lt;xsl:value-of select=&quot;MembershipRequest:get_SiteName()&quot; /&gt; has been approved and you have been granted access.&lt;/p&gt;
+        ///            &lt;p&gt;You [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string MembershipApprovedXSLT {
+            get {
+                return ResourceManager.GetString("MembershipApprovedXSLT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The XSL templates used for sending emails..
         /// </summary>
         internal static string MembershipEmailTemplateHeaderDesc {
             get {
@@ -448,7 +468,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Membership Email XSLT.
+        ///   Looks up a localized string similar to Membership Emails.
         /// </summary>
         internal static string MembershipEmailTemplateHeaderText {
             get {
@@ -520,6 +540,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:MembershipRequest=&quot;fba:MembershipRequest&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;html&gt;
+        ///      &lt;head&gt;
+        ///        &lt;title&gt;Membership Pending&lt;/title&gt;
+        ///      &lt;/head&gt;
+        ///      &lt;body&gt;
+        ///        &lt;div&gt;
+        ///          &lt;br /&gt;
+        ///          &lt;p&gt;Thank you for requesting a Membership on &lt;xsl:value-of select=&quot;MembershipRequest:get_SiteName()&quot; /&gt;.&lt;/p&gt;
+        ///
+        ///          &lt;p&gt;You will receive an email with a temporary passwo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string MembershipPendingXSLT {
+            get {
+                return ResourceManager.GetString("MembershipPendingXSLT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Membership Rejected:.
         /// </summary>
         internal static string MembershipRejectedLabelText {
@@ -534,6 +575,26 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         internal static string MembershipRejectedToolTipText {
             get {
                 return ResourceManager.GetString("MembershipRejectedToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:MembershipRequest=&quot;fba:MembershipRequest&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;html&gt;
+        ///      &lt;head&gt;
+        ///        &lt;title&gt;Membership Request Rejected&lt;/title&gt;
+        ///      &lt;/head&gt;
+        ///      &lt;body&gt;
+        ///        &lt;div&gt;
+        ///          &lt;p&gt;Your membership request on &lt;xsl:value-of select=&quot;MembershipRequest:get_SiteName()&quot; /&gt; has been rejected.&lt;/p&gt;
+        ///
+        ///          &lt;p&gt;If you feel that this is an error please try again or  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string MembershipRejectedXSLT {
+            get {
+                return ResourceManager.GetString("MembershipRejectedXSLT", resourceCulture);
             }
         }
         
@@ -683,6 +744,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         internal static string PasswordRecoveryToolTipText {
             get {
                 return ResourceManager.GetString("PasswordRecoveryToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:MembershipRequest=&quot;fba:MembershipRequest&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;html&gt;
+        ///      &lt;head&gt;
+        ///        &lt;title&gt;Membership Password Recovery&lt;/title&gt;
+        ///      &lt;/head&gt;
+        ///      &lt;body&gt;
+        ///        &lt;div&gt;
+        ///            &lt;p&gt;You have requested this mail because you have forgotten your password to &lt;xsl:value-of select=&quot;MembershipRequest:get_SiteName()&quot; /&gt;.&lt;/p&gt;
+        ///
+        ///          &lt;p&gt;
+        ///            Your user [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PasswordRecoveryXSLT {
+            get {
+                return ResourceManager.GetString("PasswordRecoveryXSLT", resourceCulture);
             }
         }
         

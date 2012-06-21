@@ -451,4 +451,164 @@
   <data name="UsersInRoleMsg" xml:space="preserve">
     <value>有 {0} 個用戶屬於這個角色。</value>
   </data>
+  <data name="MembershipApprovedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;會員審批通過&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;br /&gt;
+          &lt;p&gt;
+            你在 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 申請的賬號已獲審批通過，並且已授權訪問網站。
+          &lt;/p&gt;
+          &lt;p&gt;
+            你的用戶是： &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            首次登入密碼是： &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;
+          &lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;xsl:text&gt;你的首次登入密碼可在登入後馬上通過此頁面&lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:text&gt;，&lt;/xsl:text&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt; 使用用戶名及首次登入密碼進行更改。&lt;/xsl:text&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改密碼的頁面： &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt;。&lt;/xsl:text&gt;
+
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改好密碼後，將可以瀏覽通過 &lt;/xsl:text&gt;
+            &lt;xsl:value-of select="MembershipRequest:get_SiteURL()" /&gt;
+            &lt;xsl:text&gt; 訪問網站 &lt;/xsl:text&gt;
+            &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;如你需要額外的訪問權限，請聯繫管理員。&lt;/p&gt;
+
+          &lt;p&gt;謝謝！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="MembershipPendingXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;審批進行中&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;br /&gt;
+          &lt;p&gt;
+            非常感謝你申請網站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的會員。
+          &lt;/p&gt;
+
+          &lt;p&gt;一旦你的申請獲得通過，你將會收到用於首次登入的臨時密碼。&lt;/p&gt;
+
+          &lt;p&gt;如果你有其他問題或需要幫助，請聯繫管理員。&lt;/p&gt;
+
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="MembershipRejectedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;申请拒绝&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;p&gt;
+            你申请网站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的会员已经被拒绝。
+          &lt;/p&gt;
+
+          &lt;p&gt;如你觉得这是个错误，请重新申请或联系网站管理员。&lt;/p&gt;
+
+          &lt;p&gt;谢谢！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="PasswordRecoveryXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;恢復密碼&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;p&gt;
+            你收到這個郵件是因為你忘記了網站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的密碼。
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            你的用戶名： &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            你的臨時密碼： &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;&lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;xsl:text&gt;你的臨時密碼可在登入後馬上通過此頁面 &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:text&gt;，&lt;/xsl:text&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt; 使用用戶名及臨時密碼進行更改。&lt;/xsl:text&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改密碼的頁面： &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt;。&lt;/xsl:text&gt;
+
+          &lt;/p&gt;
+
+          &lt;p&gt;謝謝！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
 </root>

@@ -23,7 +23,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             return SendEmail(web, emailTo, xsltTemplateFile, (null as IDictionary));
         }
 
-        public static bool SendEmail(SPWeb web, string emailTo, string xsltTemplateFile, IDictionary xslValues)
+        public static bool SendEmail(SPWeb web, string emailTo, string xslt, IDictionary xslValues)
         {
 
 
@@ -36,13 +36,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             XmlNode xmlNodeTitle;
             XmlDocument xmlEmail;
             XsltSettings settings = new XsltSettings(true, true); 
-            XmlUrlResolver resolver = new XmlUrlResolver();  
-            resolver.Credentials = CredentialCache.DefaultCredentials;  
+            XmlUrlResolver resolver = new XmlUrlResolver(); 
             string subject = string.Empty;
 
             try
             {
-                xslEmailTransform.Load(xsltTemplateFile, settings, resolver);
+                xslEmailTransform.Load(new XmlTextReader(xslt, XmlNodeType.Document, null), settings, resolver);
 
                 xmlDoc = new XmlDocument();
                 xmlDoc.AppendChild(xmlDoc.CreateElement("DocumentRoot"));

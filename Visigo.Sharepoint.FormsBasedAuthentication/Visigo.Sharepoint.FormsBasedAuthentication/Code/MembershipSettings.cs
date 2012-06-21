@@ -5,6 +5,8 @@ using System.Text;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using System.Globalization;
+using System.Net;
+using System.IO;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -45,6 +47,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public struct MembershipReviewSiteXSLTEmail
     {
         public const string MEMBERSHIPREPLYTO = "MembershipReplyTo";
+        public const string MEMBERSHIPAPPROVED = "MembershipApprovedXSLT";
+        public const string MEMBERSHIPPENDING = "MembershipPendingXSLT";
+        public const string MEMBERSHIPREJECTED = "MembershipRejectedXSLT";
+        public const string PASSWORDRECOVERY = "PasswordRecoveryXSLT";
+    }
+
+    public struct MembershipReviewMigratedFields
+    {
         public const string MEMBERSHIPAPPROVED = "MembershipApproved";
         public const string MEMBERSHIPERROR = "MembershipError";
         public const string MEMBERSHIPPENDING = "MembershipPending";
@@ -62,26 +72,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         private SPWeb _web;
         private SPSite _site;
         
-        private static Dictionary<Guid,string> _membershipApprovedDefault = new Dictionary<Guid,string>();
-        private static Dictionary<Guid, string> _membershipErrorDefault = new Dictionary<Guid,string>();
-        private static Dictionary<Guid, string> _membershipPendingDefault = new Dictionary<Guid,string>();
-        private static Dictionary<Guid, string> _membershipRejectedDefault = new Dictionary<Guid,string>();
-        private static Dictionary<Guid, string> _passwordRecoveryDefault = new Dictionary<Guid,string>();
-
         public MembershipSettings(SPWeb web)
         {
             _web = web;
             _site = _web.Site;
 
-            //Initialize default values for web if not previously initialized
-            if (!_membershipApprovedDefault.ContainsKey(_web.ID))
-            {
-                _membershipApprovedDefault[_web.ID] = GetTemplateDefaultPath("MembershipApproved.xslt", _web);
-                _membershipErrorDefault[_web.ID] = GetTemplateDefaultPath("MembershipError.xslt", _web);
-                _membershipPendingDefault[_web.ID] = GetTemplateDefaultPath("MembershipPending.xslt", _web);
-                _membershipRejectedDefault[_web.ID] = GetTemplateDefaultPath("MembershipRejected.xslt", _web);
-                _passwordRecoveryDefault[_web.ID] = GetTemplateDefaultPath("PasswordRecovery.xslt", _web);
-            }
         }
 
         private string GetTemplateDefaultPath(string filename, SPWeb web)
@@ -101,7 +96,45 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
 
             return string.Format("/_layouts/FBA/emails/{0}", filename);
-        }        
+        }
+
+        /// <summary>
+        /// Returns the contents of the file specified in the migrated key - if it exists
+        /// If the file doesn't exist, then just return the default value
+        /// </summary>
+        /// <param name="migratedKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        private string GetMigratedXSLT(string migratedKey, string defaultValue)
+        {
+            string result = defaultValue;
+
+            try
+            {
+                string url = Utils.GetWebProperty(migratedKey, "", _web);
+
+                if (!String.IsNullOrEmpty(url))
+                {
+                    url = Utils.GetAbsoluteURL(_web, url);
+                    string contents = string.Empty;
+                    WebRequest request = WebRequest.Create(url);
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    using (WebResponse response = request.GetResponse())
+                    {
+                        using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                        {
+                            result = reader.ReadToEnd();
+                        }
+                        response.Close();
+                    }
+                }
+            }
+            catch
+            {
+            }
+
+            return result;
+        }
 
         public bool EnableRoles
         {
@@ -185,7 +218,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPAPPROVED, _membershipApprovedDefault[_web.ID], _web);
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPAPPROVED, GetMigratedXSLT(MembershipReviewMigratedFields.MEMBERSHIPAPPROVED, LocalizedString.GetGlobalString("FBAPackWebPages", "MembershipApprovedXSLT")), _web, true);
             }
 
             set
@@ -194,24 +227,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
         }
 
-        public string MembershipErrorEmail
-        {
-            get
-            {
-                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPERROR, _membershipErrorDefault[_web.ID], _web);
-            }
-
-            set
-            {
-                Utils.SetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPERROR, value, _web);
-            }
-        }
-
         public string MembershipPendingEmail
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPPENDING, _membershipPendingDefault[_web.ID], _web);
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPPENDING, GetMigratedXSLT(MembershipReviewMigratedFields.MEMBERSHIPPENDING, LocalizedString.GetGlobalString("FBAPackWebPages", "MembershipPendingXSLT")), _web, true);
             }
 
             set
@@ -224,7 +244,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREJECTED, _membershipRejectedDefault[_web.ID], _web);
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREJECTED, GetMigratedXSLT(MembershipReviewMigratedFields.MEMBERSHIPREJECTED, LocalizedString.GetGlobalString("FBAPackWebPages", "MembershipRejectedXSLT")), _web, true);
             }
 
             set
@@ -237,7 +257,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.PASSWORDRECOVERY, _passwordRecoveryDefault[_web.ID], _web);
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.PASSWORDRECOVERY, GetMigratedXSLT(MembershipReviewMigratedFields.PASSWORDRECOVERY, LocalizedString.GetGlobalString("FBAPackWebPages", "PasswordRecoveryXSLT")), _web, true);
             }
 
             set

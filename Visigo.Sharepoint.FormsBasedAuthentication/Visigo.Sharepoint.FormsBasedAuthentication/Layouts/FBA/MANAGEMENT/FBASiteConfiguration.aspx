@@ -104,27 +104,22 @@
 		    </wssuc:InputFormControl>
 		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipApprovedLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipApprovedToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipApproved" Direction="LeftToRight" Runat="server" />
-			    </Template_Control>
-		    </wssuc:InputFormControl>
-		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipErrorLabelText %>">
-			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipErrorToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipError" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipApprovedToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtMembershipApproved" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipPendingLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipPendingToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipPending" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipPendingToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtMembershipPending" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 		    		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, MembershipRejectedLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipRejectedToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtMembershipRejected" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, MembershipRejectedToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtMembershipRejected" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 		    		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordRecoveryLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordRecoveryToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtPasswordRecovery" Direction="LeftToRight" Runat="server" />
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordRecoveryToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtPasswordRecovery" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
