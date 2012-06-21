@@ -183,12 +183,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             SPUtility.TransferToErrorPage(ex.Message);
         }
 
-        public static string GetWebProperty(string key, string defaultValue, SPWeb web)
+        public static string GetWebProperty(string key, string defaultValue, SPWeb web, bool save)
         {
             string value = null;
             value = web.Properties[key];
-            if (value == null) value = defaultValue;
+            if (value == null)
+            {
+                value = defaultValue;
+                if (save)
+                {
+                    SetWebProperty(key, value, web);
+                }
+            }
             return value;
+        }
+
+        public static string GetWebProperty(string key, string defaultValue, SPWeb web)
+        {
+            return GetWebProperty(key, defaultValue, web, false);
         }
 
         public static string GetWebProperty(string key, string defaultValue)
@@ -220,9 +232,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         public static void SetWebProperty(string key, string value, SPWeb web)
         {
+            bool unsafeUpdates = web.AllowUnsafeUpdates;
+
+            web.AllowUnsafeUpdates = true;
             web.Properties[key] = value;
                
             web.Properties.Update();
+            web.AllowUnsafeUpdates = unsafeUpdates;
         }
 
         public static void SetWebProperty(string key, string value)

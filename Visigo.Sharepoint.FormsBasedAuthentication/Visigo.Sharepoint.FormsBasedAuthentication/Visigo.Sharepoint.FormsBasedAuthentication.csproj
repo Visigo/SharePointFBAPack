@@ -341,16 +341,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Layouts\FBA\EMAILS\2052\MembershipApproved.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\2052\MembershipError.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\2052\MembershipPending.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\2052\MembershipRejected.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\2052\PasswordRecovery.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\MembershipApproved.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\MembershipError.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\MembershipPending.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\MembershipRejected.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\PasswordRecovery.xslt" />
     <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\ChangePasswordTemplate.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -428,12 +418,9 @@
     <Content Include="Layouts\FBA\ChangePassword.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Layouts\FBA\EMAILS\3076\MembershipApproved.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\3076\MembershipError.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\3076\MembershipPending.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\3076\MembershipRejected.xslt" />
-    <Content Include="Layouts\FBA\EMAILS\3076\PasswordRecovery.xslt" />
-    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx" />
+    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx">
@@ -453,9 +440,7 @@
     <Content Include="MembershipReviewList\Schema.xml" />
     <Content Include="PasswordRecoveryWebPart\Elements.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Layouts\FBA\EMAILS\1033\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\FBAPackChangePasswordWebPart.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -503,6 +488,7 @@
     <Content Include="ResourcesAppGlobal\FBAPackWebPages.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FBAPackWebPages.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

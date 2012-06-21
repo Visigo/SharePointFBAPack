@@ -39,7 +39,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 /* bms Set the XSLT location web properties */
                 txtReplyTo.Text = settings.MembershipReplyToEmailAddress;
                 txtMembershipApproved.Text = settings.MembershipApprovedEmail;
-                txtMembershipError.Text = settings.MembershipErrorEmail;
                 txtMembershipPending.Text = settings.MembershipPendingEmail;
                 txtMembershipRejected.Text = settings.MembershipRejectedEmail;
                 txtPasswordRecovery.Text = settings.PasswordRecoveryEmail;
@@ -67,7 +66,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             /* bms Set the XSLT location web properties */
             settings.MembershipReplyToEmailAddress = txtReplyTo.Text;
             settings.MembershipApprovedEmail = txtMembershipApproved.Text;
-            settings.MembershipErrorEmail = txtMembershipError.Text;
             settings.MembershipPendingEmail = txtMembershipPending.Text;
             settings.MembershipRejectedEmail = txtMembershipRejected.Text;
             settings.PasswordRecoveryEmail = txtPasswordRecovery.Text;

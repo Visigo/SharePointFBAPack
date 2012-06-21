@@ -243,11 +243,64 @@
   <data name="MembershipApprovedToolTipText" xml:space="preserve">
     <value>Membership Approved</value>
   </data>
+  <data name="MembershipApprovedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Membership Approved&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+            &lt;br /&gt;
+            &lt;p&gt;Your request for an account on &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; has been approved and you have been granted access.&lt;/p&gt;
+            &lt;p&gt;Your user name is: &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;&lt;/p&gt;
+            &lt;p&gt;Your temporary password is: &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;xsl:text&gt;Your temporary password can be changed immediately by logging onto the &lt;/xsl:text&gt;
+                &lt;a&gt;
+                    &lt;xsl:attribute name="href"&gt;
+                        &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                    &lt;/xsl:attribute&gt;
+                    &lt;xsl:text&gt;Change Password Page&lt;/xsl:text&gt;
+                &lt;/a&gt;
+                &lt;xsl:text&gt; using your user name and temporary password.&lt;/xsl:text&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;xsl:text&gt;The ChangePassword page is located at &lt;/xsl:text&gt;
+                &lt;a&gt;
+                    &lt;xsl:attribute name="href"&gt;
+                        &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                    &lt;/xsl:attribute&gt;
+                    &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                &lt;/a&gt;
+                &lt;xsl:text&gt;.&lt;/xsl:text&gt;
+
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;xsl:text&gt;Once you have changed your password, you can browse the &lt;/xsl:text&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt;
+                &lt;xsl:text&gt; site at &lt;/xsl:text&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_SiteURL()" /&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;If you need additional access please contact the site administrator.&lt;/p&gt;
+
+            &lt;p&gt;Thank you.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
   <data name="MembershipEmailTemplateHeaderDesc" xml:space="preserve">
-    <value>These are the paths to the XSLT used for the emails.</value>
+    <value>The XSL templates used for sending emails.</value>
   </data>
   <data name="MembershipEmailTemplateHeaderText" xml:space="preserve">
-    <value>Membership Email XSLT</value>
+    <value>Membership Emails</value>
   </data>
   <data name="MembershipErrorLabelText" xml:space="preserve">
     <value>Membership Error:</value>
@@ -270,11 +323,55 @@
   <data name="MembershipPendingToolTipText" xml:space="preserve">
     <value>Membership Pending</value>
   </data>
+  <data name="MembershipPendingXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Membership Pending&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;br /&gt;
+          &lt;p&gt;Thank you for requesting a Membership on &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt;.&lt;/p&gt;
+
+          &lt;p&gt;You will receive an email with a temporary password once your request has been approved.&lt;/p&gt;
+
+          &lt;p&gt;If you have any additional questions or require assistance, please contact the site administrator.&lt;/p&gt;
+
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
   <data name="MembershipRejectedLabelText" xml:space="preserve">
     <value>Membership Rejected:</value>
   </data>
   <data name="MembershipRejectedToolTipText" xml:space="preserve">
     <value>Membership Rejected</value>
+  </data>
+  <data name="MembershipRejectedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Membership Request Rejected&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;p&gt;Your membership request on &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; has been rejected.&lt;/p&gt;
+
+          &lt;p&gt;If you feel that this is an error please try again or contact the site administrator.&lt;/p&gt;
+
+          &lt;p&gt;Thank you.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
   </data>
   <data name="MembershipSiteReviewHeaderDesc" xml:space="preserve">
     <value>These pages can be used in the email XSLT templates using the following syntax:
@@ -328,6 +425,55 @@
   </data>
   <data name="PasswordRecoveryToolTipText" xml:space="preserve">
     <value>Password Recovery</value>
+  </data>
+  <data name="PasswordRecoveryXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Membership Password Recovery&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+            &lt;p&gt;You have requested this mail because you have forgotten your password to &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt;.&lt;/p&gt;
+
+          &lt;p&gt;
+            Your user name is: &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;Your temporary password is: &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;&lt;/p&gt;
+
+            &lt;p&gt;&lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;xsl:text&gt;Your temporary password can be changed immediately by logging onto the &lt;/xsl:text&gt;
+                &lt;a&gt;
+                    &lt;xsl:attribute name="href"&gt;
+                        &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                    &lt;/xsl:attribute&gt;
+                    &lt;xsl:text&gt;Change Password Page&lt;/xsl:text&gt;
+                &lt;/a&gt;
+                &lt;xsl:text&gt; using your user name and temporary password.&lt;/xsl:text&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;xsl:text&gt;The ChangePassword page is located at &lt;/xsl:text&gt;
+                &lt;a&gt;
+                    &lt;xsl:attribute name="href"&gt;
+                        &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                    &lt;/xsl:attribute&gt;
+                    &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+                &lt;/a&gt;
+                &lt;xsl:text&gt;.&lt;/xsl:text&gt;
+
+            &lt;/p&gt;
+
+            &lt;p&gt;Thank you.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
   </data>
   <data name="ProviderError" xml:space="preserve">
     <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>

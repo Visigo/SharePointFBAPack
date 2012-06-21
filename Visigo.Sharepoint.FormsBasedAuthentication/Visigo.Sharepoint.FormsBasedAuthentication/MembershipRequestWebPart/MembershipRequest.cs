@@ -335,7 +335,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         //email user to confirm that request is approved
                         xsltValues = new Hashtable(1);
                         xsltValues.Add("fba:MembershipRequest", request);
-                        bool bSentMail = Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipApprovedEmail), xsltValues);
+                        bool bSentMail = Email.SendEmail(web, request.UserEmail, settings.MembershipApprovedEmail, xsltValues);
 
                         if (!bSentMail)
                         {
@@ -430,7 +430,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                return Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipRejectedEmail), xsltValues);
+                return Email.SendEmail(web, request.UserEmail, settings.MembershipRejectedEmail, xsltValues);
             }
             catch (Exception ex)
             {
@@ -448,7 +448,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                return Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.MembershipPendingEmail), xsltValues);
+                return Email.SendEmail(web, request.UserEmail, settings.MembershipPendingEmail, xsltValues);
             }
             catch (Exception ex)
             {
@@ -466,7 +466,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 xsltValues = new Hashtable();
                 xsltValues.Add("fba:MembershipRequest", request);
-                return Email.SendEmail(web, request.UserEmail, Utils.GetAbsoluteURL(web, settings.PasswordRecoveryEmail), xsltValues);
+                return Email.SendEmail(web, request.UserEmail, settings.PasswordRecoveryEmail, xsltValues);
             }
             catch (Exception ex)
             {
@@ -497,9 +497,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                                 reviewList = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
                                 if (reviewList != null)
                                 {
-                                    if (!MembershipRequest.SendPendingMembershipEmail(request, web))
+                                    using (SPWeb currentWeb = site.OpenWeb(SPContext.Current.Web.ID))
                                     {
-                                        return;
+                                        if (!MembershipRequest.SendPendingMembershipEmail(request, currentWeb))
+                                        {
+                                            return;
+                                        }
                                     }
 
                                     reviewItem = reviewList.Items.Add();
