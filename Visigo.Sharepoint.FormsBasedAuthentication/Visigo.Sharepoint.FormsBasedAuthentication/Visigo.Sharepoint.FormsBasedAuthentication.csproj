@@ -441,7 +441,9 @@
     <Content Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx" />
+    <Content Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\FBA\MANAGEMENT\UserNew.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx">
       <SubType>ASPXCodeBehind</SubType>
