@@ -51,6 +51,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         public const string MEMBERSHIPPENDING = "MembershipPendingXSLT";
         public const string MEMBERSHIPREJECTED = "MembershipRejectedXSLT";
         public const string PASSWORDRECOVERY = "PasswordRecoveryXSLT";
+        public const string RESETPASSWORD = "ResetPasswordXSLT";
     }
 
     public struct MembershipReviewMigratedFields
@@ -263,6 +264,19 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             set
             {
                 Utils.SetWebProperty(MembershipReviewSiteXSLTEmail.PASSWORDRECOVERY, value, _web);
+            }
+        }
+
+        public string ResetPasswordEmail
+        {
+            get
+            {
+                return Utils.GetWebProperty(MembershipReviewSiteXSLTEmail.RESETPASSWORD, LocalizedString.GetGlobalString("FBAPackWebPages", "ResetPasswordXSLT"), _web, true);
+            }
+
+            set
+            {
+                Utils.SetWebProperty(MembershipReviewSiteXSLTEmail.RESETPASSWORD, value, _web);
             }
         }
     }

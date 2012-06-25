@@ -25,13 +25,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             this.CheckRights();
 
-            // If Membership.RequiresQuestionAndAnswer is true, then we need the password answer, which we don't have.
-            // Also check to make sure ResetPassword is allowed.  
-            if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer || !Utils.BaseMembershipProvider().EnablePasswordReset)
-            {
-                BtnReset.Visible = false;
-            }
-
             // init
             _showRoles = (new MembershipSettings(SPContext.Current.Web)).EnableRoles;
 
@@ -268,17 +261,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         protected void OnResetPassword(object sender, EventArgs e)
         {
-            // If Membership.RequiresQuestionAndAnswer is true, then we need the password answer, which we don't have.
-            // Also check to make sure ResetPassword is allowed.  
-            if (!Utils.BaseMembershipProvider().RequiresQuestionAndAnswer && Utils.BaseMembershipProvider().EnablePasswordReset)
-            {
-                string userName = this.Request.QueryString["USERNAME"];
-                MembershipUser user = Utils.BaseMembershipProvider().GetUser(userName,false);
-                string newPassword = user.ResetPassword();
-                // TODO: use xslt email
-                string body = String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","ResetPasswordBody"),newPassword);
-                Email.SendEmail(this.Web, user.Email, String.Format(LocalizedString.GetGlobalString("FBAPackWebPages","ResetPasswordSubject"),this.Web.Title), body);
-            }
+            SPUtility.Redirect(string.Format("FBA/Management/UserResetPassword.aspx?UserName={0}&Source=UsersEdit.aspx",this.Request.QueryString["USERNAME"]), SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+        }
+
+        protected void OnDeleteUser(object sender, EventArgs e)
+        {
+            SPUtility.Redirect(string.Format("FBA/Management/UserDelete.aspx?UserName={0}&Source=UsersEdit.aspx", this.Request.QueryString["USERNAME"]), SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
         }
     }
 }

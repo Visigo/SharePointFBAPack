@@ -390,6 +390,12 @@
   <data name="ModifiedColHeaderText" xml:space="preserve">
     <value>Modified</value>
   </data>
+  <data name="NewPasswordLabelText" xml:space="preserve">
+    <value>New Password:</value>
+  </data>
+  <data name="NewPasswordToolTipText" xml:space="preserve">
+    <value>New Password</value>
+  </data>
   <data name="NewRoleLabelText" xml:space="preserve">
     <value>New Role</value>
   </data>
@@ -484,14 +490,79 @@
   <data name="ReplyToToolTipText" xml:space="preserve">
     <value>Reply To</value>
   </data>
+  <data name="ResetAutoPasswordText" xml:space="preserve">
+    <value>Reset to a randomly generated password</value>
+  </data>
   <data name="ResetPasswordBody" xml:space="preserve">
     <value>Your new password is: {0}</value>
   </data>
   <data name="ResetPasswordButtonText" xml:space="preserve">
     <value>Reset Password</value>
   </data>
+  <data name="ResetPasswordChangePasswordError" xml:space="preserve">
+    <value>There was an error setting the new password during the password reset process. If this error persists, there may be an issue with your membership provider.</value>
+  </data>
+  <data name="ResetPasswordConfirmText" xml:space="preserve">
+    <value>Are you sure you want to reset this user's password?</value>
+  </data>
+  <data name="ResetPasswordContextMenuText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordDescText" xml:space="preserve">
+    <value>Resets the user's password.</value>
+  </data>
+  <data name="ResetPasswordEmailTemplateLabelText" xml:space="preserve">
+    <value>Email Template:</value>
+  </data>
+  <data name="ResetPasswordEmailTemplateToolTipText" xml:space="preserve">
+    <value>Email Template</value>
+  </data>
+  <data name="ResetPasswordHeaderText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordLabelText" xml:space="preserve">
+    <value>Reset Password:</value>
+  </data>
+  <data name="ResetPasswordMsg" xml:space="preserve">
+    <value>Reset password for user '{0}'</value>
+  </data>
+  <data name="ResetPasswordSendEmailLabelText" xml:space="preserve">
+    <value>Email the user their new password</value>
+  </data>
+  <data name="ResetPasswordSendEmailToolTipText" xml:space="preserve">
+    <value>Email the user their new password</value>
+  </data>
   <data name="ResetPasswordSubject" xml:space="preserve">
     <value>Password Reset for {0}</value>
+  </data>
+  <data name="ResetPasswordToolTipText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordUnavailable" xml:space="preserve">
+    <value>Your current membershipprovider settings prevent a user's password from being reset. To allow for resetting of a password by an administration, you must have enablePasswordReset="true" and requiresQuestionAndAnswer="false" in your membership provider settings in your web.config.</value>
+  </data>
+  <data name="ResetPasswordUser_Title" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Password Reset for &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+			&lt;p&gt;Your new password is: &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="ResetSelectPasswordText" xml:space="preserve">
+    <value>Set the user's new password</value>
   </data>
   <data name="ReviewMembershipRequestLabelText" xml:space="preserve">
     <value>Review Membership Requests:</value>
@@ -567,6 +638,9 @@
   </data>
   <data name="TypeUserNameLabelText" xml:space="preserve">
     <value>Type the User Name:</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>An unexpected error has occurred. If the problem persists, please contact your system administrator or check the SharePoint log for further details.</value>
   </data>
   <data name="UnknownError" xml:space="preserve">
     <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>

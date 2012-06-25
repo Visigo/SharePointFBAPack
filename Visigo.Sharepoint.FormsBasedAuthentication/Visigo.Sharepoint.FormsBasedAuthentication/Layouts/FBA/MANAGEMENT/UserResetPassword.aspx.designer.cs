@@ -10,7 +10,7 @@
 namespace Visigo.Sharepoint.FormsBasedAuthentication {
     
     
-    public partial class UserEdit {
+    public partial class UserResetPassword {
         
         /// <summary>
         /// PageTitle control.
@@ -94,156 +94,102 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.UIVersionedContent UIVersionedContent2;
         
         /// <summary>
-        /// lblMessage control.
+        /// EncodedLiteral3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral EncodedLiteral3;
         
         /// <summary>
-        /// txtUsername control.
+        /// resetPasswordMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtUsername;
+        protected global::System.Web.UI.WebControls.Label resetPasswordMsg;
         
         /// <summary>
-        /// InputFormRequiredFieldValidator1 control.
+        /// resetAutoPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator1;
+        protected global::Microsoft.SharePoint.WebControls.InputFormRadioButton resetAutoPassword;
         
         /// <summary>
-        /// txtFullName control.
+        /// resetSelectPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtFullName;
+        protected global::Microsoft.SharePoint.WebControls.InputFormRadioButton resetSelectPassword;
         
         /// <summary>
-        /// InputFormRequiredFieldValidator2 control.
+        /// InputFormControl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator2;
+        protected global::System.Web.UI.UserControl InputFormControl1;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtEmail;
+        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtNewPassword;
         
         /// <summary>
-        /// InputFormRegExpressionFieldValidator1 control.
+        /// InputFormRequiredFieldValidatorNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormRegularExpressionValidator InputFormRegExpressionFieldValidator1;
+        protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidatorNewPassword;
         
         /// <summary>
-        /// CategorySection1 control.
+        /// lblNewPasswordError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl CategorySection1;
+        protected global::System.Web.UI.WebControls.Label lblNewPasswordError;
         
         /// <summary>
-        /// isActive control.
+        /// InputFormControl3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox isActive;
+        protected global::System.Web.UI.UserControl InputFormControl3;
         
         /// <summary>
-        /// isLocked control.
+        /// chkSendEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox isLocked;
+        protected global::System.Web.UI.WebControls.CheckBox chkSendEmail;
         
         /// <summary>
-        /// GroupSection control.
+        /// BtnResetPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl GroupSection;
-        
-        /// <summary>
-        /// groupList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormCheckBoxList groupList;
-        
-        /// <summary>
-        /// RolesSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UserControl RolesSection;
-        
-        /// <summary>
-        /// rolesList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormCheckBoxList rolesList;
-        
-        /// <summary>
-        /// BtnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDelete;
-        
-        /// <summary>
-        /// BtnReset control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnReset;
-        
-        /// <summary>
-        /// BtnOk control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnOk;
+        protected global::System.Web.UI.WebControls.Button BtnResetPassword;
     }
 }

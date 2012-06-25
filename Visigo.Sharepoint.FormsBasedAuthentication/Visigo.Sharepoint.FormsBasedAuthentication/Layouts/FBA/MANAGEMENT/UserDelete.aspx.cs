@@ -29,11 +29,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             string userName = Request.QueryString["USERNAME"];
             if (!string.IsNullOrEmpty(userName))
             {
-                deleteMsg.Text = string.Format(localizedMsg.Text, Request.QueryString["USERNAME"]);
+                deleteMsg.Text = string.Format(localizedMsg.Text, userName);
             }
             else
             {
-                SPUtility.TransferToErrorPage("User Not Found");
+                SPUtility.TransferToErrorPage(LocalizedString.GetGlobalString("FBAPackWebPages", "UserNotFound"));
             }
         }
 

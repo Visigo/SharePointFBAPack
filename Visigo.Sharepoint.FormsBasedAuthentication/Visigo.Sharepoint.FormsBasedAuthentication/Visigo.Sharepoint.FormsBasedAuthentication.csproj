@@ -101,6 +101,13 @@
     <Compile Include="Layouts\FBA\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx.cs">
+      <DependentUpon>UserResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx.designer.cs">
+      <DependentUpon>UserResetPassword.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.cs">
       <DependentUpon>FBASiteConfiguration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -341,6 +348,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\ChangePasswordTemplate.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -418,15 +428,19 @@
     <Content Include="Layouts\FBA\ChangePassword.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx">
+    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx" />
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx" />
-    <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx" />
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx" />
+    <Content Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\UserNew.aspx" />
     <Content Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx">
