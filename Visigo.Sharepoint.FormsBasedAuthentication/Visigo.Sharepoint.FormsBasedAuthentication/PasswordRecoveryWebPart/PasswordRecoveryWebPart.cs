@@ -466,21 +466,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                             PasswordRecovery prc = _ctlPasswordRecovery;
                             MembershipUser currentUser = Utils.BaseMembershipProvider(_web.Site).GetUser(prc.UserName, false);
-                            MembershipRequest membershipitem = new MembershipRequest();
-                            membershipitem.UserEmail = currentUser.Email;
-                            membershipitem.UserName = currentUser.UserName;
-                            membershipitem.SiteName = _web.Title;
-                            membershipitem.SiteURL = _web.Url;
+                            MembershipRequest membershipitem = MembershipRequest.GetMembershipRequest(currentUser, _web);
+
                             membershipitem.PasswordQuestion = currentUser.PasswordQuestion;
                             membershipitem.Password = currentUser.ResetPassword(prc.Answer);
 
-                            /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
-                            MembershipSettings settings = new MembershipSettings(_web);
-                            membershipitem.ChangePasswordURL = Utils.GetAbsoluteURL(_web, settings.ChangePasswordPage);
-                            membershipitem.PasswordQuestionURL = Utils.GetAbsoluteURL(_web, settings.PasswordQuestionPage);
-                            membershipitem.ThankYouURL = Utils.GetAbsoluteURL(_web, settings.ThankYouPage);
-
-                            if (!MembershipRequest.SendPasswordResetEmail(membershipitem, _web))
+                            if (!MembershipRequest.SendPasswordRecoveryEmail(membershipitem, _web))
                             {
                                 TemplateHelper helper = new TemplateHelper(_ctlPasswordRecovery.SuccessTemplateContainer);
                                 helper.SetText("Success", LocalizedString.GetString("FBAPackPasswordRecoveryWebPart", "ErrorSendingEmail"));

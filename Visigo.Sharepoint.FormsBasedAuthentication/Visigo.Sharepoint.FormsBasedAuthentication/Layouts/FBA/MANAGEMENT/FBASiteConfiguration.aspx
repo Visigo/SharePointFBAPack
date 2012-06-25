@@ -60,12 +60,12 @@
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, EnableRolesLabelText %>">
 			    <Template_Control>
-                    <SharePoint:InputFormCheckBox Title="<% $Resources: FBAPackWebPages, EnableRolesToolTipText %>" ID="chkEnableRoles" runat="server" />			       
+                    <asp:CheckBox Title="<% $Resources: FBAPackWebPages, EnableRolesToolTipText %>" ID="chkEnableRoles" runat="server" />			       
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, ReviewMembershipRequestLabelText %>">
 			    <Template_Control>
-			       <SharePoint:InputFormCheckBox Title="<% $Resources: FBAPackWebPages, ReviewMembershipRequestToolTipText %>" ID="chkReviewMembershipRequests" runat="server" />
+			       <asp:CheckBox Title="<% $Resources: FBAPackWebPages, ReviewMembershipRequestToolTipText %>" ID="chkReviewMembershipRequests" runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
@@ -120,6 +120,11 @@
 		    		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordRecoveryLabelText %>">
 			    <Template_Control>
 			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordRecoveryToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtPasswordRecovery" Direction="LeftToRight" Runat="server" />
+			    </Template_Control>
+		    </wssuc:InputFormControl>
+            <wssuc:InputFormControl ID="InputFormControl1" runat="server" LabelText="<% $Resources: FBAPackWebPages, ResetPasswordLabelText %>">
+			    <Template_Control>
+			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, ResetPasswordToolTipText %>" class="ms-input" TextMode="MultiLine" Columns="80" Rows="10" ID="txtResetPassword" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>

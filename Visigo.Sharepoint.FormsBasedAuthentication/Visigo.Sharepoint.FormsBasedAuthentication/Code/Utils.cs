@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Web.Security;
 using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.Administration.Claims;
+using System.Collections;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -158,7 +159,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             
             // if no error provider is ok
             return true;
-        }    
+        }
+
+        public static void ResetUserPassword(string username, string newPassword, bool sendEmail, SPWeb web)
+        {
+            if (Utils.BaseMembershipProvider().RequiresQuestionAndAnswer || !Utils.BaseMembershipProvider().EnablePasswordReset)
+            {
+                throw new Exception(LocalizedString.GetGlobalString("FBAPackWebPages", "ResetPasswordUnavailable"));
+            }
+
+            MembershipUser user = Utils.BaseMembershipProvider().GetUser(username, false);
+            string password = user.ResetPassword();
+
+            //Change the password to the specified password
+            if (!String.IsNullOrEmpty(newPassword))
+            {
+                if (user.ChangePassword(password, newPassword))
+                {
+                    password = newPassword;
+                }
+                else
+                {
+                    throw new Exception(LocalizedString.GetGlobalString("FBAPackWebPages", "ResetPasswordChangePasswordError"));
+                }
+            }
+
+            if (sendEmail)
+            {
+                MembershipRequest request = MembershipRequest.GetMembershipRequest(user, web);
+                request.Password = password;
+
+                MembershipRequest.SendResetPasswordEmail(request, web);
+            }
+
+        }
+
+
     
         public static void LogError(string errorMessage, FBADiagnosticsService.FBADiagnosticsCategory errorCategory)
         {

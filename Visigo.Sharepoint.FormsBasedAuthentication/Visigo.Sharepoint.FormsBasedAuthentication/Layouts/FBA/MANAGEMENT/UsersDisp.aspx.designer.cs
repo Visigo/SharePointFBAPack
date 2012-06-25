@@ -112,6 +112,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.MenuItemTemplate Edit;
         
         /// <summary>
+        /// MenuItemTemplate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.MenuItemTemplate MenuItemTemplate1;
+        
+        /// <summary>
         /// Delete control.
         /// </summary>
         /// <remarks>

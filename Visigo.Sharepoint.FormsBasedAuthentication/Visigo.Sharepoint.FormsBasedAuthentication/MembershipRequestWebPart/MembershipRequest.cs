@@ -457,7 +457,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
         }
 
-        public static bool SendPasswordResetEmail(MembershipRequest request, SPWeb web)
+        public static bool SendPasswordRecoveryEmail(MembershipRequest request, SPWeb web)
         {
             Hashtable xsltValues;
             MembershipSettings settings = new MembershipSettings(web);
@@ -474,6 +474,42 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return false;
             }
         }
+
+        public static bool SendResetPasswordEmail(MembershipRequest request, SPWeb web)
+        {
+            Hashtable xsltValues;
+            MembershipSettings settings = new MembershipSettings(web);
+
+            try
+            {
+                xsltValues = new Hashtable();
+                xsltValues.Add("fba:MembershipRequest", request);
+                return Email.SendEmail(web, request.UserEmail, settings.ResetPasswordEmail, xsltValues);
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex);
+                return false;
+            }
+        }
+
+        public static MembershipRequest GetMembershipRequest(MembershipUser user, SPWeb web)
+        {
+            MembershipRequest request = new MembershipRequest();
+            request.UserEmail = user.Email;
+            request.UserName = user.UserName;
+            request.SiteName = web.Title;
+            request.SiteURL = web.Url;
+
+            /* These are the possible set of URLs that are provided to the user and developer in the XSLT */
+            MembershipSettings settings = new MembershipSettings(web);
+            request.ChangePasswordURL = Utils.GetAbsoluteURL(web, settings.ChangePasswordPage);
+            request.PasswordQuestionURL = Utils.GetAbsoluteURL(web, settings.PasswordQuestionPage);
+            request.ThankYouURL = Utils.GetAbsoluteURL(web, settings.ThankYouPage);
+
+            return request;
+        }
+
 
         public static bool CopyToReviewList(MembershipRequest request)
         {

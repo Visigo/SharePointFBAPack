@@ -640,6 +640,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Password:.
+        /// </summary>
+        internal static string NewPasswordLabelText {
+            get {
+                return ResourceManager.GetString("NewPasswordLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        internal static string NewPasswordToolTipText {
+            get {
+                return ResourceManager.GetString("NewPasswordToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Forms Based Authentication Role.
         /// </summary>
         internal static string NewRole_Title {
@@ -796,6 +814,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset to a randomly generated password.
+        /// </summary>
+        internal static string ResetAutoPasswordText {
+            get {
+                return ResourceManager.GetString("ResetAutoPasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your new password is: {0}.
         /// </summary>
         internal static string ResetPasswordBody {
@@ -814,11 +841,168 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error setting the new password during the password reset process. If this error persists, there may be an issue with your membership provider..
+        /// </summary>
+        internal static string ResetPasswordChangePasswordError {
+            get {
+                return ResourceManager.GetString("ResetPasswordChangePasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to reset this user&apos;s password?.
+        /// </summary>
+        internal static string ResetPasswordConfirmText {
+            get {
+                return ResourceManager.GetString("ResetPasswordConfirmText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        internal static string ResetPasswordContextMenuText {
+            get {
+                return ResourceManager.GetString("ResetPasswordContextMenuText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resets the user&apos;s password..
+        /// </summary>
+        internal static string ResetPasswordDescText {
+            get {
+                return ResourceManager.GetString("ResetPasswordDescText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Template:.
+        /// </summary>
+        internal static string ResetPasswordEmailTemplateLabelText {
+            get {
+                return ResourceManager.GetString("ResetPasswordEmailTemplateLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Template.
+        /// </summary>
+        internal static string ResetPasswordEmailTemplateToolTipText {
+            get {
+                return ResourceManager.GetString("ResetPasswordEmailTemplateToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        internal static string ResetPasswordHeaderText {
+            get {
+                return ResourceManager.GetString("ResetPasswordHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password:.
+        /// </summary>
+        internal static string ResetPasswordLabelText {
+            get {
+                return ResourceManager.GetString("ResetPasswordLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset password for user &apos;{0}&apos;.
+        /// </summary>
+        internal static string ResetPasswordMsg {
+            get {
+                return ResourceManager.GetString("ResetPasswordMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email the user their new password.
+        /// </summary>
+        internal static string ResetPasswordSendEmailLabelText {
+            get {
+                return ResourceManager.GetString("ResetPasswordSendEmailLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email the user their new password.
+        /// </summary>
+        internal static string ResetPasswordSendEmailToolTipText {
+            get {
+                return ResourceManager.GetString("ResetPasswordSendEmailToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password Reset for {0}.
         /// </summary>
         internal static string ResetPasswordSubject {
             get {
                 return ResourceManager.GetString("ResetPasswordSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        internal static string ResetPasswordToolTipText {
+            get {
+                return ResourceManager.GetString("ResetPasswordToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your current membershipprovider settings prevent a user&apos;s password from being reset. To allow for resetting of a password by an administration, you must have enablePasswordReset=&quot;true&quot; and requiresQuestionAndAnswer=&quot;false&quot; in your membership provider settings in your web.config..
+        /// </summary>
+        internal static string ResetPasswordUnavailable {
+            get {
+                return ResourceManager.GetString("ResetPasswordUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        internal static string ResetPasswordUser_Title {
+            get {
+                return ResourceManager.GetString("ResetPasswordUser_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:MembershipRequest=&quot;fba:MembershipRequest&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;html&gt;
+        ///      &lt;head&gt;
+        ///        &lt;title&gt;Password Reset for &lt;xsl:value-of select=&quot;MembershipRequest:get_UserName()&quot; /&gt;&lt;/title&gt;
+        ///      &lt;/head&gt;
+        ///      &lt;body&gt;
+        ///        &lt;div&gt;
+        ///			&lt;p&gt;Your new password is: &lt;xsl:value-of select=&quot;MembershipRequest:get_Password()&quot; /&gt;&lt;/p&gt;
+        ///        &lt;/div&gt;
+        ///      &lt;/body&gt;
+        ///    &lt;/html&gt;
+        ///  &lt;/xs [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ResetPasswordXSLT {
+            get {
+                return ResourceManager.GetString("ResetPasswordXSLT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set the user&apos;s new password.
+        /// </summary>
+        internal static string ResetSelectPasswordText {
+            get {
+                return ResourceManager.GetString("ResetSelectPasswordText", resourceCulture);
             }
         }
         
@@ -1044,6 +1228,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         internal static string TypeUserNameLabelText {
             get {
                 return ResourceManager.GetString("TypeUserNameLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error has occurred. If the problem persists, please contact your system administrator or check the SharePoint log for further details..
+        /// </summary>
+        internal static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
         

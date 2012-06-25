@@ -50,11 +50,7 @@
   </ContentTemplate></SharePoint:UIVersionedContent>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-    <script type="text/javascript">
-        function confirmPasswordReset() {
-            return confirm("<SharePoint:EncodedLiteral runat='server' text='<%$ Resources:FBAPackWebPages, PasswordConfirmText %>' EncodeMethod='EcmaScriptStringLiteralEncode'/>");
-        }
-    </script>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ms-descriptiontext">
@@ -94,7 +90,7 @@
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server">
 			    <Template_Control>
-				    <SharePoint:InputFormCheckBox ID="isActive" ToolTip="<%$ Resources:FBAPackWebPages, ActiveCheckBoxToolTipText %>" LabelText="<%$ Resources:FBAPackWebPages, ActiveCheckBoxLabelText %>" runat="server"/>
+				    <asp:CheckBox ID="isActive" ToolTip="<%$ Resources:FBAPackWebPages, ActiveCheckBoxToolTipText %>" Text="<%$ Resources:FBAPackWebPages, ActiveCheckBoxLabelText %>" runat="server"/>
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
@@ -103,7 +99,7 @@
             <template_inputformcontrols>
 		    <wssuc:InputFormControl runat="server">
 			    <Template_Control>
-				    <SharePoint:InputFormCheckBox ID="isLocked" ToolTip="<%$ Resources:FBAPackWebPages, AccountLockedToolTipText %>" LabelText="<%$ Resources:FBAPackWebPages, AccountLockedLabelText %>" runat="server"/>
+				    <asp:CheckBox ID="isLocked" ToolTip="<%$ Resources:FBAPackWebPages, AccountLockedToolTipText %>" Text="<%$ Resources:FBAPackWebPages, AccountLockedLabelText %>" runat="server"/>
 			    </Template_Control>
 		    </wssuc:InputFormControl>
 	    </template_inputformcontrols>
@@ -128,7 +124,8 @@
         </wssuc:InputFormSection>
         <wssuc:ButtonSection runat="server">
             <template_buttons>
-	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" OnClientClick="if (!confirmPasswordReset()) return false;" Text="<%$ Resources:FBAPackWebPages, ResetPasswordButtonText %>" id="BtnReset" accesskey="P"/>
+            <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnDeleteUser" Text="<%$ Resources:FBAPackWebPages, DeleteButtonText %>" id="BtnDelete" accesskey="D"/>
+	        <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" Text="<%$ Resources:FBAPackWebPages, ResetPasswordButtonText %>" id="BtnReset" accesskey="R"/>
     	    <asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnSubmit" Text="<%$ Resources:FBAPackWebPages, SaveButonText %>" id="BtnOk" accesskey="<%$Resources:wss,okbutton_accesskey%>"/>	    
 	    </template_buttons>
         </wssuc:ButtonSection>

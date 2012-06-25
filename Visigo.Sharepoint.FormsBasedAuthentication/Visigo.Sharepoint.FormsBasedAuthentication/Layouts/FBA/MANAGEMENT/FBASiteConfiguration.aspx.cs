@@ -42,6 +42,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 txtMembershipPending.Text = settings.MembershipPendingEmail;
                 txtMembershipRejected.Text = settings.MembershipRejectedEmail;
                 txtPasswordRecovery.Text = settings.PasswordRecoveryEmail;
+                txtResetPassword.Text = settings.ResetPasswordEmail;
 
                 /* display the version */
                 Assembly assembly = Assembly.GetExecutingAssembly();
@@ -69,6 +70,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             settings.MembershipPendingEmail = txtMembershipPending.Text;
             settings.MembershipRejectedEmail = txtMembershipRejected.Text;
             settings.PasswordRecoveryEmail = txtPasswordRecovery.Text;
+            settings.ResetPasswordEmail = txtResetPassword.Text;
 
             SPUtility.Redirect("settings.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
         }

@@ -109,7 +109,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormCheckBox chkEnableRoles;
+        protected global::System.Web.UI.WebControls.CheckBox chkEnableRoles;
         
         /// <summary>
         /// chkReviewMembershipRequests control.
@@ -118,7 +118,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.InputFormCheckBox chkReviewMembershipRequests;
+        protected global::System.Web.UI.WebControls.CheckBox chkReviewMembershipRequests;
         
         /// <summary>
         /// txtChangePasswordPage control.
@@ -200,6 +200,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtPasswordRecovery;
+        
+        /// <summary>
+        /// InputFormControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl InputFormControl1;
+        
+        /// <summary>
+        /// txtResetPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.InputFormTextBox txtResetPassword;
         
         /// <summary>
         /// lblVersion control.

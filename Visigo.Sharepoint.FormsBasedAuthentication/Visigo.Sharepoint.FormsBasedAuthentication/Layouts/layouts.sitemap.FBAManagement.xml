@@ -4,6 +4,7 @@
     <siteMapNode title="$Resources:FBAPackWebPages,EditUser_Title" url="/_layouts/FBA/Management/UserEdit.aspx"></siteMapNode>
     <siteMapNode title="$Resources:FBAPackWebPages,NewUser_Title" url="/_layouts/FBA/Management/UserNew.aspx"></siteMapNode>
     <siteMapNode title="$Resources:FBAPackWebPages,DeleteUser_Title" url="/_layouts/FBA/Management/UserDelete.aspx"></siteMapNode>
+    <siteMapNode title="$Resources:FBAPackWebPages,ResetPasswordUser_Title" url="/_layouts/FBA/Management/UserResetPassword.aspx"></siteMapNode>
   </siteMapNode>
   <siteMapNode title="$Resources:FBAPackWebPages,RolesMgmt_Title" parentUrl="/_layouts/settings.aspx" url="/_layouts/FBA/Management/RolesDisp.aspx">
     <siteMapNode title="$Resources:FBAPackWebPages,NewRole_Title" url="/_layouts/FBA/Management/RoleNew.aspx"></siteMapNode>

@@ -128,7 +128,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server">
 			        <Template_Control>
-				        <SharePoint:InputFormCheckBox ID="isActive" Checked="true" ToolTip="<%$ Resources:FBAPackWebPages, ActiveCheckBoxToolTipText %>" LabelText="<%$ Resources:FBAPackWebPages, ActiveCheckBoxLabelText %>" runat="server"/>
+				        <asp:CheckBox ID="isActive" Checked="true" ToolTip="<%$ Resources:FBAPackWebPages, ActiveCheckBoxToolTipText %>" Text="<%$ Resources:FBAPackWebPages, ActiveCheckBoxLabelText %>" runat="server"/>
 			        </Template_Control>
 		        </wssuc:InputFormControl>
 	        </template_inputformcontrols>
@@ -158,7 +158,7 @@
             <template_inputformcontrols>
 		        <wssuc:InputFormControl runat="server">
 			        <Template_Control>
-			            <SharePoint:InputFormCheckBox id="emailUser" runat="server" Checked="False" LabelText="<%$ Resources:FBAPackWebPages, SendMailLabelText %>" ToggleChildren=true>
+			            <SharePoint:InputFormCheckBox id="emailUser" runat="server" Checked="False" LabelText="<%$ Resources:FBAPackWebPages, SendMailLabelText %>" ToggleChildren="true">
 				            <SharePoint:EncodedLiteral ID="EncodedLiteral3" runat="server" text="<%$Resources:wss,aclver_SubjectLabel%>" EncodeMethod='HtmlEncode'/>
 					        <br>
 					        <Template_Control>
