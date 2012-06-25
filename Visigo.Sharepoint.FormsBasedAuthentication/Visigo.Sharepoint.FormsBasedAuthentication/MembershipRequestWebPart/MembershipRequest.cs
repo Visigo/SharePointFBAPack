@@ -276,6 +276,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     membership.DeleteUser(request.UserName, true);
                 }
+                MembershipUser newUser;
                 //This section is to transaction Creating the user and sending the email
                 try
                 {
@@ -283,13 +284,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     if (membership.RequiresQuestionAndAnswer)
                     {
                         //membership.CreateUser(request.UserName, tempPassword, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, out createStatus);
-                        membership.CreateUser(request.UserName, request.Password, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, null, out createStatus);                    
+                        newUser = membership.CreateUser(request.UserName, request.Password, request.UserEmail, request.PasswordQuestion, request.PasswordAnswer, true, null, out createStatus);                    
                     }
                     else
                     {
                         //  With this method the MembershipCreateUserException will take care of things if the user can't be created, so no worry that createStatus is set to success
                         //membership.CreateUser(.CreateUser(request.UserName, tempPassword, request.UserEmail);
-                        membership.CreateUser(request.UserName, request.Password, request.UserEmail, null, null, true, null, out createStatus);
+                        newUser = membership.CreateUser(request.UserName, request.Password, request.UserEmail, null, null, true, null, out createStatus);
                         createStatus = MembershipCreateStatus.Success;
                     }
 
@@ -305,6 +306,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                     if (createStatus == MembershipCreateStatus.Success)
                     {
+                        newUser.IsApproved = true;
+                        membership.UpdateUser(newUser);
+
                         //Add the user to the default group
                         if (!String.IsNullOrEmpty(request.DefaultGroup))
                         {
