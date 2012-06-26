@@ -37,7 +37,7 @@ $solutionName="Visigo.Sharepoint.FormsBasedAuthentication.wsp"
 $featureName="FBAManagement"
 $solutionPath=$pwd.ToString() + "\" + $solutionName 
  
-.\UnDeploy.ps1 $url
+.\UnDeploy.ps1
  
 Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
 
@@ -52,5 +52,8 @@ Install-SPSolution –identity $solutionName –allwebapplications –GACDeploym
 Write-Host 'Waiting for job to finish' 
 WaitForJobToFinish($SolutionName)
 
-Write-Host 'Going to enable Feature' 
-Enable-spfeature -identity $featureName -confirm:$false -url $url
+if ($url)
+{
+	Write-Host 'Going to enable Feature' 
+	Enable-spfeature -identity $featureName -confirm:$false -url $url
+}
