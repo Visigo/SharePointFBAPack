@@ -62,7 +62,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             _entries = new List<string[]>();
             _uniqueID = UniqueID;
-            _siteUri = WebApp.Sites[0].RootWeb.Url;
+            // ModifiedBySolvion
+            // bhi - 09.01.2012
+            // Fixed dispose bug
+            #region original
+            //_siteUri = WebApp.Sites[0].RootWeb.Url;
+            #endregion
+            using (SPSite site = WebApp.Sites[0])
+            {
+                _siteUri = site.RootWeb.Url;
+            }
+            // EndModifiedBySolvion
             _adminSite = AdminSite;
         }
 

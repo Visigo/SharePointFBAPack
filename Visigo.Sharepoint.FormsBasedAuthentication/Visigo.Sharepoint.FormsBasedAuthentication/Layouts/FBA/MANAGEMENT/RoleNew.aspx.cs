@@ -22,7 +22,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     Utils.BaseRoleProvider().CreateRole(txtRole.Text);
                     // redirect to roles list
-                    SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+                    SPUtility.Redirect("RolesDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
                 }
                 catch (Exception ex)
                 {

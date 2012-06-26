@@ -56,7 +56,7 @@
         <SharePoint:MenuItemTemplate ID="Edit" runat="server" Text="<%$ Resources:FBAPackWebPages, EditContextMenuText %>" ImageUrl="/_layouts/images/edititem.gif"
             ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, EditContextMenuText %>">
         </SharePoint:MenuItemTemplate>
-        <SharePoint:MenuItemTemplate ID="MenuItemTemplate1" runat="server" Text="<%$ Resources:FBAPackWebPages, ResetPasswordContextMenuText %>" ImageUrl="/_layouts/images/restore.gif"
+        <SharePoint:MenuItemTemplate ID="ResetPassword" runat="server" Text="<%$ Resources:FBAPackWebPages, ResetPasswordContextMenuText %>" ImageUrl="/_layouts/images/restore.gif"
             ClientOnClickNavigateUrl="UserResetPassword.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
         <SharePoint:MenuItemTemplate ID="Delete" runat="server" Text="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/images/delete.gif"

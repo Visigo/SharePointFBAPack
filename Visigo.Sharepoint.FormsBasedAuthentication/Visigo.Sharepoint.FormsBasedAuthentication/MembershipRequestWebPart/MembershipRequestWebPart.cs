@@ -708,7 +708,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     return _FinishDestinationPageUrl;
                 }
-                return SPUtility.GetPageUrlPath(HttpContext.Current);
+                return _resourceManager.GetString("FinishDestinationPageUrl_DefaultValue");
             }
             set { _FinishDestinationPageUrl = value; }
         }
@@ -1129,10 +1129,30 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             cuw.LoginCreatedUser = false;
             cuw.SPLoginCreatedUser = LoginCreatedUser;
             cuw.UnknownErrorMessage = UnknownErrorMessage;
-            cuw.FinishDestinationPageUrl = FinishDestinationPageUrl;
-            cuw.CancelDestinationPageUrl = CancelDestinationPageUrl;
             cuw.DefaultGroup = GroupName;
             cuw.CreateUserStep.CustomNavigationTemplateContainer.Controls[0].Visible = false;
+
+            if (!String.IsNullOrEmpty(FinishDestinationPageUrl))
+            {
+                cuw.FinishDestinationPageUrl = FinishDestinationPageUrl;
+            }
+            else
+            {
+                string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
+                cuw.FinishDestinationPageUrl = url;
+            }
+
+            if (!String.IsNullOrEmpty(CancelDestinationPageUrl))
+            {
+                cuw.CancelDestinationPageUrl = CancelDestinationPageUrl;
+            }
+            else
+            {
+                string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
+                cuw.CancelDestinationPageUrl = url;
+            }
 
             //CreateUserStep
             helper = new TemplateHelper(cuw.CreateUserStep.ContentTemplateContainer);

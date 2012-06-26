@@ -139,6 +139,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator2;
         
         /// <summary>
+        /// lblPasswordMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPasswordMessage;
+        
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::System.Web.UI.UserControl QuestionSection;
         
         /// <summary>
+        /// lblQuestionMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuestionMessage;
+        
+        /// <summary>
         /// txtQuestion control.
         /// </summary>
         /// <remarks>
@@ -220,6 +238,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         protected global::System.Web.UI.UserControl AnswerSection;
         
         /// <summary>
+        /// lblAnswerMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnswerMessage;
+        
+        /// <summary>
         /// txtAnswer control.
         /// </summary>
         /// <remarks>
@@ -236,6 +263,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.InputFormRequiredFieldValidator InputFormRequiredFieldValidator4;
+        
+        /// <summary>
+        /// lblEmailMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmailMessage;
         
         /// <summary>
         /// txtEmail control.

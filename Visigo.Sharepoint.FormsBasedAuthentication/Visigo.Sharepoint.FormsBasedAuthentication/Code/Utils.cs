@@ -194,8 +194,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         }
 
-
-    
         public static void LogError(string errorMessage, FBADiagnosticsService.FBADiagnosticsCategory errorCategory)
         {
             // log error to ULS log
@@ -257,10 +255,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 using (SPSite privSite = new SPSite(site.ID, site.Zone))
                 {
-                    using (SPWeb web = privSite.RootWeb)
-                    {
-                        result = Boolean.Parse(GetWebProperty(key, defaultValue.ToString(), web));
-                    }
+                    SPWeb web = privSite.RootWeb;
+                    result = Boolean.Parse(GetWebProperty(key, defaultValue.ToString(), web));
                 }
             });
             return result;

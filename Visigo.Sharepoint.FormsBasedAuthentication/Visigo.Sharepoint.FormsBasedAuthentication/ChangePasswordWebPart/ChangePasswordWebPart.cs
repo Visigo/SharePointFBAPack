@@ -427,7 +427,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     return _continueDestinationPageUrl;
                 }
-                return SPUtility.GetPageUrlPath(HttpContext.Current);
+                return _resourceManager.GetString("ContinueDestinationPageUrl_DefaultValue");
             }
             set
             {
@@ -928,9 +928,30 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 _ctlChangePassword.ChangePasswordTemplate = new TemplateLoader(ChangePasswordTemplate, Page);
                 _ctlChangePassword.SuccessTemplate = new TemplateLoader(SuccessTemplate, Page);
                 _ctlChangePassword.MembershipProvider = provider;
-                _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
                 _ctlChangePassword.ChangePasswordFailureText = ChangePasswordFailureText;
-                _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
+
+                if (!String.IsNullOrEmpty(CancelDestinationPageUrl))
+                {
+                    _ctlChangePassword.CancelDestinationPageUrl = CancelDestinationPageUrl;
+                }
+                else
+                {
+                    string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                    SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
+                    _ctlChangePassword.CancelDestinationPageUrl = url;
+                }
+
+                if (!String.IsNullOrEmpty(ContinueDestinationPageUrl))
+                {
+                    _ctlChangePassword.ContinueDestinationPageUrl = ContinueDestinationPageUrl;
+                }
+                else
+                {
+                    string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                    SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
+                    _ctlChangePassword.ContinueDestinationPageUrl = url;
+                }
+                
                 
                 _ctlChangePassword.ToolTip = ToolTip;
                 _ctlChangePassword.SuccessPageUrl = SuccessPageUrl;

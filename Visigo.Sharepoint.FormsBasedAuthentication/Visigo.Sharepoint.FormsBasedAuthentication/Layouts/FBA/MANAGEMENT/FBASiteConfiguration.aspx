@@ -75,7 +75,7 @@
 		   <asp:Literal  runat="server" text="<% $Resources: FBAPackWebPages, MembershipSiteReviewHeaderDesc %>" />
 	    </template_description>
             <template_inputformcontrols>
-		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordChangePageLabelText %>">
+		    <wssuc:InputFormControl runat="server" LabelText="<% $Resources: FBAPackWebPages, PasswordChangePageLabelText %>" ExampleText="<% $Resources: FBAPackWebPages, PasswordChangePageExampleText %>" >
 			    <Template_Control>
 			       <SharePoint:InputFormTextBox Title="<% $Resources: FBAPackWebPages, PasswordChangePageToolTipText %>" class="ms-input" Columns="40" maxlength="255" ID="txtChangePasswordPage" Direction="LeftToRight" Runat="server" />
 			    </Template_Control>

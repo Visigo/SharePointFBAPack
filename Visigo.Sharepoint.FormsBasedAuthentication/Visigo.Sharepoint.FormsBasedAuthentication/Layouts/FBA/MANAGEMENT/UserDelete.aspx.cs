@@ -61,8 +61,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
                 Utils.LogError(ex, true);                
             }
-                        
-            SPUtility.Redirect("FBA/Management/UsersDisp.aspx",SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+
+            string url = "UsersDisp.aspx";
+            SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, HttpContext.Current, null, out url);
+            if (!url.ToLower().StartsWith("usersdisp.aspx"))
+            {
+                //Make sure we're redirecting to usersdisp and not useredit.aspx
+                url = "usersdisp.aspx";
+            }
+            SPUtility.Redirect(url, SPRedirectFlags.Default, HttpContext.Current);
         }
 
     }
