@@ -44,8 +44,11 @@ if ($featureExists)
 
 	DeleteTimerJob($solutionName)
 
-	Write-Host 'Going to disable feature'
-	disable-spfeature -identity $featureName -confirm:$false -url $url
+	if ($url)
+	{
+		Write-Host 'Going to disable feature'
+		disable-spfeature -identity $featureName -confirm:$false -url $url
+	}
  
 	Write-Host 'Going to uninstall feature'
 	uninstall-spfeature -identity $featureName -confirm:$false -force
