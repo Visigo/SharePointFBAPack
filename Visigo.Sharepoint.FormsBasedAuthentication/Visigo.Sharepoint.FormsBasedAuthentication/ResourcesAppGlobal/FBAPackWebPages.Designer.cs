@@ -376,6 +376,24 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}..
+        /// </summary>
+        internal static string InvalidPasswordChars {
+            get {
+                return ResourceManager.GetString("InvalidPasswordChars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}. Password Strength Regular Expression: {2}..
+        /// </summary>
+        internal static string InvalidPasswordCharsRegex {
+            get {
+                return ResourceManager.GetString("InvalidPasswordCharsRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The password retrieval question provided is invalid. Please check the value and try again..
         /// </summary>
         internal static string InvalidQuestion {
@@ -690,6 +708,15 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         internal static string NewUserLabelText {
             get {
                 return ResourceManager.GetString("NewUserLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This also sets the location of the page for the Change Password menu item..
+        /// </summary>
+        internal static string PasswordChangePageExampleText {
+            get {
+                return ResourceManager.GetString("PasswordChangePageExampleText", resourceCulture);
             }
         }
         

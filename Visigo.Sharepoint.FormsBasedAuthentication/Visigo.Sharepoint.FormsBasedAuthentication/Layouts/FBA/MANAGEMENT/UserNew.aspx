@@ -3,7 +3,7 @@
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserNew.aspx.cs" Inherits="Visigo.Sharepoint.FormsBasedAuthentication.UserNew"
     DynamicMasterPageFile="~masterurl/default.master" %>
-
+    
 <%@ Register TagPrefix="wssuc" TagName="ToolBar" Src="~/_controltemplates/ToolBar.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="ToolBarButton" Src="~/_controltemplates/ToolBarButton.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="InputFormSection" Src="~/_controltemplates/InputFormSection.ascx" %>
@@ -79,6 +79,7 @@
         <!-- Password -->
         <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, PasswordHeaderText %>">
             <template_inputformcontrols>
+                <asp:Label ID="lblPasswordMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, ConfirmPasswordLabelText %>">
 			        <Template_Control>
 			            <SharePoint:InputFormTextBox Title="password" ToolTip="<%$ Resources:FBAPackWebPages, EnterPasswordToolTipText %>" class="ms-input" Columns="40" textmode="Password" maxlength="255" ID="txtPassword" Direction="LeftToRight" Runat="server" autocomplete="off" />
@@ -93,6 +94,7 @@
         <!-- Security Question -->
         <wssuc:InputFormSection id="QuestionSection" runat="server" Title="<%$ Resources:FBAPackWebPages, SecurityQuestionHeaderText %>">
             <template_inputformcontrols>
+                <asp:Label ID="lblQuestionMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeSecurityQLableText %>">
 			        <Template_Control>
 			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityQuestionHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtQuestion" Direction="LeftToRight" Runat="server" autocomplete="off" />
@@ -104,6 +106,7 @@
         <!-- Security Answer -->
         <wssuc:InputFormSection id="AnswerSection" runat="server" Title="<%$ Resources:FBAPackWebPages, SecurityAnswerHeaderText %>">
             <template_inputformcontrols>
+                <asp:Label ID="lblAnswerMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeSecurityALableText %>">
 			        <Template_Control>
 			            <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, SecurityAnswerHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtAnswer" Direction="LeftToRight" Runat="server" autocomplete="off" />
@@ -115,6 +118,7 @@
         <!-- Email Address -->
         <wssuc:InputFormSection runat="server" Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>">
             <template_inputformcontrols>
+                <asp:Label ID="lblEmailMessage" runat="server" Text="" ForeColor="red"></asp:Label>
 		        <wssuc:InputFormControl runat="server" LabelText="<%$ Resources:FBAPackWebPages, TypeEmailAddrLabelText %>">
 			        <Template_Control>
 			        <SharePoint:InputFormTextBox Title="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" class="ms-input" Columns="40" maxlength="255" ID="txtEmail" Direction="LeftToRight" Runat="server" autocomplete="off" />

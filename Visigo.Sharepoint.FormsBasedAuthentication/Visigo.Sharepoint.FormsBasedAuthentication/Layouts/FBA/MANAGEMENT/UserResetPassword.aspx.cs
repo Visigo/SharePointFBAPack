@@ -82,8 +82,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 SPUtility.TransferToErrorPage(LocalizedString.GetGlobalString("FBAPackWebPages", "UnexpectedError"));
                 return;
             }
-                        
-            SPUtility.Redirect("FBA/Management/UsersDisp.aspx",SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+
+            SPUtility.Redirect("UsersDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
         }
 
     }

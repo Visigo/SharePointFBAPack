@@ -245,8 +245,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         spuser.Update();
                     }
 
-
-                    SPUtility.Redirect("FBA/Management/UsersDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+                    SPUtility.Redirect("UsersDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -261,12 +261,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         protected void OnResetPassword(object sender, EventArgs e)
         {
-            SPUtility.Redirect(string.Format("FBA/Management/UserResetPassword.aspx?UserName={0}&Source=UsersEdit.aspx",this.Request.QueryString["USERNAME"]), SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+            SPUtility.Redirect(string.Format("UserResetPassword.aspx?UserName={0}&Source={1}", this.Request.QueryString["USERNAME"], HttpUtility.UrlEncode(this.Context.Request.Url.ToString())), SPRedirectFlags.Default, HttpContext.Current);
         }
 
         protected void OnDeleteUser(object sender, EventArgs e)
         {
-            SPUtility.Redirect(string.Format("FBA/Management/UserDelete.aspx?UserName={0}&Source=UsersEdit.aspx", this.Request.QueryString["USERNAME"]), SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+            SPUtility.Redirect(string.Format("UserDelete.aspx?UserName={0}&Source={1}", this.Request.QueryString["USERNAME"], HttpUtility.UrlEncode(this.Context.Request.Url.ToString())), SPRedirectFlags.Default, HttpContext.Current);
         }
     }
 }

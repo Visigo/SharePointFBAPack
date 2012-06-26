@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-	<CustomAction
-  Id="FBAChangePassword"
-  GroupId="PersonalActions"
-  Location="Microsoft.SharePoint.StandardMenu"
-  Sequence="1"
-  Title="$Resources:FBAPackMenus, FBAChangePassword_Title;"
-  Description="$Resources:FBAPackMenus, FBAChangePassword_Desc;">
-		<UrlAction Url="~site/_layouts/fba/ChangePassword.aspx" />
-	</CustomAction>
+  <!-- 
+    ModifiedBySolvion
+    bhi - 29.11.2011
+    Changed FBAChangePassword to use a control to render the menu item.
+    Navigate to the configured ChangePasswordPage.
+  -->
+  <CustomAction
+    Id="FBAChangePassword"
+    Location="Microsoft.SharePoint.StandardMenu"
+    GroupId="PersonalActions"
+    ControlAssembly="$SharePoint.Project.AssemblyFullName$"
+    ControlClass="Visigo.Sharepoint.FormsBasedAuthentication.ChangePasswordMenuItem">
+  </CustomAction>
 
 	<CustomAction
   Id="FBARoleManagement"

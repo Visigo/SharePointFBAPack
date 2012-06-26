@@ -74,6 +74,12 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         protected void OnSubmit(object sender, EventArgs e)
         {
+            // ModifiedBySolvion
+            // bhi - 09.01.2012
+            // Reset message labels
+            lblMessage.Text = lblAnswerMessage.Text = lblEmailMessage.Text = lblPasswordMessage.Text = lblQuestionMessage.Text = "";
+            // EndModifiedBySolvion
+
             bool _showRoles = (new MembershipSettings(SPContext.Current.Web)).EnableRoles;
 
             // check to see if username already in use
@@ -101,7 +107,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
                     if (createStatus != MembershipCreateStatus.Success)
                     {
-                        lblMessage.Text = GetErrorMessage(createStatus);
+                        SetErrorMessage(createStatus);
                         return;
                     }
 
@@ -163,8 +169,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                             Email.SendEmail(this.Web, user.Email, txtEmailSubject.Text, txtEmailBody.Text);
                     }
 
-                    // redirect back to display page
-                    SPUtility.Redirect("FBA/Management/UsersDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+                    SPUtility.Redirect("UsersDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
+
+
                 }
                 catch (Exception ex)
                 {
@@ -177,39 +184,60 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
         }
 
-        protected string GetErrorMessage(MembershipCreateStatus status)
+        protected void SetErrorMessage(MembershipCreateStatus status)
         {
-            switch (status)
-            {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateUserName");
-                    
+             switch (status)
+             {
+                 case MembershipCreateStatus.DuplicateUserName:
+                    lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateUserName");
+                    break;
+
                 case MembershipCreateStatus.DuplicateEmail:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateEmail");
+                    lblEmailMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "DuplicateEmail");
+                    break;
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidPassword");
+                    string message = "";
+                    if (string.IsNullOrEmpty(Utils.BaseMembershipProvider().PasswordStrengthRegularExpression))
+                    {
+                        message = string.Format(LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidPasswordChars"), Utils.BaseMembershipProvider().MinRequiredPasswordLength,  Utils.BaseMembershipProvider().MinRequiredNonAlphanumericCharacters);
+                    }
+                    else
+                    {
+                        message = string.Format(LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidPasswordCharsRegex"), Utils.BaseMembershipProvider().MinRequiredPasswordLength,  Utils.BaseMembershipProvider().MinRequiredNonAlphanumericCharacters, Utils.BaseMembershipProvider().PasswordStrengthRegularExpression);
+                    }
+                    //LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidPassword")
+                    // TODO: use resource files
+                    lblPasswordMessage.Text = message;
+                    break;
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidEmail");
+                    lblEmailMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidEmail");
+                    break;
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidAnswer");
+                    lblAnswerMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidAnswer");
+                    break;
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidQuestion");
+                    lblQuestionMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidQuestion");
+                    break;
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidUserName");
+                    lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "InvalidUserName");
+                    break;
 
                 case MembershipCreateStatus.ProviderError:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "ProviderError");
+                    lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "ProviderError");
+                    break;
 
                 case MembershipCreateStatus.UserRejected:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "UserRejected");
+                    lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "UserRejected");
+                    break;
 
                 default:
-                    return LocalizedString.GetGlobalString("FBAPackWebPages", "UnknownError");
+                    lblMessage.Text = LocalizedString.GetGlobalString("FBAPackWebPages", "UnknownError");
+                    break;
             }
         }
 

@@ -222,6 +222,12 @@
   <data name="InvalidPassword" xml:space="preserve">
     <value>The password provided is invalid. Please enter a valid password value.</value>
   </data>
+  <data name="InvalidPasswordChars" xml:space="preserve">
+    <value>Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}.</value>
+  </data>
+  <data name="InvalidPasswordCharsRegex" xml:space="preserve">
+    <value>Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}. Password Strength Regular Expression: {2}.</value>
+  </data>
   <data name="InvalidQuestion" xml:space="preserve">
     <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
   </data>
@@ -407,6 +413,9 @@
   </data>
   <data name="NewUser_Title" xml:space="preserve">
     <value>New Forms Based Authentication User</value>
+  </data>
+  <data name="PasswordChangePageExampleText" xml:space="preserve">
+    <value>This also sets the location of the page for the Change Password menu item.</value>
   </data>
   <data name="PasswordChangePageLabelText" xml:space="preserve">
     <value>Change Password Page:</value>

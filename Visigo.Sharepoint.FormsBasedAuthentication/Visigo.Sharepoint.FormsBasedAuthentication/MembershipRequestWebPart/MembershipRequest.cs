@@ -527,45 +527,43 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     using (SPSite site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                     {
-                        using (SPWeb web = site.RootWeb)
+                        SPWeb web = site.RootWeb;
+                        if (web != null)
                         {
-                            if (web != null)
+
+                            site.AllowUnsafeUpdates = true;
+                            web.AllowUnsafeUpdates = true;
+                            reviewList = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
+                            if (reviewList != null)
                             {
-
-                                site.AllowUnsafeUpdates = true;
-                                web.AllowUnsafeUpdates = true;
-                                reviewList = web.GetList(Utils.GetAbsoluteURL(web, MembershipList.MEMBERSHIPREVIEWLIST));
-                                if (reviewList != null)
+                                using (SPWeb currentWeb = site.OpenWeb(SPContext.Current.Web.ID))
                                 {
-                                    using (SPWeb currentWeb = site.OpenWeb(SPContext.Current.Web.ID))
+                                    if (!MembershipRequest.SendPendingMembershipEmail(request, currentWeb))
                                     {
-                                        if (!MembershipRequest.SendPendingMembershipEmail(request, currentWeb))
-                                        {
-                                            return;
-                                        }
+                                        return;
                                     }
-
-                                    reviewItem = reviewList.Items.Add();
-
-                                    reviewItem[MembershipReviewListFields.DATESUBMITTED] = DateTime.Now;
-                                    reviewItem[MembershipReviewListFields.EMAIL] = request.UserEmail;
-                                    reviewItem[MembershipReviewListFields.REQUESTID] = Guid.NewGuid();
-                                    reviewItem[MembershipReviewListFields.FIRSTNAME] = request.FirstName;
-                                    reviewItem[MembershipReviewListFields.LASTNAME] = request.LastName;
-                                    reviewItem[MembershipReviewListFields.STATUS] = MembershipStatus.Pending.ToString();
-                                    reviewItem[MembershipReviewListFields.USERNAME] = request.UserName;
-                                    reviewItem[MembershipReviewListFields.RECOVERPASSWORDQUESTION] = request.PasswordQuestion; ;
-                                    reviewItem[MembershipReviewListFields.RECOVERPASSWORDANSWER] = request.PasswordAnswer;
-                                    reviewItem[MembershipReviewListFields.DEFAULTGROUP] = request.DefaultGroup;
-                                    reviewItem.Update();
-                                    reviewList.Update();
-                                    /* bms Removed called to SendPendingMembershipEmail due to call on ItemAdded */
-                                    result = true;
                                 }
-                                else
-                                {
-                                    Utils.LogError("Unable to find Membership Review List");
-                                }
+
+                                reviewItem = reviewList.Items.Add();
+
+                                reviewItem[MembershipReviewListFields.DATESUBMITTED] = DateTime.Now;
+                                reviewItem[MembershipReviewListFields.EMAIL] = request.UserEmail;
+                                reviewItem[MembershipReviewListFields.REQUESTID] = Guid.NewGuid();
+                                reviewItem[MembershipReviewListFields.FIRSTNAME] = request.FirstName;
+                                reviewItem[MembershipReviewListFields.LASTNAME] = request.LastName;
+                                reviewItem[MembershipReviewListFields.STATUS] = MembershipStatus.Pending.ToString();
+                                reviewItem[MembershipReviewListFields.USERNAME] = request.UserName;
+                                reviewItem[MembershipReviewListFields.RECOVERPASSWORDQUESTION] = request.PasswordQuestion; ;
+                                reviewItem[MembershipReviewListFields.RECOVERPASSWORDANSWER] = request.PasswordAnswer;
+                                reviewItem[MembershipReviewListFields.DEFAULTGROUP] = request.DefaultGroup;
+                                reviewItem.Update();
+                                reviewList.Update();
+                                /* bms Removed called to SendPendingMembershipEmail due to call on ItemAdded */
+                                result = true;
+                            }
+                            else
+                            {
+                                Utils.LogError("Unable to find Membership Review List");
                             }
                         }
                     }
