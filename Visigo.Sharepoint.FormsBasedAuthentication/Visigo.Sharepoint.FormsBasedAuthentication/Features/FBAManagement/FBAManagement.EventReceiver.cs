@@ -50,12 +50,17 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
 
                     list = web.Lists[_ListName];
                     list.EventReceivers.Add(SPEventReceiverType.ItemUpdated, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
+                    
                     //list.EventReceivers.Add(SPEventReceiverType.ItemAdded, Assembly.GetExecutingAssembly().FullName, "Visigo.Sharepoint.FormsBasedAuthentication.MembershipReviewHandler");
                     //list.ContentTypesEnabled = false;
                     //list.EnableAttachments = false;
                     //list.EnableFolderCreation = false;
                     //list.EnableVersioning = false;
                     //list.NoCrawl = true;
+
+                    //Remove permissions from the list - only site collection admins should have permission
+                    list.BreakRoleInheritance(false, true);
+
 
                     list.Update();
                 }
