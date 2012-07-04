@@ -31,13 +31,25 @@ function DeleteTimerJob([string]$SolutionFileName)
     }
 }
 
+function DeactivateActivateFeature([string]$featureName)
+{
+	$feature = Get-SPFeature $featureName
+	$features = [Microsoft.SharePoint.Administration.SPWebService]::ContentService.QueryFeatures($feature.id)
+	foreach ($feature in $features)
+	{
+		Write-Host ("Deactivating/Activating Feature $featureName on " + $feature.Parent.Url)
+		Disable-spfeature -identity $featureName -confirm:$false -url $feature.Parent.Url -force
+		Enable-spfeature -identity $featureName -confirm:$false -url $feature.Parent.Url -force
+	}
+}
+
 
 $url=$args[0]
 $solutionName="Visigo.Sharepoint.FormsBasedAuthentication.wsp"
 $featureName="FBAManagement"
 $solutionPath=$pwd.ToString() + "\" + $solutionName 
  
-.\UnDeploy.ps1
+.\UnDeploy.ps1 $url
  
 Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
 
@@ -51,6 +63,9 @@ Install-SPSolution –identity $solutionName –allwebapplications –GACDeploym
 
 Write-Host 'Waiting for job to finish' 
 WaitForJobToFinish($SolutionName)
+
+Write-Host 'Deactivating/activating active features to ensure activation script is run'
+DeactivateActivateFeature($featureName)
 
 if ($url)
 {

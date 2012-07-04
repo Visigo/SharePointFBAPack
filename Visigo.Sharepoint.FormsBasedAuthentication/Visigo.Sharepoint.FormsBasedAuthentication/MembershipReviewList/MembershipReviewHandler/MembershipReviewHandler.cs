@@ -17,7 +17,6 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             this.EventFiringEnabled = false;
             SPListItem item = null;
-            SPWeb web = null;
             SPList list = null;
             MembershipStatus status;
 
@@ -26,33 +25,48 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 item = properties.ListItem;
                 if (item != null)
                 {
-                    web = item.Web;
-                    list = item.ParentList;
-                    status = (MembershipStatus)Utils.GetChoiceIndex(list.Fields.GetFieldByInternalName(MembershipReviewListFields.STATUS) as SPFieldChoice, item[MembershipReviewListFields.STATUS].ToString());
-                    switch (status)
+                    SPSecurity.RunWithElevatedPrivileges(delegate()
                     {
-                        case MembershipStatus.Approved:
-                            // TODO: rdcpro: if CreateUser in the ApproveMembership call fails, the user in the MemberShipRequest list needs to be marked somehow so that the approver knows what the problem is.  
-                            // Maybe the list should have the "LastError" field which will get the error info, or else the status can have an extra error value in addition to pending | approved | rejected
-                            // Then in the calling code, we must not delete the item from the list!
-                            // It would have been better if ApproveMembership returned a status code, rather than use exception handling, but here we are.
-                            MembershipRequest.ApproveMembership(GetMembershipRequest(web, item), web);
-                            item.Delete();
-                            list.Update();
-
-                            break;
-                        case MembershipStatus.Pending:
-                            break;
-                        case MembershipStatus.Rejected:
-                            if (!MembershipRequest.RejectMembership(GetMembershipRequest(web, item), web))
+                        using (SPSite site = new SPSite(item.Web.Site.ID, item.Web.Site.Zone))
+                        {
+                            using (SPWeb web = site.OpenWeb(item.Web.ID))
                             {
-                                throw new Exception("Error rejecting membership");
+                                if (web != null)
+                                {
+
+                                    site.AllowUnsafeUpdates = true;
+                                    web.AllowUnsafeUpdates = true;
+
+                                    list = item.ParentList;
+                                    status = (MembershipStatus)Utils.GetChoiceIndex(list.Fields.GetFieldByInternalName(MembershipReviewListFields.STATUS) as SPFieldChoice, item[MembershipReviewListFields.STATUS].ToString());
+                                    switch (status)
+                                    {
+                                        case MembershipStatus.Approved:
+                                            // TODO: rdcpro: if CreateUser in the ApproveMembership call fails, the user in the MemberShipRequest list needs to be marked somehow so that the approver knows what the problem is.  
+                                            // Maybe the list should have the "LastError" field which will get the error info, or else the status can have an extra error value in addition to pending | approved | rejected
+                                            // Then in the calling code, we must not delete the item from the list!
+                                            // It would have been better if ApproveMembership returned a status code, rather than use exception handling, but here we are.
+                                            MembershipRequest.ApproveMembership(GetMembershipRequest(web, item), web);
+                                            item.Delete();
+                                            list.Update();
+
+                                            break;
+                                        case MembershipStatus.Pending:
+                                            break;
+                                        case MembershipStatus.Rejected:
+                                            if (!MembershipRequest.RejectMembership(GetMembershipRequest(web, item), web))
+                                            {
+                                                throw new Exception("Error rejecting membership");
+                                            }
+                                            //bms Removed Delete from Reject Membership to allow administrators to approve user later and delete with UI
+                                            //item.Delete();
+                                            //list.Update();
+                                            break;
+                                    }
+                                }
                             }
-                            //bms Removed Delete from Reject Membership to allow administrators to approve user later and delete with UI
-                            //item.Delete();
-                            //list.Update();
-                            break;
-                    }
+                        }
+                    });
                 }
             }
             catch (Exception ex)
