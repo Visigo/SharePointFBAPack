@@ -46,8 +46,13 @@ if ($featureExists)
 
 	if ($url)
 	{
-		Write-Host 'Going to disable feature'
-		disable-spfeature -identity $featureName -confirm:$false -url $url
+		$feature = Get-SPFeature -Site $url | where { $_.DisplayName -eq $featureName }
+
+		if ($feature)
+		{
+			Write-Host 'Going to disable feature'
+			disable-spfeature -identity $featureName -confirm:$false -url $url
+		}
 	}
  
 	Write-Host 'Going to uninstall feature'
