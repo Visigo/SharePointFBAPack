@@ -13,6 +13,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     public partial class RoleNew : LayoutsPageBase
     {
 
+        protected override bool RequireSiteAdministrator
+        {
+            get { return true; }
+        }
+
         protected void OnSubmit(object sender, EventArgs e)
         {
             // add the role to the membership provider

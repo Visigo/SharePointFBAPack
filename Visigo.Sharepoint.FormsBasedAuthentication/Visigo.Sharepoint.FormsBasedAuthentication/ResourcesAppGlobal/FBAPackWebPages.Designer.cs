@@ -985,7 +985,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.ResourcesAppGlobal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your current membershipprovider settings prevent a user&apos;s password from being reset. To allow for resetting of a password by an administration, you must have enablePasswordReset=&quot;true&quot; and requiresQuestionAndAnswer=&quot;false&quot; in your membership provider settings in your web.config..
+        ///   Looks up a localized string similar to Your current membershipprovider settings prevent a user&apos;s password from being reset. To allow for resetting of a password by an administrator, you must have enablePasswordReset=&quot;true&quot; and requiresQuestionAndAnswer=&quot;false&quot; in your membership provider settings in your web.config..
         /// </summary>
         internal static string ResetPasswordUnavailable {
             get {

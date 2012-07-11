@@ -548,7 +548,7 @@
     <value>Reset Password</value>
   </data>
   <data name="ResetPasswordUnavailable" xml:space="preserve">
-    <value>Your current membershipprovider settings prevent a user's password from being reset. To allow for resetting of a password by an administration, you must have enablePasswordReset="true" and requiresQuestionAndAnswer="false" in your membership provider settings in your web.config.</value>
+    <value>Your current membershipprovider settings prevent a user's password from being reset. To allow for resetting of a password by an administrator, you must have enablePasswordReset="true" and requiresQuestionAndAnswer="false" in your membership provider settings in your web.config.</value>
   </data>
   <data name="ResetPasswordUser_Title" xml:space="preserve">
     <value>Reset Password</value>
