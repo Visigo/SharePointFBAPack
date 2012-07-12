@@ -49,11 +49,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script language="javascript">
-        try {
-            document.getElementById("BtnResetPassword").focus();
-        }
-        catch (e) { }
-
         function confirmResetPassword() {
             if (Page_ClientValidate()) {
                 return confirm("<SharePoint:EncodedLiteral runat='server' text='<% $Resources: FBAPackWebPages, ResetPasswordConfirmText %>' EncodeMethod='EcmaScriptStringLiteralEncode'/>");
@@ -82,6 +77,16 @@
 	        }
         }
 
+        function InitResetPassword() {
+            if (document.getElementById(<%SPHttpUtility.AddQuote(SPHttpUtility.NoEncode(resetAutoPassword.ClientID),Response.Output);%>).checked) {
+                ResetAutoPasswordOnClick();
+            }
+            else {
+                ResetSelectPasswordOnClick();
+            }
+        }
+
+        _spBodyOnLoadFunctionNames.push("InitResetPassword");
 
     </script>
 </asp:Content>
@@ -111,7 +116,7 @@
 							LabelText="<%$Resources:FBAPackWebPages,NewPasswordLabelText%>"
 						>
 							<Template_Control>
-								<SharePoint:InputFormTextBox title="<%$Resources:FBAPackWebPages,NewPasswordToolTipText%>" class="ms-input" ID="txtNewPassword" Columns="35" Runat="server" MaxLength=512 Direction="LeftToRight" />
+								<SharePoint:InputFormTextBox title="<%$Resources:FBAPackWebPages,NewPasswordToolTipText%>" class="ms-input" ID="txtNewPassword" Columns="35" Runat="server" MaxLength="512" Direction="LeftToRight" TextMode="Password" autocomplete="off" />
                                 <SharePoint:InputFormRequiredFieldValidator ID="InputFormRequiredFieldValidatorNewPassword" ControlToValidate="txtNewPassword" Display="Dynamic" Runat="server"/>
                                 <asp:Label ID="lblNewPasswordError" runat="server" Text="" ForeColor="red" ></asp:Label>
 							</Template_Control>
@@ -130,13 +135,5 @@
 		<asp:Button UseSubmitBehavior="false" runat="server" class="ms-ButtonHeightWidth" OnClick="OnResetPassword" OnClientClick="if (!confirmResetPassword()) return false;" Text="<% $Resources: FBAPackWebPages, ResetPasswordButtonText %>" id="BtnResetPassword" accesskey="R"/>
 		</template_buttons>
         </wssuc:ButtonSection>
-        <script language="javascript">
-            if (document.getElementById(<%SPHttpUtility.AddQuote(SPHttpUtility.NoEncode(resetAutoPassword.ClientID),Response.Output);%>).checked) {
-                ResetAutoPasswordOnClick();
-            }
-            else {
-                ResetSelectPasswordOnClick();
-            }
-        </script>
     </table>
 </asp:Content>
