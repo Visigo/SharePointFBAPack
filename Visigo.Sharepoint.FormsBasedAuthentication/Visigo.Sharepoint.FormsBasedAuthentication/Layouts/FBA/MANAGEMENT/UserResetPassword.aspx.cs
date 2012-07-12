@@ -83,7 +83,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return;
             }
 
-            SPUtility.Redirect("UsersDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
+            SPUtility.Redirect("FBA/Management/UsersDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage | SPRedirectFlags.UseSource, this.Context);
         }
 
     }

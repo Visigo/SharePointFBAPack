@@ -57,15 +57,15 @@
             <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
                 <Template_Buttons>
                     <wssuc:ToolBarButton runat="server" Text="<% $Resources: FBAPackWebPages, NewUserLabelText %>" ID="idNewNavNode" ToolTip="<% $Resources: FBAPackWebPages, NewUserLabelText %>"
-                        NavigateUrl="UserNew.aspx?Source=RolesDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
                     <wssuc:ToolBarButton runat="server" Text="<% $Resources: FBAPackWebPages, NewRoleLabelText %>" ID="idNewCatNode" ToolTip="<% $Resources: FBAPackWebPages, NewRoleLabelText %>"
-                        NavigateUrl="RoleNew.aspx?Source=RolesDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="R" />
+                        NavigateUrl="RoleNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="R" />
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
     <SharePoint:MenuTemplate ID="RoleMenu" runat="server">
         <SharePoint:MenuItemTemplate ID="DeleteRole" runat="server" Text="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/images/delete.gif"
-            ClientOnClickNavigateUrl="RoleDelete.aspx?Role=%ROLE%&Source=RolesDisp.aspx" Title="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>">
+            ClientOnClickNavigateUrl="RoleDelete.aspx?Role=%ROLE%" Title="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
     <FBA:FBADataSource runat="server" ID="RoleDataSource" ViewName="FBARolesView" />
@@ -73,7 +73,7 @@
         AutoGenerateColumns="false" AllowPaging="true" PageSize="3" AllowSorting="true">
         <Columns>
             <SharePoint:SPMenuField HeaderText="<% $Resources: FBAPackWebPages, RoleColHeaderText %>" TextFields="Role" MenuTemplateId="RoleMenu"
-                NavigateUrlFields="Role" NavigateUrlFormat="RoleDelete.aspx?Role={0}&Source=RolesDisp.aspx" TokenNameAndValueFields="ROLE=Role"
+                NavigateUrlFields="Role" NavigateUrlFormat="RoleDelete.aspx?Role={0}" TokenNameAndValueFields="ROLE=Role"
                 SortExpression="Role" />
             <SharePoint:SPBoundField HeaderText="<% $Resources: FBAPackWebPages, UsersInRoleColHeaderText %>" DataField="UsersInRole" SortExpression="UsersInRole" />
         </Columns>

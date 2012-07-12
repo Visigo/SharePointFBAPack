@@ -45,7 +45,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                     }
                     // delete role
                     Utils.BaseRoleProvider().DeleteRole(roleName[0],false);
-                    SPUtility.Redirect("RolesDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
+                    SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage | SPRedirectFlags.UseSource, this.Context);
                 }
                 catch (Exception ex)
                 {

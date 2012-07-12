@@ -82,7 +82,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         protected override void OnPreRender(System.EventArgs e)
         {
             base.OnPreRender(e);
-            string source = HttpUtility.UrlEncode(this.CreateSourceUrl()); //SPHttpUtility.UrlPathEncode(this.CreateSourceUrl(), true);
+            string source = SPHttpUtility.UrlKeyValueEncode(this.CreateSourceUrl()); //SPHttpUtility.UrlPathEncode(this.CreateSourceUrl(), true);
             (MemberGrid.Columns[0] as SPMenuField).NavigateUrlFormat = "UserEdit.aspx?UserName={0}&Source=" + source;
             Edit.ClientOnClickNavigateUrl = "UserEdit.aspx?UserName=%USERNAME%&Source=" + source;
 			ResetPassword.ClientOnClickNavigateUrl = "UserResetPassword.aspx?UserName=%USERNAME%&Source=" + source;
@@ -92,8 +92,10 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         private string CreateSourceUrl()
         {
+            string url = "FBA/Management/UsersDisp.aspx";
+            SPUtility.DetermineRedirectUrl(url,SPRedirectFlags.RelativeToLayoutsPage, this.Context,null, out url);
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("UsersDisp.aspx");
+            stringBuilder.Append(url);
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             if (!string.IsNullOrEmpty(MemberGrid.SortExpression))

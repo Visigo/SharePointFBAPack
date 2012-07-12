@@ -27,7 +27,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 {
                     Utils.BaseRoleProvider().CreateRole(txtRole.Text);
                     // redirect to roles list
-                    SPUtility.Redirect("RolesDisp.aspx", SPRedirectFlags.UseSource, HttpContext.Current);
+                    SPUtility.Redirect("FBA/Management/RolesDisp.aspx", SPRedirectFlags.RelativeToLayoutsPage | SPRedirectFlags.UseSource, this.Context);
                 }
                 catch (Exception ex)
                 {

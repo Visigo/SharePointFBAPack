@@ -936,7 +936,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 }
                 else
                 {
-                    string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                    string url = SPUtility.OriginalServerRelativeRequestUrl;
                     SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
                     _ctlChangePassword.CancelDestinationPageUrl = url;
                 }
@@ -947,7 +947,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 }
                 else
                 {
-                    string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                    string url = SPUtility.OriginalServerRelativeRequestUrl;
                     SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
                     _ctlChangePassword.ContinueDestinationPageUrl = url;
                 }
