@@ -2,6 +2,8 @@ using Microsoft.SharePoint.WebControls;
 using System.Web.UI.WebControls;
 using Microsoft.SharePoint;
 using System.Text;
+using System.Web;
+using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -46,6 +48,13 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             // EndModifiedBySolvion
 
             base.OnInit(e);
+        }
+
+        protected override void OnPreRender(System.EventArgs e)
+        {
+            base.OnPreRender(e);
+            string source = SPHttpUtility.UrlKeyValueEncode(SPUtility.OriginalServerRelativeRequestUrl);
+            (idNewNavNode as ToolBarButton).NavigateUrl = "UserNew.aspx?Source=" + source;
         }
 
         protected override bool RequireSiteAdministrator

@@ -1138,7 +1138,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             }
             else
             {
-                string url = SPUtility.GetPageUrlPath(HttpContext.Current);
+                string url = SPUtility.OriginalServerRelativeRequestUrl;
                 SPUtility.DetermineRedirectUrl(url, SPRedirectFlags.UseSource, this.Context, null, out url);
                 cuw.FinishDestinationPageUrl = url;
             }

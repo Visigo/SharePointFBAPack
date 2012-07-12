@@ -72,7 +72,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             settings.PasswordRecoveryEmail = txtPasswordRecovery.Text;
             settings.ResetPasswordEmail = txtResetPassword.Text;
 
-            SPUtility.Redirect("settings.aspx", SPRedirectFlags.RelativeToLayoutsPage, HttpContext.Current);
+            SPUtility.Redirect("settings.aspx", SPRedirectFlags.RelativeToLayoutsPage | SPRedirectFlags.UseSource, this.Context);
         }
                 
     }

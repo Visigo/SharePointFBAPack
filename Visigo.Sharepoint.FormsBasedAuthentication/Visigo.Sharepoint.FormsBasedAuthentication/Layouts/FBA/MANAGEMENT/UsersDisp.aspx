@@ -54,20 +54,20 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <SharePoint:MenuTemplate ID="UserMenu" runat="server">
         <SharePoint:MenuItemTemplate ID="Edit" runat="server" Text="<%$ Resources:FBAPackWebPages, EditContextMenuText %>" ImageUrl="/_layouts/images/edititem.gif"
-            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, EditContextMenuText %>">
+            ClientOnClickNavigateUrl="UserEdit.aspx?UserName=%USERNAME%" Title="<%$ Resources:FBAPackWebPages, EditContextMenuText %>">
         </SharePoint:MenuItemTemplate>
         <SharePoint:MenuItemTemplate ID="ResetPassword" runat="server" Text="<%$ Resources:FBAPackWebPages, ResetPasswordContextMenuText %>" ImageUrl="/_layouts/images/restore.gif"
-            ClientOnClickNavigateUrl="UserResetPassword.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
+            ClientOnClickNavigateUrl="UserResetPassword.aspx?UserName=%USERNAME%" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
         <SharePoint:MenuItemTemplate ID="Delete" runat="server" Text="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/images/delete.gif"
-            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%&Source=UsersDisp.aspx" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
+            ClientOnClickNavigateUrl="UserDelete.aspx?UserName=%USERNAME%" Title="<%$ Resources:FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>
         <div style="padding-top: 4px;padding-bottom: 4px;">
             <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
                 <Template_Buttons>
                     <wssuc:ToolBarButton runat="server" Text="<%$ Resources:FBAPackWebPages, NewUserLabelText %>" ID="idNewNavNode" ToolTip="<%$ Resources:FBAPackWebPages, NewUserLabelText %>"
-                        NavigateUrl="UserNew.aspx?Source=UsersDisp.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
@@ -80,7 +80,7 @@
         AutoGenerateColumns="false" AllowPaging="true" PageSize="20" AllowSorting="true">
         <Columns>
             <SharePoint:SPMenuField HeaderText="<%$ Resources:FBAPackWebPages, UserNameColHeaderText %>" TextFields="Name" MenuTemplateId="UserMenu"
-                NavigateUrlFields="Name" NavigateUrlFormat="UserEdit.aspx?UserName={0}&Source=UsersDisp.aspx" TokenNameAndValueFields="USERNAME=Name"
+                NavigateUrlFields="Name" NavigateUrlFormat="UserEdit.aspx?UserName={0}" TokenNameAndValueFields="USERNAME=Name"
                 SortExpression="Name" />
             <SharePoint:SPBoundField DataField="Email" HeaderText="<%$ Resources:FBAPackWebPages, EmailColHeaderText %>" SortExpression="Email">
             </SharePoint:SPBoundField>

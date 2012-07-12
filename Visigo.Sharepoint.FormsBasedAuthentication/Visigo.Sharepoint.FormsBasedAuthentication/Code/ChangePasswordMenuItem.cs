@@ -7,6 +7,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Administration.Claims;
 using System.Web;
 using Microsoft.IdentityModel.Claims;
+using Microsoft.SharePoint.Utilities;
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
 {
@@ -33,14 +34,14 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 return;
 
             // generate return url
-            string source = this.Context.Request.Url.ToString();
+            string source = SPUtility.OriginalServerRelativeRequestUrl;
             string target = Utils.GetAbsoluteURL(SPContext.Current.Site.RootWeb, setting.ChangePasswordPage);
 
             MenuItemTemplate  changePasswordItem = new MenuItemTemplate();
             changePasswordItem.Text = LocalizedString.GetString("FBAPackMenus", "FBAChangePassword_Title");
             changePasswordItem.Description = LocalizedString.GetString("FBAPackMenus", "FBAChangePassword_Desc");
             changePasswordItem.Sequence = 1;
-            changePasswordItem.ClientOnClickNavigateUrl = target + "?Source=" + HttpUtility.UrlEncode(source);
+            changePasswordItem.ClientOnClickNavigateUrl = target + "?Source=" + SPHttpUtility.UrlKeyValueEncode(source);
 
             this.Controls.Add(changePasswordItem);
         }
