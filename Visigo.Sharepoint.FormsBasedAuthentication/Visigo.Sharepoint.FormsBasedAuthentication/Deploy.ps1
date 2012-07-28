@@ -46,12 +46,16 @@ function DeactivateActivateFeature([string]$featureName)
 
 $url=$args[0]
 $solutionName="Visigo.Sharepoint.FormsBasedAuthentication.wsp"
-$featureName="FBAManagement"
 $solutionPath=$pwd.ToString() + "\" + $solutionName 
+$undeployPath=$pwd.ToString() + "\UnDeploy.ps1"
+$activatePath=$pwd.ToString() + "\Activate.ps1"
  
-.\UnDeploy.ps1 $url
+PowerShell -file $undeployPath $url
  
 Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+
+#Restart the timer service to ensure the latest assembly is loaded
+restart-service SPTimerV4
 
 DeleteTimerJob($SolutionName)
 
@@ -64,11 +68,4 @@ Install-SPSolution –identity $solutionName –allwebapplications –GACDeploym
 Write-Host 'Waiting for job to finish' 
 WaitForJobToFinish($SolutionName)
 
-Write-Host 'Deactivating/activating active features to ensure activation script is run'
-DeactivateActivateFeature($featureName)
-
-if ($url)
-{
-	Write-Host 'Going to enable Feature' 
-	Enable-spfeature -identity $featureName -confirm:$false -url $url
-}
+PowerShell -file $activatePath $url
