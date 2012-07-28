@@ -313,6 +313,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Activate.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MembershipReviewList\Site Membership Review List\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{40c72e3f-99d5-4aa5-9143-3aaab9f700f2}</SharePointProjectItemId>
     </None>
