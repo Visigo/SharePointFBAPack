@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UserNameLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="UserNameLabelText_DefaultValue" xml:space="preserve">
+    <value>User Name: </value>
+  </data>
+  <data name="UserNameLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserNameLabelText_FriendlyName" xml:space="preserve">
+    <value>User Name Label</value>
+  </data>
+  <data name="FirstNameLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="FirstNameLabelText_DefaultValue" xml:space="preserve">
+    <value>First Name: </value>
+  </data>
+  <data name="FirstNameLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FirstNameLabelText_FriendlyName" xml:space="preserve">
+    <value>First Name Label</value>
+  </data>
+  <data name="LastNameLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="LastNameLabelText_DefaultValue" xml:space="preserve">
+    <value>Last Name: </value>
+  </data>
+  <data name="LastNameLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LastNameLabelText_FriendlyName" xml:space="preserve">
+    <value>Last Name Label</value>
+  </data>
+  <data name="EmailLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="EmailLabelText_DefaultValue" xml:space="preserve">
+    <value>Email: </value>
+  </data>
+  <data name="EmailLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EmailLabelText_FriendlyName" xml:space="preserve">
+    <value>Email Label</value>
+  </data>
+  <data name="QuestionLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="QuestionLabelText_DefaultValue" xml:space="preserve">
+    <value>Security Question: </value>
+  </data>
+  <data name="QuestionLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuestionLabelText_FriendlyName" xml:space="preserve">
+    <value>Question Label</value>
+  </data>
+  <data name="AnswerLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="AnswerLabelText_DefaultValue" xml:space="preserve">
+    <value>Security Answer: </value>
+  </data>
+  <data name="AnswerLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AnswerLabelText_FriendlyName" xml:space="preserve">
+    <value>Answer Label</value>
+  </data>
+  <data name="InstructionText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="InstructionText_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InstructionText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InstructionText_FriendlyName" xml:space="preserve">
+    <value>Instruction Text</value>
+  </data>
+  <data name="CancelButtonImageUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="CancelButtonImageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelButtonImageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelButtonImageUrl_FriendlyName" xml:space="preserve">
+    <value>Cancel Button Image Url</value>
+  </data>
+  <data name="CancelButtonText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CancelButtonText_DefaultValue" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CancelButtonText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelButtonText_FriendlyName" xml:space="preserve">
+    <value>Cancel Button Text</value>
+  </data>
+  <data name="CancelButtonType_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CancelButtonType_DefaultValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CancelButtonType_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelButtonType_FriendlyName" xml:space="preserve">
+    <value>Cancel Button Type</value>
+  </data>
+  <data name="CancelDestinationPageUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="CancelDestinationPageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelDestinationPageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CancelDestinationPageUrl_FriendlyName" xml:space="preserve">
+    <value>Cancel Destination Page Url</value>
+  </data>
+  <data name="CreateUserButtonImageUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="CreateUserButtonImageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserButtonImageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserButtonImageUrl_FriendlyName" xml:space="preserve">
+    <value>Create User Button Image Url</value>
+  </data>
+  <data name="CreateUserButtonText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CreateUserButtonText_DefaultValue" xml:space="preserve">
+    <value>Create User</value>
+  </data>
+  <data name="CreateUserButtonText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserButtonText_FriendlyName" xml:space="preserve">
+    <value>Create User Button Text</value>
+  </data>
+  <data name="CreateUserButtonType_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CreateUserButtonType_DefaultValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CreateUserButtonType_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserButtonType_FriendlyName" xml:space="preserve">
+    <value>Create User Button Type</value>
+  </data>
+  <data name="FinishDestinationPageUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="FinishDestinationPageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FinishDestinationPageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FinishDestinationPageUrl_FriendlyName" xml:space="preserve">
+    <value>Finish Destination Page Url</value>
+  </data>
+  <data name="DuplicateUserNameErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="DuplicateUserNameErrorMessage_DefaultValue" xml:space="preserve">
+    <value>The user name you have entered is already in use. Please select another.</value>
+  </data>
+  <data name="DuplicateUserNameErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DuplicateUserNameErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Duplicate User Name Error Message</value>
+  </data>
+  <data name="RequiredFieldText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="RequiredFieldText_DefaultValue" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldText_FriendlyName" xml:space="preserve">
+    <value>Required Field Text</value>
+  </data>
+  <data name="UserNameRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="UserNameRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>User name is required.</value>
+  </data>
+  <data name="UserNameRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserNameRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>User Name Required Error Message</value>
+  </data>
+  <data name="FirstNameRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="FirstNameRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="FirstNameRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FirstNameRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>First Name Required Error Message</value>
+  </data>
+  <data name="LastNameRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="LastNameRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LastNameRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LastNameRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Last Name Required Error Message</value>
+  </data>
+  <data name="EmailRegularExpressionErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="EmailRegularExpressionErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a different email</value>
+  </data>
+  <data name="EmailRegularExpressionErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EmailRegularExpressionErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Email Regular Expression Error Message</value>
+  </data>
+  <data name="EmailRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="EmailRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Email is required.</value>
+  </data>
+  <data name="EmailRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EmailRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Email Required Error Message</value>
+  </data>
+  <data name="DuplicateEmailErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="DuplicateEmailErrorMessage_DefaultValue" xml:space="preserve">
+    <value>The email you have entered is already in use. Please select another.</value>
+  </data>
+  <data name="DuplicateEmailErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DuplicateEmailErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Duplicate Email Error Message</value>
+  </data>
+  <data name="QuestionRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="QuestionRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Security question is required.</value>
+  </data>
+  <data name="QuestionRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuestionRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Question Required Error Message</value>
+  </data>
+  <data name="AnswerRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="AnswerRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Security answer is required.</value>
+  </data>
+  <data name="AnswerRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AnswerRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Answer Required Error Message</value>
+  </data>
+  <data name="InvalidEmailErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="InvalidEmailErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a valid email address.</value>
+  </data>
+  <data name="InvalidEmailErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidEmailErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Invalid Email Error Message</value>
+  </data>
+  <data name="ValidationSummaryHeaderText_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ValidationSummaryHeaderText_DefaultValue" xml:space="preserve">
+    <value>Please correct the following items:</value>
+  </data>
+  <data name="ValidationSummaryHeaderText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ValidationSummaryHeaderText_FriendlyName" xml:space="preserve">
+    <value>Validation Summary Header Text</value>
+  </data>
+  <data name="HipPictureLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HipPictureLabelText_DefaultValue" xml:space="preserve">
+    <value>Picture: </value>
+  </data>
+  <data name="HipPictureLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipPictureLabelText_FriendlyName" xml:space="preserve">
+    <value>HIP Picture Message</value>
+  </data>
+  <data name="HipCharactersLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HipCharactersLabelText_DefaultValue" xml:space="preserve">
+    <value>Characters: </value>
+  </data>
+  <data name="HipCharactersLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipCharactersLabelText_FriendlyName" xml:space="preserve">
+    <value>HIP Characters</value>
+  </data>
+  <data name="HipInstructionsLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HipInstructionsLabelText_DefaultValue" xml:space="preserve">
+    <value>Type the characters in the picture below.</value>
+  </data>
+  <data name="HipInstructionsLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipInstructionsLabelText_FriendlyName" xml:space="preserve">
+    <value>HIP Instructions</value>
+  </data>
+  <data name="HipPictureDescription_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HipPictureDescription_DefaultValue" xml:space="preserve">
+    <value>The picture contains 6 characters.</value>
+  </data>
+  <data name="HipPictureDescription_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipPictureDescription_FriendlyName" xml:space="preserve">
+    <value>HIP Picture Description</value>
+  </data>
+  <data name="HipResetLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HipResetLabelText_DefaultValue" xml:space="preserve">
+    <value>Can't see the word?</value>
+  </data>
+  <data name="HipResetLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipResetLabelText_FriendlyName" xml:space="preserve">
+    <value>HIP Reset Message</value>
+  </data>
+  <data name="HipErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="HipErrorMessage_DefaultValue" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="HipErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipErrorMessage_FriendlyName" xml:space="preserve">
+    <value>HIP Error Message</value>
+  </data>
+  <data name="InvalidQuestionErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="InvalidQuestionErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a different security question.</value>
+  </data>
+  <data name="InvalidQuestionErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidQuestionErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Invalid Question Error Message </value>
+  </data>
+  <data name="HipLengthErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="HipLengthErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Picture characters may not be more than 20 characters.</value>
+  </data>
+  <data name="HipLengthErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HipLengthErrorMessage_FriendlyName" xml:space="preserve">
+    <value>HIP Length Error Message</value>
+  </data>
+  <data name="CssClass_Category" xml:space="preserve">
+    <value>Styles</value>
+  </data>
+  <data name="CssClass_Description" xml:space="preserve">
+    <value>CSS Class used to modify the appearance of the Registration Web Part</value>
+  </data>
+  <data name="CssClass_FriendlyName" xml:space="preserve">
+    <value>CSS Class</value>
+  </data>
+  <data name="MembershipRequestConfirmationMessage" xml:space="preserve">
+    <value>Your membership request has been received.</value>
+  </data>
+  <data name="CompleteSuccessText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CompleteSuccessText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CompleteSuccessText_DefaultValue" xml:space="preserve">
+    <value>Your registration request has been received.</value>
+  </data>
+  <data name="CompleteSuccessText_FriendlyName" xml:space="preserve">
+    <value>Complete Success Text</value>
+  </data>
+  <data name="DisplayCancelButton_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="DisplayCancelButton_DefaultValue" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="DisplayCancelButton_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DisplayCancelButton_FriendlyName" xml:space="preserve">
+    <value>Display Cancel Button</value>
+  </data>
+  <data name="EditProfileIconUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="EditProfileIconUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileIconUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileIconUrl_FriendlyName" xml:space="preserve">
+    <value>Edit Profile Icon Url</value>
+  </data>
+  <data name="EditProfileText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="EditProfileText_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileText_FriendlyName" xml:space="preserve">
+    <value>Edit Profile Text</value>
+  </data>
+  <data name="EditProfileUrl_Category" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="EditProfileUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EditProfileUrl_FriendlyName" xml:space="preserve">
+    <value>Edit Profile Url</value>
+  </data>
+  <data name="HeaderText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="HeaderText_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HeaderText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HeaderText_FriendlyName" xml:space="preserve">
+    <value>Header Text</value>
+  </data>
+  <data name="InvalidAnswerErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="InvalidAnswerErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a different security answer.</value>
+  </data>
+  <data name="InvalidAnswerErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidAnswerErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Invalid Answer Error Message</value>
+  </data>
+  <data name="LoginCreatedUser_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="LoginCreatedUser_DefaultValue" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="LoginCreatedUser_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LoginCreatedUser_FriendlyName" xml:space="preserve">
+    <value>Login Created User</value>
+  </data>
+  <data name="UnknownErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="UnknownErrorMessage_DefaultValue" xml:space="preserve">
+    <value>An unexpected error has occurred. Please contact your administrator if this problem persists, or check the SharePoint log file for more details.</value>
+  </data>
+  <data name="UnknownErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UnknownErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Unknown Error Message</value>
+  </data>
+  <data name="GroupEditor_Description" xml:space="preserve">
+    <value>Select A Default Group For All New Registrants</value>
+  </data>
+  <data name="GroupEditor_Title" xml:space="preserve">
+    <value>Default Group For New Users</value>
+  </data>
+  <data name="ContinueButtonImageUrl_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonImageUrl_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonImageUrl_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonImageUrl_FriendlyName" xml:space="preserve">
+    <value>Continue Button Image Url</value>
+  </data>
+  <data name="ContinueButtonText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonText_DefaultValue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ContinueButtonText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonText_FriendlyName" xml:space="preserve">
+    <value>Continue Button Text</value>
+  </data>
+  <data name="ContinueButtonType_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ContinueButtonType_DefaultValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ContinueButtonType_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinueButtonType_FriendlyName" xml:space="preserve">
+    <value>Continue Button Type</value>
+  </data>
+  <data name="CompleteStepTemplate_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CompleteStepTemplate_DefaultValue" xml:space="preserve">
+    <value>/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx</value>
+  </data>
+  <data name="CompleteStepTemplate_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CompleteStepTemplate_FriendlyName" xml:space="preserve">
+    <value>Complete Step Template</value>
+  </data>
+  <data name="CreateUserStepTemplate_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CreateUserStepTemplate_DefaultValue" xml:space="preserve">
+    <value>/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx</value>
+  </data>
+  <data name="CreateUserStepTemplate_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateUserStepTemplate_FriendlyName" xml:space="preserve">
+    <value>Create User Step Template</value>
+  </data>
+  <data name="AutoGeneratePassword_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="AutoGeneratePassword_DefaultValue" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="AutoGeneratePassword_Description" xml:space="preserve">
+    <value>Auto generates the users password. This is required when Review Membership Requests is enabled.</value>
+  </data>
+  <data name="AutoGeneratePassword_FriendlyName" xml:space="preserve">
+    <value>Auto Generate Password</value>
+  </data>
+  <data name="CaptchaValidation_Category" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="CaptchaValidation_DefaultValue" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="CaptchaValidation_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CaptchaValidation_FriendlyName" xml:space="preserve">
+    <value>Captcha Validation</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Password and Confirm Password must match.</value>
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordCompareErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Compare Error Message</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_DefaultValue" xml:space="preserve">
+    <value>Confirm Password:</value>
+  </data>
+  <data name="ConfirmPasswordLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordLabelText_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Label Text</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Confirm Password is required.</value>
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmPasswordRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Confirm Password Required Error Message</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Please enter a valid password.</value>
+  </data>
+  <data name="InvalidPasswordErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidPasswordErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Invalid Password Error Message</value>
+  </data>
+  <data name="PasswordLabelText_Category" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="PasswordLabelText_DefaultValue" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="PasswordLabelText_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PasswordLabelText_FriendlyName" xml:space="preserve">
+    <value>Password Label Text</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_Category" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_DefaultValue" xml:space="preserve">
+    <value>Password is required.</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PasswordRequiredErrorMessage_FriendlyName" xml:space="preserve">
+    <value>Password Required Error Message</value>
+  </data>
+  <data name="CssClass_DefaultValue" xml:space="preserve">
+    <value />
+  </data>
+</root>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/"
+     Title="$Resources:FBAPackFeatures,FbaManagement_Title;" 
+     Description="$Resources:FBAPackFeatures,FbaManagement_Desc;"> 
+</Feature>
