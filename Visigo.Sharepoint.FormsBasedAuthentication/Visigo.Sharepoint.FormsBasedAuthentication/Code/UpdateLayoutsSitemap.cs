@@ -84,7 +84,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             string sFolder = (_adminSite) ? "ADMIN" : "LAYOUTS";
 
-            string sSitemapPath = SPUtility.GetGenericSetupPath("Template\\" + sFolder) + "\\" + fileName;
+            string sSitemapPath = SPUtility.GetVersionedGenericSetupPath("Template\\" + sFolder,15) + "\\" + fileName;
             XmlDocument oDoc = new XmlDocument();
             oDoc.Load(sSitemapPath);
             AddSitemap(oDoc);

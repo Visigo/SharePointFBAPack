@@ -32,14 +32,14 @@
 								</Expr1>
 								<Expr2>1</Expr2>
 								<Then>
-									<HTML><![CDATA[<img src="/_layouts/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
+									<HTML><![CDATA[<img src="/_layouts/15/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
 									<HTML>Use SHIFT+ENTER to open the menu (new window).</HTML>
 									<HTML><![CDATA[">]]></HTML>
 								</Then>
 							</IfEqual>
 							<HTML><![CDATA[</a>]]></HTML>
 							<IfNew>
-								<HTML><![CDATA[<IMG SRC="/_layouts/1033/images/new.gif" alt="]]></HTML>
+								<HTML><![CDATA[<IMG SRC="/_layouts/15/1033/images/new.gif" alt="]]></HTML>
 								<HTML>New</HTML>
 								<HTML><![CDATA[">]]></HTML>
 							</IfNew>
@@ -144,7 +144,7 @@
 							<HTML><![CDATA[" onclick="GoToLink(this);return false;" target="_self">]]></HTML>
 							<HTML><![CDATA[<img border="0" alt="]]></HTML>
 							<HTML>Edit</HTML>
-							<HTML><![CDATA[" src="/_layouts/images/edititem.gif">]]></HTML>
+							<HTML><![CDATA[" src="/_layouts/15/images/edititem.gif">]]></HTML>
 							<HTML><![CDATA[</a>]]></HTML>
 						</Then>
 						<Else>
@@ -166,7 +166,7 @@
 							<Column Name="ID"/>
 						</Expr2>
 						<Then>
-							<HTML><![CDATA[<img border="0" align="absmiddle" style="cursor: pointer" src="/_layouts/images/rbsel.gif" alt="]]></HTML>
+							<HTML><![CDATA[<img border="0" align="absmiddle" style="cursor: pointer" src="/_layouts/15/images/rbsel.gif" alt="]]></HTML>
 							<HTML>Selected</HTML>
 							<HTML><![CDATA[">]]></HTML>
 						</Then>
@@ -184,7 +184,7 @@
 								<Column Name="ID"/>
 							</ScriptQuote>
 							<HTML><![CDATA[');return false;" target="_self">]]></HTML>
-							<HTML><![CDATA[<img border="0" align="absmiddle" style="cursor: pointer" src="/_layouts/images/rbunsel.gif"  alt="]]></HTML>
+							<HTML><![CDATA[<img border="0" align="absmiddle" style="cursor: pointer" src="/_layouts/15/images/rbunsel.gif"  alt="]]></HTML>
 							<HTML>Normal</HTML>
 							<HTML><![CDATA[">]]></HTML>
 							<HTML><![CDATA[</a>]]></HTML>
@@ -282,7 +282,7 @@
 					<FieldRef Name="ID"/>
 				</FieldRefs>
 				<DisplayPattern>
-					<HTML><![CDATA[</td><td><img src="/_layouts/images/blank.gif" width=13 style="visibility:hidden" alt=""></td></tr></table>]]></HTML>
+					<HTML><![CDATA[</td><td><img src="/_layouts/15/images/blank.gif" width=13 style="visibility:hidden" alt=""></td></tr></table>]]></HTML>
 				</DisplayPattern>
 			</Field>
 			<Field ID="{9d30f126-ba48-446b-b8f9-83745f322ebe}" ReadOnly="TRUE" Type="Computed" Name="LinkFilenameNoMenu" DisplaceOnUpgrade="TRUE" DisplayName="Name" Hidden="TRUE" DisplayNameSrcField="FileLeafRef" Filterable="FALSE" AuthoringInfo="(linked to document)" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="LinkFilenameNoMenu" FromBaseType="TRUE">
@@ -341,7 +341,7 @@
 										</Expr1>
 										<Expr2>1</Expr2>
 										<Then>
-											<HTML><![CDATA[<img src="/_layouts/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
+											<HTML><![CDATA[<img src="/_layouts/15/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
 											<HTML>Use SHIFT+ENTER to open the menu (new window).</HTML>
 											<HTML><![CDATA[">]]></HTML>
 										</Then>
@@ -401,14 +401,14 @@
 								</Expr1>
 								<Expr2>1</Expr2>
 								<Then>
-									<HTML><![CDATA[<img src="/_layouts/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
+									<HTML><![CDATA[<img src="/_layouts/15/images/blank.gif" class="ms-hidden" border=0 width=1 height=1 alt="]]></HTML>
 									<HTML>Use SHIFT+ENTER to open the menu (new window).</HTML>
 									<HTML><![CDATA[">]]></HTML>
 								</Then>
 							</IfEqual>
 							<HTML><![CDATA[</A>]]></HTML>
 							<IfNew Name="Created_x0020_Date">
-								<HTML><![CDATA[<IMG SRC="/_layouts/1033/images/new.gif" alt="]]></HTML>
+								<HTML><![CDATA[<IMG SRC="/_layouts/15/1033/images/new.gif" alt="]]></HTML>
 								<HTML>New</HTML>
 								<HTML><![CDATA[">]]></HTML>
 							</IfNew>
@@ -464,7 +464,7 @@
 									<HTML><![CDATA[<IMG BORDER=0 alt="]]></HTML>
 									<HTML>Folder: </HTML>
 									<LookupColumn Name="FileLeafRef" HTMLEncode="TRUE"/>
-									<HTML><![CDATA[" SRC="/_layouts/images/folder.gif">]]></HTML>
+									<HTML><![CDATA[" SRC="/_layouts/15/images/folder.gif">]]></HTML>
 								</Case>
 								<Default>
 									<SetVar Name="UnencodedFilterLink">
@@ -497,7 +497,7 @@
 									<HTML><![CDATA[" title="]]></HTML>
 									<HTML>Folder: </HTML>
 									<LookupColumn Name="FileLeafRef" HTMLEncode="TRUE"/>
-									<HTML><![CDATA[" SRC="/_layouts/images/folder.gif"></A>]]></HTML>
+									<HTML><![CDATA[" SRC="/_layouts/15/images/folder.gif"></A>]]></HTML>
 								</Default>
 							</FieldSwitch>
 						</Then>
@@ -509,7 +509,7 @@
 							<LookupColumn Name="Title" HTMLEncode="TRUE"/>
 							<HTML><![CDATA[" title="]]></HTML>
 							<LookupColumn Name="Title" HTMLEncode="TRUE"/>
-							<HTML><![CDATA[" SRC="/_layouts/images/]]></HTML>
+							<HTML><![CDATA[" SRC="/_layouts/15/images/]]></HTML>
 							<MapToIcon>
 								<Column Name="HTML_x0020_File_x0020_Type"/>
 								<HTML>|</HTML>
@@ -566,7 +566,7 @@
 			<Field ID="{c101c3e7-122d-4d4d-bc34-58e94a38c816}" ColName="tp_IsCurrentVersion" DisplaceOnUpgrade="TRUE" RowOrdinal="0" ReadOnly="TRUE" Type="Boolean" Name="_IsCurrentVersion" DisplayName="Is Current Version" Hidden="TRUE" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_IsCurrentVersion" FromBaseType="TRUE"/>
 		</Fields>
 		<Views>
-			<View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+			<View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png" Url="AllItems.aspx">
 				<ViewFields>
 					<FieldRef Name="LinkTitle"/>
 					<FieldRef Name="_Version"/>
@@ -595,7 +595,7 @@
 							<HTML><![CDATA[ class="ms-gb2" ]]></HTML>
 						</Default>
 					</Switch>
-					<HTML><![CDATA[ nowrap><img src="/_layouts/images/blank.gif" alt="" height=1 width=]]></HTML>
+					<HTML><![CDATA[ nowrap><img src="/_layouts/15/images/blank.gif" alt="" height=1 width=]]></HTML>
 					<GetVar Name="GroupByIndent"/>
 					<HTML><![CDATA[><a href="javascript:" onclick="javascript:ExpCollGroup(']]></HTML>
 					<GetVar Name="GroupByLevelString"/>
@@ -603,7 +603,7 @@
 					<GetVar Name="GroupByLevelString"/>
 					<HTML><![CDATA[');return false;"><img id="img_]]></HTML>
 					<GetVar Name="GroupByLevelString"/>
-					<HTML><![CDATA[" src="/_layouts/images/minus.gif" alt="]]></HTML>
+					<HTML><![CDATA[" src="/_layouts/15/images/minus.gif" alt="]]></HTML>
 					<HTML>Expand/Collapse</HTML>
 					<HTML><![CDATA[" border="0"></a>&nbsp;]]></HTML>
 					<HTML><![CDATA[<a href="javascript:" onclick="javascript:ExpCollGroup(']]></HTML>
@@ -694,7 +694,7 @@ ctx.HttpRoot = ]]>
 						<![CDATA[;
 ctx.imagesPath = ]]>
 					</HTML>
-					<ScriptQuote>/_layouts/images/</ScriptQuote>
+					<ScriptQuote>/_layouts/15/images/</ScriptQuote>
 					<HTML>
 						<![CDATA[;
 ctx.PortalUrl = ]]>
@@ -937,10 +937,10 @@ ctx]]>
 												<ListProperty Select="Direction"/>
 											</Expr>
 											<Case Value="rtl">
-												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 											</Case>
 											<Default>
-												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 											</Default>
 										</Switch>
 										<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1053,10 +1053,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1114,10 +1114,10 @@ ctx]]>
 																		<ListProperty Select="Direction"/>
 																	</Expr>
 																	<Case Value="rtl">
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Case>
 																	<Default>
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Default>
 																</Switch>
 																<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1164,10 +1164,10 @@ ctx]]>
 																		<ListProperty Select="Direction"/>
 																	</Expr>
 																	<Case Value="rtl">
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Case>
 																	<Default>
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Default>
 																</Switch>
 																<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1219,10 +1219,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1269,10 +1269,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1353,8 +1353,8 @@ ctx]]>
 				<PagedRowset>
 					<HTML>
 						<![CDATA[<TABLE width="100%" border=0 cellpadding=0 cellspacing=0 class="ms-bottompaging">
-<TR><TD class="ms-bottompagingline1"><IMG SRC="/_layouts/images/blank.gif" width=1 height=1 alt=""></TD></TR>
-<TR><TD class="ms-bottompagingline2"><IMG SRC="/_layouts/images/blank.gif" width=1 height=1 alt=""></TD></TR>
+<TR><TD class="ms-bottompagingline1"><IMG SRC="/_layouts/15/images/blank.gif" width=1 height=1 alt=""></TD></TR>
+<TR><TD class="ms-bottompagingline2"><IMG SRC="/_layouts/15/images/blank.gif" width=1 height=1 alt=""></TD></TR>
 <TR><TD align=center Class="ms-vb" id="bottomPagingCell]]>
 					</HTML>
 					<GetVar Name="WPQ"/>
@@ -1372,7 +1372,7 @@ ctx]]>
 								<GetVar Name="PrevPageData"/>
 							</ScriptQuote>
 							<HTML><![CDATA[");javascript:return false;'>]]></HTML>
-							<HTML><![CDATA[<img src="/_layouts/1033/images/prev.gif" border=0 alt="Previous"></A></td>]]></HTML>
+							<HTML><![CDATA[<img src="/_layouts/15/1033/images/prev.gif" border=0 alt="Previous"></A></td>]]></HTML>
 						</Default>
 					</Switch>
 					<HTML><![CDATA[<td nowrap class="ms-paging">]]></HTML>
@@ -1398,12 +1398,12 @@ ctx]]>
 								<GetVar Name="NextPageData"/>
 							</ScriptQuote>
 							<HTML><![CDATA[");javascript:return false;'>]]></HTML>
-							<HTML><![CDATA[<img src="/_layouts/1033/images/next.gif" border=0 alt="Next"></A></td>]]></HTML>
+							<HTML><![CDATA[<img src="/_layouts/15/1033/images/next.gif" border=0 alt="Next"></A></td>]]></HTML>
 						</Default>
 					</Switch>
 					<HTML>
 						<![CDATA[</tr></table></TD></TR>
-<TR><TD class="ms-bottompagingline3"><IMG SRC="/_layouts/images/blank.gif" width=1 height=1 alt=""></TD></TR>
+<TR><TD class="ms-bottompagingline3"><IMG SRC="/_layouts/15/images/blank.gif" width=1 height=1 alt=""></TD></TR>
 </TABLE>]]>
 					</HTML>
 					<HTML>
@@ -1471,7 +1471,7 @@ ctx]]>
 							</ScriptQuote>
 							<HTML>
 								<![CDATA[");javascript:return false;'
-                ><img src="/_layouts/1033/images/prev.gif" border=0 alt="Previous"></A>
+                ><img src="/_layouts/15/1033/images/prev.gif" border=0 alt="Previous"></A>
                 <A HREF=
                 "javascript:" OnClick='javascript:SubmitFormPost("]]>
 							</HTML>
@@ -1522,7 +1522,7 @@ ctx]]>
 							</ScriptQuote>
 							<HTML>
 								<![CDATA[");javascript:return false;'
-                ><img src="/_layouts/1033/images/next.gif" border=0 alt="Next"></A>&nbsp;]]>
+                ><img src="/_layouts/15/1033/images/next.gif" border=0 alt="Next"></A>&nbsp;]]>
 							</HTML>
 						</Default>
 					</Switch>
@@ -1580,7 +1580,7 @@ ctx.HttpRoot = ]]>
 						<![CDATA[;
 ctx.imagesPath = ]]>
 					</HTML>
-					<ScriptQuote>/_layouts/images/</ScriptQuote>
+					<ScriptQuote>/_layouts/15/images/</ScriptQuote>
 					<HTML>
 						<![CDATA[;
 ctx.PortalUrl = ]]>
@@ -1820,10 +1820,10 @@ ctx]]>
 												<ListProperty Select="Direction"/>
 											</Expr>
 											<Case Value="rtl">
-												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 											</Case>
 											<Default>
-												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+												<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 											</Default>
 										</Switch>
 										<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1936,10 +1936,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -1997,10 +1997,10 @@ ctx]]>
 																		<ListProperty Select="Direction"/>
 																	</Expr>
 																	<Case Value="rtl">
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Case>
 																	<Default>
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Default>
 																</Switch>
 																<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -2047,10 +2047,10 @@ ctx]]>
 																		<ListProperty Select="Direction"/>
 																	</Expr>
 																	<Case Value="rtl">
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Case>
 																	<Default>
-																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																		<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																	</Default>
 																</Switch>
 																<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -2102,10 +2102,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>
@@ -2152,10 +2152,10 @@ ctx]]>
 																				<ListProperty Select="Direction"/>
 																			</Expr>
 																			<Case Value="rtl">
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Case>
 																			<Default>
-																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
+																				<HTML><![CDATA[<TD style="position:absolute;"><IMG src="/_layouts/15/images/blank.gif" width=13px style="visibility: hidden" alt=""></TD>]]></HTML>
 																			</Default>
 																		</Switch>
 																		<HTML><![CDATA[</TR></TABLE></div>]]></HTML>

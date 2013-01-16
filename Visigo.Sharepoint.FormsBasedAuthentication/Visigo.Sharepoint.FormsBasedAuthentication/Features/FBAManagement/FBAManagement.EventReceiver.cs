@@ -136,11 +136,11 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.Features.FBAManagement
             ///* bms Set the XSLT location web properties */
             ////TODO: Make these resources
 
-            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPAPPROVED,"/_layouts/FBA/emails/MembershipApproved.xslt",web);
-            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPERROR,"/_layouts/FBA/emails/MembershipError.xslt",web);
-            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPPENDING,"/_layouts/FBA/emails/MembershipPending.xslt",web);
-            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREJECTED,"/_layouts/FBA/emails/MembershipRejected.xslt",web);
-            //UpdateProperty(MembershipReviewSiteXSLTEmail.PASSWORDRECOVERY,"/_layouts/FBA/emails/PasswordRecovery.xslt",web);
+            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPAPPROVED,"/_layouts/15/FBA/emails/MembershipApproved.xslt",web);
+            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPERROR,"/_layouts/15/FBA/emails/MembershipError.xslt",web);
+            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPPENDING,"/_layouts/15/FBA/emails/MembershipPending.xslt",web);
+            //UpdateProperty(MembershipReviewSiteXSLTEmail.MEMBERSHIPREJECTED,"/_layouts/15/FBA/emails/MembershipRejected.xslt",web);
+            //UpdateProperty(MembershipReviewSiteXSLTEmail.PASSWORDRECOVERY,"/_layouts/15/FBA/emails/PasswordRecovery.xslt",web);
 
             // update layouts site map
             try

@@ -82,7 +82,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         private string GetTemplateDefaultPath(string filename, SPWeb web)
         {
-            string path = string.Format("/_layouts/FBA/emails/{0}/{1}", CultureInfo.CurrentUICulture.LCID.ToString(), filename);
+            string path = string.Format("/_layouts/15/FBA/emails/{0}/{1}", CultureInfo.CurrentUICulture.LCID.ToString(), filename);
 
             //Return the localized path if it exists, otherwise return the default path
             try
@@ -96,7 +96,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             {
             }
 
-            return string.Format("/_layouts/FBA/emails/{0}", filename);
+            return string.Format("/_layouts/15/FBA/emails/{0}", filename);
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         {
             get
             {
-                return Utils.GetWebProperty(MembershipReviewSiteURL.CHANGEPASSWORDPAGE, "_Layouts/FBA/ChangePassword.aspx", _web);
+                return Utils.GetWebProperty(MembershipReviewSiteURL.CHANGEPASSWORDPAGE, "_Layouts/15/FBA/ChangePassword.aspx", _web);
             }
 
             set

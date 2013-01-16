@@ -1,5 +1,5 @@
 <%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
-<%@ Assembly Name="Microsoft.SharePoint.ApplicationPages, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Assembly Name="Microsoft.SharePoint.ApplicationPages, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RolesDisp.aspx.cs" Inherits="Visigo.Sharepoint.FormsBasedAuthentication.RolesDisp"
     DynamicMasterPageFile="~masterurl/default.master" %>
@@ -7,7 +7,7 @@
 <%@ Register TagPrefix="wssuc" TagName="ToolBar" Src="~/_controltemplates/ToolBar.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="ToolBarButton" Src="~/_controltemplates/ToolBarButton.ascx" %>
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
-    Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+    Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="FBA" Namespace="Visigo.Sharepoint.FormsBasedAuthentication"
     Assembly="Visigo.Sharepoint.FormsBasedAuthentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9dba9f460226d31d" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
@@ -57,14 +57,14 @@
             <wssuc:ToolBar ID="onetidNavNodesTB" runat="server">
                 <Template_Buttons>
                     <wssuc:ToolBarButton runat="server" Text="<% $Resources: FBAPackWebPages, NewUserLabelText %>" ID="idNewNavNode" ToolTip="<% $Resources: FBAPackWebPages, NewUserLabelText %>"
-                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="U" />
+                        NavigateUrl="UserNew.aspx" ImageUrl="/_layouts/15/images/newitem.gif" AccessKey="U" />
                     <wssuc:ToolBarButton runat="server" Text="<% $Resources: FBAPackWebPages, NewRoleLabelText %>" ID="idNewCatNode" ToolTip="<% $Resources: FBAPackWebPages, NewRoleLabelText %>"
-                        NavigateUrl="RoleNew.aspx" ImageUrl="/_layouts/images/newitem.gif" AccessKey="R" />
+                        NavigateUrl="RoleNew.aspx" ImageUrl="/_layouts/15/images/newitem.gif" AccessKey="R" />
                 </Template_Buttons>
             </wssuc:ToolBar>
         </div>
     <SharePoint:MenuTemplate ID="RoleMenu" runat="server">
-        <SharePoint:MenuItemTemplate ID="DeleteRole" runat="server" Text="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/images/delete.gif"
+        <SharePoint:MenuItemTemplate ID="DeleteRole" runat="server" Text="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>" ImageUrl="/_layouts/15/images/delete.gif"
             ClientOnClickNavigateUrl="RoleDelete.aspx?Role=%ROLE%" Title="<% $Resources: FBAPackWebPages, DeleteContextMenuText %>">
         </SharePoint:MenuItemTemplate>
     </SharePoint:MenuTemplate>

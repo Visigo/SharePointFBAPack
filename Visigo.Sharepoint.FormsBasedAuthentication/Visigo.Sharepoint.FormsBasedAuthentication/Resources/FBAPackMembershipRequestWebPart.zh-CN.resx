@@ -169,7 +169,7 @@
     <value>Display</value>
   </data>
   <data name="CompleteStepTemplate_DefaultValue" xml:space="preserve">
-    <value>/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx</value>
+    <value>/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx</value>
   </data>
   <data name="CompleteStepTemplate_Description" xml:space="preserve">
     <value />
@@ -181,7 +181,7 @@
     <value>Display</value>
   </data>
   <data name="CreateUserStepTemplate_DefaultValue" xml:space="preserve">
-    <value>/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx</value>
+    <value>/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx</value>
   </data>
   <data name="CreateUserStepTemplate_Description" xml:space="preserve">
     <value />

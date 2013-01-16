@@ -141,7 +141,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.HIP
 			// and if the ID is stored correctly in the page, and if the user text matches the challenge text,
 			// then set the challenge text, note that we've authenticated, and return true.  Otherwise, failed authentication.
 			if (userData != null && userData.Length > 0 &&
-				_hiddenData.Value != null && _hiddenData.Value.Length > 0)
+				_hiddenData != null && _hiddenData.Value != null && _hiddenData.Value.Length > 0)
 			{
 				try
 				{
