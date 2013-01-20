@@ -484,10 +484,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             });      
         }
 
-        protected override void CreateChildControls()
+        //protected override void CreateChildControls()
+        //{
+        //    AddPasswordRecoveryControl();
+        //    base.CreateChildControls();
+        //}
+
+        protected override void OnInit(EventArgs e)
         {
+            base.OnInit(e);
             AddPasswordRecoveryControl();
-            base.CreateChildControls();
         }
 
         protected override void RenderContents(HtmlTextWriter writer)
