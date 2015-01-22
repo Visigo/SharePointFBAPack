@@ -28,22 +28,27 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 }
             }
 
-            MembershipSettings setting = null;
+            
+            string changePasswordPage = "";
 
             SPSecurity.RunWithElevatedPrivileges(delegate()
             {
                 using (SPSite site = new SPSite(SPContext.Current.Site.ID, SPContext.Current.Site.Zone))
                 {
-                    setting = new MembershipSettings(site.RootWeb);
+                    MembershipSettings setting = new MembershipSettings(site.RootWeb);
+
+                    if (setting == null || string.IsNullOrEmpty(setting.ChangePasswordPage))
+                        return;
+
+                    changePasswordPage = setting.ChangePasswordPage;
                 }
             });
 
-            if (setting == null || string.IsNullOrEmpty(setting.ChangePasswordPage))
-                return;
+            
 
             // generate return url
             string source = SPUtility.OriginalServerRelativeRequestUrl;
-            string target = Utils.GetAbsoluteURL(SPContext.Current.Web, setting.ChangePasswordPage);
+            string target = Utils.GetAbsoluteURL(SPContext.Current.Web, changePasswordPage);
 
             MenuItemTemplate  changePasswordItem = new MenuItemTemplate();
             changePasswordItem.Text = LocalizedString.GetString("FBAPackMenus", "FBAChangePassword_Title");
