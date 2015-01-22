@@ -22,9 +22,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
         private LocalizedString _resourceManager = new LocalizedString("FBAPackPasswordRecoveryWebPart");
 
-        private string _questionTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/QuestionTemplate.ascx";
-        private string _successTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/SuccessTemplate.ascx";
-        private string _userNameTemplate = "/_layouts/FBA/WEBPARTS/PasswordRecoveryWebPart/UserNameTemplate.ascx";
+        private string _questionTemplate = "/_layouts/15/FBA/WEBPARTS/PasswordRecoveryWebPart/QuestionTemplate.ascx";
+        private string _successTemplate = "/_layouts/15/FBA/WEBPARTS/PasswordRecoveryWebPart/SuccessTemplate.ascx";
+        private string _userNameTemplate = "/_layouts/15/FBA/WEBPARTS/PasswordRecoveryWebPart/UserNameTemplate.ascx";
         private string _generalFailureText = null;
         private string _questionFailureText = null;
         private string _questionInstructionText = null;
@@ -484,10 +484,16 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             });      
         }
 
-        protected override void CreateChildControls()
+        //protected override void CreateChildControls()
+        //{
+        //    AddPasswordRecoveryControl();
+        //    base.CreateChildControls();
+        //}
+
+        protected override void OnInit(EventArgs e)
         {
+            base.OnInit(e);
             AddPasswordRecoveryControl();
-            base.CreateChildControls();
         }
 
         protected override void RenderContents(HtmlTextWriter writer)

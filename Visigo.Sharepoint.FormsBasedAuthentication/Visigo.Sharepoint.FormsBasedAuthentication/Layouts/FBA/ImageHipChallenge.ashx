@@ -116,7 +116,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.HIP
                 // We successfully retrieved the information, so generate the image and send it to the client.
                 HttpResponse resp = context.Response;
                 resp.Clear();
-                resp.ContentType = "img/jpeg";
+                resp.ContentType = "image/jpeg";
                 using (Bitmap bmp = GenerateImage(text, new Size(width, height)))
                 {
                     bmp.Save(resp.OutputStream, ImageFormat.Jpeg);

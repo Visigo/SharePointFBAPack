@@ -15,7 +15,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication.HIP
 	public class ImageHipChallenge : HipChallenge
 	{
 		/// <summary>Default value for the RenderUrl property.</summary>
-        private const string RENDERURL_DEFAULT = "/_layouts/FBA/ImageHipChallenge.ashx";
+        private const string RENDERURL_DEFAULT = "/_layouts/15/FBA/ImageHipChallenge.ashx";
 		/// <summary>Query string key for the image width.</summary>
 		internal const string WIDTH_KEY = "w";
 		/// <summary>Query string key for the image height.</summary>

@@ -38,7 +38,7 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                         StringBuilder script = new StringBuilder();
                         script.AppendLine("ExecuteOrDelayUntilScriptLoaded(showRoleStatus, 'SP.js')");
                         script.AppendLine("function showRoleStatus() {");
-                        script.AppendLine("var roleStatusID = SP.UI.Status.addStatus('Information : ', 'Roles are not enabled. You can enable roles in the <a href=\"/_layouts/FBA/Management/FBASiteConfiguration.aspx\">FBA Site Configuration</a>.', true);");
+                        script.AppendLine("var roleStatusID = SP.UI.Status.addStatus('Information : ', 'Roles are not enabled. You can enable roles in the <a href=\"/_layouts/15/FBA/Management/FBASiteConfiguration.aspx\">FBA Site Configuration</a>.', true);");
                         script.AppendLine("SP.UI.Status.setStatusPriColor(roleStatusID, \"yellow\");");
                         script.AppendLine("}");
                         Page.ClientScript.RegisterStartupScript(this.GetType(), startupScriptName, script.ToString(), true);

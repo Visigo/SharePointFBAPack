@@ -22,7 +22,7 @@
   RequireSiteAdministrator="TRUE"
   Title="$Resources:FBAPackMenus, FBARoleManagement_Title;"
   Description="$Resources:FBAPackMenus, FBARoleManagement_Desc;">
-		<UrlAction Url="~sitecollection/_layouts/FBA/Management/RolesDisp.aspx" />
+		<UrlAction Url="~sitecollection/_layouts/15/FBA/Management/RolesDisp.aspx" />
 	</CustomAction>
 
 	<CustomAction
@@ -33,7 +33,7 @@
   RequireSiteAdministrator="TRUE"
   Title="$Resources:FBAPackMenus, FBASiteConfiguration_Title;"
   Description="$Resources:FBAPackMenus, FBASiteConfiguration_Desc;">
-		<UrlAction Url="~site/_layouts/FBA/Management/FBASiteConfiguration.aspx" />
+		<UrlAction Url="~site/_layouts/15/FBA/Management/FBASiteConfiguration.aspx" />
 	</CustomAction>
 
 	<CustomAction
@@ -44,7 +44,7 @@
     RequireSiteAdministrator="TRUE"
     Title="$Resources:FBAPackMenus, FBAUserManagement_Title;"
     Description="$Resources:FBAPackMenus, FBAUserManagement_Desc;">
-		<UrlAction Url="~sitecollection/_layouts/FBA/Management/UsersDisp.aspx" />
+		<UrlAction Url="~sitecollection/_layouts/15/FBA/Management/UsersDisp.aspx" />
 	</CustomAction>
 
 	<CustomAction

@@ -33,8 +33,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
                 "2","3","4","5","6","7","8","9",
                 "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"};
 
-        private string _CreateUserStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx";
-        private string _CompleteStepTemplate = "/_layouts/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx";
+        private string _CreateUserStepTemplate = "/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CreateUserStepTemplate.ascx";
+        private string _CompleteStepTemplate = "/_layouts/15/FBA/WEBPARTS/MembershipRequestWebPart/CompleteStepTemplate.ascx";
         private string _AnswerLabelText = null;
         private string _AnswerRequiredErrorMessage = null;
         private bool _AutoGeneratePassword = true;

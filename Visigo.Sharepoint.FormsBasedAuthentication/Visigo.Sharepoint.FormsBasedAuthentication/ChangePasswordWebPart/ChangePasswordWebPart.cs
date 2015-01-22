@@ -19,8 +19,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
         #region Fields
         private LocalizedString _resourceManager = new LocalizedString("FBAPackChangePasswordWebPart");
 
-        private string _changePasswordTemplate = "/_layouts/FBA/WEBPARTS/ChangePasswordWebPart/ChangePasswordTemplate.ascx";
-        private string _successTemplate = "/_layouts/FBA/WEBPARTS/ChangePasswordWebPart/SuccessTemplate.ascx";
+        private string _changePasswordTemplate = "/_layouts/15/FBA/WEBPARTS/ChangePasswordWebPart/ChangePasswordTemplate.ascx";
+        private string _successTemplate = "/_layouts/15/FBA/WEBPARTS/ChangePasswordWebPart/SuccessTemplate.ascx";
         private string _cancelButtonImageUrl = null;
         private string _cancelButtonText = null;
         private ButtonType _cancelButtonType = ButtonType.Button;
