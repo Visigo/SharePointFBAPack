@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{656BA946-6354-466B-8472-2EE327937A46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visigo.Sharepoint.FormsBasedAuthentication</RootNamespace>
+    <AssemblyName>Visigo.Sharepoint.FormsBasedAuthentication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v4.5\Microsoft.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.IdentityModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Windows\assembly\GAC_MSIL\Microsoft.SharePoint.IdentityModel\15.0.0.0__71e9bce111e9429c\Microsoft.SharePoint.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChangePasswordWebPart\ChangePasswordWebPart.cs" />
+    <Compile Include="Code\ChangePasswordMenuItem.cs" />
+    <Compile Include="Code\TemplateHelper.cs" />
+    <Compile Include="Code\Data\FBADataSource.cs" />
+    <Compile Include="Code\Data\FBARolesView.cs" />
+    <Compile Include="Code\Data\FBAUsersView.cs" />
+    <Compile Include="Code\Email.cs" />
+    <Compile Include="Code\FBADiagnosticsService.cs" />
+    <Compile Include="Code\HIP\BaseHipChallengeHandler.cs" />
+    <Compile Include="Code\HIP\HipChallenge.cs" />
+    <Compile Include="Code\HIP\HipValidator.cs" />
+    <Compile Include="Code\HIP\ImageHipChallenge.cs" />
+    <Compile Include="Code\HIP\RandomNumbers.cs" />
+    <Compile Include="Code\Localization\LocalizedCategoryAttribute.cs" />
+    <Compile Include="Code\Localization\LocalizedString.cs" />
+    <Compile Include="Code\Localization\LocalizedWebDisplayNameAttribute.cs" />
+    <Compile Include="Code\Localization\LocalizedWebDescriptionAttribute.cs" />
+    <Compile Include="Code\MembershipSettings.cs" />
+    <Compile Include="Code\TemplateLoader.cs" />
+    <Compile Include="Code\UpdateLayoutsSitemap.cs" />
+    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Features\FBADiagnosticsService\FBADiagnosticsService.EventReceiver.cs">
+      <DependentUpon>FBADiagnosticsService.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FBAManagement\FBAManagement.EventReceiver.cs">
+      <DependentUpon>FBAManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx.cs">
+      <DependentUpon>UserResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx.designer.cs">
+      <DependentUpon>UserResetPassword.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.cs">
+      <DependentUpon>FBASiteConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx.designer.cs">
+      <DependentUpon>FBASiteConfiguration.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.cs">
+      <DependentUpon>RoleDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx.designer.cs">
+      <DependentUpon>RoleDelete.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.cs">
+      <DependentUpon>RoleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx.designer.cs">
+      <DependentUpon>RoleNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.cs">
+      <DependentUpon>RolesDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx.designer.cs">
+      <DependentUpon>RolesDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.cs">
+      <DependentUpon>UserDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx.designer.cs">
+      <DependentUpon>UserDelete.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.cs">
+      <DependentUpon>UserNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UserNew.aspx.designer.cs">
+      <DependentUpon>UserNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.cs">
+      <DependentUpon>UsersDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx.designer.cs">
+      <DependentUpon>UsersDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipRequestWebPart\MembershipRequest.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestControl.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestGroupEditor.cs" />
+    <Compile Include="MembershipRequestWebPart\MembershipRequestWebPart.cs" />
+    <Compile Include="MembershipReviewList\MembershipReviewHandler\MembershipReviewHandler.cs" />
+    <Compile Include="PasswordRecoveryWebPart\PasswordRecoveryWebPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourcesAppGlobal\FBAPackWebPages.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackWebPages.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesAppGlobal\FBAPackWebPages.zh-HK.Designer.cs">
+      <DependentUpon>FBAPackWebPages.zh-HK.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesAppGlobal\FBAPackWebPages.zh-CN.Designer.cs">
+      <DependentUpon>FBAPackWebPages.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesAppGlobal\FBAPackWebPages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackWebPages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackChangePasswordWebPart.de-DE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackChangePasswordWebPart.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackChangePasswordWebPart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackChangePasswordWebPart.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackChangePasswordWebPart.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackChangePasswordWebPart.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackChangePasswordWebPart.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackChangePasswordWebPart.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackChangePasswordWebPart.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackChangePasswordWebPart.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackFeatures.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackFeatures.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackFeatures.zh-HK.Designer.cs">
+      <DependentUpon>FBAPackFeatures.zh-HK.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FBAPackFeatures.zh-CN.Designer.cs">
+      <DependentUpon>FBAPackFeatures.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FBAPackFeatures.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackFeatures.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMembershipRequestWebPart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMembershipRequestWebPart.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMembershipRequestWebPart.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMembershipRequestWebPart.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMembershipRequestWebPart.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMembershipRequestWebPart.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMembershipRequestWebPart.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMembershipRequestWebPart.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMenus.de-DE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMenus.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMenus.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMenus.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackMenus.zh-HK.Designer.cs">
+      <DependentUpon>FBAPackMenus.zh-HK.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FBAPackMenus.zh-CN.Designer.cs">
+      <DependentUpon>FBAPackMenus.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FBAPackMenus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackMenus.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackPasswordRecoveryWebPart.de-DE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackPasswordRecoveryWebPart.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackPasswordRecoveryWebPart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackPasswordRecoveryWebPart.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackPasswordRecoveryWebPart.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackPasswordRecoveryWebPart.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackPasswordRecoveryWebPart.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackPasswordRecoveryWebPart.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FBAPackPasswordRecoveryWebPart.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBAPackPasswordRecoveryWebPart.zh-HK.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Activate.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MembershipReviewList\Site Membership Review List\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{40c72e3f-99d5-4aa5-9143-3aaab9f700f2}</SharePointProjectItemId>
+    </None>
+    <None Include="ResourcesAppGlobal\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{93c4288a-5a0d-45b5-b999-40d936a66214}</SharePointProjectItemId>
+    </None>
+    <None Include="ChangePasswordWebPart\ChangePasswordWebPart.webpart" />
+    <None Include="ChangePasswordWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c45209a4-1a2f-4094-8802-e288c2f95c85}</SharePointProjectItemId>
+    </None>
+    <None Include="Deploy.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FBAMenus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ec357d9a-df03-49be-bd4f-163a0c341b26}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\FBAManagement\FBAManagement.feature">
+      <FeatureId>{bf26db31-5aaa-474d-ba76-36782c1a31eb}</FeatureId>
+    </None>
+    <None Include="Features\FBADiagnosticsService\FBADiagnosticsService.feature">
+      <FeatureId>{ec57a65d-5853-4c44-b51d-b3fb2410d9f5}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9fdbeed1-91c3-4f15-bad2-6ea7b6dd9034}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\FBA\ImageHipChallenge.ashx" />
+    <None Include="MembershipRequestWebPart\MembershipRequestWebPart.webpart" />
+    <None Include="MembershipRequestWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4409a86e-3b2b-40c1-ac7b-f55cf44be023}</SharePointProjectItemId>
+    </None>
+    <None Include="MembershipReviewList\MembershipReviewHandler\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1cbf756a-10af-411a-8cfe-96a9bfb807f0}</SharePointProjectItemId>
+    </None>
+    <None Include="MembershipReviewList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{45df47e9-2259-49c2-af68-01bcc9763998}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{956715d5-f34c-4b00-bfb7-8c35d5fa0f62}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PasswordRecoveryWebPart\PasswordRecoveryWebPart.webpart" />
+    <None Include="PasswordRecoveryWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ff75ab1a-5f8d-48c6-a397-8476cee0b38b}</SharePointProjectItemId>
+    </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0d42e830-19ac-4daa-9b60-ff7ae9022aa6}</SharePointProjectItemId>
+    </None>
+    <None Include="UnDeploy.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserResetPassword.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\ChangePasswordTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\ChangePasswordWebPart\SuccessTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\MembershipRequestWebPart\CompleteStepTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\MembershipRequestWebPart\CreateUserStepTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\QuestionTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\SuccessTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\WEBPARTS\PasswordRecoveryWebPart\UserNameTemplate.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="MembershipReviewList\Site Membership Review List\Elements.xml" />
+    <Content Include="Resources\FBAPackMenus.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMenus.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\FBAPackMenus.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMenus.zh-CN.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\FBAPackMenus.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMenus.zh-HK.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="ResourcesAppGlobal\FBAPackWebPages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackWebPages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ResourcesAppGlobal\FBAPackWebPages.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackWebPages.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackFeatures.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackFeatures.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackFeatures.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackFeatures.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackFeatures.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackFeatures.zh-HK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ResourcesAppGlobal\FBAPackWebPages.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackWebPages.zh-HK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangePasswordWebPart\Elements.xml" />
+    <Content Include="FBAMenus\Elements.xml" />
+    <Content Include="Features\FBAManagement\FBAManagement.Template.xml">
+      <DependentUpon>FBAManagement.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\FBADiagnosticsService\FBADiagnosticsService.Template.xml">
+      <DependentUpon>FBADiagnosticsService.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\FBA\ChangePassword.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\FBASiteConfiguration.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleDelete.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RoleNew.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\RolesDisp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserDelete.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserEdit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UserNew.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\FBA\MANAGEMENT\UsersDisp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\layouts.sitemap.FBAManagement.xml" />
+    <Content Include="MembershipRequestWebPart\Elements.xml" />
+    <Content Include="MembershipReviewList\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MembershipReviewList\Schema.xml" />
+    <Content Include="PasswordRecoveryWebPart\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackMenus.de-DE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMenus.de-DE.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackChangePasswordWebPart.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackChangePasswordWebPart.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackChangePasswordWebPart.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackChangePasswordWebPart.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackChangePasswordWebPart.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackChangePasswordWebPart.zh-HK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackMembershipRequestWebPart.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMembershipRequestWebPart.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackMembershipRequestWebPart.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMembershipRequestWebPart.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackMembershipRequestWebPart.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMembershipRequestWebPart.zh-HK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackPasswordRecoveryWebPart.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackPasswordRecoveryWebPart.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackPasswordRecoveryWebPart.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackPasswordRecoveryWebPart.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\FBAPackPasswordRecoveryWebPart.zh-HK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackPasswordRecoveryWebPart.zh-HK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ResourcesAppGlobal\FBAPackWebPages.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackWebPages.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackChangePasswordWebPart.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackChangePasswordWebPart.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackFeatures.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackFeatures.en-US.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackMembershipRequestWebPart.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMembershipRequestWebPart.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackMenus.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackMenus.en-US.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackPasswordRecoveryWebPart.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackPasswordRecoveryWebPart.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackPasswordRecoveryWebPart.de-DE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackPasswordRecoveryWebPart.de-DE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FBAPackChangePasswordWebPart.de-DE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBAPackChangePasswordWebPart.de-DE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="false" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)build\updateresources.bat"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

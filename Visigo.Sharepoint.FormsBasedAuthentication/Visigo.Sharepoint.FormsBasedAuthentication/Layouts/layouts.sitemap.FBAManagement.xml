@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap enableLocalization="true">
+  <siteMapNode title="$Resources:FBAPackWebPages,UserMgmt_Title" parentUrl="/_layouts/15/settings.aspx" url="/_layouts/15/FBA/Management/UsersDisp.aspx">
+    <siteMapNode title="$Resources:FBAPackWebPages,EditUser_Title" url="/_layouts/15/FBA/Management/UserEdit.aspx"></siteMapNode>
+    <siteMapNode title="$Resources:FBAPackWebPages,NewUser_Title" url="/_layouts/15/FBA/Management/UserNew.aspx"></siteMapNode>
+    <siteMapNode title="$Resources:FBAPackWebPages,DeleteUser_Title" url="/_layouts/15/FBA/Management/UserDelete.aspx"></siteMapNode>
+    <siteMapNode title="$Resources:FBAPackWebPages,ResetPasswordUser_Title" url="/_layouts/15/FBA/Management/UserResetPassword.aspx"></siteMapNode>
+  </siteMapNode>
+  <siteMapNode title="$Resources:FBAPackWebPages,RolesMgmt_Title" parentUrl="/_layouts/15/settings.aspx" url="/_layouts/15/FBA/Management/RolesDisp.aspx">
+    <siteMapNode title="$Resources:FBAPackWebPages,NewRole_Title" url="/_layouts/15/FBA/Management/RoleNew.aspx"></siteMapNode>
+    <siteMapNode title="$Resources:FBAPackWebPages,DeleteRole_Title" url="/_layouts/15/FBA/Management/RoleDelete.aspx"></siteMapNode>
+  </siteMapNode>
+  <siteMapNode title="$Resources:FBAPackWebPages,SiteConfig_Title" parentUrl="/_layouts/15/settings.aspx" url="/_layouts/15/FBA/Management/FBASiteConfiguration.aspx">
+  </siteMapNode>
+  <siteMapNode title="$Resources:FBAPackFeatures,MembershipReviewList_DispName" parentUrl="/_layouts/15/settings.aspx" url="/Site Membership Review List/AllItems.aspx">
+  </siteMapNode>  
+</siteMap>

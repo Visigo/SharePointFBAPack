@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PasswordChangePageExampleText" xml:space="preserve">
+    <value>This also sets the location of the page for the Change Password menu item.</value>
+  </data>
+  <data name="InvalidPasswordChars" xml:space="preserve">
+    <value>Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}.</value>
+  </data>
+  <data name="InvalidPasswordCharsRegex" xml:space="preserve">
+    <value>Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}. Password Strength Regular Expression: {2}.</value>
+  </data>
+  <data name="ResetPasswordLabelText" xml:space="preserve">
+    <value>Reset Password:</value>
+  </data>
+  <data name="ResetPasswordToolTipText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordMsg" xml:space="preserve">
+    <value>Reset password for user '{0}'</value>
+  </data>
+  <data name="ResetPasswordContextMenuText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="NewPasswordLabelText" xml:space="preserve">
+    <value>New Password:</value>
+  </data>
+  <data name="NewPasswordToolTipText" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="ResetAutoPasswordText" xml:space="preserve">
+    <value>Reset to a randomly generated password</value>
+  </data>
+  <data name="ResetPasswordChangePasswordError" xml:space="preserve">
+    <value>There was an error setting the new password during the password reset process. If this error persists, there may be an issue with your membership provider.</value>
+  </data>
+  <data name="ResetPasswordConfirmText" xml:space="preserve">
+    <value>Are you sure you want to reset this user's password?</value>
+  </data>
+  <data name="ResetPasswordDescText" xml:space="preserve">
+    <value>Resets the user's password.</value>
+  </data>
+  <data name="ResetPasswordEmailTemplateLabelText" xml:space="preserve">
+    <value>Email Template:</value>
+  </data>
+  <data name="ResetPasswordEmailTemplateToolTipText" xml:space="preserve">
+    <value>Email Template</value>
+  </data>
+  <data name="ResetPasswordHeaderText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordSendEmailLabelText" xml:space="preserve">
+    <value>Email the user their new password:</value>
+  </data>
+  <data name="ResetPasswordSendEmailToolTipText" xml:space="preserve">
+    <value>Email the user their new password</value>
+  </data>
+  <data name="ResetPasswordUnavailable" xml:space="preserve">
+    <value>Your current membershipprovider settings prevent a user's password from being reset. To allow for resetting of a password by an administration, you must have enablePasswordReset="true" and requiresQuestionAndAnswer="false" in your membership provider settings in your web.config.</value>
+  </data>
+  <data name="ResetPasswordUser_Title" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Password Reset for &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+			&lt;p&gt;Your new password is: &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="ResetSelectPasswordText" xml:space="preserve">
+    <value>Set the user's new password</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>An unexpected error has occurred. If the problem persists, please contact your system administrator or check the SharePoint log for further details.</value>
+  </data>
+  <data name="VersionHeaderDesc" xml:space="preserve">
+    <value>The currently installed version of the FBA Pack.</value>
+  </data>
+  <data name="VersionHeaderText" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>A username for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>Username already exists. Please enter a different user name.</value>
+  </data>
+  <data name="ErrorAddingToSharePoint" xml:space="preserve">
+    <value>An error occurred while adding this user to SharePoint</value>
+  </data>
+  <data name="InvalidAnswer" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="InvalidQuestion" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="LastLoginColHeaderText" xml:space="preserve">
+    <value>Last Login</value>
+  </data>
+  <data name="MembershipNotConfigured" xml:space="preserve">
+    <value>A Membership Provider has not been configured correctly. Check the web.config setttings for this web application.</value>
+  </data>
+  <data name="ProviderError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="ResetPasswordBody" xml:space="preserve">
+    <value>Your new password is: {0}</value>
+  </data>
+  <data name="ResetPasswordSubject" xml:space="preserve">
+    <value>Password Reset for {0}</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User Not Found</value>
+  </data>
+  <data name="UserRejected" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="AccountLockedHeaderText" xml:space="preserve">
+    <value>賬戶鎖定</value>
+  </data>
+  <data name="AccountLockedLabelText" xml:space="preserve">
+    <value>取消選中復選框已解鎖用戶賬戶。</value>
+  </data>
+  <data name="AccountLockedToolTipText" xml:space="preserve">
+    <value>復選框選中意為賬戶已鎖定。</value>
+  </data>
+  <data name="ActiveCheckBoxLabelText" xml:space="preserve">
+    <value>選中復選框將用戶的狀態設置為活動。</value>
+  </data>
+  <data name="ActiveCheckBoxToolTipText" xml:space="preserve">
+    <value>復選框選中的話，用戶的狀態為活動的。</value>
+  </data>
+  <data name="ActiveColHeaderText" xml:space="preserve">
+    <value>活動</value>
+  </data>
+  <data name="ChangePassword_Desc" xml:space="preserve">
+    <value>允許用戶更改他們的密碼。</value>
+  </data>
+  <data name="ChangePassword_Title" xml:space="preserve">
+    <value>更改密碼</value>
+  </data>
+  <data name="ConfirmPasswordLabelText" xml:space="preserve">
+    <value>輸入並確認密碼：</value>
+  </data>
+  <data name="ConfirmPasswordToolTipText" xml:space="preserve">
+    <value>輸入確認密碼。</value>
+  </data>
+  <data name="CreatedColHeaderText" xml:space="preserve">
+    <value>創建日期</value>
+  </data>
+  <data name="DeleteButtonText" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DeleteConfirmHeaderText" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
+  <data name="DeleteConfirmLabelText" xml:space="preserve">
+    <value>確認刪除用戶 [ {0}]</value>
+  </data>
+  <data name="DeleteConfirmText" xml:space="preserve">
+    <value>確定永久刪除該用戶麼？</value>
+  </data>
+  <data name="DeleteContextMenuText" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DeleteRoleConfirmText" xml:space="preserve">
+    <value>確定永久刪除該角色及所有屬於該角色的用戶？</value>
+  </data>
+  <data name="DeleteRole_Title" xml:space="preserve">
+    <value>刪除角色</value>
+  </data>
+  <data name="DeleteUser_Title" xml:space="preserve">
+    <value>刪除用戶</value>
+  </data>
+  <data name="EditContextMenuText" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="EditUser_Title" xml:space="preserve">
+    <value>編輯用戶資料</value>
+  </data>
+  <data name="EmailColHeaderText" xml:space="preserve">
+    <value>電郵地址</value>
+  </data>
+  <data name="EnableRolesLabelText" xml:space="preserve">
+    <value>啟用角色：</value>
+  </data>
+  <data name="EnableRolesToolTipText" xml:space="preserve">
+    <value>啟用角色</value>
+  </data>
+  <data name="EnterPasswordToolTipText" xml:space="preserve">
+    <value>輸入密碼。</value>
+  </data>
+  <data name="FullNameColHeaderText" xml:space="preserve">
+    <value>全名</value>
+  </data>
+  <data name="GroupHeaderText" xml:space="preserve">
+    <value>組別或角色</value>
+  </data>
+  <data name="GroupLabelText" xml:space="preserve">
+    <value>至少將用戶加入一個組別或角色</value>
+  </data>
+  <data name="GroupToolTipText" xml:space="preserve">
+    <value>為用戶選擇組別或角色。</value>
+  </data>
+  <data name="IsInSharePointColHeaderText" xml:space="preserve">
+    <value>網站用戶</value>
+  </data>
+  <data name="LockedColHeaderText" xml:space="preserve">
+    <value>鎖定</value>
+  </data>
+  <data name="MembershipApprovedLabelText" xml:space="preserve">
+    <value>會員核准：</value>
+  </data>
+  <data name="MembershipApprovedToolTipText" xml:space="preserve">
+    <value>會員被核准</value>
+  </data>
+  <data name="MembershipEmailTemplateHeaderDesc" xml:space="preserve">
+    <value>會員郵件模板文件的路徑。</value>
+  </data>
+  <data name="MembershipEmailTemplateHeaderText" xml:space="preserve">
+    <value>會員郵件模板（XSLT）</value>
+  </data>
+  <data name="MembershipErrorLabelText" xml:space="preserve">
+    <value>錯誤：</value>
+  </data>
+  <data name="MembershipErrorToolTipText" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="MembershipOptionHeaderDesc" xml:space="preserve">
+    <value>這些選項控制著 FBA Web 部件的功能。</value>
+  </data>
+  <data name="MembershipOptionHeaderText" xml:space="preserve">
+    <value>會員選項</value>
+  </data>
+  <data name="MembershipPendingLabelText" xml:space="preserve">
+    <value>審核進行中：</value>
+  </data>
+  <data name="MembershipPendingToolTipText" xml:space="preserve">
+    <value>審核進行中</value>
+  </data>
+  <data name="MembershipRejectedLabelText" xml:space="preserve">
+    <value>會員拒絕：</value>
+  </data>
+  <data name="MembershipRejectedToolTipText" xml:space="preserve">
+    <value>會員被拒絕</value>
+  </data>
+  <data name="MembershipSiteReviewHeaderDesc" xml:space="preserve">
+    <value>這些網頁可用於電子郵件或 FBA Web 部件。</value>
+  </data>
+  <data name="MembershipSiteReviewHeaderText" xml:space="preserve">
+    <value>會員審核時用到的網站頁面路徑（Site URLs）</value>
+  </data>
+  <data name="MissingAssemblyMsg" xml:space="preserve">
+    <value>無法導入Web部件。</value>
+  </data>
+  <data name="ModifiedColHeaderText" xml:space="preserve">
+    <value>更改日期</value>
+  </data>
+  <data name="NewRoleLabelText" xml:space="preserve">
+    <value>新角色</value>
+  </data>
+  <data name="NewRole_Title" xml:space="preserve">
+    <value>新增角色</value>
+  </data>
+  <data name="NewUserLabelText" xml:space="preserve">
+    <value>新用戶</value>
+  </data>
+  <data name="NewUser_Title" xml:space="preserve">
+    <value>新增用戶</value>
+  </data>
+  <data name="PasswordChangePageLabelText" xml:space="preserve">
+    <value>更改密碼頁：</value>
+  </data>
+  <data name="PasswordChangePageToolTipText" xml:space="preserve">
+    <value>更改密碼的網頁</value>
+  </data>
+  <data name="PasswordConfirmText" xml:space="preserve">
+    <value>確定需要重置密碼？
+新密碼將通過電郵的方式傳送到用戶的電子郵件地址。</value>
+  </data>
+  <data name="PasswordHeaderText" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="PasswordQuestionPageLabelText" xml:space="preserve">
+    <value>密碼問題頁：</value>
+  </data>
+  <data name="PasswordQuestionPageToolTipText" xml:space="preserve">
+    <value>密碼問題的網頁</value>
+  </data>
+  <data name="PasswordRecoveryLabelText" xml:space="preserve">
+    <value>密碼恢復：</value>
+  </data>
+  <data name="PasswordRecoveryToolTipText" xml:space="preserve">
+    <value>密碼恢復</value>
+  </data>
+  <data name="ReplyToLabelText" xml:space="preserve">
+    <value>回復郵件地址：</value>
+  </data>
+  <data name="ReplyToToolTipText" xml:space="preserve">
+    <value>回復至</value>
+  </data>
+  <data name="ResetPasswordButtonText" xml:space="preserve">
+    <value>重置密碼</value>
+  </data>
+  <data name="ReviewMembershipRequestLabelText" xml:space="preserve">
+    <value>啟用會員申請審核：</value>
+  </data>
+  <data name="ReviewMembershipRequestToolTipText" xml:space="preserve">
+    <value>啟用會員申請審核</value>
+  </data>
+  <data name="RoleColHeaderText" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="RoleExistenceMsg" xml:space="preserve">
+    <value>角色已經存在！</value>
+  </data>
+  <data name="RoleNameHeaderText" xml:space="preserve">
+    <value>角色名</value>
+  </data>
+  <data name="RoleNameLabelText" xml:space="preserve">
+    <value>輸入角色名：</value>
+  </data>
+  <data name="RoleNotExistenceMsg" xml:space="preserve">
+    <value>角色不存在！</value>
+  </data>
+  <data name="RolesMgmt_Desc" xml:space="preserve">
+    <value>此頁用於管理基於窗體驗證的用戶角色。</value>
+  </data>
+  <data name="RolesMgmt_Title" xml:space="preserve">
+    <value>網站用戶角色管理(FBA)</value>
+  </data>
+  <data name="SaveButonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SearchButtonText" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="SearchLabelText" xml:space="preserve">
+    <value>搜索：</value>
+  </data>
+  <data name="SecurityAnswerHeaderText" xml:space="preserve">
+    <value>安全問題的答案</value>
+  </data>
+  <data name="SecurityQuestionHeaderText" xml:space="preserve">
+    <value>安全問題</value>
+  </data>
+  <data name="SendEmailHeaderText" xml:space="preserve">
+    <value>發送電子郵件</value>
+  </data>
+  <data name="SendMailLabelText" xml:space="preserve">
+    <value>發送歡迎加入郵件給新用戶</value>
+  </data>
+  <data name="SiteConfig_Desc" xml:space="preserve">
+    <value>此頁用於管理基於窗體驗證的其他網站設置，例如網站頁面路徑（Site URLs）的設置。</value>
+  </data>
+  <data name="SiteConfig_Title" xml:space="preserve">
+    <value>網站設置管理(FBA)</value>
+  </data>
+  <data name="ThankYouPageLabelText" xml:space="preserve">
+    <value>感謝頁：</value>
+  </data>
+  <data name="ThankYouPageToolTipText" xml:space="preserve">
+    <value>感謝的網頁</value>
+  </data>
+  <data name="TypeEmailAddrLabelText" xml:space="preserve">
+    <value>輸入用戶的電子郵件地址：</value>
+  </data>
+  <data name="TypeFullNameLabelText" xml:space="preserve">
+    <value>輸入全名：</value>
+  </data>
+  <data name="TypeSecurityALableText" xml:space="preserve">
+    <value>輸入安全問題的答案：</value>
+  </data>
+  <data name="TypeSecurityQLableText" xml:space="preserve">
+    <value>輸入安全問題：</value>
+  </data>
+  <data name="TypeUserNameLabelText" xml:space="preserve">
+    <value>輸入用戶名：</value>
+  </data>
+  <data name="UserMgmt_Desc" xml:space="preserve">
+    <value>此頁用於管理基於窗體驗證的用戶。</value>
+  </data>
+  <data name="UserMgmt_Title" xml:space="preserve">
+    <value>網站用戶管理(FBA)</value>
+  </data>
+  <data name="UserNameColHeaderText" xml:space="preserve">
+    <value>用戶名</value>
+  </data>
+  <data name="UserNameReadonlyLabelText" xml:space="preserve">
+    <value>用戶名為只讀：</value>
+  </data>
+  <data name="UsersInRoleColHeaderText" xml:space="preserve">
+    <value>用戶數</value>
+  </data>
+  <data name="UsersInRoleMsg" xml:space="preserve">
+    <value>有 {0} 個用戶屬於這個角色。</value>
+  </data>
+  <data name="MembershipApprovedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;會員審批通過&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;br /&gt;
+          &lt;p&gt;
+            你在 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 申請的賬號已獲審批通過，並且已授權訪問網站。
+          &lt;/p&gt;
+          &lt;p&gt;
+            你的用戶是： &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            首次登入密碼是： &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;
+          &lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;xsl:text&gt;你的首次登入密碼可在登入後馬上通過此頁面&lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:text&gt;，&lt;/xsl:text&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt; 使用用戶名及首次登入密碼進行更改。&lt;/xsl:text&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改密碼的頁面： &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt;。&lt;/xsl:text&gt;
+
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改好密碼後，將可以瀏覽通過 &lt;/xsl:text&gt;
+            &lt;xsl:value-of select="MembershipRequest:get_SiteURL()" /&gt;
+            &lt;xsl:text&gt; 訪問網站 &lt;/xsl:text&gt;
+            &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;如你需要額外的訪問權限，請聯繫管理員。&lt;/p&gt;
+
+          &lt;p&gt;謝謝！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="MembershipPendingXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;審批進行中&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;br /&gt;
+          &lt;p&gt;
+            非常感謝你申請網站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的會員。
+          &lt;/p&gt;
+
+          &lt;p&gt;一旦你的申請獲得通過，你將會收到用於首次登入的臨時密碼。&lt;/p&gt;
+
+          &lt;p&gt;如果你有其他問題或需要幫助，請聯繫管理員。&lt;/p&gt;
+
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="MembershipRejectedXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;申请拒绝&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;p&gt;
+            你申请网站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的会员已经被拒绝。
+          &lt;/p&gt;
+
+          &lt;p&gt;如你觉得这是个错误，请重新申请或联系网站管理员。&lt;/p&gt;
+
+          &lt;p&gt;谢谢！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="PasswordRecoveryXSLT" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:MembershipRequest="fba:MembershipRequest"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;恢復密碼&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div&gt;
+          &lt;p&gt;
+            你收到這個郵件是因為你忘記了網站 &lt;xsl:value-of select="MembershipRequest:get_SiteName()" /&gt; 的密碼。
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            你的用戶名： &lt;xsl:value-of select="MembershipRequest:get_UserName()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            你的臨時密碼： &lt;xsl:value-of select="MembershipRequest:get_Password()" /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;&lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;xsl:text&gt;你的臨時密碼可在登入後馬上通過此頁面 &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:text&gt;，&lt;/xsl:text&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt; 使用用戶名及臨時密碼進行更改。&lt;/xsl:text&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:text&gt;更改密碼的頁面： &lt;/xsl:text&gt;
+            &lt;a&gt;
+              &lt;xsl:attribute name="href"&gt;
+                &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select="MembershipRequest:get_ChangePasswordURL()" /&gt;
+            &lt;/a&gt;
+            &lt;xsl:text&gt;。&lt;/xsl:text&gt;
+
+          &lt;/p&gt;
+
+          &lt;p&gt;謝謝！&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+</root>
