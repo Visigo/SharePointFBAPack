@@ -3,7 +3,7 @@
     Inherits="Visigo.Sharepoint.FormsBasedAuthentication.ChangePassword" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
-    Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+    Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="FBA" Namespace="Visigo.Sharepoint.FormsBasedAuthentication"
     Assembly="Visigo.Sharepoint.FormsBasedAuthentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9dba9f460226d31d" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

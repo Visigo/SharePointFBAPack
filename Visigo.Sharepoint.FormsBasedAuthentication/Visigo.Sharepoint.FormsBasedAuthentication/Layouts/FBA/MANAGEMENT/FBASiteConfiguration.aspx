@@ -9,7 +9,7 @@
 <%@ Register TagPrefix="wssuc" TagName="InputFormControl" Src="~/_controltemplates/InputFormControl.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="ButtonSection" Src="~/_controltemplates/ButtonSection.ascx" %>
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls"
-    Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+    Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
     <SharePoint:EncodedLiteral ID="PageTitle" Text="<% $Resources: FBAPackWebPages, SiteConfig_Title %>"
         EncodeMethod="HtmlEncode" runat="server" />
