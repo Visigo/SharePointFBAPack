@@ -11,9 +11,9 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     class FBADiagnosticsService : SPDiagnosticsServiceBase
     {
 
-        public static string AreaName = "SharePoint 2010 FBA Pack";
+        public static string AreaName = "SharePoint FBA Pack";
 
-        public static string ServiceName = "SharePoint 2010 FBA Pack Diagnostics Service";
+        public static string ServiceName = "SharePoint FBA Pack Diagnostics Service";
 
         public enum FBADiagnosticsCategory
         {
