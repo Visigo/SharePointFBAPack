@@ -8,6 +8,7 @@ using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.Utilities;
 using System.Reflection;
 using System.Globalization;
+using System.Collections.Generic;
 
 
 namespace Visigo.Sharepoint.FormsBasedAuthentication
@@ -18,6 +19,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
     class FBAUsersView : DataSourceView
     {
         private FBADataSource _owner;
+
+        private System.Web.Caching.Cache _cache = System.Web.HttpRuntime.Cache;
 
         public FBAUsersView(FBADataSource owner, string viewName) : base(owner, viewName) 
         {
@@ -43,106 +46,128 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             string no = LocalizedString.GetString("FBAPackFeatures", "No");
 
-            // we only display users that have been added to SharePoint
-            // we use the localized name, safe for non-English SharePoint servers
-            SPList list = web.SiteUserInfoList; //web.Lists[SPUtility.GetLocalizedString("$Resources:userinfo_schema_listtitle", "core", web.Language)];
+            string cacheKey = String.Format("Visigo.SharePoint.FormsBasedAuthentication.FBAUsersView.{0}", provider);
 
-            // create query list
-            SPQuery query = new SPQuery();
-            query.Query = string.Format(
-                "<Where>" +
-                    "<And>" +
-                        "<Eq><FieldRef Name='ContentType' /><Value Type='Text'>Person</Value></Eq>" +
-                        "<Contains><FieldRef Name='Name' /><Value Type='Text'>{0}</Value></Contains>" +
-                    "</And>" +
-                "</Where>" +
-                "<OrderBy>" +
-                    "<FieldRef Name='LinkTitle' />" +
-                "</OrderBy>", provider);
+            Dictionary<string, SPListItem> spUsers = _cache.Get(cacheKey) as Dictionary<string, SPListItem>;
 
-            query.ViewFields = "<FieldRef Name='Name' /><FieldRef Name='LinkTitle' /><FieldRef Name='Email' /><FieldRef Name='Modified' /><FieldRef Name='Created' />";
-
-            // run query to get table of users
-            DataTable users = null;
-            try
+            //Reload site user info list or grab from cache
+            if (_owner.ResetCache || spUsers == null)
             {
-                users = list.GetItems(query).GetDataTable();
-            }
-            catch (Exception ex) 
-            {
-                Utils.LogError(ex);
-                return null;
+                spUsers = new Dictionary<string, SPListItem>();
+
+                // we only display users that have been added to SharePoint
+                // we use the localized name, safe for non-English SharePoint servers
+                SPList list = web.SiteUserInfoList; //web.Lists[SPUtility.GetLocalizedString("$Resources:userinfo_schema_listtitle", "core", web.Language)];
+
+                // create query list
+                SPQuery query = new SPQuery();
+                query.Query = string.Format(
+                    "<Where>" +
+                        "<And>" +
+                            "<Eq><FieldRef Name='ContentType' /><Value Type='Text'>Person</Value></Eq>" +
+                            "<Contains><FieldRef Name='Name' /><Value Type='Text'>{0}</Value></Contains>" +
+                        "</And>" +
+                    "</Where>", provider);
+
+                query.ViewFields = "<FieldRef Name='Name' /><FieldRef Name='LinkTitle' /><FieldRef Name='Email' /><FieldRef Name='Modified' /><FieldRef Name='Created' />";
+                query.RowLimit = 100000;
+                //Convert SPListItemCollection to dictionary for fast lookup
+
+                try
+                {
+                    SPListItemCollection userList = list.GetItems(query);
+
+                    if (userList != null)
+                    {
+                        foreach (SPListItem item in userList)
+                        {
+
+                            string username = item["Name"] as string;
+                            string decodedName = Utils.DecodeUsername(username);
+                            if (username != decodedName)
+                            {
+                                spUsers.Add(decodedName, item);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError(ex);
+                    return null;
+                }
+
+                _cache.Add(cacheKey, spUsers, null,
+                  DateTime.UtcNow.AddMinutes(1.0),
+                  System.Web.Caching.Cache.NoSlidingExpiration,
+                  System.Web.Caching.CacheItemPriority.Normal, null);
             }
 
-            if (users == null)
-            {
-                users = new DataTable();
-                users.Columns.Add("ID");
-                users.Columns.Add("Title");
-                users.Columns.Add("Name");
-                users.Columns.Add("LinkTitle");
-                users.Columns.Add("Email");
-                users.Columns.Add("Modified", typeof(DateTime));
-                users.Columns.Add("Created", typeof(DateTime));
-            }
-
+            //Create a datatable for returning the results
+            DataTable users = new DataTable();
+            users.Columns.Add("Title");
+            users.Columns.Add("Name");
+            users.Columns.Add("Email");
+            users.Columns.Add("Modified", typeof(DateTime));
+            users.Columns.Add("Created", typeof(DateTime));
             users.Columns.Add("Active");
             users.Columns.Add("Locked");
             users.Columns.Add("LastLogin", typeof(DateTime));
             users.Columns.Add("IsInSharePoint");
-            users.Columns.Add("NonProviderName");
-
-
-            // Add additional user data to table
-            foreach (DataRow row in users.Rows)
-            {
-                // remove provider name to get actual user name
-                string userName = Utils.DecodeUsername(row["Name"].ToString());
-                row["NonProviderName"] = userName;
-            }
 
             int totalRecords = 0;
+            int spUsersCount = spUsers.Count;
+            int spUsersFound = 0;
 
+            users.BeginLoadData();
+
+            //Add all membership users to the datatable
             foreach (MembershipUser memberuser in Utils.BaseMembershipProvider(site).GetAllUsers(0,100000, out totalRecords))
             {
-                bool bFoundMember = false;
-                foreach (DataRow row in users.Rows)
+                string title = null;
+                string email = memberuser.Email;
+                DateTime? modified = null;
+                DateTime? created = null;
+                string isInSharepoint = no;
+
+                SPListItem spUser = null;
+
+                //See if there is a matching sharepoint user - if so grab the values
+                if (spUsersFound < spUsersCount)
                 {
-                    if (memberuser.UserName.ToLower() == row["NonProviderName"].ToString().ToLower())
+                    if (spUsers.TryGetValue(memberuser.UserName.ToLower(), out spUser))
                     {
-                        row["Name"] = memberuser.UserName;
-                        row["Active"] = memberuser.IsApproved ? yes : no;
-                        row["Locked"] = memberuser.IsLockedOut ? yes : no;
-                        row["LastLogin"] = memberuser.LastLoginDate;
-                        row["IsInSharePoint"] = yes;
-                        bFoundMember = true;
-                        //users.Rows[i].Delete();
-                        break;
+                        spUsersFound++;
+                        title = spUser["Title"] as string;
+                        created = spUser["Created"] as DateTime?;
+                        modified = spUser["Modified"] as DateTime?;
+                        isInSharepoint = yes;
+                        //Make sure the SharePoint email field has a value before copying it over
+                        string spEmail = spUser["EMail"] as string;
+                        if (!String.IsNullOrEmpty(spEmail))
+                        {
+                            email = spEmail;
+                        }
+                        
                     }
                 }
-                if (!bFoundMember)
-                {
-                    //Add member to the data table
-                    DataRow datanewuser = users.NewRow();
-                    datanewuser["Name"] = memberuser.UserName;
-                    datanewuser["Email"] = memberuser.Email;
-                    datanewuser["Active"] = memberuser.IsApproved ? yes : no;
-                    datanewuser["Locked"] = memberuser.IsLockedOut ? yes : no;
-                    datanewuser["LastLogin"] = memberuser.LastLoginDate;
-                    datanewuser["IsInSharePoint"] = no;
-                    users.Rows.Add(datanewuser);
-                }
-                
+
+                //Add the matched up membership + sharepoint data to the datatable
+                users.LoadDataRow(new object[] {
+                    title,
+                    memberuser.UserName,
+                    email, 
+                    modified, 
+                    created, 
+                    memberuser.IsApproved ? yes : no, 
+                    memberuser.IsLockedOut ? yes : no, 
+                    memberuser.LastLoginDate, 
+                    isInSharepoint
+                }, false);
+
             }
 
-            //Remove users that weren't found in SharePoint
-            for(int i = users.Rows.Count - 1; i >= 0; i--)
-            {
-                if (users.Rows[i]["IsInSharePoint"].ToString() != yes && users.Rows[i]["IsInSharePoint"].ToString() != no)
-                {
-                    users.Rows[i].Delete();
-                }
-            }
+            users.EndLoadData();
 
             // sort if a sort expression available
             DataView dataView = new DataView(users);

@@ -35,6 +35,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
             set { ViewState["SearchText"] = value; }
         }
 
+        public bool ResetCache { get; set; }
+
         /// <summary>
         /// return a strongly typed view for the current data source control
         /// </summary>
