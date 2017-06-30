@@ -49,6 +49,8 @@ namespace Visigo.Sharepoint.FormsBasedAuthentication
 
             if (!Page.IsPostBack)
             {
+                this.UserDataSource.ResetCache = true;
+
                 if (!string.IsNullOrEmpty(Request.QueryString["SortField"]))
                 {
                     SortDirection dir = SortDirection.Ascending;
