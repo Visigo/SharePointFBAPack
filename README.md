@@ -34,7 +34,7 @@ For a complete look at the content and features, please see the [project page](h
 To install, [download](https://www.visigo.com/products/sharepoint-fba-pack/download) the latest release, unzip on the SharePoint server
 and run:
 
-.\deploy.ps1
+`.\deploy`
 
 For a full installation guide, please see the [documentation](https://www.visigo.com/products/sharepoint-fba-pack/documentation).
 
