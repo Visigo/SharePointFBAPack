@@ -1,6 +1,6 @@
 # SharePoint FBA Pack
 The [SharePoint FBA Pack](https://www.visigo.com/products/sharepoint-fba-pack) is an open-source assortment of
-tools and web parts for managing forms based authentication users on SharePoint 2010, 2013 &amp; 2016.
+tools and web parts for managing forms based authentication users on SharePoint 2010, 2013, 2016 &amp; 2019.
 
 The [SharePoint FBA Pack](https://www.visigo.com/products/sharepoint-fba-pack) was created by [Visigo Software 
 Consulting](https://www.visigo.com) and was originally ported from the [CKS Forms Based Authentication 
